@@ -1,0 +1,343 @@
+fileFormatVersion: 2
+guid: 6d187cc0654394c43b016fbaac7c605d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5567439613497228887
+    second: Booster_hq_0
+  - first:
+      213: -3980123276065710439
+    second: Booster_hq_1
+  - first:
+      213: 966411300255973545
+    second: Booster_hq_2
+  - first:
+      213: -179678382750464026
+    second: Booster_hq_3
+  - first:
+      213: 461371638573813320
+    second: Booster_hq_4
+  - first:
+      213: -6024736441768626221
+    second: Booster_hq_4
+  - first:
+      213: -6574772369843747823
+    second: Booster_hq_5
+  - first:
+      213: -7229934344056799407
+    second: Booster_hq_6
+  - first:
+      213: 2600513138272960316
+    second: Booster_hq_0
+  - first:
+      213: 4942383836654240514
+    second: Booster_hq_1
+  - first:
+      213: 5100385478309877190
+    second: Booster_hq_3
+  - first:
+      213: -6024736441768626221
+    second: Booster_hq_5
+  - first:
+      213: 9072602979060493418
+    second: Booster_hq_6
+  - first:
+      213: 3976744389145758820
+    second: Booster_hq_5
+  - first:
+      213: 2013266379307030325
+    second: Booster_hq_8
+  - first:
+      213: -7229934344056799407
+    second: Booster_hq_5
+  - first:
+      213: -7229934344056799407
+    second: Booster_hq_7
+  - first:
+      213: 7498277561284230229
+    second: Booster_hq_2
+  - first:
+      213: -3785033618575871134
+    second: Booster_hq_9
+  - first:
+      213: -6811317762658650299
+    second: Booster_hq_10
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Booster_hq_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 691
+        height: 572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15ff819150d1aab90800000000000000
+      internalID: -7229934344056799407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Booster_hq_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1082
+        width: 293
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ffe70dbe0e61420800000000000000
+      internalID: 2600513138272960316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Booster_hq_1
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 629
+        width: 854
+        height: 722
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 203886fd9efd69440800000000000000
+      internalID: 4942383836654240514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Booster_hq_2
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 866
+        width: 701
+        height: 484
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55cf0a3e6bb3f0860800000000000000
+      internalID: 7498277561284230229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Booster_hq_3
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 1083
+        width: 225
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c5983cc19538c640800000000000000
+      internalID: 5100385478309877190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Booster_hq_8
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 0
+        width: 414
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53715d0fa1f80fb10800000000000000
+      internalID: 2013266379307030325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Booster_hq_9
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 6
+        width: 489
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 263bfd55afbd87bc0800000000000000
+      internalID: -3785033618575871134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Booster_hq_4
+      rect:
+        serializedVersion: 2
+        x: 2146
+        y: 1226
+        width: 93
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d7b70b6026d36ca0800000000000000
+      internalID: -6024736441768626221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
