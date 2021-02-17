@@ -49,9 +49,9 @@ public class AudioPlayerManager : MonoBehaviour
 
     public void PlayFlexModeMusic(int musicID)
     {
-        if(stopBackgroundMusicCoroutine != null) 
-        { 
-            StopCoroutine(stopBackgroundMusicCoroutine); 
+        if (stopBackgroundMusicCoroutine != null)
+        {
+            StopCoroutine(stopBackgroundMusicCoroutine);
         }
         stopBackgroundMusicCoroutine = StartCoroutine(PauseBackgroundMusicForFixedTime(flexModeMusicArray[musicID].length));
         StopSound(flexModeSoundAudioSource);

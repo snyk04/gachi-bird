@@ -48,7 +48,7 @@ public class GameLogic : MonoBehaviour
     }
     void Start()
     {
-        if(serialization.CheckIfThisIsFirstStart())
+        if (serialization.CheckIfThisIsFirstStart())
         {
             gameState.IsGameInFirstStartMode = true;
             uI.firstStartInterface.SetActive(true);
@@ -74,11 +74,11 @@ public class GameLogic : MonoBehaviour
     }
     void Update()
     {
-        if((Input.GetMouseButtonDown(0)) && (!gameState.IsGameStopped) && (!gameState.IsGameInFirstStartMode))
+        if ((Input.GetMouseButtonDown(0)) && (!gameState.IsGameStopped) && (!gameState.IsGameInFirstStartMode))
         {
-            if(!gameState.IsGameStarted) StartGame();
+            if (!gameState.IsGameStarted) StartGame();
             components.playerRigidbody.velocity = new Vector2(components.playerRigidbody.velocity.x, gamePreferences.impulseScale);
-            if(!gameState.IsGameInFlexMode)
+            if (!gameState.IsGameInFlexMode)
             {
                 audioPlayer.PlaySound(
                 audioPlayer.spankSound,
@@ -126,14 +126,14 @@ public class GameLogic : MonoBehaviour
     public void StopGame()
     {
         gameState.IsGameStopped = true;
-        if(gameState.IsGameInFlexMode) flexMode.StopFlexingAfterDeath();
+        if (gameState.IsGameInFlexMode) flexMode.StopFlexingAfterDeath();
 
         spawningObjects.StopSpawnCoroutines();
 
         uI.gameOverInterface.SetActive(true);
         uI.scoreMenu.SetActive(false);
 
-        if(gameState.Score > scoreManager.CurrentBestScoreForNextImage()) uI.gameOverInterface.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
+        if (gameState.Score > scoreManager.CurrentBestScoreForNextImage()) uI.gameOverInterface.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
 
         drawNumber.DrawScore(gameState.Score, uI.gameOverScoreMenu, sprites.smallDigitsDict, sprites.DefaultSpritesArray);
         drawNumber.DrawScore(scoreManager.CurrentBestScoreForDrawing(), uI.gameOverBestScoreMenu, sprites.smallDigitsDict, sprites.DefaultSpritesArray);
@@ -166,7 +166,7 @@ public class GameLogic : MonoBehaviour
     }
     public void OpenShopPage(int pageID)
     {
-        if(uI.shopInterface.transform.GetChild(4) != null)
+        if (uI.shopInterface.transform.GetChild(4) != null)
         {
             Destroy(uI.shopInterface.transform.GetChild(4).gameObject);
         }
