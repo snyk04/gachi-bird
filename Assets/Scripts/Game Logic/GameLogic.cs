@@ -1,7 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
-
 public class GameLogic : MonoBehaviour
 {
     #region Properties
@@ -12,7 +11,7 @@ public class GameLogic : MonoBehaviour
     private GameStateManager gameState;
     private SpritesManager sprites;
     private PrefabsManager prefabs;
-    private SerializationManager serialization;
+    private SerializationManager serializationManager;
     private FlexModeManager flexMode;
     private DrawNumberManager drawNumber;
     private GamePreferencesManager gamePreferences;
@@ -25,9 +24,9 @@ public class GameLogic : MonoBehaviour
 
     #endregion
 
-    #region Behaviour methods
+    #region MonoBehaviour methods
 
-    void Awake()
+    private void Awake()
     {
         components = GetComponent<ComponentsManager>();
         uI = GetComponent<UIManager>();
@@ -35,7 +34,6 @@ public class GameLogic : MonoBehaviour
         gameState = GetComponent<GameStateManager>();
         sprites = GetComponent<SpritesManager>();
         prefabs = GetComponent<PrefabsManager>();
-        serialization = GetComponent<SerializationManager>();
         flexMode = GetComponent<FlexModeManager>();
         drawNumber = GetComponent<DrawNumberManager>();
         gamePreferences = GetComponent<GamePreferencesManager>();
@@ -46,9 +44,11 @@ public class GameLogic : MonoBehaviour
 
         cameraShift = 0.12f;
     }
-    void Start()
+    private void Start()
     {
-        if (serialization.CheckIfThisIsFirstStart())
+        serializationManager = SerializationManager.Instance;
+        
+        if (serializationManager.CheckIfThisIsFirstStart())
         {
             gameState.IsGameInFirstStartMode = true;
             uI.firstStartInterface.SetActive(true);
@@ -72,7 +72,7 @@ public class GameLogic : MonoBehaviour
         spawningObjects.BackgroundSpawningCoroutine = StartCoroutine(spawningObjects.DrawBackground(gamePreferences.backgroundSpawningDelay));
         spawningObjects.GroundSpawningCoroutine = StartCoroutine(spawningObjects.DrawGround(gamePreferences.groundSpawningDelay));
     }
-    void Update()
+    private void Update()
     {
         if ((Input.GetMouseButtonDown(0)) && (!gameState.IsGameStopped) && (!gameState.IsGameInFirstStartMode))
         {
@@ -93,13 +93,15 @@ public class GameLogic : MonoBehaviour
             ScreenCapture.CaptureScreenshot("Screenshot_4.png");
         }
     }
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        components.cameraTransform.position = new Vector3(
+        var position = components.cameraTransform.position;
+        position = new Vector3(
             components.playerTransform.position.x + cameraShift,
-            components.cameraTransform.position.y,
-            components.cameraTransform.position.z
+            position.y,
+            position.z
             );
+        components.cameraTransform.position = position;
     }
 
     #endregion
@@ -138,7 +140,7 @@ public class GameLogic : MonoBehaviour
         drawNumber.DrawScore(gameState.Score, uI.gameOverScoreMenu, sprites.smallDigitsDict, sprites.DefaultSpritesArray);
         drawNumber.DrawScore(scoreManager.CurrentBestScoreForDrawing(), uI.gameOverBestScoreMenu, sprites.smallDigitsDict, sprites.DefaultSpritesArray);
 
-        serialization.SaveAmountOfMoney(gameState.AmountOfMoney);
+        serializationManager.SaveAmountOfMoney(gameState.AmountOfMoney);
 
         components.audioPlayer.PlaySound(
             components.audioPlayer.deathSoundArray[gameState.SkinID],

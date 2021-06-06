@@ -1,172 +1,163 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 using System.IO;
-using System;
-
+using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine;
 
 public class SerializationManager : MonoBehaviour
 {
-    [Serializable] private class SaveData
+    [Serializable]
+    private class SaveData
     {
-        public int savedBestScore;
-        public int savedSkinID;
-        public int savedAmountOfMoney;
-        public Dictionary<int, bool> savedStatusOfSkins;
-        public bool firstStart;
-        public Dictionary<int, bool> savedStatusOfMusic;
+        public int bestScore;
+        public int skinID;
+        public int amountOfMoney;
+        public Dictionary<int, bool> statusOfSkins;
+        public Dictionary<int, bool> statusOfMusic;
+        public bool isFirstStart;
+
+        public SaveData()
+        {
+            bestScore = 0;
+            skinID = 0;
+            amountOfMoney = 0;
+            statusOfSkins = new Dictionary<int, bool>
+            {
+                {0, true},
+                {1, false},
+                {2, false},
+                {3, false},
+                {4, false},
+                {5, false}
+            };
+            statusOfMusic = new Dictionary<int, bool>
+            {
+                {0, false},
+                {1, false},
+                {2, false},
+                {3, false},
+                {4, false},
+                {5, false},
+                {6, false},
+                {7, false},
+                {8, false},
+                {9, false},
+                {10, false},
+                {11, false},
+                {12, false},
+                {13, false}
+            };
+            isFirstStart = true;
+        }
     }
+
+    #region Properties
+    
+    public static SerializationManager Instance { get; set; }
+
+    private SaveData saveData;
+    
+    #endregion
+
+    #region MonoBehaviour methods
+
+    private void Awake()
+    {
+        Instance = this;
+
+        var bf = new BinaryFormatter();
+
+        if (File.Exists(Application.persistentDataPath + "/SaveData.dat"))
+        {
+            var file = File.Open(Application.persistentDataPath + "/SaveData.dat", FileMode.Open);
+            saveData = (SaveData) bf.Deserialize(file);
+            file.Close();
+        }
+        else
+        {
+            var file = File.Create(Application.persistentDataPath + "/SaveData.dat");
+            saveData = new SaveData();
+            bf.Serialize(file, saveData);
+            file.Close();
+        }
+    }
+
+    #endregion
+
+    #region Methods
 
     public void SaveBestScore(int score)
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/BestScore.dat");
-        SaveData data = new SaveData();
-        data.savedBestScore = score;
-        bf.Serialize(file, data);
+        var bf = new BinaryFormatter();
+        var file = File.Create(Application.persistentDataPath + "/SaveData.dat");
+        saveData.bestScore = score;
+        bf.Serialize(file, saveData);
         file.Close();
     }
     public void SaveSkinID(int skinID)
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/SkinID.dat");
-        SaveData data = new SaveData();
-        data.savedSkinID = skinID;
-        bf.Serialize(file, data);
+        var bf = new BinaryFormatter();
+        var file = File.Create(Application.persistentDataPath + "/SaveData.dat");
+        saveData.skinID = skinID;
+        bf.Serialize(file, saveData);
         file.Close();
     }
     public void SaveAmountOfMoney(int amountOfMoney)
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/AmountOfMoney.dat");
-        SaveData data = new SaveData();
-        data.savedAmountOfMoney = amountOfMoney;
-        bf.Serialize(file, data);
+        var bf = new BinaryFormatter();
+        var file = File.Create(Application.persistentDataPath + "/SaveData.dat");
+        saveData.amountOfMoney = amountOfMoney;
+        bf.Serialize(file, saveData);
         file.Close();
     }
     public void SaveStatusOfSkins(Dictionary<int, bool> statusOfSkins)
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/StatusOfSkins.dat");
-        SaveData data = new SaveData();
-        data.savedStatusOfSkins = statusOfSkins;
-        bf.Serialize(file, data);
+        var bf = new BinaryFormatter();
+        var file = File.Create(Application.persistentDataPath + "/SaveData.dat");
+        saveData.statusOfSkins = statusOfSkins;
+        bf.Serialize(file, saveData);
         file.Close();
     }
     public void SaveStatusOfMusic(Dictionary<int, bool> statusOfMusic)
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/StatusOfMusic.dat");
-        SaveData data = new SaveData();
-        data.savedStatusOfMusic = statusOfMusic;
-        bf.Serialize(file, data);
+        var bf = new BinaryFormatter();
+        var file = File.Create(Application.persistentDataPath + "/SaveData.dat");
+        saveData.statusOfMusic = statusOfMusic;
+        bf.Serialize(file, saveData);
         file.Close();
     }
 
     public int LoadBestScore()
     {
-        if (File.Exists(Application.persistentDataPath + "/BestScore.dat")) {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/BestScore.dat", FileMode.Open);
-            SaveData data = (SaveData)bf.Deserialize(file);
-            file.Close();
-            return data.savedBestScore;
-        } else return -1;
+        return saveData.bestScore;
     }
     public int LoadSkinID()
     {
-        if (File.Exists(Application.persistentDataPath + "/SkinID.dat")) {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/SkinID.dat", FileMode.Open);
-            SaveData data = (SaveData)bf.Deserialize(file);
-            file.Close();
-            return data.savedSkinID;
-        } else {
-            SaveSkinID(0);
-            return 0;
-        }
-
+        return saveData.skinID;
     }
     public int LoadAmountOfMoney()
     {
-        if (File.Exists(Application.persistentDataPath + "/AmountOfMoney.dat")) {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/AmountOfMoney.dat", FileMode.Open);
-            SaveData data = (SaveData)bf.Deserialize(file);
-            file.Close();
-            return data.savedAmountOfMoney;
-        } else {
-            SaveAmountOfMoney(0);
-            return 0;
-        }
+        return saveData.amountOfMoney;
     }
     public Dictionary<int, bool> LoadStatusOfSkins()
     {
-        if (File.Exists(Application.persistentDataPath + "/StatusOfSkins.dat")) {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/StatusOfSkins.dat", FileMode.Open);
-            SaveData data = (SaveData)bf.Deserialize(file);
-            file.Close();
-            return data.savedStatusOfSkins;
-        } else {
-            var statusOfSkins = new Dictionary<int, bool>
-            {
-                {0, true},
-                {1, false },
-                {2, false },
-                {3, false },
-                {4, false },
-                {5, false }
-            };
-            SaveStatusOfSkins(statusOfSkins);
-            return statusOfSkins;
-        }
+        return saveData.statusOfSkins;
     }
     public Dictionary<int, bool> LoadStatusOfMusic()
     {
-        if(File.Exists(Application.persistentDataPath + "/StatusOfMusic.dat"))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/StatusOfMusic.dat", FileMode.Open);
-            SaveData data = (SaveData)bf.Deserialize(file);
-            file.Close();
-            return data.savedStatusOfMusic;
-        }
-        else
-        {
-            var statusOfMusic = new Dictionary<int, bool>
-            {
-                {0, false},
-                {1, false },
-                {2, false },
-                {3, false },
-                {4, false },
-                {5, false },
-                {6, false },
-                {7, false },
-                {8, false },
-                {9, false },
-                {10, false },
-                {11, false },
-                {12, false },
-                {13, false }
-            };
-            SaveStatusOfMusic(statusOfMusic);
-            return statusOfMusic;
-        }
+        return saveData.statusOfMusic;
+
     }
     public bool CheckIfThisIsFirstStart()
     {
-        if (File.Exists(Application.persistentDataPath + "/FirstStart.dat")) {
+        if (!saveData.isFirstStart)
+        {
             return false;
-        } else {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Create(Application.persistentDataPath + "/FirstStart.dat");
-            SaveData data = new SaveData();
-            data.firstStart = false;
-            bf.Serialize(file, data);
-            file.Close();
-            return true; 
         }
+        
+        saveData.isFirstStart = false;
+        return true;
     }
+
+    #endregion
 }

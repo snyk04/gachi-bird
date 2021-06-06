@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
-    private SerializationManager serialization;
+    private SerializationManager serializationManager;
 
     public Dictionary<int, bool> StatusOfSkinsDict { get; set; }
     public Dictionary<int, bool> StatusOfMusicDict { get; set; }
@@ -16,18 +17,22 @@ public class GameStateManager : MonoBehaviour
     public int SkinID { get; set; }
     public int Score { get; set; }
 
-    void Awake()
+    private void Awake()
     {
-        serialization = GetComponent<SerializationManager>();
-
-        StatusOfSkinsDict = serialization.LoadStatusOfSkins();
-        StatusOfMusicDict = serialization.LoadStatusOfMusic();
         IsGameStarted = false;
         IsGameStopped = false;
         IsGameInFlexMode = false;
         IsGameInFirstStartMode = false;
-        AmountOfMoney = serialization.LoadAmountOfMoney();
-        SkinID = serialization.LoadSkinID();
         Score = 0;
+    }
+
+    private void Start()
+    {
+        serializationManager = SerializationManager.Instance;
+
+        StatusOfSkinsDict = serializationManager.LoadStatusOfSkins();
+        StatusOfMusicDict = serializationManager.LoadStatusOfMusic();
+        AmountOfMoney = serializationManager.LoadAmountOfMoney();
+        SkinID = serializationManager.LoadSkinID();
     }
 }

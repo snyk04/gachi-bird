@@ -1,18 +1,17 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 
-
 public class ScoreManager : MonoBehaviour
 {
-    private SerializationManager serialization;
+    private SerializationManager serializationManager;
     private GameStateManager gameState;
     private UIManager uI;
     private DrawNumberManager drawNumber;
     private SpritesManager sprites;
 
-    void Awake()
+    private void Awake()
     {
-        serialization = GetComponent<SerializationManager>();
+        serializationManager = SerializationManager.Instance;
         gameState = GetComponent<GameStateManager>();
         uI = GetComponent<UIManager>();
         drawNumber = GetComponent<DrawNumberManager>();
@@ -22,10 +21,10 @@ public class ScoreManager : MonoBehaviour
     public int CurrentBestScoreForDrawing()
     {
         int bestScore;
-        int loadedBestScore = serialization.LoadBestScore();
+        int loadedBestScore = serializationManager.LoadBestScore();
         if ((loadedBestScore == -1) || (gameState.Score > loadedBestScore)) {
             bestScore = gameState.Score;
-            serialization.SaveBestScore(gameState.Score);
+            serializationManager.SaveBestScore(gameState.Score);
         } else {
             bestScore = loadedBestScore;
         }
@@ -34,7 +33,7 @@ public class ScoreManager : MonoBehaviour
     public int CurrentBestScoreForNextImage()
     {
         int bestScore;
-        int loadedBestScore = serialization.LoadBestScore();
+        int loadedBestScore = serializationManager.LoadBestScore();
         if ((loadedBestScore == -1)) {
             bestScore = gameState.Score;
         } else {
