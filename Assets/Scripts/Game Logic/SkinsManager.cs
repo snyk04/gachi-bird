@@ -9,7 +9,7 @@ public class SkinsManager : MonoBehaviour
     private PrefabsManager prefabs;
     private UIManager uI;
     private SerializationManager serializationManager;
-    private DrawNumberManager drawNumber;
+    private NumberPainter numberPainter;
     private SpritesManager sprites;
     private ComponentsManager components;
 
@@ -23,7 +23,7 @@ public class SkinsManager : MonoBehaviour
         prefabs = GetComponent<PrefabsManager>();
         uI = GetComponent<UIManager>();
         serializationManager = SerializationManager.Instance;
-        drawNumber = GetComponent<DrawNumberManager>();
+        numberPainter = GetComponent<NumberPainter>();
         sprites = GetComponent<SpritesManager>();
         components = GetComponent<ComponentsManager>();
     }
@@ -47,8 +47,8 @@ public class SkinsManager : MonoBehaviour
         serializationManager.SaveAmountOfMoney(gameState.AmountOfMoney);
         serializationManager.SaveStatusOfSkins(gameState.StatusOfSkinsDict);
 
-        drawNumber.DrawMoney(gameState.AmountOfMoney, uI.shopMoneyCounterMenu, sprites.smallDigitsDict,
-            sprites.DefaultSpritesArray);
+        numberPainter.RefreshAmountOfMoneyCounter();
+        
         skinStatusImage.sprite = sprites.ShopArray[12];
         skinLookImage.color = Color.white;
 

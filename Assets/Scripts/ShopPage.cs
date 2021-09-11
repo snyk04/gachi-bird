@@ -1,16 +1,18 @@
-﻿using UnityEngine.UI;
+﻿using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
-
 
 public class ShopPage : MonoBehaviour
 {
     private GameStateManager gameState;
     private SpritesManager sprites;
     private UIManager uI;
-    private DrawNumberManager drawNumber;
+    private NumberPainter numberPainter;
 
+    [SerializeField] private TMP_Text _priceTag;
     public int iD;
     public int price;
+    
     public bool Status { get; set; }
 
     void Awake()
@@ -18,13 +20,13 @@ public class ShopPage : MonoBehaviour
         gameState = FindObjectOfType<GameStateManager>();
         sprites = FindObjectOfType<SpritesManager>();
         uI = FindObjectOfType<UIManager>();
-        drawNumber = FindObjectOfType<DrawNumberManager>();
+        numberPainter = FindObjectOfType<NumberPainter>();
 
         Status = gameState.StatusOfSkinsDict[iD];
     }
     void Start()
     {
-        drawNumber.DrawMoney(price, transform.GetChild(2), sprites.priceDigitsDict, sprites.ShopArray);
+        NumberPainter.DrawNumber(price, _priceTag);
         ConfigureSprites();
         ConfigureButtons();
     }

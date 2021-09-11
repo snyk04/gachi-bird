@@ -93,7 +93,7 @@ TextureImporter:
       213: 853637362173963345
     second: Music list tracks_14
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -113,6 +113,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -121,9 +122,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -144,9 +145,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -512,6 +517,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Music list tracks_5: 7668496935824743889
+      Music list tracks_9: -5934886934108428090
+      Music list tracks_6: -8493499009175808822
+      Music list tracks_1: 7461148852501696122
+      Music list tracks_10: 6842007963517283904
+      Music list tracks_0: 3060879279672223919
+      Music list tracks_11: -2061562390932353025
+      Music list tracks_8: 3712853080674302992
+      Music list tracks_14: -6736750930569927324
+      Music list tracks_3: -5391264655798817123
+      Music list tracks_2: 5563009620100066494
+      Music list tracks_4: 6697076392421948768
+      Music list tracks_7: -8669098929984180459
+      Music list tracks_13: -4174899601359906239
+      Music list tracks_12: -3958523041619143336
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

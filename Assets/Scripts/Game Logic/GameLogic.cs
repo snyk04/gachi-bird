@@ -13,10 +13,10 @@ public class GameLogic : MonoBehaviour
     private PrefabsManager prefabs;
     private SerializationManager serializationManager;
     private FlexModeManager flexMode;
-    private DrawNumberManager drawNumber;
+    [SerializeField] private NumberPainter _numberPainter;
     private GamePreferencesManager gamePreferences;
     private AudioPlayerManager audioPlayer;
-    private ScoreManager scoreManager;
+    [SerializeField] private ScoreManager _scoreManager;
     private SkinsManager skins;
     private MusicListManager musicList;
 
@@ -35,10 +35,8 @@ public class GameLogic : MonoBehaviour
         sprites = GetComponent<SpritesManager>();
         prefabs = GetComponent<PrefabsManager>();
         flexMode = GetComponent<FlexModeManager>();
-        drawNumber = GetComponent<DrawNumberManager>();
         gamePreferences = GetComponent<GamePreferencesManager>();
         audioPlayer = FindObjectOfType<AudioPlayerManager>();
-        scoreManager = GetComponent<ScoreManager>();
         skins = GetComponent<SkinsManager>();
         musicList = GetComponent<MusicListManager>();
 
@@ -113,8 +111,8 @@ public class GameLogic : MonoBehaviour
         cameraShift += gamePreferences.cameraShift;
         gameState.IsGameStarted = true;
 
-        scoreManager.RefreshScoreCounter();
-        uI.scoreMenu.SetActive(true);
+        _numberPainter.ShowCurrentScore();
+        _numberPainter.RefreshCurrentScoreCounter(0);
         uI.prestartInterface.SetActive(false);
 
         components.playerRigidbody.gravityScale = gamePreferences.gravityScale;
@@ -133,12 +131,10 @@ public class GameLogic : MonoBehaviour
         spawningObjects.StopSpawnCoroutines();
 
         uI.gameOverInterface.SetActive(true);
-        uI.scoreMenu.SetActive(false);
-
-        if (gameState.Score > scoreManager.CurrentBestScoreForNextImage()) uI.gameOverInterface.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
-
-        drawNumber.DrawScore(gameState.Score, uI.gameOverScoreMenu, sprites.smallDigitsDict, sprites.DefaultSpritesArray);
-        drawNumber.DrawScore(scoreManager.CurrentBestScoreForDrawing(), uI.gameOverBestScoreMenu, sprites.smallDigitsDict, sprites.DefaultSpritesArray);
+        _numberPainter.HideCurrentScore();
+        
+        _numberPainter.ShowFinalScore();
+        _numberPainter.ShowBestScore();
 
         serializationManager.SaveAmountOfMoney(gameState.AmountOfMoney);
 
@@ -178,7 +174,7 @@ public class GameLogic : MonoBehaviour
             uI.shopInterface.transform
             );
         gameState.CurrentShopPageID = pageID;
-        drawNumber.DrawMoney(gameState.AmountOfMoney, uI.shopMoneyCounterMenu, sprites.smallDigitsDict, sprites.DefaultSpritesArray);
+        _numberPainter.RefreshAmountOfMoneyCounter();
     }
     public void OpenInfoInterface()
     {

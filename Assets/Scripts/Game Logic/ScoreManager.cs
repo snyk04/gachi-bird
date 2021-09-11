@@ -1,65 +1,55 @@
-﻿using UnityEngine.UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private SerializationManager serializationManager;
-    private GameStateManager gameState;
-    private UIManager uI;
-    private DrawNumberManager drawNumber;
-    private SpritesManager sprites;
+    #region Properties
+
+    public static ScoreManager Instance { get; private set; }
+
+    [SerializeField] private SerializationManager _serializationManager;
+    [SerializeField] private GameStateManager _gameState;
+    [SerializeField] private NumberPainter _numberPainter;
+    
+    [SerializeField] private GameObject _newBestScoreImage;
+
+    #endregion
+
+    #region MonoBehaviour methods
 
     private void Awake()
     {
-        serializationManager = SerializationManager.Instance;
-        gameState = GetComponent<GameStateManager>();
-        uI = GetComponent<UIManager>();
-        drawNumber = GetComponent<DrawNumberManager>();
-        sprites = GetComponent<SpritesManager>();
+        Instance = this;
     }
 
-    public int CurrentBestScoreForDrawing()
+    #endregion
+
+    #region Methods
+
+    public void AddPoints(int amountOfPoints)
+    {
+        _gameState.Score += amountOfPoints;
+        _gameState.AmountOfMoney += amountOfPoints;
+        _numberPainter.RefreshCurrentScoreCounter(_gameState.Score);
+    }
+    
+    public int CurrentBestScore()
     {
         int bestScore;
-        int loadedBestScore = serializationManager.LoadBestScore();
-        if ((loadedBestScore == -1) || (gameState.Score > loadedBestScore)) {
-            bestScore = gameState.Score;
-            serializationManager.SaveBestScore(gameState.Score);
-        } else {
+        int loadedBestScore = _serializationManager.LoadBestScore();
+        
+        if ((loadedBestScore == -1) || (_gameState.Score > loadedBestScore))
+        {
+            bestScore = _gameState.Score;
+            _serializationManager.SaveBestScore(_gameState.Score);
+            _newBestScoreImage.SetActive(true);
+        }
+        else
+        {
             bestScore = loadedBestScore;
         }
+
         return bestScore;
     }
-    public int CurrentBestScoreForNextImage()
-    {
-        int bestScore;
-        int loadedBestScore = serializationManager.LoadBestScore();
-        if ((loadedBestScore == -1)) {
-            bestScore = gameState.Score;
-        } else {
-            bestScore = loadedBestScore;
-        }
-        return bestScore;
-    }
-    public void RefreshScoreCounter()
-    {
-        uI.scoreMenu.transform.GetChild(0).GetComponent<Image>().SetNativeSize();
-        uI.scoreMenu.transform.GetChild(1).GetComponent<Image>().SetNativeSize();
-        uI.scoreMenu.transform.GetChild(2).GetComponent<Image>().SetNativeSize();
-
-        float digitWidth = 120f;
-        float yCoord = uI.scoreMenu.transform.GetChild(0).GetComponent<RectTransform>().localPosition.y;
-
-        if (gameState.Score.ToString().Length == 1) {
-            uI.scoreMenu.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector2(0, yCoord);
-        } else if (gameState.Score.ToString().Length == 2) {
-            uI.scoreMenu.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector2(digitWidth / 2.6f, yCoord);
-            uI.scoreMenu.transform.GetChild(1).GetComponent<RectTransform>().localPosition = new Vector2(-digitWidth / 2.6f, yCoord);
-        } else if (gameState.Score.ToString().Length == 3) {
-            uI.scoreMenu.transform.GetChild(0).GetComponent<RectTransform>().localPosition = new Vector2(digitWidth / 1.3f, yCoord);
-            uI.scoreMenu.transform.GetChild(1).GetComponent<RectTransform>().localPosition = new Vector2(0, yCoord);
-            uI.scoreMenu.transform.GetChild(2).GetComponent<RectTransform>().localPosition = new Vector2(-digitWidth / 1.3f, yCoord);
-        }
-        drawNumber.DrawScore(gameState.Score, uI.scoreMenu.transform, sprites.bigDigitsDict, sprites.DefaultSpritesArray);
-    }
+    
+    #endregion
 }
