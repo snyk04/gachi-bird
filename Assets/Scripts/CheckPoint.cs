@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 
+
 public class CheckPoint : MonoBehaviour
 {
     private GameStateManager gameState;
     private AudioPlayerManager audioPlayer;
+    private ScoreManager scoreManager;
 
     private bool isVisited;
 
-    private void Awake()
+    void Awake()
     {
         gameState = FindObjectOfType<GameStateManager>();
         audioPlayer = FindObjectOfType<AudioPlayerManager>();
+        scoreManager = FindObjectOfType<ScoreManager>();
 
         isVisited = false;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if ((!isVisited) && (!gameState.IsGameStopped)) {
             if (!gameState.IsGameInFlexMode) {
@@ -24,7 +27,9 @@ public class CheckPoint : MonoBehaviour
                     );
             }
             isVisited = true;
-            ScoreManager.Instance.AddPoints(1);
+            gameState.Score += 1;
+            gameState.AmountOfMoney += 1;
+            scoreManager.RefreshScoreCounter();
         }
     }
 }

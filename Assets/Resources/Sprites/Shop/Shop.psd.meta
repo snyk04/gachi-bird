@@ -207,7 +207,7 @@ TextureImporter:
       213: -6190841446511829489
     second: Shop_27
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -227,7 +227,6 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
-  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -237,8 +236,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: 1
-    mipBias: 0
+    aniso: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -259,13 +258,9 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  ignorePngGamma: 0
-  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -883,34 +878,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Shop_25: 5616140670440453831
-      Shop_0: 3616089165982223201
-      Shop_12: 808625752573591213
-      Shop_18: 3342952129511403234
-      Shop_17: 5758803241812711524
-      Shop_10: 5493383221547330937
-      Shop_8: -7835455070499021808
-      Shop_6: -252119226429350270
-      Shop_24: 8599583951867010949
-      Shop_22: 7598739927505116655
-      Shop_1: 4804467487700152463
-      Shop_3: 4845697725500819635
-      Shop_7: 694910799247858987
-      Shop_9: -4665183740109648265
-      Shop_14: 7154205026624211396
-      Shop_20: -3251950155252035656
-      Shop_21: 2197601164481427924
-      Shop_13: -8531995246063594154
-      Shop_5: -3164240886566967740
-      Shop_15: 7733169097649633470
-      Shop_4: 4860674625755937018
-      Shop_2: -457367467287465223
-      Shop_19: 1094161498757069702
-      Shop_26: -2746607101990530761
-      Shop_23: -4615176787374922397
-      Shop_11: 7211107275475878565
-      Shop_16: 3156417025874329385
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
