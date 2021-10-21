@@ -1,0 +1,12 @@
+﻿@startuml
+'https://plantuml.com/class-diagram
+
+class Controls
+class GeneralInput
+{
+    Controls Controls
+}
+
+Controls o-- GeneralInput
+
+@enduml
