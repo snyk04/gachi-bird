@@ -1,9 +1,9 @@
-﻿using System;
-using Environment.Objects;
+﻿using GachiBird.Environment.Objects;
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Environment
+namespace GachiBird.Environment
 {
     public sealed class ObjectSpawner : MonoBehaviour
     {

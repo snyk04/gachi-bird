@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Camera
+namespace GachiBird.Camera
 {
     public sealed class CameraAligner : MonoBehaviour
     {

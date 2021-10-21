@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Environment.Objects
+namespace GachiBird.Environment.Objects
 {
     [Serializable] 
     public struct ObjectInfo

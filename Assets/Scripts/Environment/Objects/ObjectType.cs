@@ -1,4 +1,4 @@
-﻿namespace Environment.Objects
+﻿namespace GachiBird.Environment.Objects
 {
     public enum ObjectType
     {

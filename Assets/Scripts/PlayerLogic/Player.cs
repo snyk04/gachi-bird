@@ -1,10 +1,10 @@
+using GachiBird.InputHandling;
 using System;
-using InputHandling;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
 
-namespace PlayerLogic
+namespace GachiBird.PlayerLogic
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public sealed class Player : MonoBehaviour

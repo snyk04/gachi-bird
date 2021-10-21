@@ -1,7 +1,7 @@
-﻿using PlayerLogic;
+﻿using GachiBird.PlayerLogic;
 using UnityEngine;
 
-namespace Environment.Objects
+namespace GachiBird.Environment.Objects
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public class SpawnTrigger : MonoBehaviour

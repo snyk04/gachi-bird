@@ -1,9 +1,8 @@
 ﻿using System;
-using InputHandling;
 using UnityEngine;
 using UserInterface;
 
-namespace PlayerLogic
+namespace GachiBird.PlayerLogic
 {
     public sealed class PlayerSound : MonoBehaviour
     {

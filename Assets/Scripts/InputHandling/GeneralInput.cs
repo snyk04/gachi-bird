@@ -1,4 +1,4 @@
-namespace InputHandling
+namespace GachiBird.InputHandling
 {
     public static class GeneralInput
     {

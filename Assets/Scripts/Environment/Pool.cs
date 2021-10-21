@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Environment
+namespace GachiBird.Environment
 {
     public sealed class Pool
     {

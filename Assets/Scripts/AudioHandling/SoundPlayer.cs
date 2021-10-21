@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AudioHandling
+namespace GachiBird.AudioHandling
 {
     [RequireComponent(typeof(AudioSource))]
     public sealed class SoundPlayer : MonoBehaviour

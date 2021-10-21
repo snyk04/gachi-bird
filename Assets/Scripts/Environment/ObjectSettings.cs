@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using Environment.Objects;
+﻿using GachiBird.Environment.Objects;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace Environment
+namespace GachiBird.Environment
 {
     public sealed class ObjectSettings : MonoBehaviour
     {
