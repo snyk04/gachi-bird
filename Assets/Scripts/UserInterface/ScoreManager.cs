@@ -1,11 +1,9 @@
 using System;
-using GachiBird.UserInterface;
-using TMPro;
 using UnityEngine;
 
-namespace UserInterface
+namespace GachiBird.UserInterface
 {
-    public sealed class ScoreManager : GameInterface
+    public sealed class ScoreManager : MonoBehaviour
     {
         public static ScoreManager Instance { get; private set; }
         private void CreateSingleton()
@@ -19,70 +17,58 @@ namespace UserInterface
                 throw new InvalidOperationException();
             }
         }
-        
-        [Header("References")]
-        [SerializeField] private GameCycle _gameCycle;
+
+        [Header("References")] 
+        [SerializeField] private ScoreInterface _scoreInterface;
         [SerializeField] private SerializationManager _serializationManager;
-        
-        [Header("Objects")]
-        [SerializeField] private TextMeshProUGUI _scoreCounter;
-        
+
         [Header("Settings")]
         [SerializeField] private int _amountOfPointsPerCheckpoint;
         
-        private int _score;
-        public int Score => _score;
-
-        private int _bestScore;
+        public int Score { get; private set; }
+        public int BestScore { get; private set; }
         
-        // TODO : maybe rename to OnCheckpointPass?
-        public event Action OnPlusPoint;
+        public event Action PointGet;
         
         private void Awake()
         {
             CreateSingleton();
             
-            _score = 0;
-
-            _gameCycle.OnGameStart += Show;
-            _gameCycle.OnGameEnd += Hide;
+            Score = 0;
         }
         private void Start()
         {
-            _bestScore = _serializationManager.LoadBestScore();
+            BestScore = _serializationManager.LoadBestScore();
         }
         
-        private void RefreshScoreCounter()
+        public void GivePoints()
         {
-            _scoreCounter.text = _score.ToString();
-        }
+            Score += _amountOfPointsPerCheckpoint;
 
-        public void ChangeAmountOfPointsPerCheckpoint(int amount)
-        {
-            if (amount <= 0)
-            {
-                throw new ArgumentException();
-            }
-        
-            _amountOfPointsPerCheckpoint = amount;
+            PointGet?.Invoke();
+            
+            TryToUpdateBestScore();
+            
+            _scoreInterface.RefreshScoreCounter(Score);
         }
 
         private void TryToUpdateBestScore()
         {
-            if (_score > _bestScore)
+            if (Score > BestScore)
             {
-                _bestScore = _score;
-                _serializationManager.SaveBestScore(_bestScore);
+                BestScore = Score;
+                _serializationManager.SaveBestScore(BestScore);
             }
         }
-        public void GivePoints()
-        {
-            _score += _amountOfPointsPerCheckpoint;
-            
-            OnPlusPoint?.Invoke();
-            
-            TryToUpdateBestScore();
-            RefreshScoreCounter();
-        }
+        
+        // public void ChangeAmountOfPointsPerCheckpoint(int amount)
+        // {
+        //     if (amount <= 0)
+        //     {
+        //         throw new ArgumentException();
+        //     }
+        //
+        //     _amountOfPointsPerCheckpoint = amount;
+        // }
     }
 }

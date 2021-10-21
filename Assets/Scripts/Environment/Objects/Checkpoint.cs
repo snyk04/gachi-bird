@@ -1,5 +1,5 @@
 using UnityEngine;
-using UserInterface;
+using GachiBird.UserInterface;
 
 namespace GachiBird.Environment.Objects
 {

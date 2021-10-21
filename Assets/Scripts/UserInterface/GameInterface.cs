@@ -4,6 +4,7 @@ namespace GachiBird.UserInterface
 {
     public abstract class GameInterface : MonoBehaviour
     {
+        [Header("Interface components")]
         [SerializeField] private GameObject _container;
 
         protected void Show()

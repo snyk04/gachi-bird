@@ -1184,9 +1184,10 @@ GameObject:
   m_Component:
   - component: {fileID: 849647705}
   - component: {fileID: 849647708}
+  - component: {fileID: 849647707}
   - component: {fileID: 849647706}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScoreInterface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1224,11 +1225,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399ce1ff283bdb744a338678212f5742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scoreInterface: {fileID: 849647707}
+  _serializationManager: {fileID: 826285828}
+  _amountOfPointsPerCheckpoint: 1
+--- !u!114 &849647707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849647704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612d5f2ae3804acd87268a65cd2c2408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _container: {fileID: 1754611117}
   _gameCycle: {fileID: 2115107477}
-  _serializationManager: {fileID: 826285828}
   _scoreCounter: {fileID: 1536517141}
-  _amountOfPointsPerCheckpoint: 1
 --- !u!222 &849647708
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1849,7 +1863,6 @@ MonoBehaviour:
   _container: {fileID: 1742870241}
   _gameCycle: {fileID: 2115107477}
   _scoreManager: {fileID: 849647706}
-  _serializationManager: {fileID: 826285828}
   _currentScoreText: {fileID: 803749581}
   _bestScoreText: {fileID: 1086917017}
 --- !u!1 &1359386514

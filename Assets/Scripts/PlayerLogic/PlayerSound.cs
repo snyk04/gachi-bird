@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-using UserInterface;
+using GachiBird.UserInterface;
 
 namespace GachiBird.PlayerLogic
 {
@@ -31,7 +31,7 @@ namespace GachiBird.PlayerLogic
             _checkpointAudioSource = gameObject.AddComponent<AudioSource>();
             _deathAndJumpAudioSource = gameObject.AddComponent<AudioSource>();
 
-            _scoreManager.OnPlusPoint += () => Play(SoundType.Checkpoint);
+            _scoreManager.PointGet += () => Play(SoundType.Checkpoint);
             _gameCycle.OnGameEnd += () => Play(SoundType.Death);
             _player.OnJump += () => Play(SoundType.Jump);
         }

@@ -9,11 +9,10 @@ namespace UserInterface
         [Header("References")] 
         [SerializeField] private GameCycle _gameCycle;
         [SerializeField] private ScoreManager _scoreManager;
-        [SerializeField] private SerializationManager _serializationManager;
         
         [Header("Objects")]
-        [SerializeField] private TextMeshProUGUI _currentScoreText;
-        [SerializeField] private TextMeshProUGUI _bestScoreText;
+        [SerializeField] private TMP_Text _currentScoreText;
+        [SerializeField] private TMP_Text _bestScoreText;
         
         private void Awake()
         {
@@ -23,11 +22,11 @@ namespace UserInterface
 
         private void ConfigureCurrentScoreContainer()
         {
-            TextManager.SetText(_currentScoreText, _scoreManager.Score.ToString());
+            TextManager.ChangeText(_currentScoreText, _scoreManager.Score.ToString());
         }
         private void ConfigureBestScoreContainer()
         {
-            TextManager.SetText(_bestScoreText, _serializationManager.LoadBestScore().ToString());
+            TextManager.ChangeText(_bestScoreText, _scoreManager.BestScore.ToString());
         }
         private void ShowResultScore()
         {
