@@ -5,21 +5,11 @@ namespace AudioHandling
     [RequireComponent(typeof(AudioSource))]
     public sealed class BackgroundMusic : MonoBehaviour
     {
-        #region Components
-
         private AudioSource _audioSource;
-
-        #endregion
-
-        #region Settings
-
+        
         [SerializeField] private AudioClip _backgroundMusic;
         [SerializeField] [Range(0, 1)] private float _musicVolume;
         
-        #endregion
-
-        #region MonoBehaviour methods
-
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
@@ -35,10 +25,6 @@ namespace AudioHandling
         {
             _audioSource.Play();
         }
-
-        #endregion
-
-        #region Methods
         
         private void Pause()
         {
@@ -48,7 +34,5 @@ namespace AudioHandling
         {
             _audioSource.UnPause();
         }
-
-        #endregion
     }
 }

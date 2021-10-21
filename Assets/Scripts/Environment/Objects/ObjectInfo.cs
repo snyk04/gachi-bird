@@ -6,8 +6,6 @@ namespace Environment.Objects
     [Serializable] 
     public struct ObjectInfo
     {
-        #region Settings
-
         [SerializeField] private ObjectType _objectType;
         
         [Header("Pooling")]
@@ -29,9 +27,7 @@ namespace Environment.Objects
         public Vector3 SpawnOffsetFromStart => _spawnOffsetFromStart;
         public Vector2 AllowedErrorRangeForAxisX => _allowedErrorRangeForAxisX;
         public Vector2 AllowedErrorRangeForAxisY => _allowedErrorRangeForAxisY;
-
-        #endregion
-
+        
         public ObjectInfo(ObjectType objectType)
         {
             _objectType = objectType;

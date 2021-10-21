@@ -14,33 +14,19 @@ namespace PlayerLogic
             Jump
         }
         
-        #region References
-
         [Header("References")]
         [SerializeField] private GameCycle _gameCycle;
         [SerializeField] private Player _player;
         [SerializeField] private ScoreManager _scoreManager;
-
-        #endregion
-
-        #region Sound
         
         [Header("Sound")]
         [SerializeField] private AudioClip _checkpointSound;
         [SerializeField] private AudioClip _deathSound;
         [SerializeField] private AudioClip _jumpSound;
-
-        #endregion
-
-        #region Components
-
+        
         private AudioSource _checkpointAudioSource;
         private AudioSource _deathAndJumpAudioSource;
         
-        #endregion
-
-        #region MonoBehaviour methods
-
         private void Awake()
         {
             _checkpointAudioSource = gameObject.AddComponent<AudioSource>();
@@ -50,11 +36,20 @@ namespace PlayerLogic
             _gameCycle.OnGameEnd += () => Play(SoundType.Death);
             _player.OnJump += () => Play(SoundType.Jump);
         }
-
-        #endregion
-
-        #region Methods
-
+        
+        public void SetCheckpointSound(AudioClip checkpointSound)
+        {
+            _checkpointSound = checkpointSound;
+        }
+        public void SetDeathSound(AudioClip deathSound)
+        {
+            _checkpointSound = deathSound;
+        }
+        public void SetJumpSound(AudioClip jumpSound)
+        {
+            _checkpointSound = jumpSound;
+        }
+        
         private AudioSource GetAudioSourceBySoundType(SoundType soundType)
         {
             return soundType switch
@@ -84,20 +79,5 @@ namespace PlayerLogic
             audioSource.clip = clip;
             audioSource.Play();
         }
-
-        public void SetCheckpointSound(AudioClip checkpointSound)
-        {
-            _checkpointSound = checkpointSound;
-        }
-        public void SetDeathSound(AudioClip deathSound)
-        {
-            _checkpointSound = deathSound;
-        }
-        public void SetJumpSound(AudioClip jumpSound)
-        {
-            _checkpointSound = jumpSound;
-        }
-
-        #endregion
     }
 }

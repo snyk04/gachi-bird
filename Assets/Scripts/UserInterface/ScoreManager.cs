@@ -18,47 +18,25 @@ namespace UserInterface
                 throw new InvalidOperationException();
             }
         }
-
-        #region References
-
+        
         [Header("References")]
         [SerializeField] private GameCycle _gameCycle;
         [SerializeField] private SerializationManager _serializationManager;
-
-        #endregion
         
-        #region Objects
-    
         [Header("Objects")]
         [SerializeField] private TextMeshProUGUI _scoreCounter;
-    
-        #endregion
-
-        #region Settings
-
+        
         [Header("Settings")]
         [SerializeField] private int _amountOfPointsPerCheckpoint;
-
-        #endregion
-
-        #region Properties
         
         private int _score;
         public int Score => _score;
 
         private int _bestScore;
-
-        #endregion
         
-        #region Events
-
         // TODO : maybe rename to OnCheckpointPass?
         public event Action OnPlusPoint;
-
-        #endregion
-    
-        #region MonoBehaviour methods
-
+        
         private void Awake()
         {
             CreateSingleton();
@@ -72,11 +50,7 @@ namespace UserInterface
         {
             _bestScore = _serializationManager.LoadBestScore();
         }
-
-        #endregion
-
-        #region Methods
-
+        
         private void RefreshScoreCounter()
         {
             _scoreCounter.text = _score.ToString();
@@ -118,7 +92,5 @@ namespace UserInterface
             TryToUpdateBestScore();
             RefreshScoreCounter();
         }
-    
-        #endregion
     }
 }

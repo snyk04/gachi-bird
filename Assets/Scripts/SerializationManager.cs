@@ -58,24 +58,14 @@ public class SerializationManager : MonoBehaviour
             _statusOfMusic = statusOfMusic;
         }
     }
-
-    #region Properties
     
     private SaveData _saveData;
     
-    #endregion
-
-    #region MonoBehaviour methods
-
     private void Awake()
     {
         TryToLoadSaveData();
     }
     
-    #endregion
-    
-    #region Methods
-
     private void TryToLoadSaveData()
     {
         var bf = new BinaryFormatter();
@@ -168,6 +158,4 @@ public class SerializationManager : MonoBehaviour
         return _saveData.StatusOfMusic;
 
     }
-
-    #endregion
 }
