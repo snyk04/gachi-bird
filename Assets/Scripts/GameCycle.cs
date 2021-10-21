@@ -1,4 +1,4 @@
-using GachiBird.InputHandling;
+using GachiBird.Input;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
