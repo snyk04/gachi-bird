@@ -1,4 +1,3 @@
-using GachiBird.Input;
 using System;
 using GachiBird.Game;
 using UnityEngine;
@@ -32,11 +31,6 @@ namespace GachiBird.PlayerLogic
             _rigidbody = GetComponent<Rigidbody2D>();
 
             _isDead = false;
-            
-            SetControls();
-            
-            _gameCycle.OnGameStart += () => ChangeGravityScale(_defaultGravityScale);
-            _gameCycle.OnGameEnd += DisableControls;
         }
         private void Start()
         {
@@ -44,33 +38,15 @@ namespace GachiBird.PlayerLogic
             
             MoveTo(_defaultDirection, _defaultSpeed);
         }
-        
-        private void OnEnable()
-        {
-            EnableControls();
-        }
-        private void OnDisable()
-        {
-            DisableControls();
-        }
-        private void OnDestroy()
-        {
-            UnsetControls();
-        }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
             TryToDie();
         }
-        
-        public void ChangeJumpForce(float jumpForce)
+
+        public void ResetGravityScale()
         {
-            if (jumpForce < 0)
-            {
-                throw new ArgumentException();
-            }
-            
-            _jumpForce = jumpForce;
+            ChangeGravityScale(_defaultGravityScale);
         }
         private void ChangeGravityScale(float gravityScale)
         {
@@ -81,15 +57,6 @@ namespace GachiBird.PlayerLogic
             
             _rigidbody.gravityScale = gravityScale;
         }
-        public void ChangeMoveSpeed(float speed)
-        {
-            if (speed < 0)
-            {
-                throw new ArgumentException();
-            }
-            
-            MoveTo(_defaultDirection, speed);
-        }
         
         private void TryToDie()
         {
@@ -99,10 +66,10 @@ namespace GachiBird.PlayerLogic
             } 
 
             _isDead = true;
-            _gameCycle.EndGame();    
-            
+            _gameCycle.EndGame();
         }
-        private void Jump(InputAction.CallbackContext context)
+
+        public void Jump(InputAction.CallbackContext context)
         {
             OnJump?.Invoke();
             
@@ -118,22 +85,23 @@ namespace GachiBird.PlayerLogic
             _rigidbody.velocity = new Vector2(direction.normalized.x * speed, _rigidbody.velocity.y);
         }
         
-        private void SetControls()
-        {
-            GeneralInput.Controls.Player.Jump.performed += Jump;
-        }
-        private void UnsetControls()
-        {
-            GeneralInput.Controls.Player.Jump.performed -= Jump;
-        }
-
-        private void EnableControls()
-        {
-            GeneralInput.Controls.Player.Enable();
-        }
-        private void DisableControls()
-        {
-            GeneralInput.Controls.Player.Disable();
-        }
+        // public void ChangeJumpForce(float jumpForce)
+        // {
+        //     if (jumpForce < 0)
+        //     {
+        //         throw new ArgumentException();
+        //     }
+        //     
+        //     _jumpForce = jumpForce;
+        // }
+        // public void ChangeMoveSpeed(float speed)
+        // {
+        //     if (speed < 0)
+        //     {
+        //         throw new ArgumentException();
+        //     }
+        //     
+        //     MoveTo(_defaultDirection, speed);
+        // }
     }
 }

@@ -657,6 +657,7 @@ GameObject:
   - component: {fileID: 623424389}
   - component: {fileID: 623424388}
   - component: {fileID: 623424387}
+  - component: {fileID: 623424392}
   - component: {fileID: 623424391}
   m_Layer: 0
   m_Name: Player
@@ -812,6 +813,20 @@ MonoBehaviour:
   _checkpointSound: {fileID: 8300000, guid: b1b6c94b37ffdb9419a556d7834995a1, type: 3}
   _deathSound: {fileID: 8300000, guid: e0576bd7cb0a381438177f14f0760b91, type: 3}
   _jumpSound: {fileID: 8300000, guid: 280f274100c37b44682f1df7990cc2df, type: 3}
+--- !u!114 &623424392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623424385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb07bc4c7c24316afb3337532ef82bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameCycle: {fileID: 2115107477}
+  _player: {fileID: 623424387}
 --- !u!1 &654352456
 GameObject:
   m_ObjectHideFlags: 0
