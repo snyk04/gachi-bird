@@ -495,8 +495,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7809fc544756f44f8043c0a265fda85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundMusic: {fileID: 8300000, guid: 3c6ed67ffcfba764e91865994dfb064b, type: 3}
-  _musicVolume: 0.05
+  _sound: {fileID: 8300000, guid: 3c6ed67ffcfba764e91865994dfb064b, type: 3}
+  _playOnStart: 1
 --- !u!82 &519420034
 AudioSource:
   m_ObjectHideFlags: 0
@@ -509,9 +509,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
