@@ -1,10 +1,11 @@
 using System;
+using GachiBird.UserInterface;
 using TMPro;
 using UnityEngine;
 
 namespace UserInterface
 {
-    public sealed class ScoreManager : MonoBehaviour
+    public sealed class ScoreManager : GameInterface
     {
         public static ScoreManager Instance { get; private set; }
         private void CreateSingleton()
@@ -43,8 +44,8 @@ namespace UserInterface
             
             _score = 0;
 
-            _gameCycle.OnGameStart += ShowScoreCounter;
-            _gameCycle.OnGameEnd += HideScoreCounter;
+            _gameCycle.OnGameStart += Show;
+            _gameCycle.OnGameEnd += Hide;
         }
         private void Start()
         {
@@ -55,16 +56,7 @@ namespace UserInterface
         {
             _scoreCounter.text = _score.ToString();
         }
-        private void ShowScoreCounter()
-        {
-            _scoreCounter.gameObject.SetActive(true);
-            RefreshScoreCounter();
-        }
-        private void HideScoreCounter()
-        {
-            _scoreCounter.gameObject.SetActive(false);
-        }
-    
+
         public void ChangeAmountOfPointsPerCheckpoint(int amount)
         {
             if (amount <= 0)
