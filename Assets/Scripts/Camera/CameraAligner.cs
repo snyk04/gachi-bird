@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using GachiBird.Game;
 using UnityEngine;
 
 namespace GachiBird.Camera

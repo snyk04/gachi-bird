@@ -1,7 +1,7 @@
-using GachiBird.UserInterface;
+using GachiBird.Game;
 using UnityEngine;
 
-namespace UserInterface
+namespace GachiBird.UserInterface
 {
     public sealed class PreStartInterface : GameInterface
     {

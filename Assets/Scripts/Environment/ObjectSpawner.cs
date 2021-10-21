@@ -1,5 +1,6 @@
 ﻿using GachiBird.Environment.Objects;
 using System;
+using GachiBird.Game;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

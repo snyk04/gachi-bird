@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using GachiBird.Game;
+using TMPro;
 using UnityEngine;
 
 namespace GachiBird.UserInterface
