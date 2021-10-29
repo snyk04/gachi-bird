@@ -2,7 +2,8 @@
 Amazing flappy bird clone with ♂gachimuchi♂ assets
 
 ## Gameplay
-![](https://github.com/snyk04/gachi-bird/blob/master/Images/Gameplay.gif)
+<img src="https://github.com/snyk04/gachi-bird/blob/master/Images/Gameplay.gif" alt="" width="300"/>
+
 
 ## How to start playing
 Follow the below instructions to play Quoridor:
@@ -11,10 +12,10 @@ Follow the below instructions to play Quoridor:
 3. Play and have fun!
 
 ## Screenshots
-![](https://github.com/snyk04/gachi-bird/blob/master/Images/Screenshots/Screenshot%201.png)
+<img src="https://github.com/snyk04/gachi-bird/blob/master/Images/Screenshots/Screenshot%201.png" alt="" width="300"/>
 
-![](https://github.com/snyk04/gachi-bird/blob/master/Images/Screenshots/Screenshot%202.png)
+<img src="https://github.com/snyk04/gachi-bird/blob/master/Images/Screenshots/Screenshot%202.png" alt="" width="300"/>
 
-![](https://github.com/snyk04/gachi-bird/blob/master/Images/Screenshots/Screenshot%203.png)
+<img src="https://github.com/snyk04/gachi-bird/blob/master/Images/Screenshots/Screenshot%203.png" alt="" width="300"/>
 
-![](https://github.com/snyk04/gachi-bird/blob/master/Images/Screenshots/Screenshot%204.png)
+<img src="https://github.com/snyk04/gachi-bird/blob/master/Images/Screenshots/Screenshot%204.png" alt="" width="300"/>
