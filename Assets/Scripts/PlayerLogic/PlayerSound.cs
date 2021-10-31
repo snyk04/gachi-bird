@@ -1,7 +1,6 @@
 ﻿using GachiBird.Game;
 using UnityEngine;
 using GachiBird.UserInterface;
-using UnityEngine.Serialization;
 
 namespace GachiBird.PlayerLogic
 {
