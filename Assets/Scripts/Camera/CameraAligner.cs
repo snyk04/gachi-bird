@@ -1,44 +1,27 @@
 ﻿using System.Collections;
+using GachiBird.Game;
 using UnityEngine;
 
-namespace Camera
+namespace GachiBird.Camera
 {
     public sealed class CameraAligner : MonoBehaviour
     {
-        #region References
+        private Transform _transform;
 
         [Header("References")]
         [SerializeField] private GameCycle _gameCycle;
-
-        #endregion
         
-        #region Components
-
-        private Transform _transform;
-
-        #endregion
-
-        #region Settings
-
         [Header("Settings")]
         [SerializeField] private Transform _objectToAlign;
         [SerializeField] private Vector2 _defaultCameraOffset;
         [SerializeField] private float _defaultSmoothTime;
         [SerializeField] private float _timeToMoveCameraToGamePosition;
-
-        #endregion
-
-        #region Properties
-
+        
         private Vector2 _currentCameraOffset;
         private float _currentSmoothTime;
         
         private Vector3 _alignmentVelocity;
-
-        #endregion
-
-        #region MonoBehaviour methods
-
+        
         private void Awake()
         {
             _transform = transform;
@@ -57,11 +40,7 @@ namespace Camera
         {
             AlignToObject(_objectToAlign);
         }
-
-        #endregion
-
-        #region Methods
-
+        
         private void AlignToObject(Transform objectToAlign)
         {
             Vector3 targetPosition = new Vector3(
@@ -97,7 +76,5 @@ namespace Camera
                 yield return new WaitForSeconds(timeToChange / 10);
             }
         }
-
-        #endregion
     }
 }

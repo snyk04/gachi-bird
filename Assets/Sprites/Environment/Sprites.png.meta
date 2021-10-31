@@ -419,7 +419,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -431,7 +431,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -443,7 +443,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -1747,68 +1759,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Sprites_37: 940014732651843568
-      Sprites_10: 8806082383697256345
-      Sprites_2: -2488504202659064725
-      Sprites_7: 8494614907340370172
-      Sprites_3: 7913947961166587167
-      Sprites_6: 5702893607724952391
-      Sprites_15: 6264985964054371608
-      Sprites_12: -4699703525092552785
-      Sprites_13: -4559659951313124882
-      Sprites_22: 3398691405554957056
-      Sprites_5: -1428572451713796752
-      Sprites_11: 4634654172541935579
-      Sprites_49: -7147613178588826997
-      Sprites_36: -7183807683939031635
-      Sprites_46: -3638865886025157241
-      Sprites_53: -3288514898057928138
-      Sprites_45: -463942791319061206
-      Sprites_31: -6040059234301180381
-      Sprites_20: 8092936755869327308
-      Sprites_39: 2077260208945899746
-      Sprites_47: -6075041024675348371
-      Sprites_30: -1489512975549640814
-      Sprites_42: 8908555874827833984
-      Sprites_56: 7338269963166574067
-      Sprites_40: -6561420637818263729
-      Sprites_44: 3732486779645037179
-      Sprites_24: 1472164943784440433
-      Sprites_27: 6309482746551777965
-      Sprites_14: -7722789803741701458
-      Sprites_19: 6247616971548455001
-      Sprites_34: -3337030432688555568
-      Sprites_21: -84184944150888689
-      Sprites_50: 1328733399862569773
-      Sprites_48: 3717357157818763627
-      Sprites_57: 8972056133404136798
-      Sprites_17: -4116002744389426870
-      Sprites_1: -2336786869546493214
-      Sprites_59: -8372087688738955256
-      Sprites_9: 4260965311633228873
-      Sprites_23: 3210716806232939770
-      Sprites_25: 8221635379203980146
-      Sprites_41: -885132569460479216
-      Sprites_54: -5289317338193478172
-      Sprites_55: -2887141063363961135
-      Sprites_43: -8354318075773737780
-      Sprites_0: -1618998768854616672
-      Sprites_29: -298503885028450054
-      Sprites_38: 3439867863373198485
-      Sprites_28: -203041334638466015
-      Sprites_35: -6496381442524999678
-      Sprites_18: 6056101971016360301
-      Sprites_16: -4472067814591820148
-      Sprites_32: -1688531528543447982
-      Sprites_52: -5226286294421747837
-      Sprites_4: 7159774957765775231
-      Sprites_26: -8540352577693872516
-      Sprites_33: 3285467906893988014
-      Sprites_8: 1832658070352030612
-      Sprites_60: -6473330857520264552
-      Sprites_58: 1408226847623852857
-      Sprites_51: -2706448356142851620
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

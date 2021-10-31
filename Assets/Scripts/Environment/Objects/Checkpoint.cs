@@ -1,7 +1,7 @@
 using UnityEngine;
-using UserInterface;
+using GachiBird.UserInterface;
 
-namespace Environment.Objects
+namespace GachiBird.Environment.Objects
 {
     public sealed class Checkpoint : SpawnTrigger
     {

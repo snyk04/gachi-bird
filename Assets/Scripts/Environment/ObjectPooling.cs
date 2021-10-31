@@ -1,25 +1,15 @@
+using GachiBird.Environment.Objects;
 using System.Collections.Generic;
-using Environment.Objects;
 using UnityEngine;
 
-namespace Environment
+namespace GachiBird.Environment
 {
     public sealed class ObjectPooling : MonoBehaviour
     {
-        #region References
-
         [SerializeField] private ObjectSettings _objectSettings;
-
-        #endregion
         
-        #region Properties
-
         private Dictionary<ObjectType, Pool> _pools;
-
-        #endregion
-
-        #region MonoBehaviour methods
-
+        
         private void Awake()
         {
             _pools = new Dictionary<ObjectType, Pool>();
@@ -28,11 +18,22 @@ namespace Environment
         {
             InitializePools();
         }
-
-        #endregion
-
-        #region Methods
         
+        public GameObject GetObject(ObjectType type)
+        {
+            Pool pool = _pools[type];
+            if (pool.AvailableObjects.Count == 0)
+            {
+                ReturnObject(type);
+            }
+
+            GameObject newObject = pool.AvailableObjects.Dequeue();
+            pool.BusyObjects.Enqueue(newObject);
+            newObject.SetActive(true);
+
+            return newObject;
+        }
+
         private GameObject CreateObjectContainer(GameObject prefab, Transform parent, string objectName)
         {
             GameObject container = Instantiate(prefab, parent, false);
@@ -50,6 +51,15 @@ namespace Environment
         private void PutObjectIntoThePool(GameObject obj, Queue<GameObject> pool)
         {
             pool.Enqueue(obj);
+        }
+        
+        private void ReturnObject(ObjectType type)
+        {
+            Pool objectPool = _pools[type];
+            GameObject objectToReturn = objectPool.BusyObjects.Dequeue();
+            
+            PutObjectIntoThePool(objectToReturn, objectPool.AvailableObjects);
+            objectToReturn.SetActive(false);
         }
         
         private void InitializePools()
@@ -71,30 +81,5 @@ namespace Environment
 
             Destroy(containerPrefab);
         }
-        
-        public GameObject GetObject(ObjectType type)
-        {
-            Pool pool = _pools[type];
-            if (pool.AvailableObjects.Count == 0)
-            {
-                ReturnObject(type);
-            }
-
-            GameObject newObject = pool.AvailableObjects.Dequeue();
-            pool.BusyObjects.Enqueue(newObject);
-            newObject.SetActive(true);
-
-            return newObject;
-        }
-        public void ReturnObject(ObjectType type)
-        {
-            Pool objectPool = _pools[type];
-            GameObject objectToReturn = objectPool.BusyObjects.Dequeue();
-            
-            PutObjectIntoThePool(objectToReturn, objectPool.AvailableObjects);
-            objectToReturn.SetActive(false);
-        }
-
-        #endregion
     }
 }

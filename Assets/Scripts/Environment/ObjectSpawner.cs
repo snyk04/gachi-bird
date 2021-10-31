@@ -1,42 +1,22 @@
-﻿using System;
-using Environment.Objects;
+﻿using GachiBird.Environment.Objects;
+using System;
+using GachiBird.Game;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Environment
+namespace GachiBird.Environment
 {
     public sealed class ObjectSpawner : MonoBehaviour
     {
         public static ObjectSpawner Instance { get; private set; }
-        private void CreateSingleton()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                throw new InvalidOperationException();
-            }
-        }
-
-        #region References
-
+        
         [Header("References")] 
         [SerializeField] private GameCycle _gameCycle;
         [SerializeField] private ObjectPooling _objectPooling;
         [SerializeField] private ObjectSettings _objectSettings;
-
-        #endregion
-        
-        #region Objects
         
         [Header("Objects")]
         [SerializeField] private Transform _player;
-
-        #endregion
-
-        #region Properties
         
         private int _amountOfSpawnedBackgrounds;
         private int _amountOfSpawnedBoosters;
@@ -48,10 +28,6 @@ namespace Environment
         private Vector3 _bordersStartPoint;
         private Vector3 _obstacleStartPoint;
         
-        #endregion
-        
-        #region MonoBehaviour methods
-
         private void Awake()
         {
             CreateSingleton();
@@ -68,10 +44,39 @@ namespace Environment
             SpawnObjectForFirstTime(ObjectType.Background, ref _backgroundStartPoint);
             SpawnObjectForFirstTime(ObjectType.Borders, ref _bordersStartPoint);
         }
-
-        #endregion
-
-        #region Methods
+        
+        public void SpawnObject(ObjectType objectType, int amountOfObjectsToSpawn = 1)
+        {
+            switch (objectType)
+            {
+                case ObjectType.Background:
+                    SpawnObject(objectType, ref _amountOfSpawnedBackgrounds, ref _backgroundStartPoint, amountOfObjectsToSpawn);
+                    break;
+                case ObjectType.Booster:
+                    SpawnObject(objectType, ref _amountOfSpawnedBoosters, ref _boosterStartPoint,  amountOfObjectsToSpawn);
+                    break;
+                case ObjectType.Borders:
+                    SpawnObject(objectType, ref _amountOfSpawnedBorders, ref _bordersStartPoint, amountOfObjectsToSpawn);
+                    break;
+                case ObjectType.Obstacle:
+                    SpawnObject(objectType, ref _amountOfSpawnedObstacles, ref _obstacleStartPoint, amountOfObjectsToSpawn);
+                    break;
+                default:
+                    throw new ArgumentException();
+            }
+        }
+        
+        private void CreateSingleton()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                throw new InvalidOperationException();
+            }
+        }
 
         private void InitializeStartPoint(ref Vector3 startPoint)
         {
@@ -96,26 +101,6 @@ namespace Environment
                 amountOfSpawnedObjects += 1;
             }
         }
-        public void SpawnObject(ObjectType objectType, int amountOfObjectsToSpawn = 1)
-        {
-            switch (objectType)
-            {
-                case ObjectType.Background:
-                    SpawnObject(objectType, ref _amountOfSpawnedBackgrounds, ref _backgroundStartPoint, amountOfObjectsToSpawn);
-                    break;
-                case ObjectType.Booster:
-                    SpawnObject(objectType, ref _amountOfSpawnedBoosters, ref _boosterStartPoint,  amountOfObjectsToSpawn);
-                    break;
-                case ObjectType.Borders:
-                    SpawnObject(objectType, ref _amountOfSpawnedBorders, ref _bordersStartPoint, amountOfObjectsToSpawn);
-                    break;
-                case ObjectType.Obstacle:
-                    SpawnObject(objectType, ref _amountOfSpawnedObstacles, ref _obstacleStartPoint, amountOfObjectsToSpawn);
-                    break;
-                default:
-                    throw new ArgumentException();
-            }
-        }
         private void SpawnObjectForFirstTime(ObjectType objectType, ref Vector3 startPoint)
         {
             InitializeStartPoint(ref startPoint);
@@ -125,7 +110,5 @@ namespace Environment
             
             SpawnObject(objectType, amountOfObjectsToSpawnAtStart);
         }
-
-        #endregion
     }
 }
