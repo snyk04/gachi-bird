@@ -20,8 +20,10 @@ namespace GachiBird.Environment.Objects
         [SerializeField] private Vector2 _allowedErrorRangeForAxisY;
 
         public ObjectType ObjectType => _objectType;
+        
         public GameObject Prefab => _prefab;
         public int AmountOfObjectsInPool => _amountOfObjectsInPool;
+        
         public float DistanceBetweenObjects => _distanceBetweenObjects;
         public int AmountOfObjectsToSpawnAtStart => _amountOfObjectsToSpawnAtStart;
         public Vector3 SpawnOffsetFromStart => _spawnOffsetFromStart;
