@@ -8,7 +8,8 @@ namespace GachiBird.Camera
     {
         private Transform _transform;
 
-        [Header("References")]
+        [Header("References")] 
+        [SerializeField] private CameraShaker _cameraShaker;
         [SerializeField] private GameCycle _gameCycle;
         
         [Header("Settings")]
@@ -36,7 +37,7 @@ namespace GachiBird.Camera
             _gameCycle.OnGameEnd += SetSmoothTimeToDefaultValue;
 
         }
-        private void FixedUpdate()
+        private void Update()
         {
             AlignToObject(_objectToAlign);
         }
@@ -54,7 +55,7 @@ namespace GachiBird.Camera
                 targetPosition,
                 ref _alignmentVelocity, 
                 _currentSmoothTime
-                );
+                ) + _cameraShaker.Power;
         }
         
         private void SetCameraOffsetToDefaultValue()
