@@ -3382,6 +3382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 1081771320}
+  _spectrumDataSize: 512
   _fftWindow: 1
 --- !u!4 &2101776989
 Transform:
