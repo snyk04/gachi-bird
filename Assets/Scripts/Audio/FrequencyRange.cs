@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace GachiBird.Camera
+namespace GachiBird.Audio
 {
     [Serializable]
     public struct FrequencyRange

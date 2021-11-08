@@ -1,15 +1,24 @@
 ﻿using System;
 using UnityEngine;
 
-namespace GachiBird.Camera
+namespace GachiBird.Audio
 {
     public class SoundAnalyzer : MonoBehaviour
     {
-        private readonly float[] _spectrumData = new float[512];
-        
         [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private SpectrumDataSize _spectrumDataSize;
         [SerializeField] private FFTWindow _fftWindow;
-        
+
+        private int _size;
+        private float[] _spectrumData;
+
+        private void Awake()
+        {
+            _size = (int) _spectrumDataSize;
+            
+            _spectrumData = new float[_size];
+        }
+
         public float GetValue(FrequencyRange frequencyRange, float minValue, float maxValue)
         {
             _audioSource.GetSpectrumData(_spectrumData, 0, _fftWindow);
