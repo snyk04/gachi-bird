@@ -1,6 +1,4 @@
-﻿//#nullable enable
-
-using System;
+﻿using System;
 
 namespace AreYouFruits.Common
 {
@@ -21,12 +19,16 @@ namespace AreYouFruits.Common
             return func is null ? default : func.Invoke(param1, param2);
         }
 
-        public static R InvokeOrDefault<T1, T2, T3, R>(this Func<T1, T2, T3, R> func, T1 param1, T2 param2, T3 param3)
+        public static R InvokeOrDefault<T1, T2, T3, R>(
+            this Func<T1, T2, T3, R> func, T1 param1, T2 param2, T3 param3
+        )
         {
             return func is null ? default : func.Invoke(param1, param2, param3);
         }
 
-        public static R InvokeOrDefault<T1, T2, T3, T4, R>(this Func<T1, T2, T3, T4, R> func, T1 param1, T2 param2, T3 param3, T4 param4)
+        public static R InvokeOrDefault<T1, T2, T3, T4, R>(
+            this Func<T1, T2, T3, T4, R> func, T1 param1, T2 param2, T3 param3, T4 param4
+        )
         {
             return func is null ? default : func.Invoke(param1, param2, param3, param4);
         }

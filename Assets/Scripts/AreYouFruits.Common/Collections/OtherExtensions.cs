@@ -13,11 +13,10 @@ namespace AreYouFruits.Common.Collections
         public static T[,,,,] For<T>(this T[,,,,] array, Action<T> action) => ForArray<T, T[,,,,]>(array, action);
 
         // todo: Check.
-        private static TArray ForArray<TElement, TArray>(Array array, Action<TElement> action)
-            where TArray : class
+        private static TArray ForArray<TElement, TArray>(Array array, Action<TElement> action) where TArray : class
         {
             For(array, new int[array.Rank], obj => action.Invoke((TElement)obj));
-            
+
             return (array as TArray)!;
         }
 
@@ -34,8 +33,10 @@ namespace AreYouFruits.Common.Collections
                 nextAction();
             }
         }
-        
-        public static void Deconstruct<TKey, TValue>(this KeyValuePair<TKey, TValue> pair, out TKey key, out TValue value)
+
+        public static void Deconstruct<TKey, TValue>(
+            this KeyValuePair<TKey, TValue> pair, out TKey key, out TValue value
+        )
         {
             key = pair.Key;
             value = pair.Value;
