@@ -8,16 +8,16 @@ using UnityEngine;
 
 namespace GachiBird.UserWindows
 {
-    public sealed class ScoreHolderComponent : AbstractComponent<ScoreHolder>
+    public sealed class ScoreHolderComponent : AbstractComponent<IScoreHolder>
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private SerializationManagerComponent _serializationManager;
-        [SerializeField] private ObstacleSpawnerComponent _obstacleSpawner;
+        [SerializeField] private AbstractComponent<ISerializationManager> _serializationManager;
+        [SerializeField] private AbstractComponent<IObstacleSpawner> _obstacleSpawner;
         [SerializeField] private int _pointsPerCheckpoint;
 #nullable enable
         
-        protected override ScoreHolder Create()
+        protected override IScoreHolder Create()
         {
             return new ScoreHolder(
                 _obstacleSpawner.HeldItem,
@@ -27,7 +27,18 @@ namespace GachiBird.UserWindows
         }
     }
 
-    public class ScoreHolder
+    public interface IScoreHolder
+    {
+        public int Score { get; }
+        public int BestScore { get; }
+
+        public event Action OnScoreChanged;
+        public event Action OnBestScoreChanged;
+
+        public void Add(int points);
+    }
+
+    public class ScoreHolder : IScoreHolder
     {
         public int Score { get; private set; }
         public int BestScore { get; private set; }
@@ -35,7 +46,7 @@ namespace GachiBird.UserWindows
         public event Action OnScoreChanged;
         public event Action OnBestScoreChanged;
 
-        public ScoreHolder(ObstacleSpawner obstacleSpawner, int bestScore, int pointsPerCheckpoint)
+        public ScoreHolder(IObstacleSpawner obstacleSpawner, int bestScore, int pointsPerCheckpoint)
         {
             obstacleSpawner.OnObstaclePassed += () => Add(pointsPerCheckpoint);
             BestScore = bestScore;

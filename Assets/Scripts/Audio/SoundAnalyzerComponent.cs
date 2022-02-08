@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace GachiBird.Audio
 {
-    public class SoundAnalyzerComponent : AbstractComponent<SoundAnalyzer>
+    public class SoundAnalyzerComponent : AbstractComponent<ISoundAnalyzer>
     {
 #nullable disable
         [SerializeField] private AudioSource _audioSource;
@@ -14,10 +14,18 @@ namespace GachiBird.Audio
         [SerializeField] private FFTWindow _fftWindow;
 #nullable enable
 
-        protected override SoundAnalyzer Create() => new SoundAnalyzer(_audioSource, _spectrumDataSize, _fftWindow);
+        protected override ISoundAnalyzer Create()
+        {
+            return new SoundAnalyzer(_audioSource, _spectrumDataSize, _fftWindow);
+        }
     }
 
-    public class SoundAnalyzer
+    public interface ISoundAnalyzer
+    {
+        float GetAmplitude(Range<int> frequencyRange, float minValue, float maxValue);
+    }
+
+    public class SoundAnalyzer : ISoundAnalyzer
     {
         private readonly AudioSource _audioSource;
         private readonly FFTWindow _fftWindow;
@@ -30,7 +38,7 @@ namespace GachiBird.Audio
             _spectrumData = new float[(int)spectrumDataSize];
         }
 
-        public float GetValue(Range<int> frequencyRange, float minValue, float maxValue)
+        public float GetAmplitude(Range<int> frequencyRange, float minValue, float maxValue)
         {
             _audioSource.GetSpectrumData(_spectrumData, 0, _fftWindow);
 

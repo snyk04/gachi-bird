@@ -9,7 +9,7 @@ namespace GachiBird.PlayerLogic
     public class PlayerPreGameLevitatorComponent : AbstractComponent<PlayerPreGameLevitator>
     {
 #nullable disable
-        [SerializeField] private GameCycleComponent _gameCycle;
+        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private float _defaultGravityScale;
 #nullable enable
@@ -29,7 +29,7 @@ namespace GachiBird.PlayerLogic
         private readonly Rigidbody2D _rigidbody;
         private readonly float _defaultGravityScale;
 
-        public PlayerPreGameLevitator(GameCycle gameCycle, Rigidbody2D rigidbody, float defaultGravityScale)
+        public PlayerPreGameLevitator(IGameCycle gameCycle, Rigidbody2D rigidbody, float defaultGravityScale)
         {
             gameCycle.OnGameStart += HandleGameStart;
             _rigidbody = rigidbody;

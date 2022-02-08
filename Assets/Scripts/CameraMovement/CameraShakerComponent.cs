@@ -13,7 +13,7 @@ namespace GachiBird.CameraMovement
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private SoundAnalyzerComponent _soundAnalyzer;
+        [SerializeField] private AbstractComponent<ISoundAnalyzer> _soundAnalyzer;
 
         [Header("Settings")]
         [SerializeField] private ShakeType _shakeType;
@@ -33,7 +33,7 @@ namespace GachiBird.CameraMovement
 
     public class CameraShaker : ICameraEffect
     {
-        private readonly SoundAnalyzer _soundAnalyzer;
+        private readonly ISoundAnalyzer _soundAnalyzer;
 
         private readonly ShakeType _shakeType;
         private readonly float _powerThreshold;
@@ -41,7 +41,7 @@ namespace GachiBird.CameraMovement
         private readonly Range<int> _frequencyRange;
 
         public CameraShaker(
-            SoundAnalyzer soundAnalyzer, ShakeType shakeType, float powerThreshold, float maxPower,
+            ISoundAnalyzer soundAnalyzer, ShakeType shakeType, float powerThreshold, float maxPower,
             Range<int> frequencyRange
         )
         {
@@ -59,7 +59,7 @@ namespace GachiBird.CameraMovement
 
         private Vector3 GetSoundDependentPower(float maxValue)
         {
-            float power = _soundAnalyzer.GetValue(_frequencyRange, _powerThreshold, maxValue);
+            float power = _soundAnalyzer.GetAmplitude(_frequencyRange, _powerThreshold, maxValue);
 
             return GetRandomPower(power);
         }

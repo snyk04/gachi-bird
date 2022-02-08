@@ -14,18 +14,18 @@ namespace GachiBird.Input
     {
 #nullable disable
         [SerializeField] private GameCycleComponent _gameCycle;
-        [SerializeField] private PlayerComponent _player;
+        [SerializeField] private AbstractComponent<IPlayer> _player;
 #nullable enable
         
-        protected override PlayerInput Create() => new PlayerInput(_gameCycle.HeldItem, _player);
+        protected override PlayerInput Create() => new PlayerInput(_gameCycle.HeldItem, _player.HeldItem);
     }
 
     public class PlayerInput : IDisposable
     {
-        private readonly PlayerComponent _player;
+        private readonly IPlayer _player;
         private readonly InputAction _jumpAction = new Controls().Player.Jump;
 
-        public PlayerInput(GameCycle gameCycle, PlayerComponent player)
+        public PlayerInput(IGameCycle gameCycle, IPlayer player)
         {
             _player = player;
             
@@ -43,7 +43,7 @@ namespace GachiBird.Input
         
         private void Jump(CallbackContext context)
         {
-            _player.HeldItem.Jump();
+            _player.Jump();
         }
     }
 }

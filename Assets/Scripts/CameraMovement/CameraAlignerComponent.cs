@@ -11,7 +11,7 @@ namespace GachiBird.CameraMovement
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private GameCycleComponent _gameCycle;
+        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
 
         [Header("Settings")]
         [SerializeField] private Transform _objectToAlign;
@@ -42,7 +42,7 @@ namespace GachiBird.CameraMovement
         private Vector3 _alignmentVelocity;
 
         public CameraAligner(
-            GameCycle gameCycle, Transform objectToAlign,
+            IGameCycle gameCycle, Transform objectToAlign,
             Vector2 defaultCameraOffset, float defaultSmoothTime, float timeToMoveCameraToGamePosition
         )
         {

@@ -1,5 +1,6 @@
 ﻿#nullable enable
 
+using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Game;
 using UnityEngine;
 using GachiBird.UserWindows;
@@ -10,9 +11,9 @@ namespace GachiBird.PlayerLogic
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private GameCycleComponent _gameCycle;
-        [SerializeField] private PlayerComponent _player;
-        [SerializeField] private ScoreHolderComponent _scoreHolder;
+        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
+        [SerializeField] private AbstractComponent<IPlayer> _player;
+        [SerializeField] private AbstractComponent<IScoreHolder> _scoreHolder;
         
         [Header("Audio sources")]
         [SerializeField] private AudioSource _checkpointAudioSource;

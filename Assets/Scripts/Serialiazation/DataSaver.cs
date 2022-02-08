@@ -6,7 +6,21 @@ using UnityEngine;
 
 namespace GachiBird.Serialization
 {
-    public class DataSaver<TData>
+    public static class DataSaverFactory
+    {
+        public static IDataSaver<TData> Get<TData>(string relativePath)
+        {
+            return new DataSaver<TData>(relativePath);
+        }
+    }
+    
+    public interface IDataSaver<TData>
+    {
+        bool TryLoadSaveData(out TData saveData);
+        void Save(TData saveData);
+    }
+    
+    public class DataSaver<TData> : IDataSaver<TData>
     {
         protected readonly BinaryFormatter Formatter = new BinaryFormatter();
         protected readonly string Path;

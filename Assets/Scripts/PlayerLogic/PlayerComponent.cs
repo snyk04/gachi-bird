@@ -7,19 +7,25 @@ using UnityEngine;
 
 namespace GachiBird.PlayerLogic
 {
-    public sealed class PlayerComponent : AbstractComponent<Player>
+    public sealed class PlayerComponent : AbstractComponent<IPlayer>
     {
 #nullable disable
-        [SerializeField] private GameCycleComponent _gameCycle;
+        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private float _jumpForce;
         [SerializeField] private float _speed;
 #nullable enable
         
-        protected override Player Create() => new Player(_gameCycle.HeldItem, _rigidbody, _jumpForce, _speed);
+        protected override IPlayer Create() => new Player(_gameCycle.HeldItem, _rigidbody, _jumpForce, _speed);
     }
 
-    public sealed class Player
+    public interface IPlayer
+    {
+        event Action OnJump;
+        void Jump();
+    }
+
+    public sealed class Player : IPlayer
     {
         private readonly Rigidbody2D _rigidbody;
         private readonly float _jumpForce;
@@ -27,7 +33,7 @@ namespace GachiBird.PlayerLogic
 
         public event Action OnJump;
 
-        public Player(GameCycle gameCycle, Rigidbody2D rigidbody, float jumpForce, float speed)
+        public Player(IGameCycle gameCycle, Rigidbody2D rigidbody, float jumpForce, float speed)
         {
             _rigidbody = rigidbody;
             _jumpForce = jumpForce;

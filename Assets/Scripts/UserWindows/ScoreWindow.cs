@@ -1,5 +1,6 @@
 ﻿#nullable enable
 
+using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Game;
 using TMPro;
 using UnityEngine;
@@ -10,8 +11,8 @@ namespace GachiBird.UserWindows
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private GameCycleComponent _gameCycle;
-        [SerializeField] private ScoreHolderComponent _scoreHolder;
+        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
+        [SerializeField] private AbstractComponent<IScoreHolder> _scoreHolder;
         
         [Header("Objects")]
         [SerializeField] private TMP_Text _scoreCounter;

@@ -10,34 +10,42 @@ using UnityEngine.SceneManagement;
 
 namespace GachiBird.Game
 {
-    public sealed class GameCycleComponent : AbstractComponent<GameCycle>
+    public sealed class GameCycleComponent : AbstractComponent<IGameCycle>
     {
 #nullable disable
-        [SerializeField] private PlayerBordersTriggerComponent _playerBordersTrigger;
+        [SerializeField] private AbstractComponent<IPlayerBordersTrigger> _playerBordersTrigger;
         [SerializeField] private Collider2DListener _playerColliderListener;
 #nullable enable
         
-        protected override GameCycle Create()
+        protected override IGameCycle Create()
         {
-            return new GameCycle(_playerBordersTrigger, _playerColliderListener);
+            return new GameCycle(_playerBordersTrigger.HeldItem, _playerColliderListener);
         }
     }
+
+    public interface IGameCycle
+    {
+        public event Action? OnGameStart;
+        public event Action? OnGameEnd;
+
+        public void RestartGame();
+    }
     
-    public sealed class GameCycle
+    public sealed class GameCycle : IGameCycle
     {
         private readonly InputAction _playerJumpAction;
         
         public event Action? OnGameStart;
         public event Action? OnGameEnd;
         
-        public GameCycle(PlayerBordersTriggerComponent playerBordersTrigger, Collider2DListener playerColliderListener)
+        public GameCycle(IPlayerBordersTrigger playerBordersTrigger, ICollider2DListener playerColliderListener)
         {
             _playerJumpAction = new Controls().Player.Jump;
             
             _playerJumpAction.performed += StartGame;
             _playerJumpAction.Enable();
             
-            playerBordersTrigger.HeldItem.OnPlayerOutOfBounds += EndGame;
+            playerBordersTrigger.OnPlayerOutOfBounds += EndGame;
             playerColliderListener.OnCollide += (_, __) => EndGame();
         }
 

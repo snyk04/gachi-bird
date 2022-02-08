@@ -11,24 +11,29 @@ using UnityEngine;
 
 namespace GachiBird.Environment
 {
-    public sealed class ObstacleSpawnerComponent : AbstractComponent<ObstacleSpawner>
+    public sealed class ObstacleSpawnerComponent : AbstractComponent<IObstacleSpawner>
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private GameCycleComponent _gameCycle;
-        [SerializeField] private GameObjectPoolComponent _gameObjectPool;
+        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
+        [SerializeField] private AbstractComponent<IPool<GameObject>> _gameObjectPool;
         [SerializeField] private float _gap;
         [SerializeField] private Vector3 _playerOffset;
         [SerializeField] private Transform _player;
 #nullable enable
 
-        protected override ObstacleSpawner Create()
+        protected override IObstacleSpawner Create()
         {
             return new ObstacleSpawner(_gameCycle.HeldItem, _gameObjectPool.HeldItem, _gap, _playerOffset, _player);
         }
     }
 
-    public class ObstacleSpawner
+    public interface IObstacleSpawner
+    {
+        event Action? OnObstaclePassed;
+    }
+
+    public class ObstacleSpawner : IObstacleSpawner
     {
         private readonly IPool<GameObject> _pool;
         private readonly float _gap;
@@ -37,12 +42,12 @@ namespace GachiBird.Environment
         private Vector3 _startOffset;
         private ushort _spawnedCount = 0;
 
-        public event Action OnObstaclePassed;
+        public event Action? OnObstaclePassed;
 
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
 
         public ObstacleSpawner(
-            GameCycle gameCycle, IPool<GameObject> pool, float gap, Vector3 playerOffset, Transform player
+            IGameCycle gameCycle, IPool<GameObject> pool, float gap, Vector3 playerOffset, Transform player
         )
         {
             gameCycle.OnGameStart += () => Start(player.position);
@@ -58,7 +63,7 @@ namespace GachiBird.Environment
             TrySpawn();
         }
 
-        private void HandleObstacleTriggered(Collider2D collider, Collider2DListener collider2DListener)
+        private void HandleObstacleTriggered(Collider2D collider, ICollider2DListener collider2DListener)
         {
             collider2DListener.OnTrigger -= HandleObstacleTriggered;
 
