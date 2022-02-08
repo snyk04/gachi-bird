@@ -12,7 +12,7 @@ namespace GachiBird.CameraMovement
     public class CameraEffectsChainerComponent : DestroyableAbstractComponent<CameraEffectsChainer>
     {
 #nullable disable
-        [SerializeField] private UnityEngine.Camera _camera;
+        [SerializeField] private Camera _camera;
         [SerializeField] private AbstractComponent<ICameraEffect>[] _effects;
 #nullable enable
         
@@ -27,11 +27,11 @@ namespace GachiBird.CameraMovement
     
     public class CameraEffectsChainer : IDisposable
     {
-        private readonly UnityEngine.Camera _camera;
+        private readonly Camera _camera;
         private readonly IEnumerable<ICameraEffect> _effects;
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
         
-        public CameraEffectsChainer(UnityEngine.Camera camera, IEnumerable<ICameraEffect> effects)
+        public CameraEffectsChainer(Camera camera, IEnumerable<ICameraEffect> effects)
         {
             _camera = camera;
             _effects = effects;

@@ -24,7 +24,7 @@ namespace GachiBird.Input
     {
         private readonly PlayerComponent _player;
         private readonly InputAction _jumpAction = new Controls().Player.Jump;
-        
+
         public PlayerInput(GameCycle gameCycle, PlayerComponent player)
         {
             _player = player;
