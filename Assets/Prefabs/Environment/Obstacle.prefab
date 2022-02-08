@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861772f62bcd4ad6915da8c294d3676a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CheckpointCollider2DListener: {fileID: 4151240874677557127}
+  _checkpointCollider2DListener: {fileID: 4151240874677557127}
 --- !u!1 &2806567410635137038
 GameObject:
   m_ObjectHideFlags: 0

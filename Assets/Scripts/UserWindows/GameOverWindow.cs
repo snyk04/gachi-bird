@@ -3,12 +3,16 @@
 using GachiBird.Game;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GachiBird.UserWindows
 {
     public sealed class GameOverWindow : BaseWindow
     {
 #nullable disable
+        [Header("Buttons")] 
+        [SerializeField] private Button _okButton;
+        
         [Header("References")] 
         [SerializeField] private GameCycleComponent _gameCycle;
         [SerializeField] private ScoreHolderComponent _scoreHolder;
@@ -22,6 +26,8 @@ namespace GachiBird.UserWindows
         {
             _gameCycle.HeldItem.OnGameEnd += Show;
             _gameCycle.HeldItem.OnGameEnd += ShowResultScore;
+            
+            _okButton.onClick.AddListener(() => _gameCycle.HeldItem.RestartGame());
         }
 
         private void ShowResultScore()

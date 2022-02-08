@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 6459932232498901329}
+  _okButton: {fileID: 6459932232240760025}
   _gameCycle: {fileID: 0}
   _scoreHolder: {fileID: 0}
   _currentScoreText: {fileID: 6459932233707510141}
@@ -578,19 +579,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6459932232240760026}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameCycle, Assembly-CSharp
-        m_MethodName: RestartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &6459932232246681313
 GameObject:
   m_ObjectHideFlags: 0
