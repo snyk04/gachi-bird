@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7485426288797714495}
+  - component: {fileID: 3656474445300676885}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -33,6 +34,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3656474445300676885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2320451109719542802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861772f62bcd4ad6915da8c294d3676a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CheckpointCollider2DListener: {fileID: 4151240874677557127}
 --- !u!1 &2806567410635137038
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 841505399207666607}
   - component: {fileID: 8038774874386461535}
-  - component: {fileID: 7889197063126327734}
+  - component: {fileID: 4151240874677557127}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -91,7 +105,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 20}
   m_EdgeRadius: 0
---- !u!114 &7889197063126327734
+--- !u!114 &4151240874677557127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,10 +114,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2806567410635137038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42806f51eba5ff84abb1f5e144afcb0d, type: 3}
+  m_Script: {fileID: 11500000, guid: b07c5efed22540a1a1f9d03a69132b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectType: 3
 --- !u!1 &7425172216399043621
 GameObject:
   m_ObjectHideFlags: 0

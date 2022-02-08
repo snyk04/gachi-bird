@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4ff1f5d8674301ad34f3eae03e64d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audio: {fileID: 8300000, guid: de97122a2d60f324683c29b604fed8b0, type: 3}
+  _audioSource: {fileID: 931035453}
   _spectrumDataSize: 64
   _fftWindow: 4
   _prefab: {fileID: 1356523301306644329, guid: 3f45625f4d5497e47b4a6ad4cdc8ea3e, type: 3}
@@ -283,7 +283,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: de97122a2d60f324683c29b604fed8b0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -641,6 +641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}

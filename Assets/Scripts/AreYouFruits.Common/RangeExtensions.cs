@@ -10,7 +10,7 @@ namespace AreYouFruits.Common
         public static bool Contains<TComparable>(this Range<TComparable> range, TComparable value)
             where TComparable : IComparable<TComparable>
         {
-            return !range.IsBounded || range.Min.CompareTo(value) >= 0 && value.CompareTo(range.Max) <= 0;
+            return !range.IsBounded || (value.CompareTo(range.Min) >= 0 && value.CompareTo(range.Max) <= 0);
         }
 
         public static float Average(this Range<float> range) => (range.Min + range.Max) / 2.0f;

@@ -10,7 +10,7 @@ namespace AreYouFruits.Common.Assertions
     public static class Assertion
     {
         private const string DirectiveName = "ASSERTIONS_ENABLED";
-        
+
         [Conditional(DirectiveName)]
         public static void AssertNotNull<TNullable>(this TNullable? nullable, string? name = "")
             where TNullable : class
@@ -24,9 +24,8 @@ namespace AreYouFruits.Common.Assertions
         }
 
         [Conditional(DirectiveName)]
-        public static void AssertNotNull<TBehaviour>(
-            this TBehaviour behaviour, params object?[] nullables
-        ) where TBehaviour : MonoBehaviour
+        public static void AssertNotNull<TBehaviour>(this TBehaviour behaviour, params object?[] nullables)
+            where TBehaviour : MonoBehaviour
         {
             int i = 0;
 
@@ -39,14 +38,15 @@ namespace AreYouFruits.Common.Assertions
         }
 
         [Conditional(DirectiveName)]
-        public static void ThrowIf<TException>(
-            bool condition, TException exception
-        ) where TException : Exception
+        public static void ThrowIf<TException>(bool condition, TException exception) where TException : Exception
         {
             if (condition)
             {
                 throw exception;
             }
         }
+
+        [Conditional(DirectiveName)]
+        public static void ThrowIf(bool condition, string message) => ThrowIf(condition, new Exception(message));
     }
 }

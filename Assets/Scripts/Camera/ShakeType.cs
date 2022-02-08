@@ -3,6 +3,6 @@
     public enum ShakeType
     {
         Random,
-        SoundDependent
+        SoundDependent,
     }
 }

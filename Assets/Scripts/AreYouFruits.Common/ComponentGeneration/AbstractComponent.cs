@@ -4,7 +4,8 @@
 
 namespace AreYouFruits.Common.ComponentGeneration
 {
-    public abstract class AbstractComponent<T> : MonoBehaviour where T : class
+    public abstract class AbstractComponent<T> : MonoBehaviour, IComponent<T>
+        where T : class
     {
         private T? _heldItem;
         private bool _isStartedInitialization = false;
