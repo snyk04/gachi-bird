@@ -30,7 +30,7 @@ namespace GachiBird.Serialization
             Path = $"{Application.persistentDataPath}/{relativePath}";
         }
 
-        public bool TryLoadSaveData(out TData saveData)
+        public virtual bool TryLoadSaveData(out TData saveData)
         {
             if (File.Exists(Path))
             {
@@ -49,7 +49,7 @@ namespace GachiBird.Serialization
             return false;
         }
 
-        public void Save(TData saveData)
+        public virtual void Save(TData saveData)
         {
             using FileStream file = File.Create(Path);
             Formatter.Serialize(file, saveData);

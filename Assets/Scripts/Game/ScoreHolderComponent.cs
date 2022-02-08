@@ -38,7 +38,7 @@ namespace GachiBird.UserWindows
         public void Add(int points);
     }
 
-    public class ScoreHolder : IScoreHolder
+    public sealed class ScoreHolder : IScoreHolder
     {
         public int Score { get; private set; }
         public int BestScore { get; private set; }

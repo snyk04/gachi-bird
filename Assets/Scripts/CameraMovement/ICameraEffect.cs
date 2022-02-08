@@ -6,6 +6,6 @@ namespace GachiBird.CameraMovement
 {
     public interface ICameraEffect
     {
-        public void Apply(Camera camera);
+        void Apply(Camera camera);
     }
 }

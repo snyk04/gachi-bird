@@ -10,7 +10,7 @@ using CallbackContext = UnityEngine.InputSystem.InputAction.CallbackContext;
 
 namespace GachiBird.Input
 {
-    public class PlayerInputComponent : DestroyableAbstractComponent<PlayerInput>
+    public sealed class PlayerInputComponent : DestroyableAbstractComponent<PlayerInput>
     {
 #nullable disable
         [SerializeField] private GameCycleComponent _gameCycle;
@@ -20,7 +20,7 @@ namespace GachiBird.Input
         protected override PlayerInput Create() => new PlayerInput(_gameCycle.HeldItem, _player.HeldItem);
     }
 
-    public class PlayerInput : IDisposable
+    public sealed class PlayerInput : IDisposable
     {
         private readonly IPlayer _player;
         private readonly InputAction _jumpAction = new Controls().Player.Jump;

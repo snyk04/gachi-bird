@@ -31,6 +31,7 @@ namespace GachiBird.Game
         public void RestartGame();
     }
     
+    // todo: make StartGame and StopGame public (via dependencies)
     public sealed class GameCycle : IGameCycle
     {
         private readonly InputAction _playerJumpAction;

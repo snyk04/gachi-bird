@@ -69,13 +69,13 @@ namespace GachiBird.Serialization
             _saver.Save(_saveData);
         }
 
-        public void SaveStatusOfSkins(Dictionary<int, bool> statusOfSkins)
+        public void SaveStatusOfSkins(bool[] statusOfSkins)
         {
             _saveData.StatusOfSkins = statusOfSkins;
             _saver.Save(_saveData);
         }
 
-        public void SaveStatusOfMusic(Dictionary<int, bool> statusOfMusic)
+        public void SaveStatusOfMusic(bool[] statusOfMusic)
         {
             _saveData.StatusOfMusic = statusOfMusic;
             _saver.Save(_saveData);
@@ -84,7 +84,7 @@ namespace GachiBird.Serialization
         public int LoadBestScore() => _saveData.BestScore;
         public int LoadCurrentSkinId() => _saveData.CurrentSkinId;
         public int LoadAmountOfMoney() => _saveData.AmountOfMoney;
-        public Dictionary<int, bool> LoadStatusOfSkins() => _saveData.StatusOfSkins;
-        public Dictionary<int, bool> LoadStatusOfMusic() => _saveData.StatusOfMusic;
+        public bool[] LoadStatusOfSkins() => _saveData.StatusOfSkins;
+        public bool[] LoadStatusOfMusic() => _saveData.StatusOfMusic;
     }
 }

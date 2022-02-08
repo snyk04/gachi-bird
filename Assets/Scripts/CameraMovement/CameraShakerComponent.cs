@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 namespace GachiBird.CameraMovement
 {
-    public class CameraShakerComponent : AbstractComponent<ICameraEffect>
+    public sealed class CameraShakerComponent : AbstractComponent<ICameraEffect>
     {
 #nullable disable
         [Header("References")]
@@ -31,7 +31,7 @@ namespace GachiBird.CameraMovement
         );
     }
 
-    public class CameraShaker : ICameraEffect
+    public sealed class CameraShaker : ICameraEffect
     {
         private readonly ISoundAnalyzer _soundAnalyzer;
 

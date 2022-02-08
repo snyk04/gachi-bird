@@ -24,7 +24,7 @@ namespace GachiBird.PlayerLogic
         }
     }
 
-    public class PlayerPreGameLevitator
+    public sealed class PlayerPreGameLevitator
     {
         private readonly Rigidbody2D _rigidbody;
         private readonly float _defaultGravityScale;

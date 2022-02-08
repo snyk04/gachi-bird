@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 
 namespace AreYouFruits.Common.ComponentGeneration
 {
@@ -6,9 +8,10 @@ namespace AreYouFruits.Common.ComponentGeneration
         where T : class
         where TDisposable : T, IDisposable
     {
-        protected void OnDestroy() => ((TDisposable)HeldItem).Dispose();
+        protected virtual void OnDestroy() => ((TDisposable)HeldItem).Dispose();
     }
     
-    public abstract class DestroyableAbstractComponent<TDisposable> : DestroyableAbstractComponent<TDisposable, TDisposable>
+    public abstract class DestroyableAbstractComponent<TDisposable> 
+        : DestroyableAbstractComponent<TDisposable, TDisposable>
         where TDisposable : class, IDisposable { }
 }

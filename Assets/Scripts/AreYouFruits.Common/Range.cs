@@ -13,7 +13,6 @@ namespace AreYouFruits.Common
 
         public Range(TRangeable min, TRangeable max)
         {
-            var t = typeof(Range<>);
             Min = min;
             Max = max;
             IsBounded = true;

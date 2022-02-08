@@ -6,7 +6,7 @@ namespace GachiBird.Environment.Pooling
     {
         protected abstract int MaxCount { get; }
 
-        public override T Get()
+        public sealed override T Get()
         {
             if (AvailableElements.Count + BusyElements.Count < MaxCount)
             {

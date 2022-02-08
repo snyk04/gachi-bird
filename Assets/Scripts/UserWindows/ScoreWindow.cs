@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace GachiBird.UserWindows
 {
-    public class ScoreWindow : BaseWindow
+    public sealed class ScoreWindow : BaseWindow
     {
 #nullable disable
         [Header("References")]

@@ -1,5 +1,4 @@
 ﻿#nullable enable
-#define ASSERTIONS_ENABLED
 
 using System;
 using System.Diagnostics;

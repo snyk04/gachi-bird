@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace GachiBird.PlayerLogic
 {
-    public class PlayerBordersTriggerComponent 
+    public sealed class PlayerBordersTriggerComponent 
         : DestroyableAbstractComponent<IPlayerBordersTrigger, PlayerBordersTrigger>
     {
 #nullable disable
@@ -43,7 +43,7 @@ namespace GachiBird.PlayerLogic
         event Action OnPlayerOutOfBounds;
     }
 
-    public class PlayerBordersTrigger : IPlayerBordersTrigger, IDisposable
+    public sealed class PlayerBordersTrigger : IPlayerBordersTrigger, IDisposable
     {
         private readonly Transform _player;
         private readonly Range<float> _heightBounds;

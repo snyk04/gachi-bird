@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace GachiBird.CameraMovement
 {
-    public class CameraEffectsChainerComponent : DestroyableAbstractComponent<CameraEffectsChainer>
+    public sealed class CameraEffectsChainerComponent : DestroyableAbstractComponent<CameraEffectsChainer>
     {
 #nullable disable
         [SerializeField] private Camera _camera;
@@ -27,9 +27,9 @@ namespace GachiBird.CameraMovement
     
     public class CameraEffectsChainer : IDisposable
     {
-        private readonly Camera _camera;
-        private readonly IEnumerable<ICameraEffect> _effects;
-        private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
+        protected readonly Camera _camera;
+        protected readonly IEnumerable<ICameraEffect> _effects;
+        protected readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
         
         public CameraEffectsChainer(Camera camera, IEnumerable<ICameraEffect> effects)
         {
@@ -47,7 +47,7 @@ namespace GachiBird.CameraMovement
             }
         }
 
-        private void ApplyEffects()
+        protected virtual void ApplyEffects()
         {
             foreach (ICameraEffect effect in _effects)
             {
@@ -55,6 +55,6 @@ namespace GachiBird.CameraMovement
             }
         }
 
-        public void Dispose() => _cancellationSource.Cancel();
+        public virtual void Dispose() => _cancellationSource.Cancel();
     }
 }

@@ -25,7 +25,7 @@ namespace GachiBird.Audio
         float GetAmplitude(Range<int> frequencyRange, float minValue, float maxValue);
     }
 
-    public class SoundAnalyzer : ISoundAnalyzer
+    public sealed class SoundAnalyzer : ISoundAnalyzer
     {
         private readonly AudioSource _audioSource;
         private readonly FFTWindow _fftWindow;

@@ -11,14 +11,7 @@ namespace GachiBird.UserWindows
         [SerializeField] private GameObject _container;
 #nullable enable
         
-        protected void Show()
-        {
-            _container.SetActive(true);
-        }
-        
-        protected void Hide()
-        {
-            _container.SetActive(false);
-        }
+        protected void Show() => _container.SetActive(true);
+        protected void Hide() => _container.SetActive(false);
     }
 }

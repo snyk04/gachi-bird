@@ -33,14 +33,14 @@ namespace GachiBird.Environment
         event Action? OnObstaclePassed;
     }
 
-    public class ObstacleSpawner : IObstacleSpawner
+    public sealed class ObstacleSpawner : IObstacleSpawner
     {
         private readonly IPool<GameObject> _pool;
         private readonly float _gap;
         private readonly Vector3 _playerOffset;
 
         private Vector3 _startOffset;
-        private ushort _spawnedCount = 0;
+        private int _spawnedCount = 0;
 
         public event Action? OnObstaclePassed;
 

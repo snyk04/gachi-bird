@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿#nullable enable
 
-#nullable enable
+using UnityEngine;
 
 namespace AreYouFruits.Common.ComponentGeneration
 {

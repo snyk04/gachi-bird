@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 namespace GachiBird.Audio
 {
-    public class AudioVisualizerComponent : DestroyableAbstractComponent<AudioVisualizer>
+    public sealed class AudioVisualizerComponent : DestroyableAbstractComponent<AudioVisualizer>
     {
 #nullable disable
         [SerializeField] private AudioSource _audioSource;
