@@ -1,14 +1,17 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using AreYouFruits.Common;
 using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Audio;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace GachiBird.Camera
+namespace GachiBird.CameraMovement
 {
     public class CameraShakerComponent : AbstractComponent<ICameraEffect>
     {
+#nullable disable
         [Header("References")]
         [SerializeField] private SoundAnalyzerComponent _soundAnalyzer;
 
@@ -17,7 +20,8 @@ namespace GachiBird.Camera
         [SerializeField] private float _powerThreshold;
         [SerializeField] private float _maxPower;
         [SerializeField] private Range<int> _frequencyRange;
-
+#nullable enable
+        
         protected override ICameraEffect Create() => new CameraShaker(
             _soundAnalyzer.HeldItem,
             _shakeType,
@@ -60,7 +64,7 @@ namespace GachiBird.Camera
             return GetRandomPower(power);
         }
 
-        public void Apply(UnityEngine.Camera camera)
+        public void Apply(Camera camera)
         {
             camera.transform.position += _shakeType switch
             {

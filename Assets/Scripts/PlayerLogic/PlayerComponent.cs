@@ -1,3 +1,5 @@
+#nullable enable
+
 using System;
 using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Game;
@@ -7,12 +9,14 @@ namespace GachiBird.PlayerLogic
 {
     public sealed class PlayerComponent : AbstractComponent<Player>
     {
-        [SerializeField] private GameCycle _gameCycle;
+#nullable disable
+        [SerializeField] private GameCycleComponent _gameCycle;
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private float _jumpForce;
         [SerializeField] private float _speed;
-
-        protected override Player Create() => new Player(_gameCycle, _rigidbody, _jumpForce, _speed);
+#nullable enable
+        
+        protected override Player Create() => new Player(_gameCycle.HeldItem, _rigidbody, _jumpForce, _speed);
     }
 
     public sealed class Player

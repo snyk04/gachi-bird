@@ -1,16 +1,20 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AreYouFruits.Common.ComponentGeneration;
 using UnityEngine;
 
-namespace GachiBird.Camera
+namespace GachiBird.CameraMovement
 {
     public class CameraEffectsChainerComponent : DestroyableAbstractComponent<CameraEffectsChainer>
     {
+#nullable disable
         [SerializeField] private UnityEngine.Camera _camera;
         [SerializeField] private AbstractComponent<ICameraEffect>[] _effects;
+#nullable enable
         
         protected override CameraEffectsChainer Create()
         {

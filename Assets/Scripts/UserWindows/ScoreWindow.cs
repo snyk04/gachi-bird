@@ -1,4 +1,6 @@
-﻿using GachiBird.Game;
+﻿#nullable enable
+
+using GachiBird.Game;
 using TMPro;
 using UnityEngine;
 
@@ -6,25 +8,27 @@ namespace GachiBird.UserWindows
 {
     public class ScoreWindow : BaseWindow
     {
+#nullable disable
         [Header("References")]
-        [SerializeField] private GameCycle _gameCycle;
+        [SerializeField] private GameCycleComponent _gameCycle;
         [SerializeField] private ScoreHolderComponent _scoreHolder;
         
         [Header("Objects")]
         [SerializeField] private TMP_Text _scoreCounter;
-
+#nullable enable
+        
         private void Awake()
         {
-            _gameCycle.OnGameStart += Show;
-            _gameCycle.OnGameEnd += Hide;
+            _gameCycle.HeldItem.OnGameStart += Show;
+            _gameCycle.HeldItem.OnGameEnd += Hide;
 
             _scoreHolder.HeldItem.OnScoreChanged += RefreshScoreCounter;
         }
         
         private void OnDestroy()
         {
-            _gameCycle.OnGameStart -= Show;
-            _gameCycle.OnGameEnd -= Hide;
+            _gameCycle.HeldItem.OnGameStart -= Show;
+            _gameCycle.HeldItem.OnGameEnd -= Hide;
 
             _scoreHolder.HeldItem.OnScoreChanged -= RefreshScoreCounter;
         }

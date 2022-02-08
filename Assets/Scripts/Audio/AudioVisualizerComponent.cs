@@ -9,10 +9,9 @@ using Object = UnityEngine.Object;
 
 namespace GachiBird.Audio
 {
-#nullable disable
-
     public class AudioVisualizerComponent : DestroyableAbstractComponent<AudioVisualizer>
     {
+#nullable disable
         [SerializeField] private AudioSource _audioSource;
 
         [Header("Analyzing")] 
@@ -22,6 +21,7 @@ namespace GachiBird.Audio
         [Header("Visualizing")]
         [SerializeField] private GameObject _partPrefab;
         [SerializeField] private GameObject _partContainer;
+#nullable enable
 
         protected override AudioVisualizer Create()
         {
@@ -38,8 +38,6 @@ namespace GachiBird.Audio
             return item;
         }
     }
-
-#nullable enable
 
     public class AudioVisualizer : IDisposable
     {

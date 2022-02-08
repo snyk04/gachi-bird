@@ -1,3 +1,5 @@
+#nullable enable
+
 using System;
 using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Environment;
@@ -8,11 +10,13 @@ namespace GachiBird.UserWindows
 {
     public sealed class ScoreHolderComponent : AbstractComponent<ScoreHolder>
     {
+#nullable disable
         [Header("References")]
         [SerializeField] private SerializationManagerComponent _serializationManager;
         [SerializeField] private ObstacleSpawnerComponent _obstacleSpawner;
         [SerializeField] private int _pointsPerCheckpoint;
-
+#nullable enable
+        
         protected override ScoreHolder Create()
         {
             return new ScoreHolder(

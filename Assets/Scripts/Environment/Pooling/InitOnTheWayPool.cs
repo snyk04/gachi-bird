@@ -1,4 +1,6 @@
-﻿namespace GachiBird.Environment.Pooling
+﻿#nullable enable
+
+namespace GachiBird.Environment.Pooling
 {
     public abstract class InitOnTheWayPool<T> : Pool<T>
     {

@@ -1,4 +1,6 @@
-﻿using AreYouFruits.Common.ComponentGeneration;
+﻿#nullable enable
+
+using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Game;
 using UnityEngine;
 
@@ -6,13 +8,15 @@ namespace GachiBird.PlayerLogic
 {
     public class PlayerPreGameLevitatorComponent : AbstractComponent<PlayerPreGameLevitator>
     {
-        [SerializeField] private GameCycle _gameCycle;
+#nullable disable
+        [SerializeField] private GameCycleComponent _gameCycle;
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private float _defaultGravityScale;
-
+#nullable enable
+        
         protected override PlayerPreGameLevitator Create()
         {
-            var item = new PlayerPreGameLevitator(_gameCycle, _rigidbody, _defaultGravityScale);
+            var item = new PlayerPreGameLevitator(_gameCycle.HeldItem, _rigidbody, _defaultGravityScale);
 
             item.Start();
 

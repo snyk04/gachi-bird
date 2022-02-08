@@ -1,3 +1,5 @@
+#nullable enable
+
 using GachiBird.Game;
 using UnityEngine;
 
@@ -5,12 +7,14 @@ namespace GachiBird.UserWindows
 {
     public sealed class PreStartWindow : BaseWindow
     {
-        [SerializeField] private GameCycle _gameCycle;
+#nullable disable
+        [SerializeField] private GameCycleComponent _gameCycle;
+#nullable enable
         
         private void Awake()
         {
             Show();
-            _gameCycle.OnGameStart += Hide;
+            _gameCycle.HeldItem.OnGameStart += Hide;
         }
     }
 }

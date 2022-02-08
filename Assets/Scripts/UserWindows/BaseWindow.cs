@@ -1,12 +1,16 @@
-﻿using UnityEngine;
+﻿#nullable enable
+
+using UnityEngine;
 
 namespace GachiBird.UserWindows
 {
     public abstract class BaseWindow : MonoBehaviour
     {
+#nullable disable
         [Header("Interface components")]
         [SerializeField] private GameObject _container;
-
+#nullable enable
+        
         protected void Show()
         {
             _container.SetActive(true);

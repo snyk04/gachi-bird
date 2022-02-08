@@ -1,25 +1,29 @@
-﻿using System.Threading.Tasks;
+﻿#nullable enable
+
+using System.Threading.Tasks;
 using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Game;
 using UnityEngine;
 
-namespace GachiBird.Camera
+namespace GachiBird.CameraMovement
 {
     public sealed class CameraAlignerComponent : AbstractComponent<ICameraEffect>
     {
+#nullable disable
         [Header("References")]
-        [SerializeField] private GameCycle _gameCycle;
+        [SerializeField] private GameCycleComponent _gameCycle;
 
         [Header("Settings")]
         [SerializeField] private Transform _objectToAlign;
         [SerializeField] private Vector2 _defaultCameraOffset;
         [SerializeField] private float _defaultSmoothTime;
         [SerializeField] private float _timeToMoveCameraToGamePosition;
-
+#nullable enable
+        
         protected override ICameraEffect Create()
         {
             return new CameraAligner(
-                _gameCycle,
+                _gameCycle.HeldItem,
                 _objectToAlign,
                 _defaultCameraOffset,
                 _defaultSmoothTime,
@@ -69,7 +73,7 @@ namespace GachiBird.Camera
             }
         }
 
-        public void Apply(UnityEngine.Camera camera)
+        public void Apply(Camera camera)
         {
             Transform transform = camera.transform;
             
@@ -86,10 +90,5 @@ namespace GachiBird.Camera
                 _currentSmoothTime
             );
         }
-    }
-
-    public interface ICameraEffect
-    {
-        public void Apply(UnityEngine.Camera camera);
     }
 }

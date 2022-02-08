@@ -6,16 +6,16 @@ using UnityEngine;
 
 namespace GachiBird.Audio
 {
-#nullable disable
     public class SoundAnalyzerComponent : AbstractComponent<SoundAnalyzer>
     {
+#nullable disable
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private SpectrumDataSize _spectrumDataSize;
         [SerializeField] private FFTWindow _fftWindow;
+#nullable enable
 
         protected override SoundAnalyzer Create() => new SoundAnalyzer(_audioSource, _spectrumDataSize, _fftWindow);
     }
-#nullable enable
 
     public class SoundAnalyzer
     {

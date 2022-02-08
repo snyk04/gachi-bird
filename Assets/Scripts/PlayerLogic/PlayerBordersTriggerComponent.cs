@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AreYouFruits.Common;
@@ -9,8 +11,10 @@ namespace GachiBird.PlayerLogic
 {
     public class PlayerBordersTriggerComponent : DestroyableAbstractComponent<PlayerBordersTrigger>
     {
+#nullable disable
         [SerializeField] private Transform _player;
         [SerializeField] private Range<float> _heightBounds;
+#nullable enable
         
         protected override PlayerBordersTrigger Create()
         {

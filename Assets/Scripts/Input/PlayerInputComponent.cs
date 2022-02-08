@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Game;
 using GachiBird.PlayerLogic;
@@ -10,10 +12,12 @@ namespace GachiBird.Input
 {
     public class PlayerInputComponent : DestroyableAbstractComponent<PlayerInput>
     {
-        [SerializeField] private GameCycle _gameCycle;
+#nullable disable
+        [SerializeField] private GameCycleComponent _gameCycle;
         [SerializeField] private PlayerComponent _player;
-
-        protected override PlayerInput Create() => new PlayerInput(_gameCycle, _player);
+#nullable enable
+        
+        protected override PlayerInput Create() => new PlayerInput(_gameCycle.HeldItem, _player);
     }
 
     public class PlayerInput : IDisposable

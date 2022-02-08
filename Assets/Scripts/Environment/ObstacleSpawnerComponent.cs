@@ -15,7 +15,7 @@ namespace GachiBird.Environment
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private GameCycle _gameCycle;
+        [SerializeField] private GameCycleComponent _gameCycle;
         [SerializeField] private GameObjectPoolComponent _gameObjectPool;
         [SerializeField] private float _gap;
         [SerializeField] private Vector3 _playerOffset;
@@ -24,7 +24,7 @@ namespace GachiBird.Environment
 
         protected override ObstacleSpawner Create()
         {
-            return new ObstacleSpawner(_gameCycle, _gameObjectPool.HeldItem, _gap, _playerOffset, _player);
+            return new ObstacleSpawner(_gameCycle.HeldItem, _gameObjectPool.HeldItem, _gap, _playerOffset, _player);
         }
     }
 
@@ -37,11 +37,13 @@ namespace GachiBird.Environment
         private Vector3 _startOffset;
         private ushort _spawnedCount = 0;
 
-        public event Action OnObstaclePassed; 
+        public event Action OnObstaclePassed;
 
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
 
-        public ObstacleSpawner(GameCycle gameCycle, IPool<GameObject> pool, float gap, Vector3 playerOffset, Transform player)
+        public ObstacleSpawner(
+            GameCycle gameCycle, IPool<GameObject> pool, float gap, Vector3 playerOffset, Transform player
+        )
         {
             gameCycle.OnGameStart += () => Start(player.position);
             _pool = pool;

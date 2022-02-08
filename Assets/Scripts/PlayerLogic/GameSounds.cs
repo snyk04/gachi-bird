@@ -1,4 +1,6 @@
-﻿using GachiBird.Game;
+﻿#nullable enable
+
+using GachiBird.Game;
 using UnityEngine;
 using GachiBird.UserWindows;
 
@@ -6,8 +8,9 @@ namespace GachiBird.PlayerLogic
 {
     public sealed class GameSounds : MonoBehaviour
     {
+#nullable disable
         [Header("References")]
-        [SerializeField] private GameCycle _gameCycle;
+        [SerializeField] private GameCycleComponent _gameCycle;
         [SerializeField] private PlayerComponent _player;
         [SerializeField] private ScoreHolderComponent _scoreHolder;
         
@@ -15,11 +18,12 @@ namespace GachiBird.PlayerLogic
         [SerializeField] private AudioSource _checkpointAudioSource;
         [SerializeField] private AudioSource _deathAudioSource;
         [SerializeField] private AudioSource _jumpAudioSource;
-
+#nullable enable
+        
         private void Awake()
         {
-             _scoreHolder.HeldItem.OnScoreChanged += _checkpointAudioSource.Play;
-            _gameCycle.OnGameEnd += _deathAudioSource.Play;
+            _scoreHolder.HeldItem.OnScoreChanged += _checkpointAudioSource.Play;
+            _gameCycle.HeldItem.OnGameEnd += _deathAudioSource.Play;
             _player.HeldItem.OnJump += _jumpAudioSource.Play;
         }
     }

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿#nullable enable
+
+using System.Collections.Generic;
 using AreYouFruits.Common.ComponentGeneration;
 using UnityEngine;
 
@@ -6,7 +8,9 @@ namespace GachiBird.Serialization
 {
     public sealed class SerializationManagerComponent : AbstractComponent<SerializationManager>
     {
+#nullable disable
         [SerializeField] private string _fileName = "SaveData.dat";
+#nullable enable
         
         protected override SerializationManager Create() => new SerializationManager(_fileName);
     }
