@@ -1,5 +1,4 @@
-﻿using AreYouFruits.Common.ComponentGeneration;
-using GachiBird.Game;
+﻿using GachiBird.Game;
 using UnityEngine;
 using GachiBird.UserWindows;
 

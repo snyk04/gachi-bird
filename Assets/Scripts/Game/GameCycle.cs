@@ -1,7 +1,5 @@
 using System;
-using GachiBird.Environment;
 using GachiBird.Environment.Colliders;
-using GachiBird.Environment.Objects;
 using GachiBird.PlayerLogic;
 using UnityEngine;
 using UnityEngine.InputSystem;

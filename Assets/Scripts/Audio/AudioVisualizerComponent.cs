@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using AreYouFruits.Common.ComponentGeneration;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 namespace GachiBird.Audio
