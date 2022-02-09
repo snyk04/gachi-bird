@@ -10,8 +10,8 @@ namespace GachiBird.UserWindows
         public int Score { get; private set; }
         public int BestScore { get; private set; }
 
-        public event Action OnScoreChanged;
-        public event Action OnBestScoreChanged;
+        public event Action? OnScoreChanged;
+        public event Action? OnBestScoreChanged;
 
         public ScoreHolder(IObstacleSpawner obstacleSpawner, int bestScore, int pointsPerCheckpoint)
         {

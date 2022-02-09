@@ -28,9 +28,6 @@ namespace GachiBird.Input
             _jumpAction.performed -= Jump;
         }
         
-        private void Jump(InputAction.CallbackContext context)
-        {
-            _player.Jump();
-        }
+        private void Jump(InputAction.CallbackContext context) => _player.Jump();
     }
 }

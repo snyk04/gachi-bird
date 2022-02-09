@@ -10,8 +10,8 @@ namespace GachiBird.CameraMovement
     {
         private readonly Transform _objectToAlign;
 
-        private Vector2 _currentCameraOffset;
-        private float _currentSmoothTime;
+        private Vector2 _cameraOffset;
+        private float _smoothTime;
 
         private Vector3 _alignmentVelocity;
 
@@ -22,13 +22,13 @@ namespace GachiBird.CameraMovement
         {
             _objectToAlign = objectToAlign;
 
-            _currentCameraOffset = Vector2.zero;
-            _currentSmoothTime = 0;
+            _cameraOffset = Vector2.zero;
+            _smoothTime = 0;
             
-            void SetSmoothTimeToDefaultValue() => _currentSmoothTime = defaultSmoothTime;
+            void SetSmoothTimeToDefaultValue() => _smoothTime = defaultSmoothTime;
 
             gameCycle.OnGameStart += SetSmoothTimeToDefaultValue;
-            gameCycle.OnGameStart += () => _currentCameraOffset = defaultCameraOffset;
+            gameCycle.OnGameStart += () => _cameraOffset = defaultCameraOffset;
             gameCycle.OnGameStart += () => ChangeSmoothTimeToZero(timeToMoveCameraToGamePosition);
 
             gameCycle.OnGameEnd += SetSmoothTimeToDefaultValue;
@@ -40,7 +40,7 @@ namespace GachiBird.CameraMovement
 
             while (counter < 10)
             {
-                _currentSmoothTime = Mathf.Lerp(_currentSmoothTime, 0, counter / 10f);
+                _smoothTime = Mathf.Lerp(_smoothTime, 0, counter / 10f);
                 counter += 1;
 
                 await Task.Delay((int)(timeToChange * 1000));
@@ -50,18 +50,19 @@ namespace GachiBird.CameraMovement
         public void Apply(Camera camera)
         {
             Transform transform = camera.transform;
+            Vector3 position = transform.position;
             
-            Vector3 targetPosition = new Vector3(
-                _objectToAlign.position.x + _currentCameraOffset.x,
-                _currentCameraOffset.y,
-                transform.position.z
+            var targetPosition = new Vector3(
+                _objectToAlign.position.x + _cameraOffset.x,
+                _cameraOffset.y,
+                position.z
             );
 
             transform.position = Vector3.SmoothDamp(
-                transform.position,
+                position,
                 targetPosition,
                 ref _alignmentVelocity,
-                _currentSmoothTime
+                _smoothTime
             );
         }
     }

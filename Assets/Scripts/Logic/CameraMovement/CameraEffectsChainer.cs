@@ -4,40 +4,37 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using AreYouFruits.Common;
+using AreYouFruits.Common.Collections.InterfaceExtensions;
 using UnityEngine;
 
 namespace GachiBird.CameraMovement
 {
     public class CameraEffectsChainer : IDisposable
     {
-        protected readonly Camera _camera;
-        protected readonly IEnumerable<ICameraEffect> _effects;
-        protected readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
+        protected readonly Camera Camera;
+        protected readonly IEnumerable<ICameraEffect> Effects;
+        protected readonly CancellationTokenSource CancellationSource = new CancellationTokenSource();
         
         public CameraEffectsChainer(Camera camera, IEnumerable<ICameraEffect> effects)
         {
-            _camera = camera;
-            _effects = effects;
+            Camera = camera;
+            Effects = effects;
         }
 
-        public async void Start()
+        public void Start()
         {
-            while (!_cancellationSource.Token.IsCancellationRequested)
-            {
-                ApplyEffects();
-                
-                await Task.Yield();
-            }
+            VoidTasks.Repeat(ApplyEffects, CancellationSource.Token);
         }
 
         protected virtual void ApplyEffects()
         {
-            foreach (ICameraEffect effect in _effects)
+            foreach (ICameraEffect effect in Effects)
             {
-                effect.Apply(_camera);
+                effect.Apply(Camera);
             }
         }
 
-        public virtual void Dispose() => _cancellationSource.Cancel();
+        public virtual void Dispose() => CancellationSource.Cancel();
     }
 }

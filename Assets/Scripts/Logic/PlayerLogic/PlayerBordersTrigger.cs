@@ -24,9 +24,11 @@ namespace GachiBird.PlayerLogic
             _heightBounds = heightBounds;
         }
 
-        public async void Start()
+        public void Start()
         {
-            while (!_cancellationSource.IsCancellationRequested)
+            VoidTasks.Repeat(CheckBounds, _cancellationSource.Token);
+            
+            void CheckBounds()
             {
                 if (!_heightBounds.Contains(_player.position.y) && _heightBounds.Contains(_lastPlayerY))
                 {
@@ -34,8 +36,6 @@ namespace GachiBird.PlayerLogic
                 }
 
                 _lastPlayerY = _player.position.y;
-                
-                await Task.Yield();
             }
         }
         
