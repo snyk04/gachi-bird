@@ -527,6 +527,9 @@ MonoBehaviour:
   _gameObjectPool: {fileID: 3404698249468753892}
   _gap: 10
   _playerOffset: {x: 10, y: 0, z: 0}
+  _yDispersionBorders:
+    _leftBorder: -4
+    _rightBorder: 4.5
   _player: {fileID: 3404698249679552001}
 --- !u!1 &3404698249679552002
 GameObject:

@@ -15,12 +15,14 @@ namespace GachiBird.Environment
         [SerializeField] private AbstractComponent<IPool<GameObject>> _gameObjectPool;
         [SerializeField] private float _gap;
         [SerializeField] private Vector3 _playerOffset;
+        [SerializeField] private Borders _yDispersionBorders;
         [SerializeField] private Transform _player;
 #nullable enable
 
         protected override IObstacleSpawner Create()
         {
-            return new ObstacleSpawner(_gameCycle.HeldItem, _gameObjectPool.HeldItem, _gap, _playerOffset, _player);
+            return new ObstacleSpawner(_gameCycle.HeldItem, _gameObjectPool.HeldItem, _gap, _playerOffset,
+                _yDispersionBorders, _player);
         }
     }
 }
