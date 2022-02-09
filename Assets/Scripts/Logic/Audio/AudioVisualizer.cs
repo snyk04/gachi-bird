@@ -70,6 +70,6 @@ namespace GachiBird.Audio
             }
         }
 
-        public void Dispose() { }
+        public void Dispose() => _cancellationSource.Cancel();
     }
 }
