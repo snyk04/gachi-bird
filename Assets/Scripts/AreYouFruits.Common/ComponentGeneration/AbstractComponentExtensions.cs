@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace AreYouFruits.Common.ComponentGeneration
 {
@@ -17,6 +18,11 @@ namespace AreYouFruits.Common.ComponentGeneration
             where T : class
         {
             return components.Extract().ToArray();
+        }
+
+        public static T GetHeldItem<T>(this GameObject gameObject)
+        {
+            return gameObject.GetComponent<IComponent<T>>().HeldItem;
         }
     }
 }

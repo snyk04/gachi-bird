@@ -1,0 +1,18 @@
+{
+    "name": "GachiBird.Logic",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f3f18cb62c3a4b01aafeeaccaf01922f",
+        "GUID:18f56f5647374b658b3b5b19649d68e8",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
