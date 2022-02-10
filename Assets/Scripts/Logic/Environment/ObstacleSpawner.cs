@@ -2,6 +2,7 @@
 
 using System;
 using System.Threading;
+using AreYouFruits.Common;
 using GachiBird.Environment.Colliders;
 using GachiBird.Environment.Objects;
 using GachiBird.Environment.Pooling;
@@ -16,7 +17,7 @@ namespace GachiBird.Environment
         private readonly IPool<GameObject> _pool;
         private readonly float _gap;
         private readonly Vector3 _playerOffset;
-        private readonly Borders _yDispersionBorders;
+        private readonly Range<float> _heightRange;
 
         private Vector3 _startOffset;
         private int _spawnedCount = 0;
@@ -26,7 +27,7 @@ namespace GachiBird.Environment
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
 
         public ObstacleSpawner(
-            IGameCycle gameCycle, IPool<GameObject> pool, float gap, Vector3 playerOffset, Borders yDispersionBorders, 
+            IGameCycle gameCycle, IPool<GameObject> pool, float gap, Vector3 playerOffset, Range<float> heightRange, 
             Transform player
         )
         {
@@ -34,7 +35,7 @@ namespace GachiBird.Environment
             _pool = pool;
             _gap = gap;
             _playerOffset = playerOffset;
-            _yDispersionBorders = yDispersionBorders;
+            _heightRange = heightRange;
         }
 
         private void Start(Vector3 startOffset)
@@ -54,20 +55,21 @@ namespace GachiBird.Environment
 
         private void TrySpawn()
         {
-            if (!_cancellationSource.Token.IsCancellationRequested)
+            if (_cancellationSource.Token.IsCancellationRequested)
             {
-                _yDispersionBorders.Deconstruct(out float leftBorder, out float rightBorder);
-                Vector3 dispersion = Random.Range(leftBorder, rightBorder) * new Vector3(0, 1, 0);
-                
-                Vector3 position = _startOffset + _spawnedCount * _gap * Vector3.right + dispersion;
-                GameObject createdObject = _pool.Get();
-                createdObject.transform.position = position;
-
-                IObstacle obstacle = createdObject.GetComponent<IObstacle>();
-                obstacle.CheckpointCollider2DListener.OnTrigger += HandleObstacleTriggered;
-
-                _spawnedCount++;
+                return;
             }
+
+            Vector3 dispersion = _heightRange.Random() * new Vector3(0, 1, 0);
+                
+            Vector3 position = _startOffset + _spawnedCount * _gap * Vector3.right + dispersion;
+            GameObject createdObject = _pool.Get();
+            createdObject.transform.position = position;
+
+            IObstacle obstacle = createdObject.GetComponent<IObstacle>();
+            obstacle.CheckpointCollider2DListener.OnTrigger += HandleObstacleTriggered;
+
+            _spawnedCount++;
         }
 
         public void Stop() => _cancellationSource.Cancel();
