@@ -6,7 +6,7 @@ namespace GachiBird.Serialization
     {
         public static IDataSaver<TData> Get<TData>(string relativePath)
         {
-            return new DataSaver<TData>(relativePath);
+            return new DataEncryptedJsonSaver<TData>(relativePath);
         }
     }
 }

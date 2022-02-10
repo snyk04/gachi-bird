@@ -155,11 +155,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3404698249679552001, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
   m_PrefabInstance: {fileID: 3404698249194605955}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &623424389 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 3404698249679552006, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-  m_PrefabInstance: {fileID: 3404698249194605955}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &623424391 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3404698249679552004, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
@@ -383,10 +378,6 @@ PrefabInstance:
       propertyPath: _scoreHolder
       value: 
       objectReference: {fileID: 261006697}
-    - target: {fileID: 6459932232240760025, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2115107477}
     - target: {fileID: 6459932233495907376, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: _gameCycle
       value: 
@@ -500,10 +491,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8746930492868225614, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
-      propertyPath: _playerRigidbody
-      value: 
-      objectReference: {fileID: 623424389}
     - target: {fileID: 8746930492868225614, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
       propertyPath: _playerColliderListener
       value: 

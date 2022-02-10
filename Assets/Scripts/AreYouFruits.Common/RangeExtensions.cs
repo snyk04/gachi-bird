@@ -12,7 +12,7 @@ namespace AreYouFruits.Common
         {
             return !range.IsBounded || (value.CompareTo(range.Min) >= 0 && value.CompareTo(range.Max) <= 0);
         }
-        
+
         public static float Average(this Range<float> range)
         {
             return range.IsBounded ? (range.Min + range.Max) / 2.0f : 0.0f;
@@ -39,23 +39,6 @@ namespace AreYouFruits.Common
             }
             
             return UnityEngine.Random.Range(min, max);
-        }
-        public static float Random(this Range<int> range)
-        {
-            int min;
-            int max;
-
-            if (range.IsBounded)
-            {
-                (min, max) = range;
-            }
-            else
-            {
-                min = int.MinValue;
-                max = int.MaxValue;
-            }
-            
-            return UnityEngine.Random.Range(min, max + 1);
         }
 
         public static float Lerp(this Range<float> range, float t) => Mathf.Lerp(range.Min, range.Max, t);

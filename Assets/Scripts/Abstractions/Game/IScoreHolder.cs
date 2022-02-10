@@ -2,15 +2,15 @@
 
 using System;
 
-namespace GachiBird.UserWindows
+namespace GachiBird.Game
 {
     public interface IScoreHolder
     {
         public int Score { get; }
-        public int BestScore { get; }
+        public int HighScore { get; }
 
         public event Action? OnScoreChanged;
-        public event Action? OnBestScoreChanged;
+        public event Action? OnHighScoreChanged;
 
         public void Add(int points);
     }

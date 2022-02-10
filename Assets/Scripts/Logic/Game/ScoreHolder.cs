@@ -3,20 +3,20 @@
 using System;
 using GachiBird.Environment;
 
-namespace GachiBird.UserWindows
+namespace GachiBird.Game
 {
     public sealed class ScoreHolder : IScoreHolder
     {
         public int Score { get; private set; }
-        public int BestScore { get; private set; }
+        public int HighScore { get; private set; }
 
         public event Action? OnScoreChanged;
-        public event Action? OnBestScoreChanged;
+        public event Action? OnHighScoreChanged;
 
         public ScoreHolder(IObstacleSpawner obstacleSpawner, int bestScore, int pointsPerCheckpoint)
         {
             obstacleSpawner.OnObstaclePassed += () => Add(pointsPerCheckpoint);
-            BestScore = bestScore;
+            HighScore = bestScore;
         }
 
         public void Add(int points)
@@ -30,10 +30,10 @@ namespace GachiBird.UserWindows
 
         private void TryUpdateBestScore()
         {
-            if (Score > BestScore)
+            if (Score > HighScore)
             {
-                BestScore = Score;
-                OnBestScoreChanged?.Invoke();
+                HighScore = Score;
+                OnHighScoreChanged?.Invoke();
             }
         }
     }

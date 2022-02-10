@@ -150,7 +150,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3404698248182516043}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -529,9 +529,10 @@ MonoBehaviour:
   _gameObjectPool: {fileID: 3404698249468753892}
   _gap: 10
   _playerOffset: {x: 10, y: 0, z: 0}
-  _yDispersionBorders:
-    _leftBorder: -4
-    _rightBorder: 4.5
+  _heightRange:
+    Min: -4
+    Max: 4.5
+    IsBounded: 1
   _player: {fileID: 3404698249679552001}
 --- !u!114 &3404698249194605957
 MonoBehaviour:

@@ -1,6 +1,7 @@
 ﻿#nullable enable
 
 using AreYouFruits.Common.ComponentGeneration;
+using GachiBird.Game;
 using UnityEngine;
 
 namespace GachiBird.Serialization
