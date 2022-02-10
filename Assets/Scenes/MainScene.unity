@@ -245,6 +245,10 @@ PrefabInstance:
       propertyPath: _scoreHolder
       value: 
       objectReference: {fileID: 261006697}
+    - target: {fileID: 3404698249194605957, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _gameCycle
+      value: 
+      objectReference: {fileID: 2115107477}
     - target: {fileID: 3404698249468753893, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
       propertyPath: _gameCycle
       value: 

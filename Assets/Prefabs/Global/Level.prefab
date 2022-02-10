@@ -476,6 +476,8 @@ GameObject:
   - component: {fileID: 3404698249468753895}
   - component: {fileID: 3404698249468753892}
   - component: {fileID: 3404698249468753893}
+  - component: {fileID: 3404698249194605957}
+  - component: {fileID: 3404698249194605958}
   m_Layer: 0
   m_Name: Objects
   m_TagString: Untagged
@@ -509,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acd5d6240eda9444a3b7f4279e30090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _amountOfObjectsInPool: 10
+  _amountOfObjectsInPool: 2
   _prefab: {fileID: 2320451109719542802, guid: 24f35ac3d0ab11743ba2947cc0cd169b, type: 3}
 --- !u!114 &3404698249468753893
 MonoBehaviour:
@@ -531,6 +533,51 @@ MonoBehaviour:
     _leftBorder: -4
     _rightBorder: 4.5
   _player: {fileID: 3404698249679552001}
+--- !u!114 &3404698249194605957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3404698249468753888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb49956e25b4d569e731bc9b7cfaea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameCycle: {fileID: 0}
+  _gameObjectPool: {fileID: 3404698249194605958}
+  _obstacleSpawner: {fileID: 3404698249468753893}
+  _boosterSettingsArray:
+  - {fileID: 11400000, guid: ce0fc251fb1f7454880fde9944ab1184, type: 2}
+  _gapRange:
+    Min: 3
+    Max: 6
+    IsBounded: 1
+  _playerOffset: {x: 15, y: 0, z: 0}
+  _widthRange:
+    Min: 2
+    Max: -2
+    IsBounded: 1
+  _heightRange:
+    Min: -5
+    Max: 6
+    IsBounded: 1
+  _player: {fileID: 3404698249679552001}
+--- !u!114 &3404698249194605958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3404698249468753888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8acd5d6240eda9444a3b7f4279e30090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _amountOfObjectsInPool: 2
+  _prefab: {fileID: 2428424187605542156, guid: 22113c5a80b2e1e4993a6b252cf177ad, type: 3}
 --- !u!1 &3404698249679552002
 GameObject:
   m_ObjectHideFlags: 0

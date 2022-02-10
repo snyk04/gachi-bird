@@ -7,14 +7,13 @@ using GachiBird.Environment.Objects;
 using GachiBird.Environment.Pooling;
 using GachiBird.Game;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace GachiBird.Environment
 {
     public sealed class ObstacleSpawner : IObstacleSpawner
     {
         private readonly IPool<GameObject> _pool;
-        private readonly float _gap;
+        public float Gap { get; }
         private readonly Vector3 _playerOffset;
         private readonly Borders _yDispersionBorders;
 
@@ -32,7 +31,7 @@ namespace GachiBird.Environment
         {
             gameCycle.OnGameStart += () => Start(player.position);
             _pool = pool;
-            _gap = gap;
+            Gap = gap;
             _playerOffset = playerOffset;
             _yDispersionBorders = yDispersionBorders;
         }
@@ -59,7 +58,7 @@ namespace GachiBird.Environment
                 _yDispersionBorders.Deconstruct(out float leftBorder, out float rightBorder);
                 Vector3 dispersion = Random.Range(leftBorder, rightBorder) * new Vector3(0, 1, 0);
                 
-                Vector3 position = _startOffset + _spawnedCount * _gap * Vector3.right + dispersion;
+                Vector3 position = _startOffset + _spawnedCount * Gap * Vector3.right + dispersion;
                 GameObject createdObject = _pool.Get();
                 createdObject.transform.position = position;
 
