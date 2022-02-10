@@ -34,7 +34,7 @@ namespace GachiBird.UserWindows
         private void ShowResultScore()
         {
             _currentScoreText.text = _scoreHolder.HeldItem.Score.ToString();
-            _bestScoreText.text = _scoreHolder.HeldItem.BestScore.ToString();
+            _bestScoreText.text = _scoreHolder.HeldItem.HighScore.ToString();
         }
     }
 }

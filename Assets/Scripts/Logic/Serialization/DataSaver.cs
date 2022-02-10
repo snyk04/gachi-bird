@@ -1,44 +1,35 @@
-﻿#nullable enable
-
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+﻿using System.IO;
 using UnityEngine;
 
 namespace GachiBird.Serialization
 {
-    public class DataSaver<TData> : IDataSaver<TData>
+    public abstract class DataSaver<TData> : IDataSaver<TData>
     {
-        protected readonly BinaryFormatter Formatter = new BinaryFormatter();
-        protected readonly string Path;
+        private readonly string _path;
 
-        public DataSaver(string relativePath)
+        protected DataSaver(string relativePath)
         {
-            Path = $"{Application.persistentDataPath}/{relativePath}";
+            _path = $"{Application.persistentDataPath}/{relativePath}";
         }
 
-        public virtual bool TryLoadSaveData(out TData saveData)
+        public bool TryLoadSaveData(out TData saveData)
         {
-            if (File.Exists(Path))
+            if (File.Exists(_path) && TryDeserialize(File.ReadAllBytes(_path), out saveData))
             {
-                using FileStream file = File.Open(Path, FileMode.Open);
-                
-                if (Formatter.Deserialize(file) is TData deserializedData)
-                {
-                    saveData = deserializedData;
-
-                    return true;
-                }
+                return true;
             }
 
             saveData = default;
-            
+
             return false;
         }
 
-        public virtual void Save(TData saveData)
+        public void Save(TData saveData)
         {
-            using FileStream file = File.Create(Path);
-            Formatter.Serialize(file, saveData);
+            File.WriteAllBytes(_path, Serialize(saveData));
         }
+
+        protected abstract byte[] Serialize(TData saveData);
+        protected abstract bool TryDeserialize(byte[] dataAsBytes, out TData saveData);
     }
 }

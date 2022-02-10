@@ -124,5 +124,21 @@ namespace AreYouFruits.Common
 
         public static bool EvaluateProbability(float randomValue, float probability) => randomValue < probability;
         public static bool EvaluateProbability(float probability) => EvaluateProbability(Random.value, probability);
+
+        public static int CircularShiftLeft(this int number, int power, int sizeOfType)
+        {
+            const int byteSizeInBits = 8;
+            power %= byteSizeInBits * sizeOfType;
+            
+            return (number << power) | (number >> (sizeOfType * byteSizeInBits - power));
+        } 
+        
+        public static int CircularShiftRight(this int number, int power, int sizeOfType)
+        {
+            const int byteSizeInBits = 8;
+            power %= byteSizeInBits * sizeOfType;
+            
+            return (number >> power) | (number << (sizeOfType * byteSizeInBits - power));
+        } 
     }
 }

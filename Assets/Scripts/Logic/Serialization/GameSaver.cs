@@ -1,4 +1,5 @@
-﻿#nullable enable
+﻿
+#nullable enable
 
 namespace GachiBird.Serialization
 {
@@ -11,7 +12,7 @@ namespace GachiBird.Serialization
         public GameSaver(IDataSaver<SaveData> dataSaver)
         {
             _saver = dataSaver;
-
+            
             if (!_saver.TryLoadSaveData(out _saveData))
             {
                 _saveData = new SaveData();
@@ -30,7 +31,7 @@ namespace GachiBird.Serialization
             return true;
         }
 
-        public void SaveBestScore(int score)
+        public void SaveHighScore(int score)
         {
             _saveData.BestScore = score;
             _saver.Save(_saveData);

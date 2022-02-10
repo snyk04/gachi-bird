@@ -217,7 +217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerBordersTrigger: {fileID: 8746930493578425493}
-  _playerRigidbody: {fileID: 0}
   _playerColliderListener: {fileID: 0}
 --- !u!1 &8746930493407439015
 GameObject:
@@ -489,7 +488,7 @@ GameObject:
   - component: {fileID: 8746930493698487731}
   - component: {fileID: 8746930493698487730}
   m_Layer: 0
-  m_Name: ScoreManager
+  m_Name: ScoreHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -534,8 +533,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8746930493987000280}
   - component: {fileID: 8746930493987000287}
+  - component: {fileID: 4035880830712108090}
   m_Layer: 0
-  m_Name: SerializationManager
+  m_Name: GameSaver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -568,6 +568,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fileName: SaveData.dat
+--- !u!114 &4035880830712108090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746930493987000281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ca2b5e15b3f4982a9a09e83f13e3b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameSaver: {fileID: 8746930493987000287}
+  _scoreHolder: {fileID: 8746930493698487730}
 --- !u!1 &8746930494201061825
 GameObject:
   m_ObjectHideFlags: 0
