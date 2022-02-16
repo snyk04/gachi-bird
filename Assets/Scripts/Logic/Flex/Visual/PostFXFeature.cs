@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace GachiBird.FlexVisual
+namespace GachiBird.Flex.Visual
 {
     public class PostFXFeature : ScriptableRendererFeature
     {

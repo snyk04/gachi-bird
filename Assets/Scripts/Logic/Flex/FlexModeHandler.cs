@@ -5,12 +5,13 @@ using AreYouFruits.Common;
 using GachiBird.CameraMovement;
 using GachiBird.Environment;
 using GachiBird.Environment.Objects;
-using GachiBird.FlexVisual;
-using GachiBird.PlayerLogic;
+using GachiBird.Flex.Visual;
+using GachiBird.Game;
 using UnityEngine;
 
-namespace GachiBird.Game.FlexMode
+namespace GachiBird.Flex
 {
+    // TODO : Divide logic on single responsibility classes (events)
     public sealed class FlexModeHandler : IFlexModeHandler
     {
         private readonly Rigidbody2D _player;
@@ -41,8 +42,6 @@ namespace GachiBird.Game.FlexMode
         private async void StartFlexMode(GameObject boosterObject, IBooster booster, BoosterInfo boosterInfo)
         {
             booster.PickedUp -= StartFlexMode;
-
-            _flexRenderFeature.IsActive = true;
             
             _backgroundMusicAudioSource.Pause();
             _flexMusicAudioSource.clip = boosterInfo.Music;
@@ -51,6 +50,7 @@ namespace GachiBird.Game.FlexMode
             _playerDefaultSpeed = _player.velocity.x;
             _player.velocity = _player.velocity.DroppedX(boosterInfo.PlayerSpeed);
             
+            _flexRenderFeature.IsActive = true;
             foreach (IControllableCameraEffect cameraEffect in _cameraEffects)
             {
                 cameraEffect.IsEnabled = true;
@@ -66,11 +66,10 @@ namespace GachiBird.Game.FlexMode
         
         private void StopFlexMode(bool isGameStopped)
         {
-            _flexRenderFeature.IsActive = false;
-            
             _flexMusicAudioSource.Stop();
             _backgroundMusicAudioSource.UnPause();
             
+            _flexRenderFeature.IsActive = false;
             foreach (IControllableCameraEffect cameraEffect in _cameraEffects)
             {
                 cameraEffect.IsEnabled = false;

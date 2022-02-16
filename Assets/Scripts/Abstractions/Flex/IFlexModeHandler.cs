@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GachiBird.Game.FlexMode
+namespace GachiBird.Flex
 {
     public interface IFlexModeHandler : IDisposable { }
 }

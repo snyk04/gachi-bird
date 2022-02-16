@@ -1,10 +1,11 @@
 ﻿using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.CameraMovement;
 using GachiBird.Environment;
-using GachiBird.FlexVisual;
+using GachiBird.Flex.Visual;
+using GachiBird.Game;
 using UnityEngine;
 
-namespace GachiBird.Game.FlexMode
+namespace GachiBird.Flex
 {
     public sealed class FlexModeHandlerComponent : DestroyableAbstractComponent<IFlexModeHandler>
     {

@@ -4,7 +4,6 @@ using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Environment.Objects;
 using GachiBird.Environment.Pooling;
 using GachiBird.Game;
-using GachiBird.Game.FlexMode;
 using UnityEngine;
 
 namespace GachiBird.Environment
