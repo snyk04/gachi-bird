@@ -68,12 +68,12 @@ namespace GachiBird.Environment
                 return;
             }
 
-            Vector3 widthDispersion = _widthRange.Random() * new Vector3(1, 0, 0);
-            Vector3 heightDispersion = _heightRange.Random() * new Vector3(0, 1, 0);
-                
-            // TODO : Make first booster spawn not straight after first obstacle but using random
-            Vector3 position = _startOffset + _spawnedCount * _obstacleSpawner.Gap * _gapRange.Random() * Vector3.right
-                                            + widthDispersion + heightDispersion;
+            var dispersion = new Vector3(_widthRange.Random(), _widthRange.Random(), 0.0f);
+            
+            Vector3 position = _startOffset 
+              + (_spawnedCount + 1) * _obstacleSpawner.Gap * _gapRange.Random() * Vector3.right
+              + dispersion;
+            
             GameObject createdObject = _pool.Get();
             createdObject.transform.position = position;
 
