@@ -16,4 +16,4 @@ MonoBehaviour:
     Id: 0
     Sprite: {fileID: 7960299501354929935, guid: a2b2766b14756934698de259d1980e23, type: 3}
     GameSpeed: 0
-    Music: {fileID: 0}
+    Music: {fileID: 8300000, guid: a33d25b0ec48c554489705cd7f47de72, type: 3}
