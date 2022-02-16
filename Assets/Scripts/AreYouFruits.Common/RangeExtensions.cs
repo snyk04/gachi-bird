@@ -38,7 +38,26 @@ namespace AreYouFruits.Common
             
             return UnityEngine.Random.Range(min, max);
         }
+        
         public static float Random(this Range<int> range)
+        {
+            float min;
+            float max;
+
+            if (range.IsBounded)
+            {
+                (min, max) = range;
+            }
+            else
+            {
+                min = int.MinValue;
+                max = int.MaxValue;
+            }
+            
+            return UnityEngine.Random.Range(min, max);
+        }
+        
+        public static int RandomInt(this Range<int> range)
         {
             int min;
             int max;

@@ -7,7 +7,8 @@ namespace GachiBird.Environment.Objects
     public sealed class Booster : IBooster
     {
         public ICollider2DListener CheckpointCollider2DListener { get; }
-        public event Action<GameObject, IBooster, BoosterInfo>? PickedUp;
+        public ICollider2DListener BoosterPickedUpCollider2DListener { get; }
+        public Action<GameObject, IBooster, BoosterInfo>? PickedUp { get; set; }
 
         private readonly SpriteRenderer _spriteRenderer;
         private BoosterInfo _boosterInfo;
@@ -18,9 +19,10 @@ namespace GachiBird.Environment.Objects
         )
         {
             CheckpointCollider2DListener = checkpointCollider2DListener;
+            BoosterPickedUpCollider2DListener = boosterCollider2DListener;
             _spriteRenderer = spriteRenderer;
 
-            boosterCollider2DListener.OnTrigger += (_, __) => PickedUp?.Invoke(
+            BoosterPickedUpCollider2DListener.OnTrigger += (_, __) => PickedUp?.Invoke(
                 spriteRenderer.gameObject,
                 this,
                 _boosterInfo

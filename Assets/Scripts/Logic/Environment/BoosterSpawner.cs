@@ -22,7 +22,7 @@ namespace GachiBird.Environment
         private readonly Range<float> _heightRange;
 
         private Vector3 _startOffset;
-        private int _spawnedCount = 0;
+        private int _lastGapCount = 0;
 
         public event Action<IBooster>? OnBoosterSpawned;
 
@@ -42,6 +42,15 @@ namespace GachiBird.Environment
             _playerOffset = playerOffset;
             _widthRange = widthRange;
             _heightRange = heightRange;
+
+            _pool.OnCreate += OnBoosterCreate;
+            
+            void OnBoosterCreate(GameObject createdObject)
+            {
+                IBooster booster = createdObject.GetHeldItem<IBooster>();
+                booster.CheckpointCollider2DListener.OnTrigger += (_, __) => TrySpawn();
+                booster.PickedUp += (boosterObject, _, __) => _pool.Return(boosterObject);
+            }
         }
 
         private void Start(Vector3 startOffset)
@@ -51,44 +60,29 @@ namespace GachiBird.Environment
             TrySpawn();
         }
 
-        private void HandleBoosterPassed(Collider2D collider, ICollider2DListener collider2DListener)
-        {
-            collider2DListener.OnTrigger -= HandleBoosterPassed;
-
-            TrySpawn();
-        }
-        private void HandleBoosterPickedUp(GameObject boosterObject, IBooster booster, BoosterInfo boosterInfo)
-        {
-            booster.PickedUp -= HandleBoosterPickedUp;
-            
-            _pool.Return(boosterObject);
-        }
-
         private void TrySpawn()
         {
             if (_cancellationSource.Token.IsCancellationRequested)
             {
                 return;
             }
-
+            
             var dispersion = new Vector3(_widthRange.Random(), _widthRange.Random(), 0.0f);
+
+            _lastGapCount += _gapRange.RandomInt();
             
             Vector3 position = _startOffset 
-              + (_spawnedCount + 1) * _obstacleSpawner.Gap * _gapRange.Random() * Vector3.right
+              + _lastGapCount * _obstacleSpawner.Gap * Vector3.right
               + dispersion;
             
             GameObject createdObject = _pool.Get();
             createdObject.transform.position = position;
 
             IBooster booster = createdObject.GetHeldItem<IBooster>();
-            booster.CheckpointCollider2DListener.OnTrigger += HandleBoosterPassed;
-            booster.PickedUp += HandleBoosterPickedUp;
             OnBoosterSpawned?.Invoke(booster);
      
             BoosterInfo boosterInfo = _boosterSettingsArray[Random.Range(0, _boosterSettingsArray.Length)];
             booster.Initialize(boosterInfo);
-
-            _spawnedCount++;
         }
 
         public void Stop() => _cancellationSource.Cancel();

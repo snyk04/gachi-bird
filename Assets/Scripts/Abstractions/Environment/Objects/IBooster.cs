@@ -8,7 +8,9 @@ namespace GachiBird.Environment.Objects
     {
         // TODO : Rename?
         ICollider2DListener CheckpointCollider2DListener { get; }
-        event Action<GameObject, IBooster, BoosterInfo> PickedUp;
+        ICollider2DListener BoosterPickedUpCollider2DListener { get; }
+
+        Action<GameObject, IBooster, BoosterInfo>? PickedUp { get; set; }
 
         void Initialize(BoosterInfo boosterInfo);
     }

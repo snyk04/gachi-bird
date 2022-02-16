@@ -58,3 +58,4 @@ MonoBehaviour:
   m_Active: 1
   _material: {fileID: 2100000, guid: 0675d6e8276eb774db9d0d191d478aef, type: 2}
   _renderPassEvent: 1000
+  IsActive: 0

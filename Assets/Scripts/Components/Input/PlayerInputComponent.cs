@@ -9,7 +9,7 @@ namespace GachiBird.Input
     {
 #nullable disable
         [SerializeField] private GameCycleComponent _gameCycle;
-        [SerializeField] private AbstractComponent<IPlayer> _player;
+        [SerializeField] private AbstractComponent<IJumpable> _player;
 #nullable enable
         
         protected override PlayerInput Create() => new PlayerInput(_gameCycle.HeldItem, _player.HeldItem);

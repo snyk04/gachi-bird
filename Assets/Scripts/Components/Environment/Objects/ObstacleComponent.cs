@@ -28,6 +28,8 @@ namespace GachiBird.Environment.Objects
         // todo: search for more elegant solution
         private class CommonCollider2DListener : ICollider2DListener
         {
+            public Collider2D[] Colliders { get; }
+            
             public event Action<Collider2D, ICollider2DListener>? OnTrigger;
             public event Action<Collision2D, ICollider2DListener>? OnCollide;
 
@@ -36,11 +38,17 @@ namespace GachiBird.Environment.Objects
 
             public CommonCollider2DListener(IEnumerable<ICollider2DListener> listeners)
             {
+                var colliders = new List<Collider2D>();
+                
                 foreach (ICollider2DListener listener in listeners)
                 {
                     listener.OnTrigger += (c, l) => OnTrigger?.Invoke(c, l);
                     listener.OnCollide += (c, l) => OnCollide?.Invoke(c, l);
+
+                    colliders.AddRange(listener.Colliders);
                 }
+
+                Colliders = colliders.ToArray();
             }
         }
     }
