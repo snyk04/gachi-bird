@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace GachiBird.CameraMovement
 {
-    public sealed class CameraShaker : ICameraEffect
+    public sealed class CameraShaker : IControllableCameraEffect
     {
         private readonly ISoundAnalyzer _soundAnalyzer;
 
@@ -17,6 +17,23 @@ namespace GachiBird.CameraMovement
         private readonly float _maxPower;
         private readonly Range<int> _frequencyRange;
 
+        private bool _isEnabled;
+        public bool IsEnabled 
+        {
+            get => _isEnabled;
+            set
+            {
+                _isEnabled = value;
+                if (_isEnabled)
+                {
+                    OnEnable?.Invoke();
+                }
+                OnDisable?.Invoke();
+            }
+        }
+        public event Action? OnEnable;
+        public event Action? OnDisable;
+        
         public CameraShaker(
             ISoundAnalyzer soundAnalyzer, ShakeType shakeType, float powerThreshold, float maxPower,
             Range<int> frequencyRange
@@ -27,6 +44,8 @@ namespace GachiBird.CameraMovement
             _powerThreshold = powerThreshold;
             _maxPower = maxPower;
             _frequencyRange = frequencyRange;
+
+            _isEnabled = false;
         }
 
         private Vector3 GetRandomPower(float maxValue)
@@ -43,6 +62,11 @@ namespace GachiBird.CameraMovement
 
         public void Apply(Camera camera)
         {
+            if (!IsEnabled)
+            {
+                return;
+            }
+            
             camera.transform.position += _shakeType switch
             {
                 ShakeType.Random => GetRandomPower(_maxPower),

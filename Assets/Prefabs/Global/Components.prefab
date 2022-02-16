@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
+  _cameraEffects:
+  - {fileID: 8746930493407438938}
   _boosterSpawner: {fileID: 0}
   _gameCycle: {fileID: 8746930492868225614}
   _backgroundMusicAudioSource: {fileID: 8746930492627621347}
@@ -495,8 +497,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 8746930493407439012}
-  _effects:
+  _uncontrollableEffects:
   - {fileID: 8746930493407439013}
+  _controllableEffects:
   - {fileID: 8746930493407438938}
 --- !u!114 &8746930493407439013
 MonoBehaviour:
@@ -530,7 +533,7 @@ MonoBehaviour:
   _soundAnalyzer: {fileID: 8746930492846506631}
   _shakeType: 1
   _powerThreshold: 0.05
-  _maxPower: 1
+  _maxPower: 2
   _frequencyRange:
     Min: 0
     Max: 0

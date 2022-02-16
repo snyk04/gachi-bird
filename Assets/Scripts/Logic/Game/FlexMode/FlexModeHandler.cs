@@ -1,8 +1,8 @@
 ﻿#nullable enable
 
 using System.Threading;
-using System.Threading.Tasks;
 using AreYouFruits.Common;
+using GachiBird.CameraMovement;
 using GachiBird.Environment;
 using GachiBird.Environment.Objects;
 using GachiBird.PlayerLogic;
@@ -13,15 +13,18 @@ namespace GachiBird.Game.FlexMode
     public sealed class FlexModeHandler : IFlexModeHandler
     {
         private readonly IPlayer _player;
+        private readonly IControllableCameraEffect[] _cameraEffects;
         private readonly AudioSource _backgroundMusicAudioSource;
         private readonly AudioSource _flexMusicAudioSource;
         
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
 
-        public FlexModeHandler(IPlayer player, IBoosterSpawner boosterSpawner, IGameCycle gameCycle,
-            AudioSource backgroundMusicAudioSource, AudioSource flexMusicAudioSource)
+        public FlexModeHandler(IPlayer player, IControllableCameraEffect[] cameraEffects,
+            IBoosterSpawner boosterSpawner, IGameCycle gameCycle, AudioSource backgroundMusicAudioSource,
+            AudioSource flexMusicAudioSource)
         {
             _player = player;
+            _cameraEffects = cameraEffects;
             _backgroundMusicAudioSource = backgroundMusicAudioSource;
             _flexMusicAudioSource = flexMusicAudioSource;
 
@@ -38,8 +41,12 @@ namespace GachiBird.Game.FlexMode
             _flexMusicAudioSource.Play();
 
             _player.Speed = boosterInfo.PlayerSpeed;
+            foreach (IControllableCameraEffect cameraEffect in _cameraEffects)
+            {
+                cameraEffect.IsEnabled = true;
+            }
             
-            await Task.Delay(boosterInfo.Music.length.SecondsToMilliseconds());
+            await Tasks.DelaySeconds(boosterInfo.Music.length);
 
             if (!_cancellationSource.IsCancellationRequested)
             {
@@ -50,6 +57,11 @@ namespace GachiBird.Game.FlexMode
         {
             _flexMusicAudioSource.Stop();
             _backgroundMusicAudioSource.UnPause();
+            
+            foreach (IControllableCameraEffect cameraEffect in _cameraEffects)
+            {
+                cameraEffect.IsEnabled = false;
+            }
 
             if (!isGameStopped)
             {
