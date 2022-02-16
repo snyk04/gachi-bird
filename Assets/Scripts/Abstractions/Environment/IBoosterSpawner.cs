@@ -1,9 +1,10 @@
-﻿using System;
+using System;
+using GachiBird.Environment.Objects;
 
 namespace GachiBird.Environment
 {
     public interface IBoosterSpawner
     {
-        public event Action? OnBoosterCollected;
+        event Action<IBooster>? OnBoosterSpawned;
     }
 }

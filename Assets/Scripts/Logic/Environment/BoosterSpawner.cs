@@ -24,14 +24,14 @@ namespace GachiBird.Environment
         private Vector3 _startOffset;
         private int _spawnedCount = 0;
 
-        public event Action? OnBoosterCollected;
+        public event Action<IBooster>? OnBoosterSpawned;
 
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
 
         public BoosterSpawner(
-            IGameCycle gameCycle, IPool<GameObject> pool, IObstacleSpawner obstacleSpawner,
-            BoosterInfo[] boosterSettingsArray, Range<int> gapRange, Vector3 playerOffset,
-            Range<float> widthRange, Range<float> heightRange, Transform player
+            IGameCycle gameCycle, IPool<GameObject> pool, IObstacleSpawner obstacleSpawner, 
+            BoosterInfo[] boosterSettingsArray, Range<int> gapRange, Vector3 playerOffset, Range<float> widthRange,
+            Range<float> heightRange, Transform player
         )
         {
             gameCycle.OnGameStart += () => Start(player.position);
@@ -51,12 +51,17 @@ namespace GachiBird.Environment
             TrySpawn();
         }
 
-        private void HandleObstacleTriggered(Collider2D collider, ICollider2DListener collider2DListener)
+        private void HandleBoosterPassed(Collider2D collider, ICollider2DListener collider2DListener)
         {
-            collider2DListener.OnTrigger -= HandleObstacleTriggered;
+            collider2DListener.OnTrigger -= HandleBoosterPassed;
 
             TrySpawn();
-            OnBoosterCollected?.Invoke();
+        }
+        private void HandleBoosterPickedUp(GameObject boosterObject, IBooster booster, BoosterInfo boosterInfo)
+        {
+            booster.PickedUp -= HandleBoosterPickedUp;
+            
+            _pool.Return(boosterObject);
         }
 
         private void TrySpawn()
@@ -76,8 +81,12 @@ namespace GachiBird.Environment
             createdObject.transform.position = position;
 
             IBooster booster = createdObject.GetHeldItem<IBooster>();
-            booster.CheckpointCollider2DListener.OnTrigger += HandleObstacleTriggered;
-            booster.Initialize(_boosterSettingsArray[Random.Range(0, _boosterSettingsArray.Length)]);
+            booster.CheckpointCollider2DListener.OnTrigger += HandleBoosterPassed;
+            booster.PickedUp += HandleBoosterPickedUp;
+            OnBoosterSpawned?.Invoke(booster);
+     
+            BoosterInfo boosterInfo = _boosterSettingsArray[Random.Range(0, _boosterSettingsArray.Length)];
+            booster.Initialize(boosterInfo);
 
             _spawnedCount++;
         }
