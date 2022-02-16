@@ -9,7 +9,7 @@ namespace GachiBird.Game.FlexMode
     public sealed class FlexModeHandlerComponent : DestroyableAbstractComponent<IFlexModeHandler>
     {
 #nullable disable
-        [SerializeField] private AbstractComponent<IPlayer> _player;
+        [SerializeField] private Rigidbody2D _player;
         [SerializeField] private AbstractComponent<IControllableCameraEffect>[] _cameraEffects;
         [SerializeField] private AbstractComponent<IBoosterSpawner> _boosterSpawner;
         [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
@@ -19,8 +19,14 @@ namespace GachiBird.Game.FlexMode
 
         protected override IFlexModeHandler Create()
         {
-            return new FlexModeHandler(_player.HeldItem, _cameraEffects.ExtractAsArray(), _boosterSpawner.HeldItem,
-                _gameCycle.HeldItem, _backgroundMusicAudioSource, _flexMusicAudioSource);
+            return new FlexModeHandler(
+                _player,
+                _cameraEffects.ExtractAsArray(),
+                _boosterSpawner.HeldItem,
+                _gameCycle.HeldItem,
+                _backgroundMusicAudioSource,
+                _flexMusicAudioSource
+            );
         }
     }
 }

@@ -696,7 +696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _heightBounds:
-    Min: -8
+    Min: -7.4
     Max: 8
     IsBounded: 1
 --- !u!1 &8746930493698487740

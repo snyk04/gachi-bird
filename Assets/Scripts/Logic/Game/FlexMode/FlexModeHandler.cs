@@ -12,14 +12,16 @@ namespace GachiBird.Game.FlexMode
 {
     public sealed class FlexModeHandler : IFlexModeHandler
     {
-        private readonly IPlayer _player;
+        private readonly Rigidbody2D _player;
         private readonly IControllableCameraEffect[] _cameraEffects;
         private readonly AudioSource _backgroundMusicAudioSource;
         private readonly AudioSource _flexMusicAudioSource;
         
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
+        
+        private float _playerDefaultSpeed;
 
-        public FlexModeHandler(IPlayer player, IControllableCameraEffect[] cameraEffects,
+        public FlexModeHandler(Rigidbody2D player, IControllableCameraEffect[] cameraEffects,
             IBoosterSpawner boosterSpawner, IGameCycle gameCycle, AudioSource backgroundMusicAudioSource,
             AudioSource flexMusicAudioSource)
         {
@@ -40,7 +42,9 @@ namespace GachiBird.Game.FlexMode
             _flexMusicAudioSource.clip = boosterInfo.Music;
             _flexMusicAudioSource.Play();
 
-            _player.Speed = boosterInfo.PlayerSpeed;
+            _playerDefaultSpeed = _player.velocity.x;
+            _player.velocity = _player.velocity.DroppedX(boosterInfo.PlayerSpeed);
+            
             foreach (IControllableCameraEffect cameraEffect in _cameraEffects)
             {
                 cameraEffect.IsEnabled = true;
@@ -53,6 +57,7 @@ namespace GachiBird.Game.FlexMode
                 StopFlexMode(false);
             }
         }
+        
         private void StopFlexMode(bool isGameStopped)
         {
             _flexMusicAudioSource.Stop();
@@ -65,7 +70,7 @@ namespace GachiBird.Game.FlexMode
 
             if (!isGameStopped)
             {
-                _player.ResetSpeed();
+                _player.velocity = _player.velocity.DroppedX(_playerDefaultSpeed);
             }
         }
         

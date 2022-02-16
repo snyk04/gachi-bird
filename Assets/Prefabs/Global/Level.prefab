@@ -673,7 +673,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &3404698249679552007
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -762,7 +762,6 @@ MonoBehaviour:
   _collider: {fileID: 3404698249679552007}
   _transform: {fileID: 3404698249679552001}
   _playerBorders: {fileID: 0}
-  _defaultGravityScale: 3
 --- !u!1 &3696943599522384471
 GameObject:
   m_ObjectHideFlags: 0
