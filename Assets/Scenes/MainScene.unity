@@ -543,10 +543,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 677833394, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
-      propertyPath: _gameCycle
-      value: 
-      objectReference: {fileID: 2115107477}
     - target: {fileID: 995435798, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
       propertyPath: _boosterPool
       value: 
@@ -555,10 +551,6 @@ PrefabInstance:
       propertyPath: _obstaclePool
       value: 
       objectReference: {fileID: 3404698249194605956}
-    - target: {fileID: 995435798, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
-      propertyPath: _boosterSpawner
-      value: 
-      objectReference: {fileID: 3404698249194605958}
     - target: {fileID: 1571187906, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
       propertyPath: _player
       value: 

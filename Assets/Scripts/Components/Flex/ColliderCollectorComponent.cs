@@ -9,13 +9,13 @@ namespace GachiBird.Flex
     {
 #nullable disable
         [SerializeField] private AbstractComponent<IFlexModeHandler> _flexModeHandler;
-        [SerializeField] private AbstractComponent<IBoosterSpawner> _boosterSpawner;
+        [SerializeField] private AbstractComponent<IPool<GameObject>> _boosterPool;
         [SerializeField] private AbstractComponent<IPool<GameObject>> _obstaclePool;
 #nullable enable
 
         protected override ColliderCollector Create()
         {
-            return new ColliderCollector(_flexModeHandler.HeldItem, _boosterSpawner.HeldItem, _obstaclePool.HeldItem);
+            return new ColliderCollector(_flexModeHandler.HeldItem, _boosterPool.HeldItem, _obstaclePool.HeldItem);
         }
     }
 }

@@ -1,23 +1,21 @@
-﻿using GachiBird.Flex.Visual;
+﻿using System;
+using GachiBird.Flex.Visual;
 
 namespace GachiBird.Flex
 {
-    public sealed class FlexRenderFeatureHandler
+    public sealed class FlexRenderFeatureHandler : IDisposable
     {
         private readonly PostFXFeature _flexRenderFeature;
 
         public FlexRenderFeatureHandler(IFlexModeHandler flexModeHandler, PostFXFeature flexRenderFeature)
         {
             _flexRenderFeature = flexRenderFeature;
-            SetFlexRenderFeatureActive(false);
+            _flexRenderFeature.IsActive = false;
 
-            flexModeHandler.OnFlexModeStart += _ => SetFlexRenderFeatureActive(true);
-            flexModeHandler.OnFlexModeEnd += () => SetFlexRenderFeatureActive(false);
+            flexModeHandler.OnFlexModeStart += _ => _flexRenderFeature.IsActive = true;
+            flexModeHandler.OnFlexModeEnd += () => _flexRenderFeature.IsActive = false;
         }
 
-        private void SetFlexRenderFeatureActive(bool isActive)
-        {
-            _flexRenderFeature.IsActive = isActive;
-        }
+        public void Dispose() => _flexRenderFeature.IsActive = false;
     }
 }

@@ -14,5 +14,7 @@ namespace GachiBird.Environment.Pooling
         {
             return new GameObjectPool(_amountOfObjectsInPool, _prefab, transform);
         }
+
+        private void Start() => ((GameObjectPool)HeldItem).Start();
     }
 }
