@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-namespace AreYouFruits.Common.Encryption
+﻿namespace AreYouFruits.Common.Encryption
 {
     public class SimpleEncryptor : IEncryptor
     {

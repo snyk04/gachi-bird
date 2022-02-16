@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using System;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AreYouFruits.Common;
@@ -11,17 +9,18 @@ namespace GachiBird.PlayerLogic
     public sealed class PlayerBordersTrigger : IPlayerBordersTrigger, IDisposable
     {
         private readonly Transform _player;
-        private readonly Range<float> _heightBounds;
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
 
         private float _lastPlayerY;
+        
+        public Range<float> HeightBounds { get; }
 
         public event Action? OnPlayerOutOfBounds;
         
         public PlayerBordersTrigger(Transform player, Range<float> heightBounds)
         {
             _player = player;
-            _heightBounds = heightBounds;
+            HeightBounds = heightBounds;
         }
 
         public void Start()
@@ -30,7 +29,7 @@ namespace GachiBird.PlayerLogic
             
             void CheckBounds()
             {
-                if (!_heightBounds.Contains(_player.position.y) && _heightBounds.Contains(_lastPlayerY))
+                if (!HeightBounds.Contains(_player.position.y) && HeightBounds.Contains(_lastPlayerY))
                 {
                     OnPlayerOutOfBounds?.Invoke();
                 }

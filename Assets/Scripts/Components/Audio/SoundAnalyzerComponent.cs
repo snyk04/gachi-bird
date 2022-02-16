@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using AreYouFruits.Common.ComponentGeneration;
+﻿using AreYouFruits.Common.ComponentGeneration;
 using UnityEngine;
 
 namespace GachiBird.Audio

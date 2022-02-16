@@ -1,13 +1,11 @@
-﻿#nullable enable
-
-using AreYouFruits.Common;
+﻿using AreYouFruits.Common;
 using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Audio;
 using UnityEngine;
 
 namespace GachiBird.CameraMovement
 {
-    public sealed class CameraShakerComponent : AbstractComponent<ICameraEffect>
+    public sealed class CameraShakerComponent : AbstractComponent<IControllableCameraEffect>
     {
 #nullable disable
         [Header("References")]
@@ -20,7 +18,7 @@ namespace GachiBird.CameraMovement
         [SerializeField] private Range<int> _frequencyRange;
 #nullable enable
         
-        protected override ICameraEffect Create() => new CameraShaker(
+        protected override IControllableCameraEffect Create() => new CameraShaker(
             _soundAnalyzer.HeldItem,
             _shakeType,
             _powerThreshold,

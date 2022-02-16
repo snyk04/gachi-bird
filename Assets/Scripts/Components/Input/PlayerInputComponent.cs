@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using AreYouFruits.Common.ComponentGeneration;
+﻿using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Game;
 using GachiBird.PlayerLogic;
 using UnityEngine;

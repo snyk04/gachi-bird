@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using GachiBird.Game;
 using UnityEngine;
 
@@ -9,7 +7,7 @@ namespace GachiBird.CameraMovement
     public sealed class CameraAligner : ICameraEffect
     {
         private readonly Transform _objectToAlign;
-
+        
         private Vector2 _cameraOffset;
         private float _smoothTime;
 

@@ -1,5 +1,3 @@
-#nullable enable
-
 using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Environment;
 using GachiBird.Game;

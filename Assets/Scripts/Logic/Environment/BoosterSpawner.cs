@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using System;
+﻿using System;
 using System.Threading;
 using AreYouFruits.Common;
 using AreYouFruits.Common.ComponentGeneration;
@@ -26,14 +24,14 @@ namespace GachiBird.Environment
         private Vector3 _startOffset;
         private int _spawnedCount = 0;
 
-        public event Action? OnBoosterCollected;
+        public event Action<IBooster>? OnBoosterSpawned;
 
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
 
         public BoosterSpawner(
-            IGameCycle gameCycle, IPool<GameObject> pool, IObstacleSpawner obstacleSpawner,
-            BoosterInfo[] boosterSettingsArray, Range<int> gapRange, Vector3 playerOffset,
-            Range<float> widthRange, Range<float> heightRange, Transform player
+            IGameCycle gameCycle, IPool<GameObject> pool, IObstacleSpawner obstacleSpawner, 
+            BoosterInfo[] boosterSettingsArray, Range<int> gapRange, Vector3 playerOffset, Range<float> widthRange,
+            Range<float> heightRange, Transform player
         )
         {
             gameCycle.OnGameStart += () => Start(player.position);
@@ -53,12 +51,17 @@ namespace GachiBird.Environment
             TrySpawn();
         }
 
-        private void HandleObstacleTriggered(Collider2D collider, ICollider2DListener collider2DListener)
+        private void HandleBoosterPassed(Collider2D collider, ICollider2DListener collider2DListener)
         {
-            collider2DListener.OnTrigger -= HandleObstacleTriggered;
+            collider2DListener.OnTrigger -= HandleBoosterPassed;
 
             TrySpawn();
-            OnBoosterCollected?.Invoke();
+        }
+        private void HandleBoosterPickedUp(GameObject boosterObject, IBooster booster, BoosterInfo boosterInfo)
+        {
+            booster.PickedUp -= HandleBoosterPickedUp;
+            
+            _pool.Return(boosterObject);
         }
 
         private void TrySpawn()
@@ -68,18 +71,22 @@ namespace GachiBird.Environment
                 return;
             }
 
-            Vector3 widthDispersion = _widthRange.Random() * new Vector3(1, 0, 0);
-            Vector3 heightDispersion = _heightRange.Random() * new Vector3(0, 1, 0);
-                
-            // TODO : Make first booster spawn not straight after first obstacle but using random
-            Vector3 position = _startOffset + _spawnedCount * _obstacleSpawner.Gap * _gapRange.Random() * Vector3.right
-                                            + widthDispersion + heightDispersion;
+            var dispersion = new Vector3(_widthRange.Random(), _widthRange.Random(), 0.0f);
+            
+            Vector3 position = _startOffset 
+              + (_spawnedCount + 1) * _obstacleSpawner.Gap * _gapRange.Random() * Vector3.right
+              + dispersion;
+            
             GameObject createdObject = _pool.Get();
             createdObject.transform.position = position;
 
             IBooster booster = createdObject.GetHeldItem<IBooster>();
-            booster.CheckpointCollider2DListener.OnTrigger += HandleObstacleTriggered;
-            booster.Initialize(_boosterSettingsArray[Random.Range(0, _boosterSettingsArray.Length)]);
+            booster.CheckpointCollider2DListener.OnTrigger += HandleBoosterPassed;
+            booster.PickedUp += HandleBoosterPickedUp;
+            OnBoosterSpawned?.Invoke(booster);
+     
+            BoosterInfo boosterInfo = _boosterSettingsArray[Random.Range(0, _boosterSettingsArray.Length)];
+            booster.Initialize(boosterInfo);
 
             _spawnedCount++;
         }

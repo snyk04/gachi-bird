@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-namespace AreYouFruits.Common.ComponentGeneration
+﻿namespace AreYouFruits.Common.ComponentGeneration
 {
     public interface IComponent<out T>
     {

@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using System;
+﻿using System;
 
 namespace GachiBird.Environment.Pooling
 {
@@ -8,6 +6,7 @@ namespace GachiBird.Environment.Pooling
     {
         event Action<T>? OnGet;
         event Action<T>? OnReturn;
+        event Action<T>? OnCreate;
         T Get();
         void Return(T element);
     }

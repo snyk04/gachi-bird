@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using System;
+﻿using System;
 using GachiBird.Environment.Colliders;
 using GachiBird.Input;
 using GachiBird.PlayerLogic;
@@ -11,35 +9,29 @@ namespace GachiBird.Game
 {
     public sealed class GameCycle : IGameCycle
     {
-        private readonly InputAction _playerJumpAction;
-        
         public event Action? OnGameStart;
         public event Action? OnGameEnd;
-        
-        public GameCycle(IPlayerBordersTrigger playerBordersTrigger, ICollider2DListener playerColliderListener)
+
+        public bool IsPlaying { get; private set; }
+
+        public void StartGame()
         {
-            _playerJumpAction = new Controls().Player.Jump;
-            
-            _playerJumpAction.performed += StartGame;
-            _playerJumpAction.Enable();
-            
-            playerBordersTrigger.OnPlayerOutOfBounds += EndGame;
-            playerColliderListener.OnCollide += (_, __) => EndGame();
+            if (!IsPlaying)
+            {
+                IsPlaying = true;
+                OnGameStart?.Invoke();
+            }
         }
 
-        private void StartGame(InputAction.CallbackContext context)
+        public void EndGame()
         {
-            _playerJumpAction.performed -= StartGame;
-            _playerJumpAction.Disable();
-            
-            OnGameStart?.Invoke();
+            if (IsPlaying)
+            {
+                IsPlaying = false;
+                OnGameEnd?.Invoke();
+            }
         }
-        
-        private void EndGame()
-        {
-            OnGameEnd?.Invoke();
-        }
-        
+
         public void RestartGame()
         {
             SceneManager.LoadScene(0);

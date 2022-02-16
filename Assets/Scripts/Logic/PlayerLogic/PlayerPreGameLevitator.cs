@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using GachiBird.Game;
+﻿using GachiBird.Game;
 using UnityEngine;
 
 namespace GachiBird.PlayerLogic

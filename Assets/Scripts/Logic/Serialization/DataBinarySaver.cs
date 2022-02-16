@@ -1,11 +1,10 @@
-﻿#nullable enable
-
-using System.IO;
+﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GachiBird.Serialization
 {
     public class DataBinarySaver<TData> : DataSaver<TData>
+        where TData : class
     {
         protected readonly BinaryFormatter Formatter = new BinaryFormatter();
 
@@ -19,7 +18,7 @@ namespace GachiBird.Serialization
             return stream.ToArray();
         }
 
-        protected override bool TryDeserialize(byte[] dataAsBytes, out TData saveData)
+        protected override bool TryDeserialize(byte[] dataAsBytes, out TData? saveData)
         {
             using var stream = new MemoryStream(dataAsBytes);
 
