@@ -847,12 +847,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _soundAnalyzer: {fileID: 8746930492846506631}
   _shakeType: 1
-  _powerThreshold: 0.05
-  _maxPower: 20
+  _powerThreshold: 0.2
+  _maxPower: 2.5
   _frequencyRange:
     Min: 0
-    Max: 0
-    IsBounded: 0
+    Max: 6
+    IsBounded: 1
 --- !u!114 &8746930493407438937
 MonoBehaviour:
   m_ObjectHideFlags: 0
