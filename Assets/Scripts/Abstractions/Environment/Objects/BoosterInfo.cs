@@ -8,7 +8,7 @@ namespace GachiBird.Environment.Objects
     {
         public int Id;
         public Sprite Sprite;
-        public float GameSpeed;
+        public float PlayerSpeed;
         public AudioClip Music;
         // public int[] MusicFrequencyRange;
     }

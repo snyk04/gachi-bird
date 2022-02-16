@@ -7,7 +7,7 @@ namespace GachiBird.CameraMovement
     public sealed class CameraAligner : ICameraEffect
     {
         private readonly Transform _objectToAlign;
-
+        
         private Vector2 _cameraOffset;
         private float _smoothTime;
 

@@ -1,4 +1,5 @@
-﻿using AreYouFruits.Common.ComponentGeneration;
+using System.Collections.Generic;
+using AreYouFruits.Common.ComponentGeneration;
 using UnityEngine;
 
 namespace GachiBird.CameraMovement
@@ -7,12 +8,20 @@ namespace GachiBird.CameraMovement
     {
 #nullable disable
         [SerializeField] private Camera _camera;
-        [SerializeField] private AbstractComponent<ICameraEffect>[] _effects;
+        [SerializeField] private AbstractComponent<ICameraEffect>[] _uncontrollableEffects;
+        [SerializeField] private AbstractComponent<IControllableCameraEffect>[] _controllableEffects;
 #nullable enable
         
         protected override CameraEffectsChainer Create()
         {
-            var item = new CameraEffectsChainer(_camera, _effects.Extract());
+            var uncontrollableEffects = new List<ICameraEffect>(_uncontrollableEffects.Extract());
+            var controllableEffects = new List<ICameraEffect>(_controllableEffects.Extract());
+
+            var effects = new List<ICameraEffect>();
+            effects.AddRange(uncontrollableEffects);
+            effects.AddRange(controllableEffects);
+            
+            var item = new CameraEffectsChainer(_camera, effects);
             item.Start();
             
             return item;
