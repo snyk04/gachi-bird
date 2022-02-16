@@ -230,8 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f2ae66287046e8927e765f6ac69bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1722164767}
   _boosterSpawner: {fileID: 543969207}
+  _player: {fileID: 1722164767}
   _backgroundMusicAudioSource: {fileID: 26519740}
   _flexMusicAudioSource: {fileID: 1490957705}
 --- !u!4 &1479868339 stripped
@@ -734,6 +734,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 3c6ed67ffcfba764e91865994dfb064b, type: 3}
+    - target: {fileID: 8746930492846506631, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 1490957705}
     - target: {fileID: 8746930492868225614, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
       propertyPath: _playerColliderListener
       value: 

@@ -5,20 +5,23 @@ using System.Threading.Tasks;
 using AreYouFruits.Common;
 using GachiBird.Environment;
 using GachiBird.Environment.Objects;
+using GachiBird.PlayerLogic;
 using UnityEngine;
 
 namespace GachiBird.Game.FlexMode
 {
-    public class FlexModeHandler : IFlexModeHandler
+    public sealed class FlexModeHandler : IFlexModeHandler
     {
+        private readonly IPlayer _player;
         private readonly AudioSource _backgroundMusicAudioSource;
         private readonly AudioSource _flexMusicAudioSource;
         
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
 
-        public FlexModeHandler(IBoosterSpawner boosterSpawner, 
+        public FlexModeHandler(IBoosterSpawner boosterSpawner, IPlayer player,
             AudioSource backgroundMusicAudioSource, AudioSource flexMusicAudioSource)
         {
+            _player = player;
             _backgroundMusicAudioSource = backgroundMusicAudioSource;
             _flexMusicAudioSource = flexMusicAudioSource;
 
@@ -32,6 +35,8 @@ namespace GachiBird.Game.FlexMode
             _backgroundMusicAudioSource.Pause();
             _flexMusicAudioSource.clip = boosterInfo.Music;
             _flexMusicAudioSource.Play();
+
+            _player.Speed = boosterInfo.PlayerSpeed;
             
             await Task.Delay(boosterInfo.Music.length.SecondsToMilliseconds());
 
@@ -44,6 +49,8 @@ namespace GachiBird.Game.FlexMode
         {
             _flexMusicAudioSource.Stop();
             _backgroundMusicAudioSource.UnPause();
+            
+            _player.ResetSpeed();
         }
         
         private void HandleBoosterSpawned(IBooster booster)
