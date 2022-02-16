@@ -5,6 +5,7 @@ using AreYouFruits.Common;
 using GachiBird.CameraMovement;
 using GachiBird.Environment;
 using GachiBird.Environment.Objects;
+using GachiBird.FlexVisual;
 using GachiBird.PlayerLogic;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ namespace GachiBird.Game.FlexMode
         private readonly IControllableCameraEffect[] _cameraEffects;
         private readonly AudioSource _backgroundMusicAudioSource;
         private readonly AudioSource _flexMusicAudioSource;
+        private readonly PostFXFeature _flexRenderFeature;
         
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
         
@@ -23,12 +25,14 @@ namespace GachiBird.Game.FlexMode
 
         public FlexModeHandler(Rigidbody2D player, IControllableCameraEffect[] cameraEffects,
             IBoosterSpawner boosterSpawner, IGameCycle gameCycle, AudioSource backgroundMusicAudioSource,
-            AudioSource flexMusicAudioSource)
+            AudioSource flexMusicAudioSource, PostFXFeature flexRenderFeature
+        )
         {
             _player = player;
             _cameraEffects = cameraEffects;
             _backgroundMusicAudioSource = backgroundMusicAudioSource;
             _flexMusicAudioSource = flexMusicAudioSource;
+            _flexRenderFeature = flexRenderFeature;
 
             boosterSpawner.OnBoosterSpawned += HandleBoosterSpawned;
             gameCycle.OnGameEnd += () => StopFlexMode(true);
@@ -37,6 +41,8 @@ namespace GachiBird.Game.FlexMode
         private async void StartFlexMode(GameObject boosterObject, IBooster booster, BoosterInfo boosterInfo)
         {
             booster.PickedUp -= StartFlexMode;
+
+            _flexRenderFeature.IsActive = true;
             
             _backgroundMusicAudioSource.Pause();
             _flexMusicAudioSource.clip = boosterInfo.Music;
@@ -60,6 +66,8 @@ namespace GachiBird.Game.FlexMode
         
         private void StopFlexMode(bool isGameStopped)
         {
+            _flexRenderFeature.IsActive = false;
+            
             _flexMusicAudioSource.Stop();
             _backgroundMusicAudioSource.UnPause();
             

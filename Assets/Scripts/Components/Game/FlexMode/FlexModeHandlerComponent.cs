@@ -1,7 +1,7 @@
 ﻿using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.CameraMovement;
 using GachiBird.Environment;
-using GachiBird.PlayerLogic;
+using GachiBird.FlexVisual;
 using UnityEngine;
 
 namespace GachiBird.Game.FlexMode
@@ -15,6 +15,7 @@ namespace GachiBird.Game.FlexMode
         [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
         [SerializeField] private AudioSource _backgroundMusicAudioSource;
         [SerializeField] private AudioSource _flexMusicAudioSource;
+        [SerializeField] private PostFXFeature _flexRenderFeature;
 #nullable enable
 
         protected override IFlexModeHandler Create()
@@ -25,7 +26,8 @@ namespace GachiBird.Game.FlexMode
                 _boosterSpawner.HeldItem,
                 _gameCycle.HeldItem,
                 _backgroundMusicAudioSource,
-                _flexMusicAudioSource
+                _flexMusicAudioSource,
+                _flexRenderFeature
             );
         }
     }
