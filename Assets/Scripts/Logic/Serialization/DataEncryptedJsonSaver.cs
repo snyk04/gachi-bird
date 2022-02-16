@@ -3,6 +3,7 @@
 namespace GachiBird.Serialization
 {
     public class DataEncryptedJsonSaver<TData> : DataJsonSaver<TData>
+        where TData : class
     {
         private const byte EncryptOffset = 1;
         private readonly IEncryptor _encryptor = new SimpleEncryptor(EncryptOffset); 

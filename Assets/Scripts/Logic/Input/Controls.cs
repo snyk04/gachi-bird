@@ -1,5 +1,7 @@
 // GENERATED AUTOMATICALLY FROM 'Assets/InputHandling/Controls.inputactions'
 
+#nullable disable
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

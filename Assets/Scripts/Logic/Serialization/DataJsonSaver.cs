@@ -4,6 +4,7 @@ using UnityEngine;
 namespace GachiBird.Serialization
 {
     public class DataJsonSaver<TData> : DataSaver<TData>
+        where TData : class
     {
         public DataJsonSaver(string relativePath) : base(relativePath) { }
         

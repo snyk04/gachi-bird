@@ -10,11 +10,8 @@ namespace GachiBird.Serialization
         public GameSaver(IDataSaver<SaveData> dataSaver)
         {
             _saver = dataSaver;
-            
-            if (!_saver.TryLoadSaveData(out _saveData))
-            {
-                _saveData = new SaveData();
-            }
+
+            _saveData = _saver.TryLoadSaveData(out SaveData? saveData) ? saveData! : new SaveData();
         }
 
         public bool CheckIfThisIsFirstStart()

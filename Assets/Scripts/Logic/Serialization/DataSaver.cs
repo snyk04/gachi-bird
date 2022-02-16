@@ -4,6 +4,7 @@ using UnityEngine;
 namespace GachiBird.Serialization
 {
     public abstract class DataSaver<TData> : IDataSaver<TData>
+        where TData : class
     {
         private readonly string _path;
 
@@ -12,7 +13,7 @@ namespace GachiBird.Serialization
             _path = $"{Application.persistentDataPath}/{relativePath}";
         }
 
-        public bool TryLoadSaveData(out TData saveData)
+        public bool TryLoadSaveData(out TData? saveData)
         {
             if (File.Exists(_path) && TryDeserialize(File.ReadAllBytes(_path), out saveData))
             {
@@ -30,6 +31,6 @@ namespace GachiBird.Serialization
         }
 
         protected abstract byte[] Serialize(TData saveData);
-        protected abstract bool TryDeserialize(byte[] dataAsBytes, out TData saveData);
+        protected abstract bool TryDeserialize(byte[] dataAsBytes, out TData? saveData);
     }
 }

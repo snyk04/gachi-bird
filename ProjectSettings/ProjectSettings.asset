@@ -676,7 +676,9 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
     7: ASSERTIONS_ENABLED
-  additionalCompilerArguments: {}
+  additionalCompilerArguments:
+    7:
+    - -nullable+
   platformArchitecture: {}
   scriptingBackend:
     Android: 1
