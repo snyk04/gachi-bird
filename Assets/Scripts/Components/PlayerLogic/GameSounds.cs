@@ -10,7 +10,7 @@ namespace GachiBird.PlayerLogic
 #nullable disable
         [Header("References")]
         [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
-        [SerializeField] private AbstractComponent<IPlayer> _player;
+        [SerializeField] private AbstractComponent<IJumpable> _player;
         [SerializeField] private AbstractComponent<IScoreHolder> _scoreHolder;
         
         [Header("Audio sources")]

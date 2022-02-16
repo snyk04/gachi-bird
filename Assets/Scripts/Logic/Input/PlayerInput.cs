@@ -7,10 +7,10 @@ namespace GachiBird.Input
 {
     public sealed class PlayerInput : IDisposable
     {
-        private readonly IPlayer _player;
+        private readonly IJumpable _player;
         private readonly InputAction _jumpAction = new Controls().Player.Jump;
 
-        public PlayerInput(IGameCycle gameCycle, IPlayer player)
+        public PlayerInput(IGameCycle gameCycle, IJumpable player)
         {
             _player = player;
             

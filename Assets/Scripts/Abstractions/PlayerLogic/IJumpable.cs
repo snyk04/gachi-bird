@@ -2,7 +2,7 @@
 
 namespace GachiBird.PlayerLogic
 {
-    public interface IPlayer
+    public interface IJumpable
     {
         event Action? OnJump;
         

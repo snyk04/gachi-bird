@@ -56,12 +56,14 @@ namespace GachiBird.Environment
             collider2DListener.OnTrigger -= HandleBoosterPassed;
 
             TrySpawn();
+            Debug.Log("booster passed");
         }
         private void HandleBoosterPickedUp(GameObject boosterObject, IBooster booster, BoosterInfo boosterInfo)
         {
             booster.PickedUp -= HandleBoosterPickedUp;
             
             _pool.Return(boosterObject);
+            Debug.Log("booster picked up");
         }
 
         private void TrySpawn()
@@ -70,7 +72,7 @@ namespace GachiBird.Environment
             {
                 return;
             }
-
+            
             var dispersion = new Vector3(_widthRange.Random(), _widthRange.Random(), 0.0f);
             
             Vector3 position = _startOffset 

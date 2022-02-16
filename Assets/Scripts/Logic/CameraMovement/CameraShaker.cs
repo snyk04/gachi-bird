@@ -42,8 +42,6 @@ namespace GachiBird.CameraMovement
             _powerThreshold = powerThreshold;
             _maxPower = maxPower;
             _frequencyRange = frequencyRange;
-
-            _isEnabled = false;
         }
 
         private Vector3 GetRandomPower(float maxValue)
@@ -60,7 +58,7 @@ namespace GachiBird.CameraMovement
 
         public void Apply(Camera camera)
         {
-            if (!IsEnabled)
+            if (!_isEnabled)
             {
                 return;
             }

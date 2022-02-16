@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!50 &219873440 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 3404698249679552006, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-  m_PrefabInstance: {fileID: 3404698249194605955}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &261006697 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8746930493698487730, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
@@ -137,6 +132,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 399ce1ff283bdb744a338678212f5742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &505079290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 573696910397658636, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+  m_PrefabInstance: {fileID: 3404698249194605955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8acd5d6240eda9444a3b7f4279e30090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!20 &519420031 stripped
@@ -149,6 +155,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3404698249679552001, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
   m_PrefabInstance: {fileID: 3404698249194605955}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1077306068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1077306068, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+  m_PrefabInstance: {fileID: 3404698249194605955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 553809ac386046a88387c466d3248dfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2082192224 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8746930493578425493, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
@@ -527,10 +544,26 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 677833394, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: _gameCycle
+      value: 
+      objectReference: {fileID: 2115107477}
+    - target: {fileID: 995435798, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: _boosterPool
+      value: 
+      objectReference: {fileID: 505079290}
+    - target: {fileID: 995435798, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: _obstaclePool
+      value: 
+      objectReference: {fileID: 3404698249194605956}
+    - target: {fileID: 995435798, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: _boosterSpawner
+      value: 
+      objectReference: {fileID: 3404698249194605958}
+    - target: {fileID: 1571187906, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
       propertyPath: _player
       value: 
-      objectReference: {fileID: 219873440}
-    - target: {fileID: 677833394, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      objectReference: {fileID: 1077306068}
+    - target: {fileID: 1938801147, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
       propertyPath: _boosterSpawner
       value: 
       objectReference: {fileID: 3404698249194605958}
