@@ -50,6 +50,7 @@ MonoBehaviour:
   _gameCycle: {fileID: 8746930492868225614}
   _backgroundMusicAudioSource: {fileID: 8746930492627621347}
   _flexMusicAudioSource: {fileID: 1490957705}
+  _flexRenderFeature: {fileID: 220744673194233231, guid: e5248aeaef93e084b8ff97469834eb9e, type: 2}
 --- !u!1 &1490957704
 GameObject:
   m_ObjectHideFlags: 0
