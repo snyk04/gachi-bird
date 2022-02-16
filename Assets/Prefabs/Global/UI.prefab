@@ -1828,8 +1828,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 6459932232517048861}
-  _gameCycle: {fileID: 0}
-  _scoreHolder: {fileID: 0}
+  _gameCycle:
+    Object: {fileID: 0}
+  _scoreHolder:
+    Object: {fileID: 0}
   _scoreCounter: {fileID: 6459932232298922917}
 --- !u!1 &6459932233792890210
 GameObject:

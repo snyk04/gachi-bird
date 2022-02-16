@@ -9,8 +9,8 @@ namespace GachiBird.UserWindows
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
-        [SerializeField] private AbstractComponent<IScoreHolder> _scoreHolder;
+        [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
+        [SerializeField] private SerializedInterface<IComponent<IScoreHolder>> _scoreHolder;
         
         [Header("Objects")]
         [SerializeField] private TMP_Text _scoreCounter;
@@ -18,23 +18,23 @@ namespace GachiBird.UserWindows
         
         private void Awake()
         {
-            _gameCycle.HeldItem.OnGameStart += Show;
-            _gameCycle.HeldItem.OnGameEnd += Hide;
+            _gameCycle.Interface.HeldItem.OnGameStart += Show;
+            _gameCycle.Interface.HeldItem.OnGameEnd += Hide;
 
-            _scoreHolder.HeldItem.OnScoreChanged += RefreshScoreCounter;
+            _scoreHolder.Interface.HeldItem.OnScoreChanged += RefreshScoreCounter;
         }
         
         private void OnDestroy()
         {
-            _gameCycle.HeldItem.OnGameStart -= Show;
-            _gameCycle.HeldItem.OnGameEnd -= Hide;
+            _gameCycle.Interface.HeldItem.OnGameStart -= Show;
+            _gameCycle.Interface.HeldItem.OnGameEnd -= Hide;
 
-            _scoreHolder.HeldItem.OnScoreChanged -= RefreshScoreCounter;
+            _scoreHolder.Interface.HeldItem.OnScoreChanged -= RefreshScoreCounter;
         }
 
         private void RefreshScoreCounter()
         {
-            _scoreCounter.text = _scoreHolder.HeldItem.Score.ToString();
+            _scoreCounter.text = _scoreHolder.Interface.HeldItem.Score.ToString();
         }
     }
 }
