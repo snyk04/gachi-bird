@@ -1,5 +1,3 @@
-#nullable enable
-
 using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Environment.Colliders;
 using GachiBird.PlayerLogic;
@@ -19,6 +17,4 @@ namespace GachiBird.Game
             return new GameCycle(_playerBordersTrigger.HeldItem, _playerColliderListener);
         }
     }
-
-    // todo: make StartGame and StopGame public (via dependencies)
 }

@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using AreYouFruits.Common.Encryption;
+﻿using AreYouFruits.Common.Encryption;
 
 namespace GachiBird.Serialization
 {

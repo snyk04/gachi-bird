@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using GachiBird.Environment.Colliders;
+﻿using GachiBird.Environment.Colliders;
 using UnityEngine;
 
 namespace GachiBird.Environment.Objects

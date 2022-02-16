@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using System;
+﻿using System;
 using AreYouFruits.Common;
 using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Environment.Pooling;

@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-namespace GachiBird.CameraMovement
+﻿namespace GachiBird.CameraMovement
 {
     public enum ShakeType
     {

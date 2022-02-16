@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using System.Linq;
+﻿using System.Linq;
 using AreYouFruits.Common;
 using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Environment.Objects;

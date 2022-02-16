@@ -1,6 +1,4 @@
 ﻿
-#nullable enable
-
 namespace GachiBird.Serialization
 {
     public sealed class GameSaver : IGameSaver

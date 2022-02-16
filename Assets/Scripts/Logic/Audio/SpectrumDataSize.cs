@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-namespace GachiBird.Audio
+﻿namespace GachiBird.Audio
 {
     public enum SpectrumDataSize
     {

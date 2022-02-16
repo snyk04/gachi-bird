@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using System;
+﻿using System;
 using GachiBird.Game;
 using GachiBird.PlayerLogic;
 using UnityEngine.InputSystem;

@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-namespace GachiBird.Serialization
+﻿namespace GachiBird.Serialization
 {
     public interface IDataSaver<TData>
     {

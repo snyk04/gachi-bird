@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using System;
+﻿using System;
 using AreYouFruits.Common;
 using GachiBird.Audio;
 using UnityEngine;

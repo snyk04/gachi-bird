@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using AreYouFruits.Common.ComponentGeneration;
+﻿using AreYouFruits.Common.ComponentGeneration;
 using UnityEngine;
 
 namespace GachiBird.Audio
@@ -18,7 +16,7 @@ namespace GachiBird.Audio
         [SerializeField] private GameObject _partPrefab;
         [SerializeField] private GameObject _partContainer;
 #nullable enable
-
+        
         protected override AudioVisualizer Create()
         {
             var item = new AudioVisualizer(

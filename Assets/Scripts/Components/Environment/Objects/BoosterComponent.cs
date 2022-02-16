@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using AreYouFruits.Common.ComponentGeneration;
+﻿using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Environment.Colliders;
 using UnityEngine;
 
