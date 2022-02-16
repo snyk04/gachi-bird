@@ -9,13 +9,13 @@ namespace GachiBird.Environment.Pooling
         protected readonly Queue<T> AvailableElements = new Queue<T>();
         protected readonly List<T> BusyElements = new List<T>();
 
-        protected abstract T Create();
         protected virtual void HandleActivated(T element) { }
         protected virtual void HandleDeactivated(T element) { }
         protected virtual void HandleReactivated(T element) { }
 
         public event Action<T>? OnGet;
         public event Action<T>? OnReturn;
+        public abstract event Action<T>? OnCreate;
 
         public virtual T Get()
         {

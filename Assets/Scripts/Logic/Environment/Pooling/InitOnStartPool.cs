@@ -1,12 +1,20 @@
-﻿namespace GachiBird.Environment.Pooling
+﻿using System;
+
+namespace GachiBird.Environment.Pooling
 {
     public abstract class InitOnStartPool<T> : Pool<T>
     {
+        public override event Action<T>? OnCreate;
+        
+        protected abstract T Create();
+        
         protected void Start(int count)
         {
             for (int i = 0; i < count; i++)
             {
-                AvailableElements.Enqueue(Create());
+                T item = Create();
+                AvailableElements.Enqueue(item);
+                OnCreate?.Invoke(item);
             }
         }
     }

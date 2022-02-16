@@ -1,4 +1,5 @@
 ﻿using System;
+using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Game;
 using UnityEngine;
 
@@ -17,20 +18,13 @@ namespace GachiBird.PlayerLogic
             _jumpForce = jumpForce;
 
             gameCycle.OnGameStart += HandleGameStart;
-            gameCycle.OnGameEnd += HandleGameEnd;
-            
+
             _rigidbody.velocity = speed * Vector2.right;
         }
 
         private void HandleGameStart()
         {
             _rigidbody.isKinematic = false;
-        }
-
-        private void HandleGameEnd()
-        {
-            _rigidbody.isKinematic = true;
-            _rigidbody.velocity = Vector2.zero;
         }
 
         public void Jump()

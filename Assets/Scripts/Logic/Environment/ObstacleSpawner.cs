@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using AreYouFruits.Common;
+using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Environment.Colliders;
 using GachiBird.Environment.Objects;
 using GachiBird.Environment.Pooling;

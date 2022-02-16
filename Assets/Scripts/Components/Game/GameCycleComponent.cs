@@ -7,14 +7,6 @@ namespace GachiBird.Game
 {
     public sealed class GameCycleComponent : AbstractComponent<IGameCycle>
     {
-#nullable disable
-        [SerializeField] private AbstractComponent<IPlayerBordersTrigger> _playerBordersTrigger;
-        [SerializeField] private Collider2DListener _playerColliderListener;
-#nullable enable
-        
-        protected override IGameCycle Create()
-        {
-            return new GameCycle(_playerBordersTrigger.HeldItem, _playerColliderListener);
-        }
+        protected override IGameCycle Create() => new GameCycle();
     }
 }

@@ -12,10 +12,7 @@ namespace GachiBird.Environment.Pooling
 
         protected override IPool<GameObject> Create()
         {
-            var item = new GameObjectPool(_amountOfObjectsInPool, _prefab, transform);
-            item.Start();
-            
-            return item;
+            return new GameObjectPool(_amountOfObjectsInPool, _prefab, transform);
         }
     }
 }

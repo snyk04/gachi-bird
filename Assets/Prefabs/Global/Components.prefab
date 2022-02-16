@@ -183,6 +183,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8746930492868225615}
   - component: {fileID: 8746930492868225614}
+  - component: {fileID: 6818098030600983579}
+  - component: {fileID: 8263768793190425464}
+  - component: {fileID: 4328060015724115828}
   m_Layer: 0
   m_Name: GameCycle
   m_TagString: Untagged
@@ -216,8 +219,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5ae55755b21bf42bb1f9f343464434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6818098030600983579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746930492868225608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b446bfa2043429c9ac07f0c3b54be3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameCycle: {fileID: 8746930492868225614}
+--- !u!114 &8263768793190425464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746930492868225608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5f98b8197b4fb7af26e3bd035ff455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameCycle: {fileID: 8746930492868225614}
   _playerBordersTrigger: {fileID: 8746930493578425493}
-  _playerColliderListener: {fileID: 0}
+--- !u!114 &4328060015724115828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746930492868225608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0eb5d1453a4487aa35444e8394c0dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameCycle: {fileID: 8746930492868225614}
+  _pool: {fileID: 0}
 --- !u!1 &8746930493407439015
 GameObject:
   m_ObjectHideFlags: 0
