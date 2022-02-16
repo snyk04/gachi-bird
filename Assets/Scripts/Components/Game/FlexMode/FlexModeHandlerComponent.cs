@@ -8,8 +8,9 @@ namespace GachiBird.Game.FlexMode
     public sealed class FlexModeHandlerComponent : AbstractComponent<IFlexModeHandler>
     {
 #nullable disable
-        [SerializeField] private AbstractComponent<IBoosterSpawner> _boosterSpawner;
         [SerializeField] private AbstractComponent<IPlayer> _player;
+        [SerializeField] private AbstractComponent<IBoosterSpawner> _boosterSpawner;
+        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
         [SerializeField] private AudioSource _backgroundMusicAudioSource;
         [SerializeField] private AudioSource _flexMusicAudioSource;
 #nullable enable
@@ -21,7 +22,7 @@ namespace GachiBird.Game.FlexMode
         
         protected override IFlexModeHandler Create()
         {
-            return new FlexModeHandler(_boosterSpawner.HeldItem, _player.HeldItem,
+            return new FlexModeHandler(_player.HeldItem, _boosterSpawner.HeldItem, _gameCycle.HeldItem,
                 _backgroundMusicAudioSource, _flexMusicAudioSource);
         }
     }

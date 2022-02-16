@@ -18,7 +18,7 @@ namespace GachiBird.Game.FlexMode
         
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
 
-        public FlexModeHandler(IBoosterSpawner boosterSpawner, IPlayer player,
+        public FlexModeHandler(IPlayer player, IBoosterSpawner boosterSpawner, IGameCycle gameCycle,
             AudioSource backgroundMusicAudioSource, AudioSource flexMusicAudioSource)
         {
             _player = player;
@@ -26,6 +26,7 @@ namespace GachiBird.Game.FlexMode
             _flexMusicAudioSource = flexMusicAudioSource;
 
             boosterSpawner.OnBoosterSpawned += HandleBoosterSpawned;
+            gameCycle.OnGameEnd += () => StopFlexMode(true);
         }
         
         private async void StartFlexMode(GameObject boosterObject, IBooster booster, BoosterInfo boosterInfo)
@@ -42,15 +43,18 @@ namespace GachiBird.Game.FlexMode
 
             if (!_cancellationSource.IsCancellationRequested)
             {
-                StopFlexMode();
+                StopFlexMode(false);
             }
         }
-        private void StopFlexMode()
+        private void StopFlexMode(bool isGameStopped)
         {
             _flexMusicAudioSource.Stop();
             _backgroundMusicAudioSource.UnPause();
-            
-            _player.ResetSpeed();
+
+            if (!isGameStopped)
+            {
+                _player.ResetSpeed();
+            }
         }
         
         private void HandleBoosterSpawned(IBooster booster)

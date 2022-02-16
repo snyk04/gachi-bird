@@ -816,8 +816,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameCycle: {fileID: 0}
-  _gameObjectPool: {fileID: 0}
-  _obstacleSpawner: {fileID: 0}
+  _gameObjectPool: {fileID: 573696910397658636}
+  _obstacleSpawner: {fileID: 824014022460572519}
   _boosterSettingsArray:
   - {fileID: 11400000, guid: ce0fc251fb1f7454880fde9944ab1184, type: 2}
   _gapRange:
