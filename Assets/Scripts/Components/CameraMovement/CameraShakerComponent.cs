@@ -5,11 +5,12 @@ using UnityEngine;
 
 namespace GachiBird.CameraMovement
 {
-    public sealed class CameraShakerComponent : AbstractComponent<IControllableCameraEffect>
+    public sealed class CameraShakerComponent 
+        : AbstractComponent<CameraShaker, IControllableCameraEffect, ICameraEffect>
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private AbstractComponent<ISoundAnalyzer> _soundAnalyzer;
+        [SerializeField] private SerializedInterface<IComponent<ISoundAnalyzer>> _soundAnalyzer;
 
         [Header("Settings")]
         [SerializeField] private ShakeType _shakeType;
@@ -18,8 +19,8 @@ namespace GachiBird.CameraMovement
         [SerializeField] private Range<int> _frequencyRange;
 #nullable enable
         
-        protected override IControllableCameraEffect Create() => new CameraShaker(
-            _soundAnalyzer.HeldItem,
+        protected override CameraShaker Create() => new CameraShaker(
+            _soundAnalyzer.GetHeldItem(),
             _shakeType,
             _powerThreshold,
             _maxPower,

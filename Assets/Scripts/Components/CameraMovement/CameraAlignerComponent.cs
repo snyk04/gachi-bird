@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace GachiBird.CameraMovement
 {
-    public sealed class CameraAlignerComponent : AbstractComponent<ICameraEffect>
+    public sealed class CameraAlignerComponent : AbstractComponent<CameraAligner, ICameraEffect>
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
+        [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
 
         [Header("Settings")]
         [SerializeField] private Transform _objectToAlign;
@@ -17,10 +17,10 @@ namespace GachiBird.CameraMovement
         [SerializeField] private float _timeToMoveCameraToGamePosition;
 #nullable enable
         
-        protected override ICameraEffect Create()
+        protected override CameraAligner Create()
         {
             return new CameraAligner(
-                _gameCycle.HeldItem,
+                _gameCycle.GetHeldItem(),
                 _objectToAlign,
                 _defaultCameraOffset,
                 _defaultSmoothTime,

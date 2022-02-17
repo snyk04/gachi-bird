@@ -8,10 +8,10 @@ namespace GachiBird.Input
     public sealed class PlayerInputComponent : DestroyableAbstractComponent<PlayerInput>
     {
 #nullable disable
-        [SerializeField] private GameCycleComponent _gameCycle;
-        [SerializeField] private AbstractComponent<IJumpable> _player;
+        [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
+        [SerializeField] private SerializedInterface<IComponent<IJumpable>> _player;
 #nullable enable
         
-        protected override PlayerInput Create() => new PlayerInput(_gameCycle.HeldItem, _player.HeldItem);
+        protected override PlayerInput Create() => new PlayerInput(_gameCycle.GetHeldItem(), _player.GetHeldItem());
     }
 }

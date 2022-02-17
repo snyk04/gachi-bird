@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace GachiBird.PlayerLogic
 {
-    public sealed class MoverComponent : AbstractComponent<IMovable>
+    public sealed class MoverComponent : AbstractComponent<Mover, IMovable>
     {
 #nullable disable
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private float _speed;
 #nullable enable
         
-        protected override IMovable Create() => new Mover(_rigidbody, _speed);
+        protected override Mover Create() => new Mover(_rigidbody, _speed);
     }
 }

@@ -7,13 +7,13 @@ namespace GachiBird.Flex
     public sealed class FlexRenderFeatureHandlerComponent : DestroyableAbstractComponent<FlexRenderFeatureHandler>
     {
 #nullable disable
-        [SerializeField] private AbstractComponent<IFlexModeHandler> _flexModeHandler;
+        [SerializeField] private SerializedInterface<IComponent<IFlexModeHandler>> _flexModeHandler;
         [SerializeField] private PostFXFeature _flexRenderFeature;
 #nullable enable
         
         protected override FlexRenderFeatureHandler Create()
         {
-            return new FlexRenderFeatureHandler(_flexModeHandler.HeldItem, _flexRenderFeature);
+            return new FlexRenderFeatureHandler(_flexModeHandler.GetHeldItem(), _flexRenderFeature);
         }
     }
 }

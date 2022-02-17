@@ -7,13 +7,13 @@ namespace GachiBird.Game
     public sealed class PlayerOutOfBoundsGameEnderComponent : AbstractComponent<PlayerOutOfBoundsGameEnder>
     {
 #nullable disable
-        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
-        [SerializeField] private AbstractComponent<IPlayerBordersTrigger> _playerBordersTrigger;
+        [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
+        [SerializeField] private SerializedInterface<IComponent<IPlayerBordersTrigger>> _playerBordersTrigger;
 #nullable enable
         
         protected override PlayerOutOfBoundsGameEnder Create()
         {
-            return new PlayerOutOfBoundsGameEnder(_gameCycle.HeldItem, _playerBordersTrigger.HeldItem);
+            return new PlayerOutOfBoundsGameEnder(_gameCycle.GetHeldItem(), _playerBordersTrigger.GetHeldItem());
         }
     }
 }

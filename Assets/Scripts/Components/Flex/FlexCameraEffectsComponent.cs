@@ -7,13 +7,13 @@ namespace GachiBird.Flex
     public sealed class FlexCameraEffectsComponent : AbstractComponent<FlexCameraEffects>
     {
 #nullable disable
-        [SerializeField] private AbstractComponent<IFlexModeHandler> _flexModeHandler;
-        [SerializeField] private AbstractComponent<IControllableCameraEffect>[] _controllableCameraEffects;
+        [SerializeField] private SerializedInterface<IComponent<IFlexModeHandler>> _flexModeHandler;
+        [SerializeField] private SerializedInterface<IComponent<IControllableCameraEffect>>[] _controllableCameraEffects;
 #nullable enable
         
         protected override FlexCameraEffects Create()
         {
-            return new FlexCameraEffects(_flexModeHandler.HeldItem, _controllableCameraEffects.ExtractAsArray());
+            return new FlexCameraEffects(_flexModeHandler.GetHeldItem(), _controllableCameraEffects.ExtractAsArray());
         }
     }
 }

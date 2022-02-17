@@ -5,17 +5,17 @@ using UnityEngine;
 namespace GachiBird.Environment.Objects
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class BoosterComponent : AbstractComponent<IBooster>
+    public class BoosterComponent : AbstractComponent<Booster, IBooster>
     {
 #nullable disable
         [SerializeField] private Collider2DListener _checkpointCollider2DListener;
         [SerializeField] private Collider2DListener _boosterPickedUpCollider2DListener;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
 #nullable enable
-        
-        protected override IBooster Create()
+
+        protected override Booster Create()
         {
-            return new Booster(_checkpointCollider2DListener, _boosterPickedUpCollider2DListener,
-                GetComponent<SpriteRenderer>());
+            return new Booster(_checkpointCollider2DListener, _boosterPickedUpCollider2DListener, _spriteRenderer);
         }
     }
 }

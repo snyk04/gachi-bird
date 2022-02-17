@@ -9,9 +9,9 @@ namespace GachiBird.Flex
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private AbstractComponent<IFlexModeHandler> _flexModeHandler;
-        [SerializeField] private AbstractComponent<IPool<GameObject>> _boosterPool;
-        [SerializeField] private AbstractComponent<IPool<GameObject>> _obstaclePool;
+        [SerializeField] private SerializedInterface<IComponent<IFlexModeHandler>> _flexModeHandler;
+        [SerializeField] private SerializedInterface<IComponent<IPool<GameObject>>> _boosterPool;
+        [SerializeField] private SerializedInterface<IComponent<IPool<GameObject>>> _obstaclePool;
         
         [Header("Settings")]
         [SerializeField] private float _timeGapBeforeObstaclesAreSolidAgain;
@@ -19,7 +19,7 @@ namespace GachiBird.Flex
 
         protected override ColliderCollector Create()
         {
-            return new ColliderCollector(_flexModeHandler.HeldItem, _boosterPool.HeldItem, _obstaclePool.HeldItem,
+            return new ColliderCollector(_flexModeHandler.GetHeldItem(), _boosterPool.GetHeldItem(), _obstaclePool.GetHeldItem(),
                 _timeGapBeforeObstaclesAreSolidAgain);
         }
     }

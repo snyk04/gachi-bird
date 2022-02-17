@@ -8,13 +8,13 @@ using UnityEngine;
 
 namespace GachiBird.Environment
 {
-    public sealed class BoosterSpawnerComponent : AbstractComponent<IBoosterSpawner>
+    public sealed class BoosterSpawnerComponent : AbstractComponent<BoosterSpawner, IBoosterSpawner>
     {
 #nullable disable
-        [Header("References")] 
-        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
-        [SerializeField] private AbstractComponent<IPool<GameObject>> _gameObjectPool;
-        [SerializeField] private AbstractComponent<IObstacleSpawner> _obstacleSpawner;
+        [Header("References")]
+        [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
+        [SerializeField] private SerializedInterface<IComponent<IPool<GameObject>>> _gameObjectPool;
+        [SerializeField] private SerializedInterface<IComponent<IObstacleSpawner>> _obstacleSpawner;
         [SerializeField] private BoosterSettings[] _boosterSettingsArray;
         [SerializeField] private Range<int> _gapRange;
         [SerializeField] private Vector3 _playerOffset;
@@ -23,18 +23,19 @@ namespace GachiBird.Environment
         [SerializeField] private Transform _player;
 #nullable enable
 
-        protected override IBoosterSpawner Create()
+        protected override BoosterSpawner Create()
         {
             return new BoosterSpawner(
-                _gameCycle.HeldItem,
-                _gameObjectPool.HeldItem,
-                _obstacleSpawner.HeldItem,
+                _gameCycle.GetHeldItem(),
+                _gameObjectPool.GetHeldItem(),
+                _obstacleSpawner.GetHeldItem(),
                 _boosterSettingsArray.Select(boosterSettings => boosterSettings.BoosterInfo).ToArray(),
                 _gapRange,
                 _playerOffset,
                 _widthRange,
                 _heightRange,
-                _player);
+                _player
+            );
         }
     }
 }

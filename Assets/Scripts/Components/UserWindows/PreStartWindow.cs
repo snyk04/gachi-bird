@@ -7,13 +7,13 @@ namespace GachiBird.UserWindows
     public sealed class PreStartWindow : BaseWindow
     {
 #nullable disable
-        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
+        [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
 #nullable enable
         
         private void Awake()
         {
             Show();
-            _gameCycle.HeldItem.OnGameStart += Hide;
+            _gameCycle.GetHeldItem().OnGameStart += Hide;
         }
     }
 }

@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace GachiBird.Flex
 {
-    public sealed class FlexModeHandlerComponent : DestroyableAbstractComponent<IFlexModeHandler, FlexModeHandler>
+    public sealed class FlexModeHandlerComponent : DestroyableAbstractComponent<FlexModeHandler, IFlexModeHandler>
     {
 #nullable disable
-        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
+        [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
 #nullable enable
         
-        protected override IFlexModeHandler Create()
+        protected override FlexModeHandler Create()
         {
-            return new FlexModeHandler(_gameCycle.HeldItem);
+            return new FlexModeHandler(_gameCycle.GetHeldItem());
         }
     }
 }

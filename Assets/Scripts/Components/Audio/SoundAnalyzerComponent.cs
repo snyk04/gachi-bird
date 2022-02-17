@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GachiBird.Audio
 {
-    public class SoundAnalyzerComponent : AbstractComponent<ISoundAnalyzer>
+    public class SoundAnalyzerComponent : AbstractComponent<SoundAnalyzer, ISoundAnalyzer>
     {
 #nullable disable
         [SerializeField] private AudioSource _audioSource;
@@ -11,7 +11,7 @@ namespace GachiBird.Audio
         [SerializeField] private FFTWindow _fftWindow;
 #nullable enable
 
-        protected override ISoundAnalyzer Create()
+        protected override SoundAnalyzer Create()
         {
             return new SoundAnalyzer(_audioSource, _spectrumDataSize, _fftWindow);
         }

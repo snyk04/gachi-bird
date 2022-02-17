@@ -5,14 +5,14 @@ using UnityEngine;
 namespace GachiBird.PlayerLogic
 {
     public sealed class PlayerBordersTriggerComponent 
-        : DestroyableAbstractComponent<IPlayerBordersTrigger, PlayerBordersTrigger>
+        : DestroyableAbstractComponent<PlayerBordersTrigger, IPlayerBordersTrigger>
     {
 #nullable disable
         [SerializeField] private Transform _player;
         [SerializeField] private Range<float> _heightBounds;
 #nullable enable
         
-        protected override IPlayerBordersTrigger Create()
+        protected override PlayerBordersTrigger Create()
         {
             var trigger = new PlayerBordersTrigger(_player, _heightBounds);
             trigger.Start();

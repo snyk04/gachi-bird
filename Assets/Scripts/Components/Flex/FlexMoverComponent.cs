@@ -7,13 +7,13 @@ namespace GachiBird.Flex
     public sealed class FlexMoverComponent : AbstractComponent<FlexMover>
     {
 #nullable disable
-        [SerializeField] private AbstractComponent<IFlexModeHandler> _flexModeHandler;
-        [SerializeField] private AbstractComponent<IMovable> _player;
+        [SerializeField] private SerializedInterface<IComponent<IFlexModeHandler>> _flexModeHandler;
+        [SerializeField] private SerializedInterface<IComponent<IMovable>> _player;
 #nullable enable
         
         protected override FlexMover Create()
         {
-            return new FlexMover(_flexModeHandler.HeldItem, _player.HeldItem);
+            return new FlexMover(_flexModeHandler.GetHeldItem(), _player.GetHeldItem());
         }
     }
 }

@@ -13,8 +13,8 @@ namespace GachiBird.UserWindows
         [SerializeField] private Button _okButton;
         
         [Header("References")] 
-        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
-        [SerializeField] private AbstractComponent<IScoreHolder> _scoreHolder;
+        [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
+        [SerializeField] private SerializedInterface<IComponent<IScoreHolder>> _scoreHolder;
         
         [Header("Objects")]
         [SerializeField] private TMP_Text _currentScoreText;
@@ -23,16 +23,16 @@ namespace GachiBird.UserWindows
         
         private void Awake()
         {
-            _gameCycle.HeldItem.OnGameEnd += Show;
-            _gameCycle.HeldItem.OnGameEnd += ShowResultScore;
+            _gameCycle.GetHeldItem().OnGameEnd += Show;
+            _gameCycle.GetHeldItem().OnGameEnd += ShowResultScore;
             
-            _okButton.onClick.AddListener(() => _gameCycle.HeldItem.RestartGame());
+            _okButton.onClick.AddListener(() => _gameCycle.GetHeldItem().RestartGame());
         }
 
         private void ShowResultScore()
         {
-            _currentScoreText.text = _scoreHolder.HeldItem.Score.ToString();
-            _bestScoreText.text = _scoreHolder.HeldItem.HighScore.ToString();
+            _currentScoreText.text = _scoreHolder.GetHeldItem().Score.ToString();
+            _bestScoreText.text = _scoreHolder.GetHeldItem().HighScore.ToString();
         }
     }
 }

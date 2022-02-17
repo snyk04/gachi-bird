@@ -4,15 +4,14 @@ using UnityEngine;
 
 namespace GachiBird.PlayerLogic
 {
-    public sealed class JumperComponent : AbstractComponent<IJumpable>
+    public sealed class JumperComponent : AbstractComponent<Jumper, IJumpable>
     {
 #nullable disable
-        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
+        [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private float _jumpForce;
 #nullable enable
 
-        protected override IJumpable Create() => new Jumper(_gameCycle.HeldItem, _rigidbody, _jumpForce);
-        }
+        protected override Jumper Create() => new Jumper(_gameCycle.GetHeldItem(), _rigidbody, _jumpForce);
+    }
 }
-

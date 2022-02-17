@@ -6,9 +6,9 @@ namespace GachiBird.Game
     public sealed class GameFirstInputStarterComponent : AbstractComponent<GameFirstInputStarter>
     {
 #nullable disable
-        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
+        [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
 #nullable enable
         
-        protected override GameFirstInputStarter Create() => new GameFirstInputStarter(_gameCycle.HeldItem);
+        protected override GameFirstInputStarter Create() => new GameFirstInputStarter(_gameCycle.GetHeldItem());
     }
 }

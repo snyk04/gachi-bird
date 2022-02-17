@@ -9,9 +9,9 @@ namespace GachiBird.PlayerLogic
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
-        [SerializeField] private AbstractComponent<IJumpable> _player;
-        [SerializeField] private AbstractComponent<IScoreHolder> _scoreHolder;
+        [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
+        [SerializeField] private SerializedInterface<IComponent<IJumpable>> _player;
+        [SerializeField] private SerializedInterface<IComponent<IScoreHolder>> _scoreHolder;
         
         [Header("Audio sources")]
         [SerializeField] private AudioSource _checkpointAudioSource;
@@ -21,9 +21,9 @@ namespace GachiBird.PlayerLogic
         
         private void Awake()
         {
-            _scoreHolder.HeldItem.OnScoreChanged += _checkpointAudioSource.Play;
-            _gameCycle.HeldItem.OnGameEnd += _deathAudioSource.Play;
-            _player.HeldItem.OnJump += _jumpAudioSource.Play;
+            _scoreHolder.GetHeldItem().OnScoreChanged += _checkpointAudioSource.Play;
+            _gameCycle.GetHeldItem().OnGameEnd += _deathAudioSource.Play;
+            _player.GetHeldItem().OnJump += _jumpAudioSource.Play;
         }
     }
 }

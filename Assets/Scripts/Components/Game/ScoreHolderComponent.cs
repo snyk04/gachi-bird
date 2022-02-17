@@ -6,20 +6,20 @@ using UnityEngine;
 
 namespace GachiBird.UserWindows
 {
-    public sealed class ScoreHolderComponent : AbstractComponent<IScoreHolder>
+    public sealed class ScoreHolderComponent : AbstractComponent<ScoreHolder, IScoreHolder>
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private AbstractComponent<IGameSaver> _serializationManager;
-        [SerializeField] private AbstractComponent<IObstacleSpawner> _obstacleSpawner;
+        [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _serializationManager;
+        [SerializeField] private SerializedInterface<IComponent<IObstacleSpawner>> _obstacleSpawner;
         [SerializeField] private int _pointsPerCheckpoint;
 #nullable enable
         
-        protected override IScoreHolder Create()
+        protected override ScoreHolder Create()
         {
             return new ScoreHolder(
-                _obstacleSpawner.HeldItem,
-                _serializationManager.HeldItem.LoadBestScore(),
+                _obstacleSpawner.GetHeldItem(),
+                _serializationManager.GetHeldItem().LoadBestScore(),
                 _pointsPerCheckpoint
             );
         }

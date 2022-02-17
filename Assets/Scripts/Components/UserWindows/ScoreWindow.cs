@@ -18,23 +18,23 @@ namespace GachiBird.UserWindows
         
         private void Awake()
         {
-            _gameCycle.Interface.HeldItem.OnGameStart += Show;
-            _gameCycle.Interface.HeldItem.OnGameEnd += Hide;
+            _gameCycle.GetHeldItem().OnGameStart += Show;
+            _gameCycle.GetHeldItem().OnGameEnd += Hide;
 
-            _scoreHolder.Interface.HeldItem.OnScoreChanged += RefreshScoreCounter;
+            _scoreHolder.GetHeldItem().OnScoreChanged += RefreshScoreCounter;
         }
         
         private void OnDestroy()
         {
-            _gameCycle.Interface.HeldItem.OnGameStart -= Show;
-            _gameCycle.Interface.HeldItem.OnGameEnd -= Hide;
+            _gameCycle.GetHeldItem().OnGameStart -= Show;
+            _gameCycle.GetHeldItem().OnGameEnd -= Hide;
 
-            _scoreHolder.Interface.HeldItem.OnScoreChanged -= RefreshScoreCounter;
+            _scoreHolder.GetHeldItem().OnScoreChanged -= RefreshScoreCounter;
         }
 
         private void RefreshScoreCounter()
         {
-            _scoreCounter.text = _scoreHolder.Interface.HeldItem.Score.ToString();
+            _scoreCounter.text = _scoreHolder.GetHeldItem().Score.ToString();
         }
     }
 }
