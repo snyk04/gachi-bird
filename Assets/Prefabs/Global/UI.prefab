@@ -269,8 +269,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _container: {fileID: 6459932232498901329}
   _okButton: {fileID: 6459932232240760025}
-  _gameCycle: {fileID: 0}
-  _scoreHolder: {fileID: 0}
+  _gameCycle:
+    _object: {fileID: 0}
+  _scoreHolder:
+    _object: {fileID: 0}
   _currentScoreText: {fileID: 6459932233707510141}
   _bestScoreText: {fileID: 6459932231843081769}
 --- !u!1 &6459932232129561553
@@ -1523,7 +1525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 6459932233583282168}
-  _gameCycle: {fileID: 0}
+  _gameCycle:
+    _object: {fileID: 0}
 --- !u!1 &6459932233583282168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,9 +1832,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _container: {fileID: 6459932232517048861}
   _gameCycle:
-    Object: {fileID: 0}
+    _object: {fileID: 0}
   _scoreHolder:
-    Object: {fileID: 0}
+    _object: {fileID: 0}
   _scoreCounter: {fileID: 6459932232298922917}
 --- !u!1 &6459932233792890210
 GameObject:

@@ -58,8 +58,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf80620b73dc473081a8ce75729d686a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCycle: {fileID: 0}
-  _gameObjectPool: {fileID: 3154571996456002620}
+  _gameCycle:
+    _object: {fileID: 0}
+  _gameObjectPool:
+    _object: {fileID: 0}
   _gap: 10
   _playerOffset: {x: 10, y: 0, z: 0}
   _heightRange:
@@ -282,7 +284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cedd8c5db85de6418d1a3747d833376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCycle: {fileID: 0}
+  _gameCycle:
+    _object: {fileID: 0}
   _rigidbody: {fileID: 3404698249679552006}
   _jumpForce: 10
 --- !u!114 &3404698249679552011
@@ -297,8 +300,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb07bc4c7c24316afb3337532ef82bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCycle: {fileID: 0}
-  _player: {fileID: 3404698249679552000}
+  _gameCycle:
+    _object: {fileID: 0}
+  _player:
+    _object: {fileID: 3404698249679552000}
 --- !u!114 &3404698249679552010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975dd0c3d3274b18b19784fb66341d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCycle: {fileID: 0}
+  _gameCycle:
+    _object: {fileID: 0}
   _rigidbody: {fileID: 3404698249679552006}
   _defaultGravityScale: 3
 --- !u!114 &832595146154983951
@@ -326,11 +332,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c7b0b7f5444528ada56206b700da34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCycle: {fileID: 0}
+  _gameCycle:
+    _object: {fileID: 0}
   _rigidbody: {fileID: 3404698249679552006}
   _collider: {fileID: 3404698249679552007}
   _transform: {fileID: 3404698249679552001}
-  _playerBorders: {fileID: 0}
+  _playerBorders:
+    _object: {fileID: 0}
 --- !u!114 &1077306068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,10 +365,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ab276280df44febc8966172f1b47ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flexModeHandler: {fileID: 0}
-  _gameCycle: {fileID: 0}
-  _playerJumper: {fileID: 3404698249679552000}
-  _scoreHolder: {fileID: 0}
+  _flexModeHandler:
+    _object: {fileID: 0}
+  _gameCycle:
+    _object: {fileID: 0}
+  _playerJumper:
+    _object: {fileID: 3404698249679552000}
+  _scoreHolder:
+    _object: {fileID: 0}
   _jumpAudioSource: {fileID: 2017726377}
   _otherAudioSource: {fileID: 2017726376}
   _deathSounds:
@@ -650,9 +662,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb49956e25b4d569e731bc9b7cfaea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCycle: {fileID: 0}
-  _gameObjectPool: {fileID: 573696910397658636}
-  _obstacleSpawner: {fileID: 824014022460572519}
+  _gameCycle:
+    _object: {fileID: 0}
+  _gameObjectPool:
+    _object: {fileID: 0}
+  _obstacleSpawner:
+    _object: {fileID: 824014022460572519}
   _boosterSettingsArray:
   - {fileID: 11400000, guid: ce0fc251fb1f7454880fde9944ab1184, type: 2}
   - {fileID: 11400000, guid: 81683cc2ea38044468d8ab036c1a9c53, type: 2}

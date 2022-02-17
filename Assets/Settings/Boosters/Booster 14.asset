@@ -19,5 +19,5 @@ MonoBehaviour:
     Music: {fileID: 8300000, guid: 21232d2e80282af47b69c191eb084507, type: 3}
     MusicFrequencyRange:
       Min: 0
-      Max: 0
-      IsBounded: 0
+      Max: 4
+      IsBounded: 1

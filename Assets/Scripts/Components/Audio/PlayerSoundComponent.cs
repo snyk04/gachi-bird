@@ -10,10 +10,10 @@ namespace GachiBird.Audio
     {
 #nullable disable
         [Header("References")] 
-        [SerializeField] private AbstractComponent<IFlexModeHandler> _flexModeHandler;
-        [SerializeField] private AbstractComponent<IGameCycle> _gameCycle;
-        [SerializeField] private AbstractComponent<IJumpable> _playerJumper;
-        [SerializeField] private AbstractComponent<IScoreHolder> _scoreHolder;
+        [SerializeField] private SerializedInterface<IComponent<IFlexModeHandler>> _flexModeHandler;
+        [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
+        [SerializeField] private SerializedInterface<IComponent<IJumpable>> _playerJumper;
+        [SerializeField] private SerializedInterface<IComponent<IScoreHolder>> _scoreHolder;
         
         [Header("Audio")]
         [SerializeField] private AudioSource _jumpAudioSource;
@@ -25,8 +25,8 @@ namespace GachiBird.Audio
         
         protected override PlayerSound Create()
         {
-            return new PlayerSound(_flexModeHandler.HeldItem, _gameCycle.HeldItem, _playerJumper.HeldItem,
-                _scoreHolder.HeldItem, _jumpAudioSource, _otherAudioSource, _deathSounds,
+            return new PlayerSound(_flexModeHandler.GetHeldItem(), _gameCycle.GetHeldItem(), _playerJumper.GetHeldItem(),
+                _scoreHolder.GetHeldItem(), _jumpAudioSource, _otherAudioSource, _deathSounds,
                 _jumpSound, _checkpointPassedSounds);
         }
     }

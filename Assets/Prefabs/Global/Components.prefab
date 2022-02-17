@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4dd935ed8b49d5bf74b8c3c0c60780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flexModeHandler: {fileID: 677833394}
+  _flexModeHandler:
+    _object: {fileID: 677833394}
   _flexRenderFeature: {fileID: 220744673194233231, guid: e5248aeaef93e084b8ff97469834eb9e, type: 2}
 --- !u!1 &677833392
 GameObject:
@@ -94,7 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f2ae66287046e8927e765f6ac69bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCycle: {fileID: 8746930492868225614}
+  _gameCycle:
+    _object: {fileID: 8746930492868225614}
 --- !u!1 &995435796
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,9 +140,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8735fcb0174b6a969da9d13e8b31e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flexModeHandler: {fileID: 677833394}
-  _boosterPool: {fileID: 0}
-  _obstaclePool: {fileID: 0}
+  _flexModeHandler:
+    _object: {fileID: 677833394}
+  _boosterPool:
+    _object: {fileID: 0}
+  _obstaclePool:
+    _object: {fileID: 0}
   _timeGapBeforeObstaclesAreSolidAgain: 3
 --- !u!1 &1048396243
 GameObject:
@@ -185,9 +190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b397d6741885484b816b96cd47515176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flexModeHandler: {fileID: 677833394}
+  _flexModeHandler:
+    _object: {fileID: 677833394}
   _controllableCameraEffects:
-  - {fileID: 8746930493407438938}
+  - _object: {fileID: 0}
 --- !u!1 &1412028718
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a984216ea19b4a46b122bbea6b0a1cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flexModeHandler: {fileID: 677833394}
+  _flexModeHandler:
+    _object: {fileID: 677833394}
   _backgroundMusicAudioSource: {fileID: 8746930492627621347}
   _flexMusicAudioSource: {fileID: 1490957705}
 --- !u!1 &1490957704
@@ -404,8 +411,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231155945cb04a90b7ef403571a43517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flexModeHandler: {fileID: 677833394}
-  _player: {fileID: 0}
+  _flexModeHandler:
+    _object: {fileID: 677833394}
+  _player:
+    _object: {fileID: 0}
 --- !u!1 &1938801145
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,8 +458,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5209f6f08ea4a938db3e032e9fda847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flexModeHandler: {fileID: 677833394}
-  _boosterSpawner: {fileID: 0}
+  _flexModeHandler:
+    _object: {fileID: 677833394}
+  _boosterSpawner:
+    _object: {fileID: 0}
 --- !u!1 &8746930492627621357
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,7 +693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b446bfa2043429c9ac07f0c3b54be3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCycle: {fileID: 8746930492868225614}
+  _gameCycle:
+    _object: {fileID: 8746930492868225614}
 --- !u!114 &8263768793190425464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,8 +707,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5f98b8197b4fb7af26e3bd035ff455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCycle: {fileID: 8746930492868225614}
-  _playerBordersTrigger: {fileID: 8746930493578425493}
+  _gameCycle:
+    _object: {fileID: 8746930492868225614}
+  _playerBordersTrigger:
+    _object: {fileID: 8746930493578425493}
 --- !u!114 &4328060015724115828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,8 +723,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0eb5d1453a4487aa35444e8394c0dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCycle: {fileID: 8746930492868225614}
-  _pool: {fileID: 0}
+  _gameCycle:
+    _object: {fileID: 8746930492868225614}
+  _pool:
+    _object: {fileID: 0}
 --- !u!1 &8746930493407439015
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,10 +829,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 8746930493407439012}
-  _uncontrollableEffects:
-  - {fileID: 8746930493407439013}
-  _controllableEffects:
-  - {fileID: 8746930493407438938}
+  _effects:
+  - _object: {fileID: 0}
+  - _object: {fileID: 0}
 --- !u!114 &8746930493407439013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,7 +844,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d45a68e4db48c5b55b758cc975f9e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCycle: {fileID: 8746930492868225614}
+  _gameCycle:
+    _object: {fileID: 8746930492868225614}
   _objectToAlign: {fileID: 0}
   _defaultCameraOffset: {x: 3, y: 0}
   _defaultSmoothTime: 0.3
@@ -846,14 +862,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a25604bcd3e433d8ef5843ff40059db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundAnalyzer: {fileID: 8746930492846506631}
+  _soundAnalyzer:
+    _object: {fileID: 8746930492846506631}
   _shakeType: 1
   _powerThreshold: 0.2
   _maxPower: 2.5
-  _frequencyRange:
-    Min: 0
-    Max: 6
-    IsBounded: 1
 --- !u!114 &8746930493407438937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,8 +1029,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399ce1ff283bdb744a338678212f5742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _serializationManager: {fileID: 8746930493987000287}
-  _obstacleSpawner: {fileID: 0}
+  _serializationManager:
+    _object: {fileID: 8746930493987000287}
+  _obstacleSpawner:
+    _object: {fileID: 0}
   _pointsPerCheckpoint: 1
 --- !u!1 &8746930493987000281
 GameObject:
@@ -1076,8 +1091,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca2b5e15b3f4982a9a09e83f13e3b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameSaver: {fileID: 8746930493987000287}
-  _scoreHolder: {fileID: 8746930493698487730}
+  _gameSaver:
+    _object: {fileID: 8746930493987000287}
+  _scoreHolder:
+    _object: {fileID: 8746930493698487730}
 --- !u!1 &8746930494201061825
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ namespace GachiBird.Flex
     {
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IFlexModeHandler>> _flexModeHandler;
-        [SerializeField] private SerializedInterface<IComponent<IControllableCameraEffect>>[] _controllableCameraEffects;
+        [SerializeField] private SerializedInterface<IComponent<IFlexDependentCameraEffect>>[] _controllableCameraEffects;
 #nullable enable
         
         protected override FlexCameraEffects Create()

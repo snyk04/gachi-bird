@@ -5,19 +5,10 @@ namespace GachiBird.Flex
 {
     public sealed class FlexCameraEffects
     {
-        private readonly IControllableCameraEffect[] _cameraEffects;
-
-        public FlexCameraEffects(IFlexModeHandler flexModeHandler, IControllableCameraEffect[] cameraEffects)
+        public FlexCameraEffects(IFlexModeHandler flexModeHandler, IFlexDependentCameraEffect[] cameraEffects)
         {
-            _cameraEffects = cameraEffects;
-
-            flexModeHandler.OnFlexModeStart += _ => SetCameraEffectsActive(true);
-            flexModeHandler.OnFlexModeEnd += () => SetCameraEffectsActive(false);
-        }
-
-        private void SetCameraEffectsActive(bool isActive)
-        {
-            _cameraEffects.Foreach(cameraEffect => cameraEffect.IsEnabled = isActive);
+            flexModeHandler.OnFlexModeStart += boosterInfo => cameraEffects.Foreach(cameraEffect => cameraEffect.Enable(boosterInfo));
+            flexModeHandler.OnFlexModeEnd += () => cameraEffects.Foreach(cameraEffect => cameraEffect.Disable());
         }
     }
 }

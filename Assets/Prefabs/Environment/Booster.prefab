@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkpointCollider2DListener: {fileID: 4589125101928249499}
   _boosterPickedUpCollider2DListener: {fileID: 3322579678918210704}
+  _spriteRenderer: {fileID: 5241982564125890240}
 --- !u!1 &5595961826371048899
 GameObject:
   m_ObjectHideFlags: 0
