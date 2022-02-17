@@ -51,7 +51,7 @@ namespace GachiBird.CameraMovement
         {
             float power = _soundAnalyzer.GetAmplitude(_frequencyRange, _powerThreshold, maxValue);
 
-            return GetRandomPower(power);
+            return Random.onUnitSphere * power;
         }
 
         public void Apply(Camera camera)
