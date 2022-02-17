@@ -46,7 +46,9 @@ namespace AreYouFruits.Common
 
             if (range.IsBounded)
             {
-                (min, max) = range;
+                (int minInt, int maxInt) = range;
+                min = minInt;
+                max = maxInt;
             }
             else
             {

@@ -8,17 +8,22 @@ using Object = UnityEngine.Object;
 namespace AreYouFruits.Common.ComponentGeneration
 {
     [Serializable]
-    public struct SerializedInterface<TInterface>
+    public struct SerializedInterface<TInterface> : ISerializedInterface
     {
-        [SerializeField] internal Object Object;
+#nullable disable
+        [SerializeField] private Object _object;
+#nullable enable
+
         internal Type InterfaceType => typeof(TInterface);
-        public TInterface Interface => Object is TInterface @interface ? @interface : default!;
+        public TInterface Interface => _object is TInterface @interface ? @interface : default!;
 
         public static implicit operator TInterface(SerializedInterface<TInterface> serializedInterface)
         {
             return serializedInterface.Interface;
         }
     }
+
+    public interface ISerializedInterface { }
 
 #if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(SerializedInterface<>))]
@@ -34,7 +39,7 @@ namespace AreYouFruits.Common.ComponentGeneration
                 .GetProperty("InterfaceType", BindingFlags.Instance | BindingFlags.NonPublic)!
                 .GetMethod.Invoke(serializedInterface, null);
             
-            SerializedProperty objectProperty = property.FindPropertyRelative("Object");
+            SerializedProperty objectProperty = property.FindPropertyRelative("_object");
             
             objectProperty.objectReferenceValue = EditorGUI.ObjectField(position, label, objectProperty.objectReferenceValue, interfaceType, true);
 
