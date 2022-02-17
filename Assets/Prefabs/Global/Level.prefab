@@ -655,6 +655,33 @@ MonoBehaviour:
   _obstacleSpawner: {fileID: 824014022460572519}
   _boosterSettingsArray:
   - {fileID: 11400000, guid: ce0fc251fb1f7454880fde9944ab1184, type: 2}
+  - {fileID: 11400000, guid: 81683cc2ea38044468d8ab036c1a9c53, type: 2}
+  - {fileID: 11400000, guid: fd6777c39c242644f80ac9f18ba6e9a5, type: 2}
+  - {fileID: 11400000, guid: 25e6d0fbef884044ba2d4d2500cee93c, type: 2}
+  - {fileID: 11400000, guid: f4c410bdcb2968b4ab24b1be11593003, type: 2}
+  - {fileID: 11400000, guid: 46ee5baefa9e7784ba93a58ba9fc8a62, type: 2}
+  - {fileID: 11400000, guid: a3f7eccfebc23564c9efe2eb2013178e, type: 2}
+  - {fileID: 11400000, guid: 55f4ae4aee6df2f4396d4b53cb48d45d, type: 2}
+  - {fileID: 11400000, guid: c880a8549796a3d4b84ba2ca0835282f, type: 2}
+  - {fileID: 11400000, guid: 992a873bcc9ab8643b207acd7b85cfec, type: 2}
+  - {fileID: 11400000, guid: fcb6f98b782460242a764e08ccb45e7d, type: 2}
+  - {fileID: 11400000, guid: 9c0bb7ebc1697eb46a261ef71dbb3033, type: 2}
+  - {fileID: 11400000, guid: 07f2fd4f7fd8fbe45b5f10831c415c80, type: 2}
+  - {fileID: 11400000, guid: db1293827a3c45d4a918f649979d9a33, type: 2}
+  - {fileID: 11400000, guid: 5a361f1f20bd7ce4db66363fc4dc058c, type: 2}
+  - {fileID: 11400000, guid: 763f17f554e2c924985624dba4cd7930, type: 2}
+  - {fileID: 11400000, guid: 5b4ba5feaf12f67498c9991e4f448448, type: 2}
+  - {fileID: 11400000, guid: 2a55c08c49727c64cb4f0119e0aeb91a, type: 2}
+  - {fileID: 11400000, guid: 39a11ecfee733fb42aa2880d5dafc91e, type: 2}
+  - {fileID: 11400000, guid: 8dc38fe031c850c4b83a3efa20da2eaa, type: 2}
+  - {fileID: 11400000, guid: 3ad5f4ea3420f1d4a83336651843a704, type: 2}
+  - {fileID: 11400000, guid: dc543291b34202047b9ed3c303a5fe69, type: 2}
+  - {fileID: 11400000, guid: 2f2d8330e1b493c46b990d3c8aa035cc, type: 2}
+  - {fileID: 11400000, guid: 04eb885b838a4cf4192f1be7ec317731, type: 2}
+  - {fileID: 11400000, guid: 74d04c075fba17b40aae57137b868828, type: 2}
+  - {fileID: 11400000, guid: c3bad4de0b030fc4c8de609613810f09, type: 2}
+  - {fileID: 11400000, guid: 04375e55a3ec21641aa5b91e477281e1, type: 2}
+  - {fileID: 11400000, guid: c8509c2c8b70dc44abf0c046f3f38194, type: 2}
   _gapRange:
     Min: 3
     Max: 6
