@@ -1,4 +1,5 @@
 ﻿using System;
+using AreYouFruits.Common;
 using UnityEngine;
 
 namespace GachiBird.Environment.Objects
@@ -10,6 +11,6 @@ namespace GachiBird.Environment.Objects
         public Sprite Sprite;
         public float PlayerSpeed;
         public AudioClip Music;
-        // public int[] MusicFrequencyRange;
+        public Range<int> MusicFrequencyRange;
     }
 }
