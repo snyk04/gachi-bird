@@ -1,4 +1,5 @@
-﻿using GachiBird.PlayerLogic;
+﻿using AreYouFruits.Common.ComponentGeneration;
+using GachiBird.PlayerLogic;
 
 namespace GachiBird.Flex
 {

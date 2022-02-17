@@ -61,7 +61,7 @@ MonoBehaviour:
   _gameCycle:
     _object: {fileID: 0}
   _gameObjectPool:
-    _object: {fileID: 0}
+    _object: {fileID: 3154571996456002620}
   _gap: 10
   _playerOffset: {x: 10, y: 0, z: 0}
   _heightRange:
@@ -421,7 +421,7 @@ AudioSource:
   m_GameObject: {fileID: 3404698249679552002}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3309035972309555359, guid: c65945e8c38970b439d89ccd68145b1a, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -665,7 +665,7 @@ MonoBehaviour:
   _gameCycle:
     _object: {fileID: 0}
   _gameObjectPool:
-    _object: {fileID: 0}
+    _object: {fileID: 573696910397658636}
   _obstacleSpawner:
     _object: {fileID: 824014022460572519}
   _boosterSettingsArray:

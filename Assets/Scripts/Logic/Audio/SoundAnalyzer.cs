@@ -16,7 +16,7 @@ namespace GachiBird.Audio
             _spectrumData = new float[(int)spectrumDataSize];
         }
 
-        public float GetAmplitude(Range<int> frequencyRange, float minValue, float maxValue)
+        public float GetAmplitude(Range<int> frequencyRange, float threshold, float maxValue)
         {
             _audioSource.GetSpectrumData(_spectrumData, 0, _fftWindow);
 
@@ -27,7 +27,7 @@ namespace GachiBird.Audio
                 value += _spectrumData[i];
             }
 
-            if (value < minValue)
+            if (value < threshold)
             {
                 return 0;
             }

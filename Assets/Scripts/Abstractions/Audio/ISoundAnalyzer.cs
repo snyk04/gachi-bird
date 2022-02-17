@@ -4,6 +4,6 @@ namespace GachiBird.Audio
 {
     public interface ISoundAnalyzer
     {
-        float GetAmplitude(Range<int> frequencyRange, float minValue, float maxValue);
+        float GetAmplitude(Range<int> frequencyRange, float threshold, float maxValue);
     }
 }

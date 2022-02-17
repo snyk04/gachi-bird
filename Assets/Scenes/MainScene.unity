@@ -177,50 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04b8c51ef4345ec96b94daf0edd3e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2085593263
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2085593265}
-  - component: {fileID: 2085593264}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2085593264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085593263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1289f160d0e49f082f5cc75f4ac0481, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _serializedObject: {Object: {fileID: 0}}
---- !u!4 &2085593265
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085593263}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.23204651, y: -0.52172905, z: -52.8279}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2115107477 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8746930492868225614, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
@@ -329,6 +285,17 @@ PrefabInstance:
       objectReference: {fileID: 2115107477}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+--- !u!114 &3404698249194605956 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3154571996456002620, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+  m_PrefabInstance: {fileID: 3404698249194605955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8acd5d6240eda9444a3b7f4279e30090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3404698249194605957 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 824014022460572519, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
@@ -349,6 +316,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4eb49956e25b4d569e731bc9b7cfaea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3404698249194605959 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 573696910397658636, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+  m_PrefabInstance: {fileID: 3404698249194605955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8acd5d6240eda9444a3b7f4279e30090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3511121141852847757
@@ -580,6 +558,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 995435798, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: _boosterPool._object
+      value: 
+      objectReference: {fileID: 3404698249194605959}
+    - target: {fileID: 995435798, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: _obstaclePool._object
+      value: 
+      objectReference: {fileID: 3404698249194605956}
     - target: {fileID: 1571187906, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
       propertyPath: _player._object
       value: 
@@ -588,6 +574,10 @@ PrefabInstance:
       propertyPath: _boosterSpawner._object
       value: 
       objectReference: {fileID: 3404698249194605958}
+    - target: {fileID: 4328060015724115828, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: _pool._object
+      value: 
+      objectReference: {fileID: 3404698249194605956}
     - target: {fileID: 8746930493407439013, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
       propertyPath: _objectToAlign
       value: 
