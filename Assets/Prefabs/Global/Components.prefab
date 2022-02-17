@@ -141,6 +141,7 @@ MonoBehaviour:
   _flexModeHandler: {fileID: 677833394}
   _boosterPool: {fileID: 0}
   _obstaclePool: {fileID: 0}
+  _timeGapBeforeObstaclesAreSolidAgain: 3
 --- !u!1 &1048396243
 GameObject:
   m_ObjectHideFlags: 0

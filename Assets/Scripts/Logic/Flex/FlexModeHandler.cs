@@ -13,6 +13,8 @@ namespace GachiBird.Flex
     {
         public event Action<BoosterInfo>? OnFlexModeStart;
         public event Action? OnFlexModeEnd;
+
+        private bool _isInFlexMode;
         
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
 
@@ -24,6 +26,12 @@ namespace GachiBird.Flex
         
         public async void StartFlexMode(GameObject boosterObject, IBooster booster, BoosterInfo boosterInfo)
         {
+            if (_isInFlexMode)
+            {
+                return;
+            }
+            _isInFlexMode = true;
+            
             OnFlexModeStart?.Invoke(boosterInfo);
             booster.PickedUp -= StartFlexMode;
             
@@ -36,7 +44,11 @@ namespace GachiBird.Flex
         }
         private void StopFlexMode()
         {
-            OnFlexModeEnd?.Invoke();
+            if (_isInFlexMode)
+            {
+                OnFlexModeEnd?.Invoke();
+                _isInFlexMode = false;
+            }
         }
 
         public void Dispose()
