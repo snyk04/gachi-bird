@@ -17,3 +17,7 @@ MonoBehaviour:
     Sprite: {fileID: 7960299501354929935, guid: a2b2766b14756934698de259d1980e23, type: 3}
     PlayerSpeed: 50
     Music: {fileID: 8300000, guid: 6f2682b5edb02794e8a07d87649c6e3b, type: 3}
+    MusicFrequencyRange:
+      Min: 0
+      Max: 0
+      IsBounded: 0

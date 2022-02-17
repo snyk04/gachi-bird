@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Booster 23
   m_EditorClassIdentifier: 
   <BoosterInfo>k__BackingField:
-    Id: 0
+    Id: 23
     Sprite: {fileID: 7960299501354929935, guid: a2b2766b14756934698de259d1980e23, type: 3}
     PlayerSpeed: 50
     Music: {fileID: 8300000, guid: f1fea34630e1e9b4b8a00748f3ebf332, type: 3}
+    MusicFrequencyRange:
+      Min: 0
+      Max: 0
+      IsBounded: 0
