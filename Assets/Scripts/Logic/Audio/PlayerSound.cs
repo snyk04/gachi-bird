@@ -10,11 +10,11 @@ namespace GachiBird.Audio
     {
         private bool _isMuted;
         
-        public PlayerSound(IFlexModeHandler flexModeHandler, PlayerFaller playerFaller, IJumpable playerJumper,
+        public PlayerSound(IFlexModeHandler flexModeHandler, IGameCycle gameCycle, IJumpable playerJumper,
             IScoreHolder scoreHolder, AudioSource jumpAudioSource, AudioSource otherAudioSource, AudioClip[] deathSounds,
             AudioClip jumpSound, AudioClip[] checkpointPassedSounds)
         {
-            playerFaller.OnFall += () => Play(otherAudioSource, deathSounds);
+            gameCycle.OnGameEnd += () => Play(otherAudioSource, deathSounds);
             playerJumper.OnJump += () => Play(jumpAudioSource, jumpSound);
             scoreHolder.OnScoreChanged += () => Play(otherAudioSource, checkpointPassedSounds);
 
@@ -26,7 +26,6 @@ namespace GachiBird.Audio
         {
             if (!_isMuted)
             {
-                audioSource.Stop();
                 audioSource.clip = audioClip;
                 audioSource.Play();
             }

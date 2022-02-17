@@ -252,6 +252,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _gameCycle
+      value: 
+      objectReference: {fileID: 2115107477}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
       propertyPath: _scoreHolder
       value: 
       objectReference: {fileID: 261006697}
@@ -293,16 +297,112 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: e0576bd7cb0a381438177f14f0760b91, type: 3}
     - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
       propertyPath: _checkpointPassedSounds.Array.size
-      value: 2
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
       propertyPath: _checkpointPassedSounds.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 8457ff52cf6363246b1bbae013a6eefd, type: 3}
+      objectReference: {fileID: 8300000, guid: 6bce2a6422bbc61448a15cf74864494d, type: 3}
     - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
       propertyPath: _checkpointPassedSounds.Array.data[1]
       value: 
+      objectReference: {fileID: 8300000, guid: 2730c696ed4c79448bb935f96fe79389, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6233b664dc145494ea1a903a592b01af, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c1316ce76088fc4e8a727d002cfa8c8, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5257416a7baa5fe47a5f34b13bffec2a, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: a3f29378fee41924da3beef087fc87a9, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1a91d0f5d3af7874aaed6f9059399b6c, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e82b4a3daa7e3642bbfa4973f3aa3d0, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 363774844dfd1574ab49c561d28c4c3f, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 11af21dda024f374d9c45fa5aa8f32b9, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: ac4caa568a503774d9e35ec49e47ac67, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: 812b2273673df8443a3016ade711e68a, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8416a9779a4475748bf14ea3aee2bd85, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[13]
+      value: 
+      objectReference: {fileID: 8300000, guid: 764fdbc7ffc121c4fbd9a1f7f8da5388, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[14]
+      value: 
       objectReference: {fileID: 8300000, guid: b1b6c94b37ffdb9419a556d7834995a1, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[15]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8457ff52cf6363246b1bbae013a6eefd, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[16]
+      value: 
+      objectReference: {fileID: 8300000, guid: 010dd8428015f6d439eb54600746802b, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[17]
+      value: 
+      objectReference: {fileID: 8300000, guid: 79a80c88aeb37c640844c7e23b538e52, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[18]
+      value: 
+      objectReference: {fileID: 8300000, guid: a88e1ed1c7d27d0498ebf8b53c293760, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[19]
+      value: 
+      objectReference: {fileID: 8300000, guid: e73cad1fd03db3847b1063552f068362, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[20]
+      value: 
+      objectReference: {fileID: 8300000, guid: dcad0ef043d494f49934e9e4fa5c28fa, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[21]
+      value: 
+      objectReference: {fileID: 8300000, guid: 60a658ea010bd9e40a8251b1faba1ca3, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[22]
+      value: 
+      objectReference: {fileID: 8300000, guid: 248bbc4346d37814d924e7ffd559ac92, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[23]
+      value: 
+      objectReference: {fileID: 8300000, guid: c74dab4d60007f141934533a04393485, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[24]
+      value: 
+      objectReference: {fileID: 8300000, guid: dc6e0a6942339c04ca446e6483b4aa36, type: 3}
+    - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: _checkpointPassedSounds.Array.data[25]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5688f4bdc0ff14449be941d8ed57941a, type: 3}
     - target: {fileID: 824014022460572519, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
       propertyPath: _gameCycle
       value: 
@@ -671,6 +771,10 @@ PrefabInstance:
       propertyPath: _pool
       value: 
       objectReference: {fileID: 3404698249194605956}
+    - target: {fileID: 8746930492627621347, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8746930493407439013, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
       propertyPath: _objectToAlign
       value: 
