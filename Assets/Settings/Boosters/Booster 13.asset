@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe7e54cc7d4e4d72a64c597ddc653ab0, type: 3}
-  m_Name: Booster 0
+  m_Name: Booster 13
   m_EditorClassIdentifier: 
   <BoosterInfo>k__BackingField:
     Id: 0
     Sprite: {fileID: 7960299501354929935, guid: a2b2766b14756934698de259d1980e23, type: 3}
     PlayerSpeed: 50
-    Music: {fileID: 8300000, guid: 6f2682b5edb02794e8a07d87649c6e3b, type: 3}
+    Music: {fileID: 8300000, guid: ab6789f21c268454ba4e0d4e4918ebe6, type: 3}
