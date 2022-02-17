@@ -18,6 +18,6 @@ MonoBehaviour:
     PlayerSpeed: 50
     Music: {fileID: 8300000, guid: bd0b5499526b55c4d8b5cecbc1f7e12d, type: 3}
     MusicFrequencyRange:
-      Min: 0
-      Max: 4
+      Min: 4
+      Max: 8
       IsBounded: 1

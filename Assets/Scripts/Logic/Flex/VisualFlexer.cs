@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using AreYouFruits.Common;
+using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Audio;
 using GachiBird.Environment.Objects;
 using UnityEngine;

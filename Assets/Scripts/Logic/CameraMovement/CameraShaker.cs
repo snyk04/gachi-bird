@@ -42,16 +42,16 @@ namespace GachiBird.CameraMovement
             OnDisable?.Invoke();
         }
 
-        private Vector3 GetRandomPower(float maxValue)
+        private Vector2 GetRandomPower(float maxValue)
         {
             return Random.insideUnitCircle * maxValue;
         }
 
-        private Vector3 GetSoundDependentPower(float maxValue)
+        private Vector2 GetSoundDependentPower(float maxValue)
         {
             float power = _soundAnalyzer.GetAmplitude(_frequencyRange, _powerThreshold, maxValue);
 
-            return Random.onUnitSphere * power;
+            return GetRandomPower(power);
         }
 
         public void Apply(Camera camera)
@@ -61,12 +61,14 @@ namespace GachiBird.CameraMovement
                 return;
             }
             
-            camera.transform.position += _shakeType switch
+            Vector2 offset = _shakeType switch
             {
                 ShakeType.Random => GetRandomPower(_maxPower),
                 ShakeType.SoundDependent => GetSoundDependentPower(_maxPower),
                 _ => throw new ArgumentOutOfRangeException(),
             };
+
+            camera.transform.position += offset.ReProjectedXY();
         }
     }
 }

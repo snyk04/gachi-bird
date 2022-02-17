@@ -10,6 +10,11 @@ namespace AreYouFruits.Common
         {
             return !range.IsBounded || (value.CompareTo(range.Min) >= 0 && value.CompareTo(range.Max) <= 0);
         }
+        public static bool Contains<TComparable>(this Range<TComparable> range, Range<TComparable> value)
+            where TComparable : IComparable<TComparable>
+        {
+            return !range.IsBounded || (value.IsBounded && range.Contains(value.Min) && range.Contains(value.Max));
+        }
 
         public static float Average(this Range<float> range)
         {
