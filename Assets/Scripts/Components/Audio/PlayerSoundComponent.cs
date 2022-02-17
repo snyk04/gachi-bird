@@ -18,16 +18,16 @@ namespace GachiBird.Audio
         [Header("Audio")]
         [SerializeField] private AudioSource _jumpAudioSource;
         [SerializeField] private AudioSource _otherAudioSource;
-        [SerializeField] private AudioClip _deathSound;
+        [SerializeField] private AudioClip[] _deathSounds;
         [SerializeField] private AudioClip _jumpSound;
-        [SerializeField] private AudioClip _checkpointPassedSound;
+        [SerializeField] private AudioClip[] _checkpointPassedSounds;
 #nullable enable
         
         protected override PlayerSound Create()
         {
             return new PlayerSound(_flexModeHandler.HeldItem, _playerFaller.HeldItem, _playerJumper.HeldItem,
-                _scoreHolder.HeldItem, _jumpAudioSource, _otherAudioSource, _deathSound,
-                _jumpSound, _checkpointPassedSound);
+                _scoreHolder.HeldItem, _jumpAudioSource, _otherAudioSource, _deathSounds,
+                _jumpSound, _checkpointPassedSounds);
         }
     }
 }
