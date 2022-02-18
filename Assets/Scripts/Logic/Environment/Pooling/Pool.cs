@@ -16,6 +16,7 @@ namespace GachiBird.Environment.Pooling
         public event Action<T>? OnGet;
         public event Action<T>? OnReturn;
         public abstract event Action<T>? OnCreate;
+        public abstract event Action? OnInitialize;
 
         public virtual T Get()
         {
