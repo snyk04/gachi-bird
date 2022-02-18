@@ -144,6 +144,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3404698249679552001, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
   m_PrefabInstance: {fileID: 3404698249194605955}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &661751501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 661751503}
+  - component: {fileID: 661751502}
+  m_Layer: 0
+  m_Name: Device Setup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &661751502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661751501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a76c54aaa4448969bfbcbdbaa8757c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &661751503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661751501}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1002.0036, y: -2.239976, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1077306068 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1077306068, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
@@ -340,6 +383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackUI
       objectReference: {fileID: 0}
+    - target: {fileID: 3511121140900067265, guid: 0404dba8e8acaeb48ab19e905b975dff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3511121140900067266, guid: 0404dba8e8acaeb48ab19e905b975dff, type: 3}
       propertyPath: m_Camera
       value: 
@@ -460,6 +507,10 @@ PrefabInstance:
     - target: {fileID: 6459932233852671449, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459932233852671449, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6459932233852671452, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: m_Camera
