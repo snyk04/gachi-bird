@@ -11,25 +11,15 @@
                     "id": "2e467365-35b7-449c-bbe8-9b6923ff24c2",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "32d67b49-e17b-46f0-81da-b4005c5b51d1",
-                    "path": "<Touchscreen>/primaryTouch/tap",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bf8baeb8-795e-45f1-9c6b-377dd925772a",
-                    "path": "<Mouse>/leftButton",
+                    "id": "5a290ddc-fb24-4fab-b040-eef0354d3ea3",
+                    "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
