@@ -5,16 +5,17 @@ using UnityEngine;
 
 namespace GachiBird.Environment
 {
-    public sealed class ObstacleGameEndInstallerComponent : AbstractComponent<ObstacleGameEndInstaller>
+    public sealed class ObstacleGameEndInstallerComponent : AbstractComponent<GameEndInstaller>
     {
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
-        [SerializeField] private SerializedInterface<IComponent<IPool<GameObject>>> _pool;
+        [SerializeField] private SerializedInterface<IComponent<IPool<GameObject>>> _bordersPool;
+        [SerializeField] private SerializedInterface<IComponent<IPool<GameObject>>> _obstaclePool;
 #nullable enable
         
-        protected override ObstacleGameEndInstaller Create()
+        protected override GameEndInstaller Create()
         {
-            return new ObstacleGameEndInstaller(_gameCycle.GetHeldItem(), _pool.GetHeldItem());
+            return new GameEndInstaller(_gameCycle.GetHeldItem(), _bordersPool.GetHeldItem(), _obstaclePool.GetHeldItem());
         }
     }
 }
