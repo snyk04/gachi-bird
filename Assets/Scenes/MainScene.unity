@@ -383,10 +383,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackUI
       objectReference: {fileID: 0}
-    - target: {fileID: 3511121140900067265, guid: 0404dba8e8acaeb48ab19e905b975dff, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3511121140900067266, guid: 0404dba8e8acaeb48ab19e905b975dff, type: 3}
       propertyPath: m_Camera
       value: 
@@ -507,10 +503,6 @@ PrefabInstance:
     - target: {fileID: 6459932233852671449, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 6459932233852671449, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6459932233852671452, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: m_Camera
