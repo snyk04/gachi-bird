@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _backgroundPool:
     _object: {fileID: 1081318619}
-  _gap: 15.18
+  _gap: 13.8
   _playerOffset: {x: 0, y: 0, z: 0}
   _player: {fileID: 3404698249679552001}
 --- !u!1 &148186400099163011
