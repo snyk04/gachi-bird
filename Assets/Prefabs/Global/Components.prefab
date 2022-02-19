@@ -887,7 +887,7 @@ MonoBehaviour:
   _objectToAlign: {fileID: 0}
   _defaultCameraOffset: {x: 3, y: 0}
   _defaultSmoothTime: 0.3
-  _timeToMoveCameraToGamePosition: 2
+  _timeToMoveCameraToGamePosition: 1
 --- !u!114 &8746930493407438938
 MonoBehaviour:
   m_ObjectHideFlags: 0

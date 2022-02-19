@@ -13,35 +13,33 @@ namespace GachiBird.CameraMovement
 
         private Vector3 _alignmentVelocity;
 
-        public CameraAligner(
-            IGameCycle gameCycle, Transform objectToAlign,
-            Vector2 defaultCameraOffset, float defaultSmoothTime, float timeToMoveCameraToGamePosition
-        )
+        public CameraAligner(IGameCycle gameCycle, Transform objectToAlign, Vector2 defaultCameraOffset,
+            float defaultSmoothTime, float timeToMoveCameraToGamePosition)
         {
             _objectToAlign = objectToAlign;
 
             _cameraOffset = Vector2.zero;
             _smoothTime = 0;
             
-            void SetSmoothTimeToDefaultValue() => _smoothTime = defaultSmoothTime;
-
             gameCycle.OnGameStart += SetSmoothTimeToDefaultValue;
             gameCycle.OnGameStart += () => _cameraOffset = defaultCameraOffset;
             gameCycle.OnGameStart += () => ChangeSmoothTimeToZero(timeToMoveCameraToGamePosition);
 
             gameCycle.OnGameEnd += SetSmoothTimeToDefaultValue;
+            
+            void SetSmoothTimeToDefaultValue() => _smoothTime = defaultSmoothTime;
         }
 
         private async void ChangeSmoothTimeToZero(float timeToChange)
         {
             int counter = 0;
+            const int stepsToChange = 10;
 
-            while (counter < 10)
+            while (counter < stepsToChange)
             {
-                _smoothTime = Mathf.Lerp(_smoothTime, 0, counter / 10f);
-                counter += 1;
+                _smoothTime = Mathf.Lerp(_smoothTime, 0, ++counter / 10f);
 
-                await Task.Delay((int)(timeToChange * 1000));
+                await Task.Delay((int)(timeToChange * 1000 / stepsToChange));
             }
         }
 
