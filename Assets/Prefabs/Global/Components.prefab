@@ -463,6 +463,8 @@ MonoBehaviour:
     _object: {fileID: 677833394}
   _boosterSpawner:
     _object: {fileID: 0}
+  _gameCycle:
+    _object: {fileID: 8746930492868225614}
 --- !u!1 &2783899865936149244
 GameObject:
   m_ObjectHideFlags: 0

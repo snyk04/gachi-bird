@@ -13,6 +13,7 @@ namespace GachiBird.Environment
 {
     public sealed class BoosterSpawner : IBoosterSpawner
     {
+        private readonly IGameCycle _gameCycle;
         private readonly IPool<GameObject> _pool;
         private readonly IObstacleSpawner _obstacleSpawner;
         private readonly BoosterInfo[] _boosterSettingsArray;
@@ -34,7 +35,7 @@ namespace GachiBird.Environment
             Range<float> heightRange, Transform player
         )
         {
-            gameCycle.OnGameStart += () => Start(player.position);
+            _gameCycle = gameCycle;
             _pool = pool;
             _obstacleSpawner = obstacleSpawner;
             _boosterSettingsArray = boosterSettingsArray;
@@ -43,13 +44,21 @@ namespace GachiBird.Environment
             _widthRange = widthRange;
             _heightRange = heightRange;
 
-            _pool.OnCreate += OnBoosterCreate;
-            
-            void OnBoosterCreate(GameObject createdObject)
+            _gameCycle.OnGameStart += () => Start(player.position);
+            _pool.OnCreate += HandleBoosterCreated;
+        }
+        
+        private void HandleBoosterCreated(GameObject createdObject)
+        {
+            var booster = createdObject.GetHeldItem<IBooster>();
+            booster.CheckpointCollider2DListener.OnTrigger += (_, __) => TrySpawn();
+            booster.PickedUp += (boosterObject, _, __) => HandleBoosterPickedUp(boosterObject);
+        }
+        private void HandleBoosterPickedUp(GameObject boosterObject)
+        {
+            if (_gameCycle.IsPlaying)
             {
-                IBooster booster = createdObject.GetHeldItem<IBooster>();
-                booster.CheckpointCollider2DListener.OnTrigger += (_, __) => TrySpawn();
-                booster.PickedUp += (boosterObject, _, __) => _pool.Return(boosterObject);
+                _pool.Return(boosterObject);
             }
         }
 
