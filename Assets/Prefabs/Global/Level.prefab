@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acd5d6240eda9444a3b7f4279e30090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _amountOfObjectsInPool: 2
+  _amountOfObjectsInPool: 3
   _prefab: {fileID: 2428424187605542156, guid: 435da38e8ad70724985f300bedc5dc23, type: 3}
 --- !u!114 &912616610
 MonoBehaviour:
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acd5d6240eda9444a3b7f4279e30090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _amountOfObjectsInPool: 2
+  _amountOfObjectsInPool: 3
   _prefab: {fileID: 2428424187605542156, guid: 61e1528e848a2ca4dbcce4cbf8398057, type: 3}
 --- !u!114 &1081318620
 MonoBehaviour:

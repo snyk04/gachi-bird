@@ -33,6 +33,7 @@ namespace GachiBird.Environment
             _startOffset = startOffset + _playerOffset;
 
             TrySpawn();
+            TrySpawn();
         }
 
         private void HandleBordersPassed(Collider2D collider, ICollider2DListener collider2DListener)

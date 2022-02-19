@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Environment.Colliders;
 using GachiBird.Environment.Objects;
@@ -32,6 +33,7 @@ namespace GachiBird.Environment
         {
             _startOffset = startOffset + _playerOffset;
 
+            TrySpawn();
             TrySpawn();
         }
 
