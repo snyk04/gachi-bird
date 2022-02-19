@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace GachiBird.Flex
 {
-    public class TestFlexComponent : AbstractComponent<IFlexModeHandler>
+    public class TestFlexComponent : DestroyableAbstractComponent<TestFlex, IFlexModeHandler>
     {
 #nullable disable
         [SerializeField] private BoosterSettings _boosterSettings;
 #nullable enable
         
-        protected override IFlexModeHandler Create()
+        protected override TestFlex Create()
         {
             return new TestFlex(_boosterSettings.BoosterInfo);
         }

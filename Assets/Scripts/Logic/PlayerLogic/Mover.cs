@@ -17,7 +17,7 @@ namespace GachiBird.PlayerLogic
         {
             _rigidbody = rigidbody;
             _defaultSpeed = speed;
-            
+
             _rigidbody.velocity = speed * Vector2.right;
         }
 

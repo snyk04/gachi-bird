@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Threading;
 using AreYouFruits.Common;
-using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Environment.Colliders;
 using GachiBird.Environment.Objects;
 using GachiBird.Environment.Pooling;
 using GachiBird.Game;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace GachiBird.Environment
 {
@@ -65,7 +63,7 @@ namespace GachiBird.Environment
             GameObject createdObject = _pool.Get();
             createdObject.transform.position = position;
 
-            IObstacle obstacle = createdObject.GetComponent<IObstacle>();
+            var obstacle = createdObject.GetComponent<IObstacle>();
             obstacle.CheckpointCollider2DListener.OnTrigger += HandleObstacleTriggered;
 
             _spawnedCount++;
