@@ -11,55 +11,70 @@ namespace GachiBird.Flex
 {
     public class ColliderCollector : IDisposable
     {
-        private readonly List<Collider2D> _colliders;
-
-        private bool _areCollidersActive = true;
+        private readonly List<Collider2D> _boosterColliders;
+        private readonly List<Collider2D> _obstacleColliders;
+        private readonly float _timeGapBeforeObstaclesAreSolidAgain;
         
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
+
+        private bool _isGameInFlexMode;
 
         public ColliderCollector(
             IFlexModeHandler flexModeHandler, IPool<GameObject> boosterPool, IPool<GameObject> obstaclePool,
             float timeGapBeforeObstaclesAreSolidAgain
         )
         {
-            _colliders = new List<Collider2D>();
+            _boosterColliders = new List<Collider2D>();
+            _obstacleColliders = new List<Collider2D>();
+            _timeGapBeforeObstaclesAreSolidAgain = timeGapBeforeObstaclesAreSolidAgain;
 
             boosterPool.OnCreate += HandleBoosterCreated;
             obstaclePool.OnCreate += HandleObstacleCreated;
 
-            flexModeHandler.OnFlexModeStart += _ => SetCollidersActive(false);
+            flexModeHandler.OnFlexModeStart += _ => HandleFlexModeStart();
             flexModeHandler.OnFlexModeEnd += HandleFlexModeEnd;
+        }
+
+        private void HandleBoosterCreated(GameObject boosterObject)
+        {
+            var booster = boosterObject.GetHeldItem<IBooster>();
+            Collider2D[] boosterColliders = booster.BoosterPickedUpCollider2DListener.Colliders;
+            _boosterColliders.AddRange(boosterColliders);
+        }
+        private void HandleObstacleCreated(GameObject obstacleObject)
+        {
+            var obstacle = obstacleObject.GetComponent<IObstacle>();
+            Collider2D[] obstacleColliders = obstacle.ObstacleCollider2DListener.Colliders;
             
-            async void HandleFlexModeEnd()
+            _obstacleColliders.AddRange(obstacleColliders);
+        }
+
+        private void HandleFlexModeStart()
+        {
+            _isGameInFlexMode = true;
+            
+            SetCollidersActive(false, _boosterColliders);
+            SetCollidersActive(false, _obstacleColliders);
+        }
+        private async void HandleFlexModeEnd()
+        {
+            SetCollidersActive(true, _boosterColliders);
+            _isGameInFlexMode = false;
+            
+            await Tasks.DelaySeconds(_timeGapBeforeObstaclesAreSolidAgain);
+            
+            if (!_cancellationSource.IsCancellationRequested)
             {
-                await Tasks.DelaySeconds(timeGapBeforeObstaclesAreSolidAgain);
-                if (!_cancellationSource.IsCancellationRequested)
+                if (!_isGameInFlexMode)
                 {
-                    SetCollidersActive(true);
+                    SetCollidersActive(true, _obstacleColliders);
                 }
             }
         }
 
-        private void HandleBoosterCreated(GameObject booster)
+        private void SetCollidersActive(bool isActive, List<Collider2D> colliders)
         {
-            _colliders.AddRange(booster.GetHeldItem<IBooster>().BoosterPickedUpCollider2DListener.Colliders);
-        }
-        private void HandleObstacleCreated(GameObject obstacleObject)
-        {
-            IObstacle obstacle = obstacleObject.GetComponent<IObstacle>();
-            Collider2D[] obstacleColliders = obstacle.ObstacleCollider2DListener.Colliders;
-            _colliders.AddRange(obstacleColliders);
-
-            foreach (Collider2D collider in obstacleColliders)
-            {
-                collider.enabled = _areCollidersActive;
-            }
-        }
-
-        private void SetCollidersActive(bool isActive)
-        {
-            _areCollidersActive = isActive;
-            _colliders.ForEach(collider => collider.enabled = isActive);
+            colliders.ForEach(collider => collider.enabled = isActive);
         }
         
         public void Dispose()
