@@ -103,6 +103,11 @@ namespace AreYouFruits.Common.ComponentGeneration
                 true
             );
 
+            if (obj == objectProperty.objectReferenceValue)
+            {
+                return;
+            }
+
             obj = obj switch
             {
                 GameObject gameObject => gameObject.GetComponent(interfaceType),
