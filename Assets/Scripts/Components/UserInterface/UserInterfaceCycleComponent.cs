@@ -2,7 +2,7 @@
 
 namespace GachiBird.UserInterface
 {
-    public class UserInterfaceCycleComponent : AbstractComponent<UserInterfaceCycle, IUserInterfaceCycle>
+    public class UserInterfaceCycleComponent : AbstractComponent<UserInterfaceCycle>
     {
         protected override UserInterfaceCycle Create()
         {

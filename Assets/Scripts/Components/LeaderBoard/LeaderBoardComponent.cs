@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GachiBird.LeaderBoard
 {
-    public class LeaderBoardComponent : AbstractComponent<LeaderBoard, ILeaderBoard>
+    public class LeaderBoardComponent : AbstractComponent<LeaderBoard>
     {
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IScoreHolder>> _scoreHolder;
