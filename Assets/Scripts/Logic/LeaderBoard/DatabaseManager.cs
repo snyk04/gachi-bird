@@ -16,14 +16,20 @@ namespace GachiBird.LeaderBoard
 
             BestScores = new Dictionary<string, long>();
             UpdateProxy();
-            AddNewBestScore("snyk04", 228);
         }
 
         public void AddNewBestScore(string userName, long bestScore)
         {
-            // TODO : Handle situation, where you have to update existing userName (modify bestScore column for userName)
-            ToCommand($"insert into User (name, best_score) values ('{userName}', {bestScore})").ExecuteNonQuery();
-            UpdateProxy();
+            if (BestScores.ContainsKey(userName))
+            {
+                ToCommand($"update User set best_score = {bestScore} where name = '{userName}'").ExecuteNonQuery();
+                BestScores[userName] = bestScore;
+            }
+            else
+            {
+                ToCommand($"insert into User (name, best_score) values ('{userName}', {bestScore})").ExecuteNonQuery();
+                BestScores.Add(userName, bestScore);
+            }
         }
 
         private void UpdateProxy()
@@ -38,17 +44,21 @@ namespace GachiBird.LeaderBoard
             {
                 while (reader.Read())
                 {
-                    string name = reader.GetValue(0).ToString();
-                    long bestScore = (long)reader.GetValue(1);
+                    var name = reader.GetValue(0).ToString();
+                    long bestScore = (int) reader.GetValue(1);
 
                     BestScores.Add(name, bestScore);
                 }
             }
         }
 
-        private SqliteCommand ToCommand(string query) => new SqliteCommand()
+        private SqliteCommand ToCommand(string query)
         {
-            Connection = _connection, CommandText = query,
-        };
+            return new SqliteCommand()
+            {
+                Connection = _connection,
+                CommandText = query
+            };
+        }
     }
 }

@@ -2,7 +2,7 @@ using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Game;
 using UnityEngine;
 
-namespace GachiBird.UserWindows
+namespace GachiBird.UserInterface.Windows
 {
     public sealed class PreStartWindow : BaseWindow
     {

@@ -11,10 +11,13 @@ namespace GachiBird.Game
         public event Action? OnScoreChanged;
         public event Action? OnHighScoreChanged;
 
-        public ScoreHolder(IObstacleSpawner obstacleSpawner, int bestScore, int pointsPerCheckpoint)
+        public ScoreHolder(IObstacleSpawner obstacleSpawner, IGameCycle gameCycle, int bestScore, 
+            int pointsPerCheckpoint)
         {
-            obstacleSpawner.OnObstaclePassed += () => Add(pointsPerCheckpoint);
             HighScore = bestScore;
+            
+            obstacleSpawner.OnObstaclePassed += () => Add(pointsPerCheckpoint);
+            gameCycle.OnGameEnd += TryUpdateBestScore;
         }
 
         public void Add(int points)
@@ -22,8 +25,6 @@ namespace GachiBird.Game
             Score += points;
 
             OnScoreChanged?.Invoke();
-
-            TryUpdateBestScore();
         }
 
         private void TryUpdateBestScore()
