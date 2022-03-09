@@ -175,9 +175,10 @@ namespace AreYouFruits.Common.ComponentGeneration
 
         private static string GetName(Component c)
         {
-            return c.GetType().GetMethod("ToString") == typeof(Object).GetMethod("ToString")
-                ? c.GetType().Name
-                : c.ToString();
+            return c.GetType().GetMethod("ToString")!.DeclaringType
+             == typeof(Object).GetMethod("ToString")!.DeclaringType
+                    ? c.GetType().Name
+                    : c.ToString();
         }
 
         private static object? GetTargetObjectOfProperty(SerializedProperty prop)
