@@ -8,7 +8,7 @@ namespace AreYouFruits.Common.ComponentGeneration
     {
         public static T GetHeldItem<T>(this GameObject gameObject)
         {
-            return gameObject.GetComponent<IComponent<T>>().HeldItem;
+            return ((IComponent<T>)gameObject.GetComponents<Component>().First(c => c is IComponent<T>)).HeldItem;
         }
     }
 }
