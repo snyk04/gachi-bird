@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace GachiBird.CameraMovement
 {
-    public sealed class CameraShakerComponent 
-        : AbstractComponent<CameraShaker, IFlexDependentCameraEffect, ICameraEffect>
+    public sealed class CameraShakerComponent : AbstractComponent<CameraShaker>
     {
 #nullable disable
         [Header("References")]

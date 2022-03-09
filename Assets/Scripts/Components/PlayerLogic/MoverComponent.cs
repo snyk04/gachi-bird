@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GachiBird.PlayerLogic
 {
-    public sealed class MoverComponent : AbstractComponent<Mover, IMovable>
+    public sealed class MoverComponent : AbstractComponent<Mover>
     {
 #nullable disable
         [SerializeField] private Rigidbody2D _rigidbody;

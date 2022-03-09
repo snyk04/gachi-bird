@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GachiBird.Game
 {
-    public sealed class GameCycleComponent : AbstractComponent<GameCycle, IGameCycle>
+    public sealed class GameCycleComponent : AbstractComponent<GameCycle>
     {
         protected override GameCycle Create() => new GameCycle();
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GachiBird.Input
 {
-    public sealed class PlayerInputComponent : DestroyableAbstractComponent<PlayerInput>
+    public sealed class PlayerInputComponent : AbstractComponent<PlayerInput>
     {
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;

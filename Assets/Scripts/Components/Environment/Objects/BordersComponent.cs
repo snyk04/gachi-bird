@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GachiBird.Environment
 {
-    public sealed class BordersComponent : AbstractComponent<Borders, IBorders>
+    public sealed class BordersComponent : AbstractComponent<Borders>
     {
 #nullable disable
         [SerializeField] private Collider2DListener _backgroundPassCollider2DListener;

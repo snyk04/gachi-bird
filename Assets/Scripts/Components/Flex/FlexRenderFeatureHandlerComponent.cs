@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GachiBird.Flex
 {
-    public sealed class FlexRenderFeatureHandlerComponent : DestroyableAbstractComponent<FlexRenderFeatureHandler>
+    public sealed class FlexRenderFeatureHandlerComponent : AbstractComponent<FlexRenderFeatureHandler>
     {
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IFlexModeHandler>> _flexModeHandler;

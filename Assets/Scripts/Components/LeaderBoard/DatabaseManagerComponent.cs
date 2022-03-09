@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GachiBird.LeaderBoard
 {
-    public class DatabaseManagerComponent : AbstractComponent<DatabaseManager, IDatabaseManager>
+    public class DatabaseManagerComponent : AbstractComponent<DatabaseManager>
     {
 #nullable disable
         [SerializeField] private string _dataSource;

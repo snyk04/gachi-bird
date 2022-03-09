@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GachiBird.Flex
 {
-    public sealed class ColliderCollectorComponent : DestroyableAbstractComponent<ColliderCollector>
+    public sealed class ColliderCollectorComponent : AbstractComponent<ColliderCollector>
     {
 #nullable disable
         [Header("References")]

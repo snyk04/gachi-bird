@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GachiBird.CameraMovement
 {
-    public sealed class CameraAlignerComponent : AbstractComponent<CameraAligner, ICameraEffect>
+    public sealed class CameraAlignerComponent : AbstractComponent<CameraAligner>
     {
 #nullable disable
         [Header("References")]

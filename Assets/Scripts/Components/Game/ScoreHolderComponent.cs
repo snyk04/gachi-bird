@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace GachiBird.UserWindows
 {
-    public sealed class ScoreHolderComponent : AbstractComponent<ScoreHolder, IScoreHolder>
+    public sealed class ScoreHolderComponent : AbstractComponent<ScoreHolder>
     {
 #nullable disable
         [Header("References")]

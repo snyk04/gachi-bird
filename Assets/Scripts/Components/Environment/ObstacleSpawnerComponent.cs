@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace GachiBird.Environment
 {
-    public sealed class ObstacleSpawnerComponent : AbstractComponent<ObstacleSpawner, IObstacleSpawner>
+    public sealed class ObstacleSpawnerComponent : AbstractComponent<ObstacleSpawner>
     {
 #nullable disable
         [Header("References")]
