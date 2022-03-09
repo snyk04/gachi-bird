@@ -4,30 +4,12 @@ using GachiBird.Serialization;
 
 namespace GachiBird.UserInterface
 {
+    // TODO : Use Dictionary<enum, Action> and pair of methods, instead of bunch of actions and methods
+    
     public class UserInterfaceCycle : IUserInterfaceCycle
     {
         private readonly IGameCycle _gameCycle;
         private readonly IGameSaver _gameSaver;
-
-        public UserInterfaceCycle(IGameCycle gameCycle, IGameSaver gameSaver)
-        {
-            _gameCycle = gameCycle;
-            _gameSaver = gameSaver;
-            
-            _gameCycle.OnGameStart += ShowScoreWindow;
-            _gameCycle.OnGameStart += HidePreStartWindow;
-            _gameCycle.OnGameEnd += ShowGameOverWindow;
-            _gameCycle.OnGameEnd += HideScoreWindow;
-            
-            if (_gameSaver.LoadUserName() == "")
-            {
-                ShowSetUserNameWindow();
-            }
-            else
-            {
-                ShowPreStartWindow();
-            }
-        }
 
         public event Action? OnLeaderBoardShow;
         public event Action? OnGameOverWindowShow;
@@ -40,6 +22,29 @@ namespace GachiBird.UserInterface
         public event Action? OnSetUserNameWindowHide;
         public event Action? OnPreStartWindowHide;
         public event Action? OnScoreWindowHide;
+        
+        public UserInterfaceCycle(IGameCycle gameCycle, IGameSaver gameSaver)
+        {
+            _gameCycle = gameCycle;
+            _gameSaver = gameSaver;
+            
+            _gameCycle.OnGameStart += ShowScoreWindow;
+            _gameCycle.OnGameStart += HidePreStartWindow;
+            _gameCycle.OnGameEnd += ShowGameOverWindow;
+            _gameCycle.OnGameEnd += HideScoreWindow;
+        }
+
+        public void Start()
+        {
+            if (_gameSaver.LoadUserName() == "")
+            {
+                ShowSetUserNameWindow();
+            }
+            else
+            {
+                ShowPreStartWindow();
+            }
+        }
 
         public void ShowLeaderBoard()
         {

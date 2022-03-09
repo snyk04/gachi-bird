@@ -12,6 +12,11 @@ namespace GachiBird.UserInterface
         [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
 #nullable enable
 
+        protected void Start()
+        {
+            HeldItem.Start();
+        }
+        
         protected override UserInterfaceCycle Create()
         {
             return new UserInterfaceCycle(_gameCycle.GetHeldItem(), _gameSaver.GetHeldItem());
