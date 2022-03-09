@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 namespace AreYouFruits.Common.ComponentGeneration
@@ -41,6 +42,8 @@ namespace AreYouFruits.Common.ComponentGeneration
         {
             EditorGUI.BeginProperty(position, label, property);
 
+            SerializedProperty objectProperty = property.FindPropertyRelative("_object");
+
             object serializedInterface = GetTargetObjectOfProperty(property)!;
 
             Type interfaceType =
@@ -48,8 +51,6 @@ namespace AreYouFruits.Common.ComponentGeneration
                     "InterfaceType",
                     BindingFlags.Instance | BindingFlags.NonPublic
                 )!.GetMethod.Invoke(serializedInterface, null);
-
-            SerializedProperty objectProperty = property.FindPropertyRelative("_object");
 
             Rect popupPosition = new Rect(
                 new Vector2(position.max.x - PopupWidth, position.position.y),
@@ -93,53 +94,88 @@ namespace AreYouFruits.Common.ComponentGeneration
             );
         }
 
+        private GameObject? _choosingGameObject;
+
         private void OnGuiAsObject(
             Rect position, SerializedProperty objectProperty, GUIContent label, Type interfaceType
         )
         {
-            Object obj = EditorGUI.ObjectField(
-                position,
-                label,
-                objectProperty.objectReferenceValue,
-                typeof(Object),
-                true
-            );
+            position = EditorGUI.PrefixLabel(position, label);
 
-            if (obj == objectProperty.objectReferenceValue)
+            Object obj;
+
+            if (_choosingGameObject == null)
             {
-                return;
+                obj = EditorGUI.ObjectField(
+                    position,
+                    objectProperty.objectReferenceValue,
+                    typeof(Object),
+                    true
+                );
+
+                if (obj == objectProperty.objectReferenceValue)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                var objectPosition = new Rect(position.position, new Vector2(position.size.x / 2, position.size.y));
+
+                var componentPosition = new Rect(
+                    position.position + (objectPosition.width + GapWidth) * Vector2.right,
+                    new Vector2(position.size.x - objectPosition.size.x - GapWidth, position.size.y)
+                );
+
+                obj = EditorGUI.ObjectField(
+                    objectPosition,
+                    _choosingGameObject,
+                    typeof(Object),
+                    true
+                );
+
+                if (obj is GameObject gameObject)
+                {
+                    Component[] interfaceComponents = gameObject.GetComponents<Component>()
+                        .Where(interfaceType.IsInstanceOfType)
+                        .ToArray();
+                    
+                    if (interfaceComponents.Length == 1)
+                    {
+                        obj = interfaceComponents[0];
+                    }
+                    else if (interfaceComponents.Length > 1)
+                    {
+                        Component[] allComponents = gameObject.GetComponents<Component>();
+                        int count = 0;
+                        
+                        int index = CustomEditorGUI.Popup(
+                            componentPosition,
+                            -1,
+                            allComponents.Select(c => new GUIContent(count++ + " " + GetName(c))).ToArray(),
+                            i => interfaceComponents.Contains(allComponents[i])
+                        );
+
+                        if (index >= 0)
+                        {
+                            obj = allComponents[index];
+                        }
+                    }
+                }
             }
 
-            if (obj is GameObject gameObject)
+            _choosingGameObject = obj as GameObject;
+
+            TrySetObjectReferenceValue(obj, objectProperty, interfaceType);
+
+            static void TrySetObjectReferenceValue(
+                Object? value, SerializedProperty objectProperty, Type interfaceType
+            )
             {
-                Component[] interfaceComponents = gameObject.GetComponents(interfaceType);
-
-                if (interfaceComponents.Length == 1)
+                if (value is null || interfaceType.IsInstanceOfType(value))
                 {
-                    obj = interfaceComponents[0];
+                    objectProperty.objectReferenceValue = value;
                 }
-                else if (interfaceComponents.Length > 1)
-                {
-                    Component[] allComponents = gameObject.GetComponents<Component>();
-                    int count = 0;
-
-                    EditorUtility.DisplayCustomMenu(
-                        new Rect(Event.current.mousePosition, Vector2.zero),
-                        allComponents.Select(c => new GUIContent(count++ + " " + GetName(c))).ToArray(),
-                        i => interfaceComponents.Contains(allComponents[i]),
-                        -1,
-                        (data, options, selected) => { },
-                        null
-                    );
-                    //Event.current.Use();
-                }
-
-                obj = gameObject.GetComponent(interfaceType);
-            }
-
-            if (obj is null || interfaceType.IsInstanceOfType(obj))
-            {
-                objectProperty.objectReferenceValue = obj;
             }
         }
 
@@ -149,14 +185,18 @@ namespace AreYouFruits.Common.ComponentGeneration
         {
             GameObject[] gameObjects = Object.FindObjectsOfType<GameObject>();
 
-            Component[] components = gameObjects.SelectMany(g => g.GetComponents(interfaceType)).ToArray();
+            Component[] components = gameObjects
+                .SelectMany(g => g.GetComponents<Component>().Where(interfaceType.IsInstanceOfType))
+                .ToArray();
 
             GUIContent[] variants = components.Select(
                     c =>
                     {
-                        string index = c.gameObject.GetComponents(interfaceType).Length <= 1
-                            ? string.Empty
-                            : $"[{Array.IndexOf(c.gameObject.GetComponents<Component>(), c)}] ";
+                        string index =
+                            c.gameObject.GetComponents<Component>().Where(interfaceType.IsInstanceOfType).Count()
+                         <= 1
+                                ? string.Empty
+                                : $"[{Array.IndexOf(c.gameObject.GetComponents<Component>(), c)}] ";
 
                         return new GUIContent($"{c.gameObject.name}.{index}{GetName(c)}");
                     }
