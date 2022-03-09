@@ -10,8 +10,8 @@ namespace GachiBird.UserInterface.Windows
         [SerializeField] protected SerializedInterface<IComponent<IUserInterfaceCycle>> _userInterfaceCycle;
         [SerializeField] private GameObject _container;
 #nullable enable
-        
-        public virtual void Show() => _container.SetActive(true);
-        public virtual void Hide() => _container.SetActive(false);
+
+        protected virtual void Show() => _container.SetActive(true);
+        protected virtual void Hide() => _container.SetActive(false);
     }
 }

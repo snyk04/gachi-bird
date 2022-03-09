@@ -9,7 +9,6 @@ namespace GachiBird.UserInterface.Windows
     {
 #nullable disable
         [Header("References")]
-        [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
         [SerializeField] private SerializedInterface<IComponent<IScoreHolder>> _scoreHolder;
         
         [Header("Objects")]
@@ -18,18 +17,10 @@ namespace GachiBird.UserInterface.Windows
         
         private void Awake()
         {
-            _gameCycle.GetHeldItem().OnGameStart += Show;
-            _gameCycle.GetHeldItem().OnGameEnd += Hide;
+            _userInterfaceCycle.GetHeldItem().OnScoreWindowShow += Show;
+            _userInterfaceCycle.GetHeldItem().OnScoreWindowHide += Hide;
 
             _scoreHolder.GetHeldItem().OnScoreChanged += RefreshScoreCounter;
-        }
-        
-        private void OnDestroy()
-        {
-            _gameCycle.GetHeldItem().OnGameStart -= Show;
-            _gameCycle.GetHeldItem().OnGameEnd -= Hide;
-
-            _scoreHolder.GetHeldItem().OnScoreChanged -= RefreshScoreCounter;
         }
 
         private void RefreshScoreCounter()
