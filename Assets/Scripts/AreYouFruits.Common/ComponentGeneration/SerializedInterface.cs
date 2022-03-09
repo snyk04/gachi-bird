@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
@@ -29,11 +30,10 @@ namespace AreYouFruits.Common.ComponentGeneration
     [CustomPropertyDrawer(typeof(SerializedInterface<>))]
     public class SerializedObjectDrawer : PropertyDrawer
     {
-        private enum SerializeType { Interface = 0, Object, }
+        private enum SerializeType { Interface = 0, Object, Popup }
 
         private const int PopupWidth = 50;
-
-        private static readonly string[] _possibleSerializeTypeNames = Enum.GetNames(typeof(SerializeType));
+        private const int GapWidth = 2;
 
         private SerializeType _serializeType = SerializeType.Interface;
 
@@ -56,21 +56,23 @@ namespace AreYouFruits.Common.ComponentGeneration
                 new Vector2(PopupWidth, position.size.y)
             );
 
-            position = new Rect(position.position, position.size - PopupWidth * Vector2.right);
+            position = new Rect(position.position, position.size - (PopupWidth + GapWidth) * Vector2.right);
 
-            _serializeType = (SerializeType)EditorGUI.Popup(
-                popupPosition,
-                (int)_serializeType,
-                _possibleSerializeTypeNames
-            );
+            _serializeType = (SerializeType)EditorGUI.EnumPopup(popupPosition, _serializeType);
 
             switch (_serializeType)
             {
                 case SerializeType.Interface:
                     OnGuiAsInterface(position, objectProperty, label, interfaceType);
+
                     break;
                 case SerializeType.Object:
-                    OnGuiAsGameObject(position, objectProperty, label, interfaceType);
+                    OnGuiAsObject(position, objectProperty, label, interfaceType);
+
+                    break;
+                case SerializeType.Popup:
+                    OnGuiAsPopup(position, objectProperty, label, interfaceType);
+
                     break;
                 default: throw new ArgumentOutOfRangeException();
             }
@@ -91,7 +93,7 @@ namespace AreYouFruits.Common.ComponentGeneration
             );
         }
 
-        private void OnGuiAsGameObject(
+        private void OnGuiAsObject(
             Rect position, SerializedProperty objectProperty, GUIContent label, Type interfaceType
         )
         {
@@ -108,17 +110,82 @@ namespace AreYouFruits.Common.ComponentGeneration
                 return;
             }
 
-            obj = obj switch
+            if (obj is GameObject gameObject)
             {
-                GameObject gameObject => gameObject.GetComponent(interfaceType),
-                Component objComponent => objComponent,
-                _ => obj
-            };
+                Component[] interfaceComponents = gameObject.GetComponents(interfaceType);
+
+                if (interfaceComponents.Length == 1)
+                {
+                    obj = interfaceComponents[0];
+                }
+                else if (interfaceComponents.Length > 1)
+                {
+                    Component[] allComponents = gameObject.GetComponents<Component>();
+                    int count = 0;
+
+                    EditorUtility.DisplayCustomMenu(
+                        new Rect(Event.current.mousePosition, Vector2.zero),
+                        allComponents.Select(c => new GUIContent(count++ + " " + GetName(c))).ToArray(),
+                        i => interfaceComponents.Contains(allComponents[i]),
+                        -1,
+                        (data, options, selected) => { },
+                        null
+                    );
+                    //Event.current.Use();
+                }
+
+                obj = gameObject.GetComponent(interfaceType);
+            }
+            else
+            {
+                obj = obj switch
+                {
+                    Component objComponent => objComponent,
+                    _ => obj
+                };
+            }
 
             if (obj is null || interfaceType.IsInstanceOfType(obj))
             {
                 objectProperty.objectReferenceValue = obj;
             }
+        }
+
+        private void OnGuiAsPopup(
+            Rect position, SerializedProperty objectProperty, GUIContent label, Type interfaceType
+        )
+        {
+            GameObject[] gameObjects = Object.FindObjectsOfType<GameObject>();
+
+            Component[] components = gameObjects.SelectMany(g => g.GetComponents(interfaceType)).ToArray();
+
+            GUIContent[] variants = components.Select(
+                    c =>
+                    {
+                        string index = c.gameObject.GetComponents(interfaceType).Length <= 1
+                            ? string.Empty
+                            : $"[{Array.IndexOf(c.gameObject.GetComponents<Component>(), c)}] ";
+
+                        return new GUIContent($"{c.gameObject.name}.{index}{GetName(c)}");
+                    }
+                )
+                .ToArray();
+
+            int index = EditorGUI.Popup(
+                position,
+                label,
+                Array.IndexOf(components, (Component)objectProperty.objectReferenceValue),
+                variants
+            );
+
+            objectProperty.objectReferenceValue = index == -1 ? null : components[index];
+        }
+
+        private static string GetName(Component c)
+        {
+            return c.GetType().GetMethod("ToString") == typeof(Object).GetMethod("ToString")
+                ? c.GetType().Name
+                : c.ToString();
         }
 
         private static object? GetTargetObjectOfProperty(SerializedProperty prop)
