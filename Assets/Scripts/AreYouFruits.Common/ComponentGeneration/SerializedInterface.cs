@@ -136,14 +136,6 @@ namespace AreYouFruits.Common.ComponentGeneration
 
                 obj = gameObject.GetComponent(interfaceType);
             }
-            else
-            {
-                obj = obj switch
-                {
-                    Component objComponent => objComponent,
-                    _ => obj
-                };
-            }
 
             if (obj is null || interfaceType.IsInstanceOfType(obj))
             {
