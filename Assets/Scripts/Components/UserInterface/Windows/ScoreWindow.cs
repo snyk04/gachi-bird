@@ -3,7 +3,7 @@ using GachiBird.Game;
 using TMPro;
 using UnityEngine;
 
-namespace GachiBird.UserWindows
+namespace GachiBird.UserInterface.Windows
 {
     public sealed class ScoreWindow : BaseWindow
     {

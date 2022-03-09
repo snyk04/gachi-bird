@@ -4,13 +4,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GachiBird.UserWindows
+namespace GachiBird.UserInterface.Windows
 {
     public sealed class GameOverWindow : BaseWindow
     {
 #nullable disable
         [Header("Buttons")] 
         [SerializeField] private Button _okButton;
+        [SerializeField] private Button _leaderBoardButton;
         
         [Header("References")] 
         [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
@@ -25,8 +26,16 @@ namespace GachiBird.UserWindows
         {
             _gameCycle.GetHeldItem().OnGameEnd += Show;
             _gameCycle.GetHeldItem().OnGameEnd += ShowResultScore;
+
+            _userInterfaceCycle.GetHeldItem().OnGameOverWindowShow += Show;
+            _userInterfaceCycle.GetHeldItem().OnGameOverWindowHide += Hide;
             
             _okButton.onClick.AddListener(() => _gameCycle.GetHeldItem().RestartGame());
+            _leaderBoardButton.onClick.AddListener(() =>
+            {
+                _userInterfaceCycle.GetHeldItem().HideGameOverWindow();
+                _userInterfaceCycle.GetHeldItem().ShowLeaderBoard();
+            });
         }
 
         private void ShowResultScore()
