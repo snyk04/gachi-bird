@@ -11,5 +11,6 @@ namespace GachiBird.Serialization
         public int AmountOfMoney = 0;
         public bool[] StatusOfSkins = Array.Empty<bool>();
         public bool[] StatusOfMusic = Array.Empty<bool>();
+        public string UserName = "";
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace GachiBird.UserInterface.Windows
 {
-    public class LeaderBoardWindow : BaseWindow
+    public sealed class LeaderBoardWindow : BaseWindow
     {
 #nullable disable
         [Header("Buttons")]
@@ -31,7 +31,7 @@ namespace GachiBird.UserInterface.Windows
             });
         }
 
-        public override void Show()
+        protected override void Show()
         {
             base.Show();
             DrawLeaderBoard();

@@ -24,9 +24,6 @@ namespace GachiBird.UserInterface.Windows
         
         private void Awake()
         {
-            _gameCycle.GetHeldItem().OnGameEnd += Show;
-            _gameCycle.GetHeldItem().OnGameEnd += ShowResultScore;
-
             _userInterfaceCycle.GetHeldItem().OnGameOverWindowShow += Show;
             _userInterfaceCycle.GetHeldItem().OnGameOverWindowHide += Hide;
             
@@ -36,6 +33,12 @@ namespace GachiBird.UserInterface.Windows
                 _userInterfaceCycle.GetHeldItem().HideGameOverWindow();
                 _userInterfaceCycle.GetHeldItem().ShowLeaderBoard();
             });
+        }
+
+        protected override void Show()
+        {
+            base.Show();
+            ShowResultScore();
         }
 
         private void ShowResultScore()

@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
 using GachiBird.Game;
+using GachiBird.Serialization;
 
 namespace GachiBird.LeaderBoard
 {
-    public interface ILeaderBoard
-    {
-        Dictionary<string, long> BestScores { get; }
-    }
     public class LeaderBoard : ILeaderBoard
     {
         private readonly IScoreHolder _scoreHolder;
@@ -15,11 +12,11 @@ namespace GachiBird.LeaderBoard
 
         public Dictionary<string, long> BestScores => _databaseManager.BestScores;
 
-        public LeaderBoard(IScoreHolder scoreHolder, IDatabaseManager databaseManager, string userName)
+        public LeaderBoard(IScoreHolder scoreHolder, IDatabaseManager databaseManager, IGameSaver gameSaver)
         {
             _scoreHolder = scoreHolder;
             _databaseManager = databaseManager;
-            _userName = userName;
+            _userName = gameSaver.LoadUserName();
 
             _scoreHolder.OnHighScoreChanged += Update;
         }
