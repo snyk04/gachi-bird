@@ -30,7 +30,8 @@ namespace GachiBird.UserInterface.Windows
         {
             base.Show();
             
-            // TODO : Load leaderboard from GPS
+            // TODO : Publish game to make it work
+            // Social.ShowLeaderboardUI();
         }
     }
 }

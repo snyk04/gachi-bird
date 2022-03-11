@@ -9,6 +9,12 @@ namespace GachiBird.LeaderBoard
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IScoreHolder>> _scoreHolder;
 #nullable enable
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            HeldItem.OnDestroy();
+        }
         
         protected override LeaderBoardUpdater Create()
         {
