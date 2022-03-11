@@ -13,13 +13,11 @@ namespace GachiBird.UserInterface
 
         public event Action? OnLeaderBoardShow;
         public event Action? OnGameOverWindowShow;
-        public event Action? OnSetUserNameWindowShow;
         public event Action? OnPreStartWindowShow;
         public event Action? OnScoreWindowShow;
         
         public event Action? OnLeaderBoardHide;
         public event Action? OnGameOverWindowHide;
-        public event Action? OnSetUserNameWindowHide;
         public event Action? OnPreStartWindowHide;
         public event Action? OnScoreWindowHide;
         
@@ -36,14 +34,7 @@ namespace GachiBird.UserInterface
 
         public void Start()
         {
-            if (_gameSaver.LoadUserName() == "")
-            {
-                ShowSetUserNameWindow();
-            }
-            else
-            {
-                ShowPreStartWindow();
-            }
+            ShowPreStartWindow();
         }
 
         public void ShowLeaderBoard()
@@ -53,10 +44,6 @@ namespace GachiBird.UserInterface
         public void ShowGameOverWindow()
         {
             OnGameOverWindowShow?.Invoke();
-        }
-        public void ShowSetUserNameWindow()
-        {
-            OnSetUserNameWindowShow?.Invoke();
         }
         public void ShowPreStartWindow()
         {
@@ -74,10 +61,6 @@ namespace GachiBird.UserInterface
         public void HideGameOverWindow()
         {
             OnGameOverWindowHide?.Invoke();
-        }
-        public void HideSetUserNameWindow()
-        {
-            OnSetUserNameWindowHide?.Invoke();
         }
         public void HidePreStartWindow()
         {

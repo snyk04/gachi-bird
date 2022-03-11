@@ -1,6 +1,4 @@
-﻿using AreYouFruits.Common.Collections;
-using AreYouFruits.Common.ComponentGeneration;
-using GachiBird.LeaderBoard;
+﻿using AreYouFruits.Common.ComponentGeneration;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,9 +9,6 @@ namespace GachiBird.UserInterface.Windows
 #nullable disable
         [Header("Buttons")]
         [SerializeField] private Button _closeButton;
-
-        [Header("References")]
-        [SerializeField] private SerializedInterface<IComponent<ILeaderBoard>> _leaderBoard;
         
         [Header("Objects")]
         [SerializeField] private Text _text;
@@ -34,16 +29,8 @@ namespace GachiBird.UserInterface.Windows
         protected override void Show()
         {
             base.Show();
-            DrawLeaderBoard();
-        }
-
-        private void DrawLeaderBoard()
-        {
-            _text.text = "";
-            foreach ((string? userName, long bestScore) in _leaderBoard.GetHeldItem().BestScores)
-            {
-                _text.text += $"{userName} - {bestScore}\n";
-            }
+            
+            // TODO : Load leaderboard from GPS
         }
     }
 }

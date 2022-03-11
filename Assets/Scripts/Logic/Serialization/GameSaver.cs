@@ -51,17 +51,11 @@ namespace GachiBird.Serialization
             _saveData.StatusOfMusic = statusOfMusic;
             _saver.Save(_saveData);
         }
-        public void SaveUserName(string userName)
-        {
-            _saveData.UserName = userName;
-            _saver.Save(_saveData);
-        }
 
         public int LoadBestScore() => _saveData.BestScore;
         public int LoadCurrentSkinId() => _saveData.CurrentSkinId;
         public int LoadAmountOfMoney() => _saveData.AmountOfMoney;
         public bool[] LoadStatusOfSkins() => _saveData.StatusOfSkins;
         public bool[] LoadStatusOfMusic() => _saveData.StatusOfMusic;
-        public string LoadUserName() => _saveData.UserName;
     }
 }
