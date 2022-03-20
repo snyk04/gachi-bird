@@ -42,6 +42,26 @@ namespace AreYouFruits.Common
                 EditorStyles.popup
             );
         }
+
+        public static Rect PrefixLabel(Rect position, float labelWidth, GUIContent label, GUIStyle? style = null)
+        {
+            Rect labelPosition = position;
+            labelPosition.width = labelWidth;
+
+            if (style == null)
+            {
+                EditorGUI.LabelField(labelPosition, label);
+            }
+            else
+            {
+                EditorGUI.LabelField(labelPosition, label, style);
+            }
+
+            position.x += labelWidth;
+            position.width -= labelWidth;
+
+            return position;
+        }
     }
 }
 
