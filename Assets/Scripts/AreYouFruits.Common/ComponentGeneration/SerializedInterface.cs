@@ -136,9 +136,7 @@ namespace AreYouFruits.Common.ComponentGeneration
 
                 if (obj is GameObject gameObject)
                 {
-                    Component[] interfaceComponents = gameObject.GetComponents<Component>()
-                        .Where(interfaceType.IsInstanceOfType)
-                        .ToArray();
+                    Component[] interfaceComponents = gameObject.GetVarianceComponents(interfaceType);
                     
                     if (interfaceComponents.Length == 1)
                     {
@@ -146,7 +144,7 @@ namespace AreYouFruits.Common.ComponentGeneration
                     }
                     else if (interfaceComponents.Length > 1)
                     {
-                        Component[] allComponents = gameObject.GetComponents<Component>();
+                        Component[] allComponents = gameObject.GetAllComponents();
                         int count = 0;
                         
                         int index = CustomEditorGUI.Popup(
@@ -186,17 +184,17 @@ namespace AreYouFruits.Common.ComponentGeneration
             GameObject[] gameObjects = Object.FindObjectsOfType<GameObject>();
 
             Component[] components = gameObjects
-                .SelectMany(g => g.GetComponents<Component>().Where(interfaceType.IsInstanceOfType))
+                .SelectMany(g => g.GetVarianceComponents(interfaceType))
                 .ToArray();
 
             GUIContent[] variants = components.Select(
                     c =>
                     {
                         string index =
-                            c.gameObject.GetComponents<Component>().Where(interfaceType.IsInstanceOfType).Count()
+                            c.gameObject.GetVarianceComponents(interfaceType).Count()
                          <= 1
                                 ? string.Empty
-                                : $"[{Array.IndexOf(c.gameObject.GetComponents<Component>(), c)}] ";
+                                : $"[{Array.IndexOf(c.gameObject.GetAllComponents(), c)}] ";
 
                         return new GUIContent($"{c.gameObject.name}.{index}{GetName(c)}");
                     }
