@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GachiBird.Audio
 {
-    public class SoundAnalyzerComponent : AbstractComponent<SoundAnalyzer, ISoundAnalyzer>
+    public class SoundAnalyzerComponent : AbstractComponent<SoundAnalyzer>
     {
 #nullable disable
         [SerializeField] private AudioSource _audioSource;

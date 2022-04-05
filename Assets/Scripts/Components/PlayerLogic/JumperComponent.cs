@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GachiBird.PlayerLogic
 {
-    public sealed class JumperComponent : AbstractComponent<Jumper, IJumpable>
+    public sealed class JumperComponent : AbstractComponent<Jumper>
     {
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;

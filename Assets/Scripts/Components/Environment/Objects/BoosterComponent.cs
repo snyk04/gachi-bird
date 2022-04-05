@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GachiBird.Environment.Objects
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class BoosterComponent : AbstractComponent<Booster, IBooster>
+    public class BoosterComponent : AbstractComponent<Booster>
     {
 #nullable disable
         [SerializeField] private Collider2DListener _checkpointCollider2DListener;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GachiBird.Flex
 {
-    public sealed class SoundVisualizerComponent : DestroyableAbstractComponent<SoundVisualizer>
+    public sealed class SoundVisualizerComponent : AbstractComponent<SoundVisualizer>
     {
 #nullable disable
         [SerializeField] private Material _audioMaterial;

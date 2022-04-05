@@ -13,19 +13,19 @@ namespace GachiBird.Input
         public PlayerInput(IGameCycle gameCycle, IJumpable player)
         {
             _player = player;
-            
+
             _jumpAction.performed += Jump;
             _jumpAction.Enable();
-            
+
             gameCycle.OnGameEnd += Dispose;
         }
-        
+
         public void Dispose()
         {
             _jumpAction.Disable();
             _jumpAction.performed -= Jump;
         }
-        
+
         private void Jump(InputAction.CallbackContext context) => _player.Jump();
     }
 }

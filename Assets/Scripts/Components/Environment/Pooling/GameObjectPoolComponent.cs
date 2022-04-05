@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GachiBird.Environment.Pooling
 {
-    public sealed class GameObjectPoolComponent : AbstractComponent<GameObjectPool, IPool<GameObject>>
+    public sealed class GameObjectPoolComponent : AbstractComponent<GameObjectPool>
     {
 #nullable disable
         [SerializeField] private int _amountOfObjectsInPool;

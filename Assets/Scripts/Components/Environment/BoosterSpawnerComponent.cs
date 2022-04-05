@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace GachiBird.Environment
 {
-    public sealed class BoosterSpawnerComponent : AbstractComponent<BoosterSpawner, IBoosterSpawner>
+    public sealed class BoosterSpawnerComponent : AbstractComponent<BoosterSpawner>
     {
 #nullable disable
         [Header("References")]

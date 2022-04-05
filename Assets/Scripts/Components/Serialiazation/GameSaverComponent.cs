@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GachiBird.Serialization
 {
-    public sealed class GameSaverComponent : AbstractComponent<GameSaver, IGameSaver>
+    public sealed class GameSaverComponent : AbstractComponent<GameSaver>
     {
 #nullable disable
         [SerializeField] private string _fileName = "SaveData.dat";

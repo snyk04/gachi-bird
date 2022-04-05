@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GachiBird.Flex
 {
-    public sealed class FlexModeHandlerComponent : DestroyableAbstractComponent<FlexModeHandler, IFlexModeHandler>
+    public sealed class FlexModeHandlerComponent : AbstractComponent<FlexModeHandler>
     {
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;

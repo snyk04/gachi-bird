@@ -31,25 +31,21 @@ namespace GachiBird.Serialization
             _saveData.BestScore = score;
             _saver.Save(_saveData);
         }
-
         public void SaveCurrentSkinId(int skinID)
         {
             _saveData.CurrentSkinId = skinID;
             _saver.Save(_saveData);
         }
-
         public void SaveAmountOfMoney(int amountOfMoney)
         {
             _saveData.AmountOfMoney = amountOfMoney;
             _saver.Save(_saveData);
         }
-
         public void SaveStatusOfSkins(bool[] statusOfSkins)
         {
             _saveData.StatusOfSkins = statusOfSkins;
             _saver.Save(_saveData);
         }
-
         public void SaveStatusOfMusic(bool[] statusOfMusic)
         {
             _saveData.StatusOfMusic = statusOfMusic;

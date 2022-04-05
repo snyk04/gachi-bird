@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GachiBird.CameraMovement
 {
-    public sealed class CameraEffectsChainerComponent : DestroyableAbstractComponent<CameraEffectsChainer>
+    public sealed class CameraEffectsChainerComponent : AbstractComponent<CameraEffectsChainer>
     {
 #nullable disable
         [SerializeField] private Camera _camera;

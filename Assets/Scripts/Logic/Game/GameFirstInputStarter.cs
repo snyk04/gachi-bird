@@ -11,6 +11,8 @@ namespace GachiBird.Game
 
         public GameFirstInputStarter(IGameCycle gameCycle)
         {
+            // TODO : Start game after username is set
+            
             _playerJumpAction = new Controls().Player.Jump;
 
             _playerJumpAction.performed += StartGame;

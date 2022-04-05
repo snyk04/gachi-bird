@@ -1,0 +1,3 @@
+[submodule "Assets/Scripts/AreYouFruits.Common"]
+	path = Assets/Scripts/AreYouFruits.Common
+	url = https://github.com/unknownMusician/UnityCommonScripts
