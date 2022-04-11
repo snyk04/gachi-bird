@@ -11,12 +11,10 @@ namespace GachiBird.UserInterface
         private readonly IGameCycle _gameCycle;
         private readonly IGameSaver _gameSaver;
 
-        public event Action? OnLeaderBoardShow;
         public event Action? OnGameOverWindowShow;
         public event Action? OnPreStartWindowShow;
         public event Action? OnScoreWindowShow;
         
-        public event Action? OnLeaderBoardHide;
         public event Action? OnGameOverWindowHide;
         public event Action? OnPreStartWindowHide;
         public event Action? OnScoreWindowHide;
@@ -36,11 +34,7 @@ namespace GachiBird.UserInterface
         {
             ShowPreStartWindow();
         }
-
-        public void ShowLeaderBoard()
-        {
-            OnLeaderBoardShow?.Invoke();
-        }
+        
         public void ShowGameOverWindow()
         {
             OnGameOverWindowShow?.Invoke();
@@ -54,10 +48,6 @@ namespace GachiBird.UserInterface
             OnScoreWindowShow?.Invoke();
         }
         
-        public void HideLeaderBoard()
-        {
-            OnLeaderBoardHide?.Invoke();
-        }
         public void HideGameOverWindow()
         {
             OnGameOverWindowHide?.Invoke();

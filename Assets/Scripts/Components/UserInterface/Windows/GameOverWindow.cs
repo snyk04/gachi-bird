@@ -28,11 +28,6 @@ namespace GachiBird.UserInterface.Windows
             _userInterfaceCycle.GetHeldItem().OnGameOverWindowHide += Hide;
             
             _okButton.onClick.AddListener(() => _gameCycle.GetHeldItem().RestartGame());
-            _leaderBoardButton.onClick.AddListener(() =>
-            {
-                _userInterfaceCycle.GetHeldItem().HideGameOverWindow();
-                _userInterfaceCycle.GetHeldItem().ShowLeaderBoard();
-            });
         }
 
         protected override void Show()
