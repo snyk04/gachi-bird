@@ -134,6 +134,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399ce1ff283bdb744a338678212f5742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &459647420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3825085787432221760, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+  m_PrefabInstance: {fileID: 8746930493705982171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732b78f4ed554726b0f827f957dfd39c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8746930493407439012, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
@@ -209,6 +220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553809ac386046a88387c466d3248dfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &1112255740 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3404698249679552005, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+  m_PrefabInstance: {fileID: 3404698249194605955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1347253646 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 677833394, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
@@ -522,10 +538,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 331243202, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
-      propertyPath: _userInterfaceCycle._object
+    - target: {fileID: 1800075243, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: _playerCustomizer._object
       value: 
-      objectReference: {fileID: 1693585116}
+      objectReference: {fileID: 459647420}
     - target: {fileID: 6459932232111544373, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: _gameCycle._object
       value: 
@@ -667,6 +683,10 @@ PrefabInstance:
       propertyPath: _boosterSpawner._object
       value: 
       objectReference: {fileID: 3404698249194605958}
+    - target: {fileID: 3825085787432221760, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 1112255740}
     - target: {fileID: 4328060015724115828, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
       propertyPath: _bordersPool._object
       value: 

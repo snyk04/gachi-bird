@@ -87,6 +87,12 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d4af993e46459074a8bb40b50081f969, type: 3}
   - {fileID: 21300000, guid: 4a432fdee2c85004a933974f61ee8521, type: 3}
   - {fileID: 21300000, guid: b6a8e62f31c850d4babcaf777ceb5db9, type: 3}
+  - {fileID: 3010951858511213517, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -8891590945244770283, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -2352396353401391747, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: 6236675656088661469, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -5285785097126754818, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: 5219528537255451192, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
   - {fileID: 21300000, guid: c0eb91cff22ccc54aa3f5bf5aa8e8616, type: 3}
   - {fileID: 21300000, guid: 80e732dfa948e764687bb894931fc40e, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -128,6 +134,12 @@ SpriteAtlas:
   - Background
   - Music
   - BorderTop
+  - Faces_4
+  - Faces_5
+  - Faces_2
+  - Faces_3
+  - Faces_0
+  - Faces_1
   - Bird1
   - Over
   m_RenderDataMap: {}
