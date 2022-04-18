@@ -11,7 +11,7 @@ namespace GachiBird.UserInterface.Windows
 #nullable disable
         [Header("Buttons")] 
         [SerializeField] private Button _okButton;
-        [SerializeField] private Button _leaderBoardButton;
+        [SerializeField] private Button _shopButton;
         
         [Header("References")] 
         [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
@@ -28,6 +28,11 @@ namespace GachiBird.UserInterface.Windows
             _userInterfaceCycle.GetHeldItem().OnGameOverWindowHide += Hide;
             
             _okButton.onClick.AddListener(() => _gameCycle.GetHeldItem().RestartGame());
+            _shopButton.onClick.AddListener(() =>
+            {
+                _userInterfaceCycle.GetHeldItem().HideGameOverWindow();
+                _userInterfaceCycle.GetHeldItem().ShowShopWindow();
+            });
         }
 
         protected override void Show()

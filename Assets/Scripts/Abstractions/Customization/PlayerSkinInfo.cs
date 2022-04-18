@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Components.Shop
+namespace Components.Customization
 {
     [Serializable]
     public struct PlayerSkinInfo

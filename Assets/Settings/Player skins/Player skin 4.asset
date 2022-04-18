@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PlayerSkinInfo>k__BackingField:
     Name: Ricardo Milos
+    Price: 0
     Sprite: {fileID: 3010951858511213517, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
-    ShopPage: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+    ShopPage: {fileID: 0}

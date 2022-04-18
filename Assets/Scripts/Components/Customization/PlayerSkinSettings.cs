@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Components.Shop
+namespace Components.Customization
 {
     [CreateAssetMenu(fileName = "Player skin", menuName = "ScriptableObjects/Player skin", order = 2)]
     public class PlayerSkinSettings : ScriptableObject

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c75f91aeb7cd45da9d00a508a88be539, type: 3}
-  m_Name: Player skin 0
+  m_Name: Player skin 6
   m_EditorClassIdentifier: 
   <PlayerSkinInfo>k__BackingField:
-    Name: Mark Wolf
+    Name: Brad McGuire
     Price: 0
-    Sprite: {fileID: -5285785097126754818, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+    Sprite: {fileID: -8891590945244770283, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
     ShopPage: {fileID: 0}

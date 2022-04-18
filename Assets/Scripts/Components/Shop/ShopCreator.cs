@@ -1,7 +1,9 @@
 ﻿using System;
 using AreYouFruits.Common.ComponentGeneration;
+using Components.Customization;
 using GachiBird.Customization;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Components.Shop
 {
@@ -10,6 +12,13 @@ namespace Components.Shop
 #nullable disable
         [Header("References")]
         [SerializeField] private SerializedInterface<IComponent<IPlayerCustomizer>> _playerCustomizer;
+
+        [Header("Objects")] 
+        [SerializeField] private RectTransform _playerSkinsLotsParentObject;
+        [SerializeField] private GridLayoutGroup _gridLayoutGroup;
+
+        [Header("Prefabs")] 
+        [SerializeField] private GameObject _lotPrefab;
 #nullable enable
 
         private void Start()
@@ -19,9 +28,16 @@ namespace Components.Shop
 
         private void CreatePlayerSkinShop()
         {
-            foreach (PlayerSkinInfo playerSkinInfo in _playerCustomizer.GetHeldItem().PlayerSkinInfoArray)
+            PlayerSkinInfo[] playerSkinInfos = _playerCustomizer.GetHeldItem().PlayerSkinInfoArray;
+            var amountOfRows = (int) Math.Ceiling(playerSkinInfos.Length / 2f);
+            _playerSkinsLotsParentObject.sizeDelta = new Vector2(
+                Screen.width, 
+                _gridLayoutGroup.cellSize.y * amountOfRows + _gridLayoutGroup.spacing.y * (amountOfRows + 1) 
+            );
+            foreach (PlayerSkinInfo playerSkinInfo in playerSkinInfos)
             {
-                Debug.Log(playerSkinInfo.Name);
+                GameObject newLot = Instantiate(_lotPrefab, _playerSkinsLotsParentObject);
+                newLot.GetComponent<Lot>().Setup(playerSkinInfo);
             }
         }
     }

@@ -285,146 +285,6 @@ PrefabInstance:
       propertyPath: _gameCycle._object
       value: 
       objectReference: {fileID: 2115107477}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange11.Max
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange11.Min
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange1111.Max
-      value: refg
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange1111.Min
-      value: fdf
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange11111.Max
-      value: 
-      objectReference: {fileID: 102900000, guid: 9cfc1ce7b173434989526225628c0b52, type: 3}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange11111.Min
-      value: 
-      objectReference: {fileID: 11500000, guid: d69ac0a61e8943ff82b14f7469f0fe97, type: 3}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange1.IsBounded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange1111111.Max
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange1111111.Min
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange2.IsBounded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange11.IsBounded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange11111111.Max
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange11111111.Min
-      value: 52
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111.IsBounded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange1111.IsBounded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange11111.IsBounded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111.IsBounded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111.Max.m_Bits
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111.Min.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange1111111.IsBounded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange11111111.IsBounded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111111.IsBounded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange1111111111.IsBounded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange11111111111.IsBounded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111111.Max.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111111.Min.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111111.Max.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111111.Min.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111111.Max.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111111.Max.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111111.Min.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111111.Min.m_Curve.Array.data[1].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111111.Min.m_Curve.Array.data[1].outSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111111.Max.m_Curve.Array.data[0].tangentMode
-      value: 34
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700448977361086403, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
-      propertyPath: _heightRange111111111.Max.m_Curve.Array.data[1].tangentMode
-      value: 34
-      objectReference: {fileID: 0}
     - target: {fileID: 3404698248182516042, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -551,6 +411,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 261006697}
     - target: {fileID: 6459932232111544373, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: _userInterfaceCycle._object
+      value: 
+      objectReference: {fileID: 1693585116}
+    - target: {fileID: 6459932232928946099, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: _userInterfaceCycle._object
       value: 
       objectReference: {fileID: 1693585116}

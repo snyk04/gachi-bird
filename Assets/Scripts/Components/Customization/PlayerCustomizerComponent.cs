@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using AreYouFruits.Common.ComponentGeneration;
-using Components.Shop;
+using Components.Customization;
 using UnityEngine;
 
 namespace GachiBird.Customization
