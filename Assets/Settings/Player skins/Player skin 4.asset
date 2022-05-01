@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Player skin 4
   m_EditorClassIdentifier: 
   <PlayerSkinInfo>k__BackingField:
+    Id: 4
     Name: Ricardo Milos
     Price: 0
     Sprite: {fileID: 3010951858511213517, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}

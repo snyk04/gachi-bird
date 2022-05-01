@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Player skin 3
   m_EditorClassIdentifier: 
   <PlayerSkinInfo>k__BackingField:
+    Id: 3
     Name: Van Darkholme
     Price: 0
     Sprite: {fileID: 6236675656088661469, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}

@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace GachiBird.Serialization
 {
     public sealed class GameSaver : IGameSaver
@@ -41,7 +43,7 @@ namespace GachiBird.Serialization
             _saveData.AmountOfMoney = amountOfMoney;
             _saver.Save(_saveData);
         }
-        public void SaveStatusOfSkins(bool[] statusOfSkins)
+        public void SaveStatusOfSkins(Dictionary<int, bool> statusOfSkins)
         {
             _saveData.StatusOfSkins = statusOfSkins;
             _saver.Save(_saveData);
@@ -55,7 +57,7 @@ namespace GachiBird.Serialization
         public int LoadBestScore() => _saveData.BestScore;
         public int LoadCurrentSkinId() => _saveData.CurrentSkinId;
         public int LoadAmountOfMoney() => _saveData.AmountOfMoney;
-        public bool[] LoadStatusOfSkins() => _saveData.StatusOfSkins;
+        public Dictionary<int, bool> LoadStatusOfSkins() => _saveData.StatusOfSkins;
         public bool[] LoadStatusOfMusic() => _saveData.StatusOfMusic;
     }
 }

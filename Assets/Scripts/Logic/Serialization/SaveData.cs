@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace GachiBird.Serialization
 {
@@ -9,7 +10,7 @@ namespace GachiBird.Serialization
         public int BestScore = 0;
         public int CurrentSkinId = 0;
         public int AmountOfMoney = 0;
-        public bool[] StatusOfSkins = Array.Empty<bool>();
+        public Dictionary<int, bool> StatusOfSkins = new Dictionary<int, bool>();
         public bool[] StatusOfMusic = Array.Empty<bool>();
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Player skin 5
   m_EditorClassIdentifier: 
   <PlayerSkinInfo>k__BackingField:
+    Id: 5
     Name: Billy Herrington
     Price: 0
     Sprite: {fileID: -8891590945244770283, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}

@@ -9,6 +9,6 @@ namespace GachiBird.Customization
 
         PlayerSkinInfo[] PlayerSkinInfoArray { get; }
         
-        void ChangePlayerSkin(byte skinId);
+        void ChangePlayerSkin(int skinId);
     }
 }

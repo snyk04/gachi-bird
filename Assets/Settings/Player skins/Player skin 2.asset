@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Player skin 2
   m_EditorClassIdentifier: 
   <PlayerSkinInfo>k__BackingField:
+    Id: 2
     Name: Steve Rambo
     Price: 0
     Sprite: {fileID: -2352396353401391747, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
