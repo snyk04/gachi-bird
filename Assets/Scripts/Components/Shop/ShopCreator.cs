@@ -13,17 +13,21 @@ namespace Components.Shop
     public class ShopCreator : MonoBehaviour
     {
 #nullable disable
-        [Header("References")] [SerializeField]
-        private SerializedInterface<IComponent<IPlayerCustomizer>> _playerCustomizer;
+        [Header("References")] 
+        [SerializeField] private SerializedInterface<IComponent<IPlayerCustomizer>> _playerCustomizer;
 
         [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
         [SerializeField] private SerializedInterface<IComponent<IMoneyHolder>> _moneyHolder;
 
-        [Header("Objects")] [SerializeField] private RectTransform _playerSkinsLotsParentObject;
+        [Header("Objects")] 
+        [SerializeField] private RectTransform _playerSkinsLotsParentObject;
         [SerializeField] private GridLayoutGroup _gridLayoutGroup;
 
-        [Header("Prefabs")] [SerializeField] private GameObject _lotPrefab;
+        [Header("Prefabs")] 
+        [SerializeField] private GameObject _lotPrefab;
 #nullable enable
+
+        private ILot? _lastSelectedLot;
 
         private void Start()
         {
@@ -40,9 +44,22 @@ namespace Components.Shop
             );
             foreach (PlayerSkinInfo playerSkinInfo in playerSkinInfos)
             {
-                GameObject newLot = Instantiate(_lotPrefab, _playerSkinsLotsParentObject);
-                newLot.GetComponent<Lot>().Setup(_gameSaver.GetHeldItem(), _moneyHolder.GetHeldItem(),
+                GameObject lotObject = Instantiate(_lotPrefab, _playerSkinsLotsParentObject);
+                ILot lot = lotObject.GetComponent<LotСomponent>().HeldItem;
+                
+                lot.Setup(_gameSaver.GetHeldItem(), _moneyHolder.GetHeldItem(),
                     _playerCustomizer.GetHeldItem(), playerSkinInfo);
+                lot.OnSelect += lot1 =>
+                {
+                    _lastSelectedLot?.Deselect();
+                    _lastSelectedLot = lot1;
+                };
+
+                if (_gameSaver.GetHeldItem().LoadCurrentSkinId() == playerSkinInfo.Id)
+                {
+                    lot.Select();
+                    _lastSelectedLot = lot;
+                }
             }
         }
     }

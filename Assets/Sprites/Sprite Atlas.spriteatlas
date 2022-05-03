@@ -58,6 +58,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a44ce4a1e341c524ab457cc4cf46c647, type: 3}
   - {fileID: 21300000, guid: e1f77c12a3c36754aadf39dd95dbe485, type: 3}
   - {fileID: 21300000, guid: fc8ca072b977bf1479f804b78df39eb7, type: 3}
+  - {fileID: 21300000, guid: 4fc24bd2e8b9c37418c439745d9a28eb, type: 3}
   - {fileID: 21300000, guid: 7094cfd284038d44a86e28ee03c7cf1c, type: 3}
   - {fileID: 21300000, guid: 890378e297b7b6d4a8ce9c5908105e8d, type: 3}
   - {fileID: 21300000, guid: 25251e03696caee4c91d3b207e4a67d1, type: 3}
@@ -69,11 +70,15 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 32b1c7554a72f8d40a947d58a943c74d, type: 3}
   - {fileID: 21300000, guid: 2fa4b09581d5aa24992dfda5bc9bc970, type: 3}
   - {fileID: 21300000, guid: a574f0a55f2c1e943ba4639a86670cf4, type: 3}
+  - {fileID: 21300000, guid: b40666a5ba7d7884ab45a261b34c7a49, type: 3}
+  - {fileID: 21300000, guid: 015c43e7b1c06d64baa03c6a66ee288a, type: 3}
   - {fileID: 21300000, guid: ed6ef19887be7374fbbaeecfc40b0e49, type: 3}
   - {fileID: 21300000, guid: 93c4e6c805e715d4691e80f805079a3b, type: 3}
   - {fileID: 21300000, guid: b2d390099014ed0469de1580798a9900, type: 3}
+  - {fileID: 21300000, guid: 69d7d52909de5664fbf95a518b8f2a1d, type: 3}
   - {fileID: 21300000, guid: e3031e89aee0f2c43bb56ab6a68ee671, type: 3}
   - {fileID: 21300000, guid: 6c7591b9420b03a4fb1cc3a1b90d5a4b, type: 3}
+  - {fileID: 21300000, guid: e38e0d1a95625b74b9d2742ce3c0fdcb, type: 3}
   - {fileID: 21300000, guid: 18a8be1aa19f82340b583e786a25b746, type: 3}
   - {fileID: 21300000, guid: 503de24a8dfa7e949a0a03becdc05f61, type: 3}
   - {fileID: 21300000, guid: 8f8b13ca39d1f9642b68379ed6e52972, type: 3}
@@ -82,8 +87,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 61d16b9b8f4c3f441942752a9b8d90c1, type: 3}
   - {fileID: 21300000, guid: 1bfb530ce66a920489a0ebfc1dfafa29, type: 3}
   - {fileID: 21300000, guid: 5ff4215c183237042a347e79c51c5281, type: 3}
+  - {fileID: 21300000, guid: a43a6e2da81aa3b4a91e5793da07ec6f, type: 3}
   - {fileID: 21300000, guid: f55ca55db39a15f4fa38f8f88568545b, type: 3}
   - {fileID: 21300000, guid: de41616d83ba3474cb622d6b21347f59, type: 3}
+  - {fileID: 21300000, guid: 17005dbd23034cd4286b340e8856338d, type: 3}
   - {fileID: 21300000, guid: d4af993e46459074a8bb40b50081f969, type: 3}
   - {fileID: 21300000, guid: 4a432fdee2c85004a933974f61ee8521, type: 3}
   - {fileID: 21300000, guid: b6a8e62f31c850d4babcaf777ceb5db9, type: 3}
@@ -93,6 +100,7 @@ SpriteAtlas:
   - {fileID: 6236675656088661469, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
   - {fileID: -5285785097126754818, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
   - {fileID: 5219528537255451192, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: 21300000, guid: e943eeaf32e413448b4b923ce0cc2fdd, type: 3}
   - {fileID: 21300000, guid: c0eb91cff22ccc54aa3f5bf5aa8e8616, type: 3}
   - {fileID: 21300000, guid: 80e732dfa948e764687bb894931fc40e, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -105,6 +113,7 @@ SpriteAtlas:
   - Play
   - Border
   - PipeBottom
+  - Billy Herrington classic
   - BirdGrey
   - SlapLeft
   - SlapRight
@@ -116,11 +125,15 @@ SpriteAtlas:
   - Hand
   - ClickEffect
   - CoinBronze
+  - Van Darkholme classic
+  - Super Kazuya
   - Get
   - ArrowUp
   - Bird0
+  - Ricardo Milos
   - BorderBottom
   - JumpEffect
+  - Steve Rambo
   - Info
   - Next
   - GachiBird
@@ -129,8 +142,10 @@ SpriteAtlas:
   - CoinGold
   - Bird2
   - Game
+  - Billy Herrington angel
   - Ready
   - GameOverPanel
+  - Mark Wolf
   - Background
   - Music
   - BorderTop
@@ -140,6 +155,7 @@ SpriteAtlas:
   - Faces_3
   - Faces_0
   - Faces_1
+  - Van Darkholme soviet poster
   - Bird1
   - Over
   m_RenderDataMap: {}
