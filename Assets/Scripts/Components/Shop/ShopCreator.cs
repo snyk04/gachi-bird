@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AreYouFruits.Common.ComponentGeneration;
 using Components.Customization;
 using GachiBird.Customization;
@@ -42,6 +43,10 @@ namespace Components.Shop
                 Screen.width,
                 _gridLayoutGroup.cellSize.y * amountOfRows + _gridLayoutGroup.spacing.y * (amountOfRows + 1)
             );
+
+            int currentSkinId = _gameSaver.GetHeldItem().LoadCurrentSkinId();
+            Dictionary<int, bool> statusOfSkins = _gameSaver.GetHeldItem().LoadStatusOfSkins();
+
             foreach (PlayerSkinInfo playerSkinInfo in playerSkinInfos)
             {
                 GameObject lotObject = Instantiate(_lotPrefab, _playerSkinsLotsParentObject);
@@ -55,10 +60,26 @@ namespace Components.Shop
                     _lastSelectedLot = lot1;
                 };
 
-                if (_gameSaver.GetHeldItem().LoadCurrentSkinId() == playerSkinInfo.Id)
+                if (currentSkinId == playerSkinInfo.Id)
                 {
                     lot.Select();
                     _lastSelectedLot = lot;
+                }
+
+                if (statusOfSkins.ContainsKey(playerSkinInfo.Id))
+                {
+                    if (statusOfSkins[playerSkinInfo.Id])
+                    {
+                        lot.Unlock();
+                    }
+                    else
+                    {
+                        lot.Lock();
+                    }
+                }
+                else
+                {
+                    lot.Lock();
                 }
             }
         }

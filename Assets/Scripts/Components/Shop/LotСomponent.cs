@@ -20,12 +20,16 @@ namespace GachiBird.Shop
 
         void Select();
         void Deselect();
+
+        void Lock();
+        void Unlock();
     }
     public class Lot : ILot, IPointerDownHandler, IPointerUpHandler
     {
         public event Action<ILot>? OnSelect;
 
         private readonly Image _backgroundSelection;
+        private readonly Image _lockImage;
         private readonly Image _image;
         private readonly Text _priceText;
         private readonly Transform _transform;
@@ -35,9 +39,10 @@ namespace GachiBird.Shop
         private IPlayerCustomizer? _playerCustomizer;
         private PlayerSkinInfo _playerSkinInfo;
 
-        public Lot(Image backgroundSelection, Image image, Text priceText, Transform transform)
+        public Lot(Image backgroundSelection, Image lockImage, Image image, Text priceText, Transform transform)
         {
             _backgroundSelection = backgroundSelection;
+            _lockImage = lockImage;
             _image = image;
             _priceText = priceText;
             _transform = transform;
@@ -74,6 +79,15 @@ namespace GachiBird.Shop
             _backgroundSelection.enabled = false;
         }
 
+        public void Lock()
+        {
+            _lockImage.enabled = true;
+        }
+        public void Unlock()
+        {
+            _lockImage.enabled = false;
+        }
+
         private void HandleClick()
         {
             if (_gameSaver!.LoadCurrentSkinId() == _playerSkinInfo.Id)
@@ -87,6 +101,7 @@ namespace GachiBird.Shop
                 
                 Dictionary<int, bool> statusOfSkins = _gameSaver!.LoadStatusOfSkins();
                 statusOfSkins.Add(_playerSkinInfo.Id, false);
+                _gameSaver.SaveStatusOfSkins(statusOfSkins);
             }
 
             if (_gameSaver.LoadStatusOfSkins()[_playerSkinInfo.Id])
@@ -106,6 +121,7 @@ namespace GachiBird.Shop
                 _playerCustomizer!.ChangePlayerSkin(_playerSkinInfo.Id);
                 
                 Select();
+                Unlock();
                 OnSelect?.Invoke(this);
             }
         }
@@ -115,13 +131,14 @@ namespace GachiBird.Shop
 #nullable disable
         [Header("Objects")] 
         [SerializeField] private Image _backgroundSelection;
+        [SerializeField] private Image _lockImage;
         [SerializeField] private Image _image;
         [SerializeField] private Text _priceText;
 #nullable enable
         
         protected override Lot Create()
         {
-            return new Lot(_backgroundSelection, _image, _priceText, transform);
+            return new Lot(_backgroundSelection, _lockImage, _image, _priceText, transform);
         }
         
         public void OnPointerUp(PointerEventData eventData)
