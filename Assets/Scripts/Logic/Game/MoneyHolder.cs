@@ -1,4 +1,5 @@
 ﻿using System;
+using GachiBird.Serialization;
 
 namespace GachiBird.Game
 {
@@ -18,10 +19,11 @@ namespace GachiBird.Game
 
         public event Action? OnMoneyChanged;
 
-        public MoneyHolder(IScoreHolder scoreHolder)
+        public MoneyHolder(IScoreHolder scoreHolder, IGameSaver gameSaver)
         {
             // TODO : Make amount of money per point configurable or taken from IScoreHolder
-            scoreHolder.OnScoreChanged += () => _money += 1;
+            Money = gameSaver.LoadAmountOfMoney();
+            scoreHolder.OnScoreChanged += () => Money += 1;
         }
     }
 }

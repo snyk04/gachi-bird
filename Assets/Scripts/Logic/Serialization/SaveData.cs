@@ -10,7 +10,7 @@ namespace GachiBird.Serialization
         public int BestScore = 0;
         public int CurrentSkinId = 0;
         public int AmountOfMoney = 0;
-        public Dictionary<int, bool> StatusOfSkins = new Dictionary<int, bool>();
+        public Dictionary<int, bool> StatusOfSkins = new Dictionary<int, bool> {[0] = true};
         public bool[] StatusOfMusic = Array.Empty<bool>();
     }
 }

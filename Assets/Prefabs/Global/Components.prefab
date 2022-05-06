@@ -512,6 +512,53 @@ MonoBehaviour:
     _object: {fileID: 0}
   _gameCycle:
     _object: {fileID: 8746930492868225614}
+--- !u!1 &2013413252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2013413253}
+  - component: {fileID: 2013413254}
+  m_Layer: 0
+  m_Name: MoneyHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2013413253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013413252}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8746930493505075410}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2013413254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013413252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9855665d4324f2d9eebb90ab0c3951f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreHolder:
+    _object: {fileID: 8746930493698487730}
+  _gameSaver:
+    _object: {fileID: 8746930493987000287}
 --- !u!1 &2783899865936149244
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732b78f4ed554726b0f827f957dfd39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameSaver:
+    _object: {fileID: 8746930493987000287}
   _spriteRenderer: {fileID: 0}
   _playerSkinSettingsArray:
   - {fileID: 11400000, guid: 27aa4ad019b4f604690a51022f79d157, type: 2}
@@ -1073,6 +1122,7 @@ Transform:
   - {fileID: 677833393}
   - {fileID: 1693585115}
   - {fileID: 7520670560285504158}
+  - {fileID: 2013413253}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1137,6 +1187,7 @@ GameObject:
   - component: {fileID: 8746930493987000280}
   - component: {fileID: 8746930493987000287}
   - component: {fileID: 4035880830712108090}
+  - component: {fileID: 1602290706}
   m_Layer: 0
   m_Name: GameSaver
   m_TagString: Untagged
@@ -1187,6 +1238,22 @@ MonoBehaviour:
     _object: {fileID: 8746930493987000287}
   _scoreHolder:
     _object: {fileID: 8746930493698487730}
+--- !u!114 &1602290706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746930493987000281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb88fdb713d44baad8cd39a172af1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameSaver:
+    _object: {fileID: 8746930493987000287}
+  _moneyHolder:
+    _object: {fileID: 2013413254}
 --- !u!1 &8746930494201061825
 GameObject:
   m_ObjectHideFlags: 0

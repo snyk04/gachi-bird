@@ -9,9 +9,11 @@ namespace GachiBird.Serialization
         int LoadBestScore();
         int LoadCurrentSkinId();
         Dictionary<int, bool> LoadStatusOfSkins();
+        int LoadAmountOfMoney();
 
         void SaveHighScore(int score);
         void SaveCurrentSkinId(int skinId);
         void SaveStatusOfSkins(Dictionary<int, bool> statusOfSkins);
+        void SaveAmountOfMoney(int amountOfMoney);
     }
 }
