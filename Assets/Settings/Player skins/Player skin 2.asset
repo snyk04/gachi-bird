@@ -17,4 +17,4 @@ MonoBehaviour:
     Name: Steve Rambo
     Price: 0
     Sprite: {fileID: -2352396353401391747, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
-    ShopImage: {fileID: 21300000, guid: e38e0d1a95625b74b9d2742ce3c0fdcb, type: 3}
+    ShopImage: {fileID: 21300000, guid: 89503bb7db7e36e4c945b08f2d7e6459, type: 3}

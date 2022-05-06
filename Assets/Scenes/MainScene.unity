@@ -420,6 +420,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 429625125, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_Spacing.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 429625125, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_Spacing.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 429625125, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_CellSize.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 429625125, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_CellSize.y
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 1800075243, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: _gameSaver._object
       value: 
@@ -585,6 +601,18 @@ PrefabInstance:
       propertyPath: _spriteRenderer
       value: 
       objectReference: {fileID: 1112255740}
+    - target: {fileID: 3825085787432221760, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: _playerSkinSettingsArray.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825085787432221760, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: _playerSkinSettingsArray.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3fae42c2fcbb7b34583042973fffd8ed, type: 2}
+    - target: {fileID: 3825085787432221760, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: _playerSkinSettingsArray.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: abff0df0217a19c48bf4b8ded1e1f72c, type: 2}
     - target: {fileID: 4328060015724115828, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
       propertyPath: _bordersPool._object
       value: 
