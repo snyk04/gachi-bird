@@ -91,6 +91,12 @@ namespace GachiBird.UserInterface.Shop
         }
         private void SetLotLock(ILot lot, IReadOnlyDictionary<int, bool> statusOfSkins, PlayerSkinInfo playerSkinInfo)
         {
+            if (playerSkinInfo.Id == _gameSaver.GetHeldItem().LoadCurrentSkinId())
+            {
+                lot.SetLock(false);
+                return;
+            }
+            
             if (statusOfSkins.ContainsKey(playerSkinInfo.Id))
             {
                 lot.SetLock(!statusOfSkins[playerSkinInfo.Id]);
