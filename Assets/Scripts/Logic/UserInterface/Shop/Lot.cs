@@ -16,7 +16,7 @@ namespace GachiBird.UserInterface.Shop
 
         private readonly Image _backgroundSelection;
         private readonly Image _lockImage;
-        private readonly Image _image;
+        private readonly Image _shopImage;
         private readonly Text _priceText;
         private readonly Transform _transform;
         
@@ -25,11 +25,11 @@ namespace GachiBird.UserInterface.Shop
         private IPlayerCustomizer? _playerCustomizer;
         private PlayerSkinInfo _playerSkinInfo;
 
-        public Lot(Image backgroundSelection, Image lockImage, Image image, Text priceText, Transform transform)
+        public Lot(Image backgroundSelection, Image lockImage, Image shopImage, Text priceText, Transform transform)
         {
             _backgroundSelection = backgroundSelection;
             _lockImage = lockImage;
-            _image = image;
+            _shopImage = shopImage;
             _priceText = priceText;
             _transform = transform;
         }
@@ -42,62 +42,52 @@ namespace GachiBird.UserInterface.Shop
             _playerCustomizer = playerCustomizer;
             _playerSkinInfo = playerSkinInfo;
             
-            _image.sprite = _playerSkinInfo.ShopPage;
+            _shopImage.sprite = _playerSkinInfo.ShopImage;
             _priceText.text = _playerSkinInfo.Price.ToString();
         }
-      
-        public void OnPointerDown(PointerEventData eventData)
+        
+        public void SetSelect(bool isSelected)
         {
-            _transform.localScale = 0.95f * Vector3.one;
-            HandleClick();
+            _backgroundSelection.enabled = isSelected;
         }
-        public void OnPointerUp(PointerEventData eventData)
+        public void SetLock(bool isLocked)
         {
-            _transform.localScale = Vector3.one;
-        }
-
-        public void Select()
-        {
-            _backgroundSelection.enabled = true;
-        }
-        public void Deselect()
-        {
-            _backgroundSelection.enabled = false;
-        }
-
-        public void Lock()
-        {
-            _lockImage.enabled = true;
-        }
-        public void Unlock()
-        {
-            _lockImage.enabled = false;
+            _lockImage.enabled = isLocked;
         }
 
         private void HandleClick()
         {
-            if (_gameSaver!.LoadCurrentSkinId() == _playerSkinInfo.Id)
+            if (IsLotAlreadyChosen())
             {
                 return;
             }
 
-            if (!_gameSaver!.LoadStatusOfSkins().ContainsKey(_playerSkinInfo.Id))
+            if (TryToSelectSkin())
             {
-                // TODO : Maybe move stuff like that to specified class
-                
-                Dictionary<int, bool> statusOfSkins = _gameSaver!.LoadStatusOfSkins();
-                statusOfSkins.Add(_playerSkinInfo.Id, false);
-                _gameSaver.SaveStatusOfSkins(statusOfSkins);
+                return;
             }
 
+            TryToBuySkin();
+        }
+
+        private bool IsLotAlreadyChosen()
+        {
+            return _gameSaver!.LoadCurrentSkinId() == _playerSkinInfo.Id;
+        }
+        private bool TryToSelectSkin()
+        {
             if (_gameSaver.LoadStatusOfSkins()[_playerSkinInfo.Id])
             {
                 _playerCustomizer!.ChangePlayerSkin(_playerSkinInfo.Id);
-                Select();
+                SetSelect(true);
                 OnSelect?.Invoke(this);
-                return;
+                return true;
             }
 
+            return false;
+        }
+        private bool TryToBuySkin()
+        {
             if (_moneyHolder!.Money >= _playerSkinInfo.Price)
             {
                 Dictionary<int, bool> statusOfSkins = _gameSaver!.LoadStatusOfSkins();
@@ -106,10 +96,24 @@ namespace GachiBird.UserInterface.Shop
                 _moneyHolder!.Money -= _playerSkinInfo.Price;
                 _playerCustomizer!.ChangePlayerSkin(_playerSkinInfo.Id);
                 
-                Select();
-                Unlock();
+                SetSelect(true);
+                SetLock(false);
                 OnSelect?.Invoke(this);
+                
+                return true;
             }
+
+            return false;
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _transform.localScale = 0.95f * Vector3.one;
+            HandleClick();
+        }
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _transform.localScale = Vector3.one;
         }
     }
 }

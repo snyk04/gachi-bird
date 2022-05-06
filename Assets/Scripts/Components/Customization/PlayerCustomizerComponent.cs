@@ -10,6 +10,7 @@ namespace GachiBird.Customization
     {
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
+        
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private PlayerSkinSettings[] _playerSkinSettingsArray;
 #nullable enable

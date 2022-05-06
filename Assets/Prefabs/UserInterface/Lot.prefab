@@ -262,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _backgroundSelection: {fileID: 5705457783658778009}
   _lockImage: {fileID: 3034242697516828284}
-  _image: {fileID: 5245531543624845633}
+  _shopImage: {fileID: 5245531543624845633}
   _priceText: {fileID: 162156752706785592}
 --- !u!1 &938611577327212553
 GameObject:
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 6803849383686396082}
   - component: {fileID: 5245531543624845633}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ShopImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

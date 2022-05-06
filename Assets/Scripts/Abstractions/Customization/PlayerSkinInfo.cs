@@ -10,6 +10,6 @@ namespace Components.Customization
         public string Name;
         public byte Price;
         public Sprite Sprite;
-        public Sprite ShopPage;
+        public Sprite ShopImage;
     }
 }

@@ -13,10 +13,7 @@ namespace GachiBird.UserInterface.Shop
         void Setup(IGameSaver? gameSaver, IMoneyHolder? moneyHolder, IPlayerCustomizer? playerCustomizer,
             PlayerSkinInfo playerSkinInfo);
 
-        void Select();
-        void Deselect();
-
-        void Lock();
-        void Unlock();
+        void SetSelect(bool isSelected);
+        void SetLock(bool isLocked);
     }
 }
