@@ -5,11 +5,10 @@ using Components.Customization;
 using GachiBird.Customization;
 using GachiBird.Game;
 using GachiBird.Serialization;
-using GachiBird.Shop;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Components.Shop
+namespace GachiBird.UserInterface.Shop
 {
     public class ShopCreator : MonoBehaviour
     {
