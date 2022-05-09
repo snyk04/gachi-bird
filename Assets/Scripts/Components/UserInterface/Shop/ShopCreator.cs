@@ -51,7 +51,7 @@ namespace GachiBird.UserInterface.Shop
             int amountOfColumns = (int) Math.Ceiling(playerSkinInfos.Count / 2f);
             float width = _gridLayoutGroup.cellSize.x * amountOfColumns +
                           _gridLayoutGroup.spacing.x * (amountOfColumns + 1);
-            float height = Screen.height - (_topPanel.sizeDelta.y + _lowPanel.sizeDelta.y);
+            (_, float height) = _playerSkinsLotsParentObject.sizeDelta;
             _playerSkinsLotsParentObject.sizeDelta = new Vector2(width, height);
 
             (_, float y, float z) = _playerSkinsLotsParentObject.position;
