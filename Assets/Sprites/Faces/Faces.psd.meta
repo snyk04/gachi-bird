@@ -59,6 +59,12 @@ TextureImporter:
   - first:
       213: -7022587179109145125
     second: Faces_13
+  - first:
+      213: 4737009841009751051
+    second: Faces_14
+  - first:
+      213: -2150320263628350387
+    second: Faces_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -163,8 +169,8 @@ TextureImporter:
       name: Faces_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 750
+        x: 750
+        y: 751
         width: 250
         height: 250
       alignment: 0
@@ -184,8 +190,8 @@ TextureImporter:
       name: Faces_4
       rect:
         serializedVersion: 2
-        x: 250
-        y: 750
+        x: 0
+        y: 501
         width: 250
         height: 250
       alignment: 0
@@ -206,7 +212,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1000
+        y: 751
         width: 250
         height: 250
       alignment: 0
@@ -227,7 +233,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 250
-        y: 1000
+        y: 751
         width: 250
         height: 250
       alignment: 0
@@ -248,7 +254,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 500
-        y: 1000
+        y: 751
         width: 250
         height: 250
       alignment: 0
@@ -268,8 +274,8 @@ TextureImporter:
       name: Faces_5
       rect:
         serializedVersion: 2
-        x: 500
-        y: 750
+        x: 250
+        y: 501
         width: 250
         height: 250
       alignment: 0
@@ -289,8 +295,8 @@ TextureImporter:
       name: Faces_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 500
+        x: 500
+        y: 501
         width: 250
         height: 250
       alignment: 0
@@ -310,8 +316,8 @@ TextureImporter:
       name: Faces_7
       rect:
         serializedVersion: 2
-        x: 250
-        y: 500
+        x: 750
+        y: 501
         width: 250
         height: 250
       alignment: 0
@@ -331,8 +337,8 @@ TextureImporter:
       name: Faces_8
       rect:
         serializedVersion: 2
-        x: 500
-        y: 500
+        x: 0
+        y: 251
         width: 250
         height: 250
       alignment: 0
@@ -352,8 +358,8 @@ TextureImporter:
       name: Faces_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 250
+        x: 250
+        y: 251
         width: 250
         height: 250
       alignment: 0
@@ -373,8 +379,8 @@ TextureImporter:
       name: Faces_10
       rect:
         serializedVersion: 2
-        x: 250
-        y: 250
+        x: 500
+        y: 251
         width: 250
         height: 250
       alignment: 0
@@ -394,8 +400,8 @@ TextureImporter:
       name: Faces_11
       rect:
         serializedVersion: 2
-        x: 500
-        y: 250
+        x: 750
+        y: 251
         width: 250
         height: 250
       alignment: 0
@@ -416,7 +422,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1
         width: 250
         height: 250
       alignment: 0
@@ -437,7 +443,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 250
-        y: 0
+        y: 1
         width: 250
         height: 250
       alignment: 0
@@ -449,6 +455,48 @@ TextureImporter:
       bones: []
       spriteID: bd5acf8fa22ca8e90800000000000000
       internalID: -7022587179109145125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Faces_14
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b047ae64a5d3db140800000000000000
+      internalID: 4737009841009751051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Faces_15
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c9b15fc178822e0800000000000000
+      internalID: -2150320263628350387
       vertices: []
       indices: 
       edges: []

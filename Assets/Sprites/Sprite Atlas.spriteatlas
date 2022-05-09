@@ -59,6 +59,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a44ce4a1e341c524ab457cc4cf46c647, type: 3}
   - {fileID: 21300000, guid: e1f77c12a3c36754aadf39dd95dbe485, type: 3}
   - {fileID: 21300000, guid: fc8ca072b977bf1479f804b78df39eb7, type: 3}
+  - {fileID: 21300000, guid: 9207f48211bddfb49b8ab8474e120ab7, type: 3}
   - {fileID: 21300000, guid: 7094cfd284038d44a86e28ee03c7cf1c, type: 3}
   - {fileID: 21300000, guid: 890378e297b7b6d4a8ce9c5908105e8d, type: 3}
   - {fileID: 21300000, guid: be488703501a22143a4880d4a0a4fcd4, type: 3}
@@ -81,6 +82,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 93c4e6c805e715d4691e80f805079a3b, type: 3}
   - {fileID: 21300000, guid: b2d390099014ed0469de1580798a9900, type: 3}
   - {fileID: 21300000, guid: e3031e89aee0f2c43bb56ab6a68ee671, type: 3}
+  - {fileID: 21300000, guid: e4d42199b6fc6c54ab1ec8f8c2de95f4, type: 3}
   - {fileID: 21300000, guid: 6c7591b9420b03a4fb1cc3a1b90d5a4b, type: 3}
   - {fileID: 21300000, guid: 468ce4d9a5d475a4db8344f4e19143c5, type: 3}
   - {fileID: 21300000, guid: 18a8be1aa19f82340b583e786a25b746, type: 3}
@@ -110,6 +112,8 @@ SpriteAtlas:
   - {fileID: 5219528537255451192, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
   - {fileID: 1238325399474471081, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
   - {fileID: -6889968230148230970, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -2150320263628350387, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: 4737009841009751051, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
   - {fileID: -478054922161449255, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
   - {fileID: -1484705323956593315, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
   - {fileID: -7022587179109145125, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
@@ -128,6 +132,7 @@ SpriteAtlas:
   - Play
   - Border
   - PipeBottom
+  - Thomas Shelby
   - BirdGrey
   - SlapLeft
   - Dio Brando
@@ -150,6 +155,7 @@ SpriteAtlas:
   - ArrowUp
   - Bird0
   - BorderBottom
+  - Patrick Bateman
   - JumpEffect
   - Dwayne Johnson
   - Info
@@ -179,6 +185,8 @@ SpriteAtlas:
   - Faces_1
   - Faces_8
   - Faces_9
+  - Faces_15
+  - Faces_14
   - Faces_11
   - Faces_10
   - Faces_13
