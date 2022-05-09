@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace GachiBird.UserInterface.Shop
 {
-    public class LotСomponent : AbstractComponent<Lot>, IPointerDownHandler, IPointerUpHandler
+    public class LotСomponent : AbstractComponent<Lot>, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
     {
 #nullable disable
         [SerializeField] private Image _backgroundSelection;
@@ -27,5 +27,9 @@ namespace GachiBird.UserInterface.Shop
         {
             HeldItem.OnPointerDown(eventData);
         }
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            HeldItem.OnPointerClick(eventData);
+        } 
     }
 }

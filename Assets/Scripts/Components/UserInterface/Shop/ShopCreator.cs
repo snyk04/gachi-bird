@@ -18,6 +18,7 @@ namespace GachiBird.UserInterface.Shop
         [SerializeField] private SerializedInterface<IComponent<IPlayerCustomizer>> _playerCustomizer;
         [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
         [SerializeField] private SerializedInterface<IComponent<IMoneyHolder>> _moneyHolder;
+        [SerializeField] private SerializedInterface<IComponent<IApprover>> _approver;
 
         [Header("Objects")] 
         [SerializeField] private RectTransform _playerSkinsLotsParentObject;
@@ -73,7 +74,8 @@ namespace GachiBird.UserInterface.Shop
             GameObject lotObject = Instantiate(_lotPrefab, _playerSkinsLotsParentObject);
             lot = lotObject.GetComponent<LotСomponent>().HeldItem;
                 
-            lot.Setup(_gameSaver.GetHeldItem(), _moneyHolder.GetHeldItem(), _playerCustomizer.GetHeldItem(), playerSkinInfo);
+            lot.Setup(_gameSaver.GetHeldItem(), _moneyHolder.GetHeldItem(), _playerCustomizer.GetHeldItem(),
+                _approver.GetHeldItem(), playerSkinInfo);
             lot.OnSelect += selectedLot =>
             {
                 _lastSelectedLot?.SetSelect(false);

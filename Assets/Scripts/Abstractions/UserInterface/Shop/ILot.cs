@@ -10,7 +10,7 @@ namespace GachiBird.UserInterface.Shop
     {
         event Action<ILot> OnSelect;
 
-        void Setup(IGameSaver? gameSaver, IMoneyHolder? moneyHolder, IPlayerCustomizer? playerCustomizer,
+        void Setup(IGameSaver? gameSaver, IMoneyHolder? moneyHolder, IPlayerCustomizer? playerCustomizer, IApprover? approver,
             PlayerSkinInfo playerSkinInfo);
 
         void SetSelect(bool isSelected);
