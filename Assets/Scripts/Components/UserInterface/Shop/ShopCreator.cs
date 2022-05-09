@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AreYouFruits.Common;
 using AreYouFruits.Common.ComponentGeneration;
 using Components.Customization;
 using GachiBird.Customization;
@@ -21,6 +22,8 @@ namespace GachiBird.UserInterface.Shop
         [Header("Objects")] 
         [SerializeField] private RectTransform _playerSkinsLotsParentObject;
         [SerializeField] private GridLayoutGroup _gridLayoutGroup;
+        [SerializeField] private RectTransform _topPanel;
+        [SerializeField] private RectTransform _lowPanel;
 
         [Header("Prefabs")] 
         [SerializeField] private GameObject _lotPrefab;
@@ -45,11 +48,14 @@ namespace GachiBird.UserInterface.Shop
 
         private void SetPlayerSkinShopPageSize(IReadOnlyCollection<PlayerSkinInfo> playerSkinInfos)
         {
-            int amountOfRows = (int) Math.Ceiling(playerSkinInfos.Count / 2f);
-            _playerSkinsLotsParentObject.sizeDelta = new Vector2(
-                Screen.width,
-                _gridLayoutGroup.cellSize.y * amountOfRows + _gridLayoutGroup.spacing.y * (amountOfRows + 1)
-            );
+            int amountOfColumns = (int) Math.Ceiling(playerSkinInfos.Count / 2f);
+            float width = _gridLayoutGroup.cellSize.x * amountOfColumns +
+                          _gridLayoutGroup.spacing.x * (amountOfColumns + 1);
+            float height = Screen.height - (_topPanel.sizeDelta.y + _lowPanel.sizeDelta.y);
+            _playerSkinsLotsParentObject.sizeDelta = new Vector2(width, height);
+
+            (_, float y, float z) = _playerSkinsLotsParentObject.position;
+            _playerSkinsLotsParentObject.position = new Vector3(width / 2, y, z);
         }
         private void CreateLots(IEnumerable<PlayerSkinInfo> playerSkinInfos, int currentSkinId,
              IReadOnlyDictionary<int, bool> statusOfSkins)

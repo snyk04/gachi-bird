@@ -61,6 +61,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: fc8ca072b977bf1479f804b78df39eb7, type: 3}
   - {fileID: 21300000, guid: 7094cfd284038d44a86e28ee03c7cf1c, type: 3}
   - {fileID: 21300000, guid: 890378e297b7b6d4a8ce9c5908105e8d, type: 3}
+  - {fileID: 21300000, guid: be488703501a22143a4880d4a0a4fcd4, type: 3}
   - {fileID: 21300000, guid: 25251e03696caee4c91d3b207e4a67d1, type: 3}
   - {fileID: 21300000, guid: 1770b6633888dbc4594f2fb9204652c2, type: 3}
   - {fileID: 21300000, guid: 290b0cc3ade81cd43935ca6eff2801ef, type: 3}
@@ -68,23 +69,24 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c3248cd4fd330d84fa23a4b93b7c0a35, type: 3}
   - {fileID: 21300000, guid: f1fd77e47e5095e4e8db786bea3dd2ff, type: 3}
   - {fileID: 21300000, guid: 61382215338522249ae96f6af4bbe7e5, type: 3}
+  - {fileID: 21300000, guid: 503db455fc9a5174ebf46817a3040c3f, type: 3}
   - {fileID: 21300000, guid: 32b1c7554a72f8d40a947d58a943c74d, type: 3}
   - {fileID: 21300000, guid: 2fa4b09581d5aa24992dfda5bc9bc970, type: 3}
   - {fileID: 21300000, guid: a574f0a55f2c1e943ba4639a86670cf4, type: 3}
-  - {fileID: 21300000, guid: a8b208d547b0dab44bae086182f81a25, type: 3}
+  - {fileID: 21300000, guid: c381f8d6c43510747aaebd990525bf1c, type: 3}
   - {fileID: 21300000, guid: 1dc9c6a7eb3e0434eba8fa7674fc31d6, type: 3}
   - {fileID: 21300000, guid: 89503bb7db7e36e4c945b08f2d7e6459, type: 3}
+  - {fileID: 21300000, guid: 5c6f823821fd6d44b9fae786e687c659, type: 3}
   - {fileID: 21300000, guid: ed6ef19887be7374fbbaeecfc40b0e49, type: 3}
-  - {fileID: 21300000, guid: 9aa17b98e6c195d4497cb8da512e82ca, type: 3}
   - {fileID: 21300000, guid: 93c4e6c805e715d4691e80f805079a3b, type: 3}
   - {fileID: 21300000, guid: b2d390099014ed0469de1580798a9900, type: 3}
   - {fileID: 21300000, guid: e3031e89aee0f2c43bb56ab6a68ee671, type: 3}
   - {fileID: 21300000, guid: 6c7591b9420b03a4fb1cc3a1b90d5a4b, type: 3}
+  - {fileID: 21300000, guid: 468ce4d9a5d475a4db8344f4e19143c5, type: 3}
   - {fileID: 21300000, guid: 18a8be1aa19f82340b583e786a25b746, type: 3}
   - {fileID: 21300000, guid: 503de24a8dfa7e949a0a03becdc05f61, type: 3}
   - {fileID: 21300000, guid: 8f8b13ca39d1f9642b68379ed6e52972, type: 3}
   - {fileID: 21300000, guid: 0deca6ca02250e141828847a848ea8e1, type: 3}
-  - {fileID: 21300000, guid: eaadd0ea16c1ee845ad54b8050e26f4c, type: 3}
   - {fileID: 21300000, guid: 25183ceae8321b4478ae3d8a80d73b04, type: 3}
   - {fileID: 21300000, guid: 1d7b198b53dd057499aaf404330e710b, type: 3}
   - {fileID: 21300000, guid: 61d16b9b8f4c3f441942752a9b8d90c1, type: 3}
@@ -107,7 +109,11 @@ SpriteAtlas:
   - {fileID: -5285785097126754818, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
   - {fileID: 5219528537255451192, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
   - {fileID: 1238325399474471081, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
-  - {fileID: 21300000, guid: bcba91bf66735a945bb3f3d013af9351, type: 3}
+  - {fileID: -6889968230148230970, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -478054922161449255, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -1484705323956593315, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -7022587179109145125, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: 5755430995237285898, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
   - {fileID: 21300000, guid: e5011ebfce780c54698e13207093943f, type: 3}
   - {fileID: 21300000, guid: c0eb91cff22ccc54aa3f5bf5aa8e8616, type: 3}
   - {fileID: 21300000, guid: 80e732dfa948e764687bb894931fc40e, type: 3}
@@ -124,6 +130,7 @@ SpriteAtlas:
   - PipeBottom
   - BirdGrey
   - SlapLeft
+  - Dio Brando
   - SlapRight
   - Menu
   - Rate
@@ -131,23 +138,24 @@ SpriteAtlas:
   - PipeTop
   - New
   - Share
+  - The World
   - Hand
   - ClickEffect
   - CoinBronze
-  - Jotaro Kujo face
+  - Arnold Schwarzenegger
   - Brad McGuire
   - Steve Rambo
+  - Ronnie Coleman
   - Get
-  - Star Platinum face
   - ArrowUp
   - Bird0
   - BorderBottom
   - JumpEffect
+  - Dwayne Johnson
   - Info
   - Next
   - GachiBird
   - Pause
-  - Dio face
   - CoinSilver
   - Van Darkholme
   - CoinGold
@@ -170,7 +178,11 @@ SpriteAtlas:
   - Faces_0
   - Faces_1
   - Faces_8
-  - Brad McGuire face
+  - Faces_9
+  - Faces_11
+  - Faces_10
+  - Faces_13
+  - Faces_12
   - Jotaro Kujo
   - Bird1
   - Over

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PlayerSkinInfo>k__BackingField:
     Id: 8
-    Name: Brad McGuire
+    Name: Arnold Schwarzenegger
     Price: 0
     Sprite: {fileID: 1238325399474471081, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
-    ShopImage: {fileID: 21300000, guid: 889af3dbb5b6c254fa0d29e420fe4a6a, type: 3}
+    ShopImage: {fileID: 21300000, guid: c381f8d6c43510747aaebd990525bf1c, type: 3}
