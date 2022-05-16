@@ -12,5 +12,7 @@ namespace GachiBird.Environment.Objects
         public float PlayerSpeed;
         public AudioClip Music;
         public Range<int> MusicFrequencyRange;
+        public string Title;
+        public string Author;
     }
 }

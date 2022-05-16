@@ -22,9 +22,6 @@ namespace GachiBird.UserInterface.Shop
 
         [Header("Objects")] 
         [SerializeField] private RectTransform _playerSkinsLotsParentObject;
-        [SerializeField] private GridLayoutGroup _gridLayoutGroup;
-        [SerializeField] private RectTransform _topPanel;
-        [SerializeField] private RectTransform _lowPanel;
 
         [Header("Prefabs")] 
         [SerializeField] private GameObject _lotPrefab;
@@ -43,21 +40,9 @@ namespace GachiBird.UserInterface.Shop
             int currentSkinId = _gameSaver.GetHeldItem().LoadCurrentSkinId();
             Dictionary<int, bool> statusOfSkins = _gameSaver.GetHeldItem().LoadStatusOfSkins();
             
-            SetPlayerSkinShopPageSize(playerSkinInfos);
             CreateLots(playerSkinInfos, currentSkinId, statusOfSkins);
         }
-
-        private void SetPlayerSkinShopPageSize(IReadOnlyCollection<PlayerSkinInfo> playerSkinInfos)
-        {
-            int amountOfColumns = (int) Math.Ceiling(playerSkinInfos.Count / 2f);
-            float width = _gridLayoutGroup.cellSize.x * amountOfColumns +
-                          _gridLayoutGroup.spacing.x * (amountOfColumns + 1);
-            (_, float height) = _playerSkinsLotsParentObject.sizeDelta;
-            _playerSkinsLotsParentObject.sizeDelta = new Vector2(width, height);
-
-            (_, float y, float z) = _playerSkinsLotsParentObject.position;
-            _playerSkinsLotsParentObject.position = new Vector3(width / 2, y, z);
-        }
+        
         private void CreateLots(IEnumerable<PlayerSkinInfo> playerSkinInfos, int currentSkinId,
              IReadOnlyDictionary<int, bool> statusOfSkins)
         {

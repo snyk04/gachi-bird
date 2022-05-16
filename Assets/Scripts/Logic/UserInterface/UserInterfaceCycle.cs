@@ -15,11 +15,13 @@ namespace GachiBird.UserInterface
         public event Action? OnPreStartWindowShow;
         public event Action? OnScoreWindowShow;
         public event Action? OnShopWindowShow;
+        public event Action? OnMusicListWindowShow;
         
         public event Action? OnGameOverWindowHide;
         public event Action? OnPreStartWindowHide;
         public event Action? OnScoreWindowHide;
         public event Action? OnShopWindowHide;
+        public event Action? OnMusicListWindowHide;
 
         public UserInterfaceCycle(IGameCycle gameCycle, IGameSaver gameSaver)
         {
@@ -53,6 +55,10 @@ namespace GachiBird.UserInterface
         {
             OnShopWindowShow?.Invoke();
         }
+        public void ShowMusicListWindow()
+        {
+            OnMusicListWindowShow?.Invoke();
+        }
 
         public void HideGameOverWindow()
         {
@@ -69,6 +75,10 @@ namespace GachiBird.UserInterface
         public void HideShopWindow()
         {
             OnShopWindowHide?.Invoke();
+        }
+        public void HideMusicListWindow()
+        {
+            OnMusicListWindowHide?.Invoke();
         }
     }
 }

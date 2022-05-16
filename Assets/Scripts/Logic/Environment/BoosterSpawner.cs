@@ -16,7 +16,6 @@ namespace GachiBird.Environment
         private readonly IGameCycle _gameCycle;
         private readonly IPool<GameObject> _pool;
         private readonly IObstacleSpawner _obstacleSpawner;
-        private readonly BoosterInfo[] _boosterSettingsArray;
         private readonly Range<int> _gapRange;
         private readonly Vector3 _playerOffset;
         private readonly Range<float> _widthRange;
@@ -26,19 +25,20 @@ namespace GachiBird.Environment
         private int _lastGapCount = 0;
 
         public event Action<IBooster>? OnBoosterSpawned;
+        public BoosterInfo[] BoosterInfos { get; }
 
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
 
         public BoosterSpawner(
             IGameCycle gameCycle, IPool<GameObject> pool, IObstacleSpawner obstacleSpawner, 
-            BoosterInfo[] boosterSettingsArray, Range<int> gapRange, Vector3 playerOffset, Range<float> widthRange,
+            BoosterInfo[] boosterInfos, Range<int> gapRange, Vector3 playerOffset, Range<float> widthRange,
             Range<float> heightRange, Transform player
         )
         {
             _gameCycle = gameCycle;
             _pool = pool;
             _obstacleSpawner = obstacleSpawner;
-            _boosterSettingsArray = boosterSettingsArray;
+            BoosterInfos = boosterInfos;
             _gapRange = gapRange;
             _playerOffset = playerOffset;
             _widthRange = widthRange;
@@ -90,7 +90,7 @@ namespace GachiBird.Environment
             IBooster booster = createdObject.GetHeldItem<IBooster>();
             OnBoosterSpawned?.Invoke(booster);
      
-            BoosterInfo boosterInfo = _boosterSettingsArray[Random.Range(0, _boosterSettingsArray.Length)];
+            BoosterInfo boosterInfo = BoosterInfos[Random.Range(0, BoosterInfos.Length)];
             booster.Initialize(boosterInfo);
         }
 
