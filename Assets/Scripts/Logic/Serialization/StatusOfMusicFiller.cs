@@ -24,7 +24,7 @@ namespace GachiBird.Serialization
             {
                 if (!statusOfMusic.ContainsKey(boosterInfo.Id))
                 {
-                    statusOfMusic.Add(boosterInfo.Id, false);
+                    statusOfMusic.Add(boosterInfo.Id, true);
                 }
             }
             

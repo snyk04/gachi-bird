@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "RZ8MA2WNVNP",
         "name": "com.Areyoufruits.Gachibird",
-        "processId": 12923,
+        "processId": 17151,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -24,6 +24,12 @@
             "deviceId": "RZ8MA2WNVNP",
             "name": "com.Areyoufruits.Gachibird",
             "processId": 12923,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8MA2WNVNP",
+            "name": "com.Areyoufruits.Gachibird",
+            "processId": 17151,
             "exited": false
         }
     ],

@@ -21,5 +21,5 @@ MonoBehaviour:
       Min: 0
       Max: 1
       IsBounded: 1
-    Title: Title
-    Author: Author
+    Title: "ASS\u043A\u043E\u0440\u0431\u0438\u043D\u043A\u0430"
+    Author: "\u041C\u044D\u0439\u0431\u0438 \u0411\u0435\u0439\u0431\u0438"
