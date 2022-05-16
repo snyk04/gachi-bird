@@ -21,3 +21,5 @@ MonoBehaviour:
       Min: 0
       Max: 3
       IsBounded: 1
+    Title: Title
+    Author: Author
