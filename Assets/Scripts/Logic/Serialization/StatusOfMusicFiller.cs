@@ -4,12 +4,12 @@ using GachiBird.Environment.Objects;
 
 namespace GachiBird.Serialization
 {
-    public class StatusOfSkinsFiller
+    public class StatusOfMusicFiller
     {
         private readonly IGameSaver _gameSaver;
         private readonly IBoosterSpawner _boosterSpawner;
 
-        public StatusOfSkinsFiller(IGameSaver gameSaver, IBoosterSpawner boosterSpawner)
+        public StatusOfMusicFiller(IGameSaver gameSaver, IBoosterSpawner boosterSpawner)
         {
             _gameSaver = gameSaver;
             _boosterSpawner = boosterSpawner;
@@ -19,16 +19,16 @@ namespace GachiBird.Serialization
 
         private void FillStatusOfSkins()
         {
-            Dictionary<int, bool> statusOfSkins = _gameSaver.LoadStatusOfSkins();
+            Dictionary<int, bool> statusOfMusic = _gameSaver.LoadStatusOfMusic();
             foreach (BoosterInfo boosterInfo in _boosterSpawner.BoosterInfos)
             {
-                if (!statusOfSkins.ContainsKey(boosterInfo.Id))
+                if (!statusOfMusic.ContainsKey(boosterInfo.Id))
                 {
-                    statusOfSkins.Add(boosterInfo.Id, false);
+                    statusOfMusic.Add(boosterInfo.Id, false);
                 }
             }
             
-            _gameSaver.SaveStatusOfSkins(statusOfSkins);
+            _gameSaver.SaveStatusOfMusic(statusOfMusic);
         }
     }
 }

@@ -712,3 +712,19 @@ MonoBehaviour:
     _object: {fileID: 417929943}
   _boosterSpawner:
     _object: {fileID: 3404698249194605958}
+--- !u!114 &8746930493705982174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746930493705982172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b60c0045d149cba99c0351b17cd695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameSaver:
+    _object: {fileID: 417929943}
+  _flexModeHandler:
+    _object: {fileID: 1347253646}

@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace GachiBird.Serialization
 {
-    public class StatusOfSkinsFillerComponent : AbstractComponent<StatusOfSkinsFiller>
+    public class StatusOfMusicFillerComponent : AbstractComponent<StatusOfMusicFiller>
     {
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
         [SerializeField] private SerializedInterface<IComponent<IBoosterSpawner>> _boosterSpawner;
 #nullable enable
         
-        protected override StatusOfSkinsFiller Create()
+        protected override StatusOfMusicFiller Create()
         {
-            return new StatusOfSkinsFiller(_gameSaver.GetHeldItem(), _boosterSpawner.GetHeldItem());
+            return new StatusOfMusicFiller(_gameSaver.GetHeldItem(), _boosterSpawner.GetHeldItem());
         }
     }
 }
