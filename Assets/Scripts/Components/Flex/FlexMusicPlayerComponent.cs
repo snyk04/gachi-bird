@@ -1,4 +1,5 @@
 ﻿using AreYouFruits.Common.ComponentGeneration;
+using GachiBird.UserInterface.MusicList;
 using UnityEngine;
 
 namespace GachiBird.Flex
@@ -7,16 +8,16 @@ namespace GachiBird.Flex
     {
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IFlexModeHandler>> _flexModeHandler;
-        [SerializeField] private AudioSource _backgroundMusicAudioSource;
-        [SerializeField] private AudioSource _flexMusicAudioSource;
+        [SerializeField] private SerializedInterface<IComponent<IAudioPlayer>> _backgroundMusicAudioPlayer;
+        [SerializeField] private SerializedInterface<IComponent<IAudioPlayer>> _flexMusicAudioPlayer;
 #nullable enable
 
         protected override FlexMusicPlayer Create()
         {
             return new FlexMusicPlayer(
                 _flexModeHandler.GetHeldItem(),
-                _backgroundMusicAudioSource,
-                _flexMusicAudioSource
+                _backgroundMusicAudioPlayer.GetHeldItem(),
+                _flexMusicAudioPlayer.GetHeldItem()
             );
         }
     }

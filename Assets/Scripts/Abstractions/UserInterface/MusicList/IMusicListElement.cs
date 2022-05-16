@@ -6,7 +6,7 @@ namespace GachiBird.UserInterface.MusicList
     {
         bool IsActive { get; }
         
-        public void Setup(BoosterInfo boosterInfo);
+        public void Setup(BoosterInfo boosterInfo, IAudioPlayer audioPlayer);
         public void Activate();
     }
 }

@@ -1,18 +1,19 @@
 ﻿using GachiBird.Environment.Objects;
+using GachiBird.UserInterface.MusicList;
 using UnityEngine;
 
 namespace GachiBird.Flex
 {
     public sealed class FlexMusicPlayer
     {
-        private readonly AudioSource _backgroundMusicAudioSource;
-        private readonly AudioSource _flexMusicAudioSource;
+        private readonly IAudioPlayer _backgroundMusicAudioPlayer;
+        private readonly IAudioPlayer _flexMusicAudioPlayer;
 
         public FlexMusicPlayer(IFlexModeHandler flexModeHandler,
-            AudioSource backgroundMusicAudioSource, AudioSource flexMusicAudioSource)
+            IAudioPlayer backgroundMusicAudioPlayer, IAudioPlayer flexMusicAudioPlayer)
         {
-            _backgroundMusicAudioSource = backgroundMusicAudioSource;
-            _flexMusicAudioSource = flexMusicAudioSource;
+            _backgroundMusicAudioPlayer = backgroundMusicAudioPlayer;
+            _flexMusicAudioPlayer = flexMusicAudioPlayer;
 
             flexModeHandler.OnFlexModeStart += HandleFlexModeStart;
             flexModeHandler.OnFlexModeEnd += HandleFlexModeEnd;
@@ -20,14 +21,13 @@ namespace GachiBird.Flex
 
         private void HandleFlexModeStart(BoosterInfo boosterInfo)
         {
-            _backgroundMusicAudioSource.Pause();
-            _flexMusicAudioSource.clip = boosterInfo.Music;
-            _flexMusicAudioSource.Play();
+            _backgroundMusicAudioPlayer.Pause();
+            _flexMusicAudioPlayer.Play(boosterInfo.Music);
         }
         private void HandleFlexModeEnd()
         {
-            _flexMusicAudioSource.Stop();
-            _backgroundMusicAudioSource.UnPause();
+            _flexMusicAudioPlayer.Stop();
+            _backgroundMusicAudioPlayer.UnPause();
         }
     }
 }

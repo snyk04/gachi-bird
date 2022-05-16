@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
-using AreYouFruits.Common;
 using AreYouFruits.Common.ComponentGeneration;
 using GachiBird.Environment;
 using GachiBird.Environment.Objects;
 using GachiBird.Flex;
 using GachiBird.Serialization;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace GachiBird.UserInterface.MusicList
 {
@@ -17,6 +15,7 @@ namespace GachiBird.UserInterface.MusicList
         [SerializeField] private SerializedInterface<IComponent<IBoosterSpawner>> _boosterSpawner;
         [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
         [SerializeField] private SerializedInterface<IComponent<IFlexModeHandler>> _flexModeHandler;
+        [SerializeField] private SerializedInterface<IComponent<IAudioPlayer>> _audioPlayer;
 
         [Header("Objects")]
         [SerializeField] private RectTransform _musicListElementsParentObject;
@@ -43,10 +42,10 @@ namespace GachiBird.UserInterface.MusicList
         private void CreateMusicListElement(BoosterInfo boosterInfo, IReadOnlyDictionary<int, bool> statusOfMusic)
         {
             GameObject? musicListElementObject = Instantiate(_musicListElementPrefab, _musicListElementsParentObject);
-            var musicListElement = musicListElementObject.GetComponent<IMusicListElement>();
+            IMusicListElement musicListElement = musicListElementObject.GetComponent<MusicListElementComponent>().HeldItem;
             _musicListElements.Add(musicListElement);
             
-            musicListElement.Setup(boosterInfo);
+            musicListElement.Setup(boosterInfo, _audioPlayer.GetHeldItem());
             if (statusOfMusic.ContainsKey(boosterInfo.Id) && statusOfMusic[boosterInfo.Id])
             {
                 musicListElement.Activate();
