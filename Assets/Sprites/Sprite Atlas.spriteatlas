@@ -52,6 +52,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5c698f20389759e4ab5db34368fcc461, type: 3}
   - {fileID: 21300000, guid: 362d0180d4192d74fa84ccd6fdbf4798, type: 3}
   - {fileID: 21300000, guid: 54a8bb8017e641143a61ec22f4e13f41, type: 3}
+  - {fileID: 21300000, guid: 1517359039627704dba15c2570312b73, type: 3}
   - {fileID: 21300000, guid: 045be790c328f644689bb55c9fb1f60f, type: 3}
   - {fileID: 21300000, guid: c04491a0e9d82034ab9132aaabdc79f6, type: 3}
   - {fileID: 21300000, guid: be73a4d055e7c1746b889f8f1c54dc19, type: 3}
@@ -125,6 +126,7 @@ SpriteAtlas:
   - Close
   - CoinPlatinum
   - Shop
+  - Logo
   - Mark Wolf
   - NextSmall
   - Ok

@@ -13,6 +13,13 @@ namespace GachiBird.Game
         public event Action? OnGameEnd;
 
         public bool IsPlaying { get; private set; }
+        
+        private readonly int _gameSceneId;
+
+        public GameCycle(int gameSceneId)
+        {
+            _gameSceneId = gameSceneId;
+        }
 
         public void StartGame()
         {
@@ -34,7 +41,7 @@ namespace GachiBird.Game
 
         public void RestartGame()
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(_gameSceneId);
         }
     }
 }

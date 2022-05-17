@@ -7,6 +7,10 @@ namespace GachiBird.Game
 {
     public sealed class GameCycleComponent : AbstractComponent<GameCycle>
     {
-        protected override GameCycle Create() => new GameCycle();
+#nullable disable
+        [SerializeField] private int _gameSceneId;
+#nullable enable
+        
+        protected override GameCycle Create() => new GameCycle(_gameSceneId);
     }
 }
