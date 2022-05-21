@@ -6,6 +6,7 @@ namespace GachiBird.Game
     {
         public event Action? OnGameStart;
         public event Action? OnGameEnd;
+        public event Action? OnGameRestart;
         public bool IsPlaying { get; }
 
         public void StartGame();
