@@ -13,6 +13,7 @@ namespace GachiBird.UserInterface.Windows
         [SerializeField] private Button _okButton;
         [SerializeField] private Button _shopButton;
         [SerializeField] private Button _musicListButton;
+        [SerializeField] private Button _leaderBoardButton;
         
         [Header("References")] 
         [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
@@ -38,6 +39,11 @@ namespace GachiBird.UserInterface.Windows
             {
                 _userInterfaceCycle.GetHeldItem().HideGameOverWindow();
                 _userInterfaceCycle.GetHeldItem().ShowMusicListWindow();
+            });
+            _leaderBoardButton.onClick.AddListener(() =>
+            {
+                _userInterfaceCycle.GetHeldItem().HideGameOverWindow();
+                _userInterfaceCycle.GetHeldItem().ShowLeaderBoardWindow();
             });
         }
 

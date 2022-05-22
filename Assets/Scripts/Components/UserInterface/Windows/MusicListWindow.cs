@@ -23,15 +23,17 @@ namespace GachiBird.UserInterface.Windows
                 Show();
                 _backgroundMusicAudioPlayer.GetHeldItem().Pause();
             };
-            _userInterfaceCycle.GetHeldItem().OnMusicListWindowHide += Hide;
+            _userInterfaceCycle.GetHeldItem().OnMusicListWindowHide += () =>
+            {
+                Hide();
+                _musicListMusicAudioPlayer.GetHeldItem().Stop();
+                _backgroundMusicAudioPlayer.GetHeldItem().UnPause();
+            };
 
             _closeButton.onClick.AddListener(() =>
                 {
                     _userInterfaceCycle.GetHeldItem().HideMusicListWindow();
                     _userInterfaceCycle.GetHeldItem().ShowGameOverWindow();
-                    
-                    _musicListMusicAudioPlayer.GetHeldItem().Stop();
-                    _backgroundMusicAudioPlayer.GetHeldItem().UnPause();
                 }
             );
         }
