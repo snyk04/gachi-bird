@@ -1,5 +1,5 @@
 ﻿using System;
-using Components.Customization;
+using GachiBird.Customization;
 
 namespace GachiBird.UserInterface.Shop
 {

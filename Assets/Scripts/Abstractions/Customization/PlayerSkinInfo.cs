@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Components.Customization
+namespace GachiBird.Customization
 {
     [Serializable]
     public struct PlayerSkinInfo

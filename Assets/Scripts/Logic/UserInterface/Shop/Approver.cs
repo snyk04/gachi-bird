@@ -1,5 +1,5 @@
 ﻿using System;
-using Components.Customization;
+using GachiBird.Customization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,6 +34,7 @@ namespace GachiBird.UserInterface.Shop
         private void Approve()
         {
             OnApproval?.Invoke();
+            OnApproval = null;
             _approveWindow.SetActive(false);
         }
         private void Disapprove()

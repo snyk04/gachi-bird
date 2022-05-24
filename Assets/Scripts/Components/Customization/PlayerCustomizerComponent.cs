@@ -1,7 +1,8 @@
 ﻿using System.Linq;
 using AreYouFruits.Common.ComponentGeneration;
-using Components.Customization;
+using GachiBird.Game;
 using GachiBird.Serialization;
+using GachiBird.UserInterface.Shop;
 using UnityEngine;
 
 namespace GachiBird.Customization
@@ -10,6 +11,8 @@ namespace GachiBird.Customization
     {
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
+        [SerializeField] private SerializedInterface<IComponent<IMoneyHolder>> _moneyHolder;
+        [SerializeField] private SerializedInterface<IComponent<IApprover>> _approver;
         
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private PlayerSkinSettings[] _playerSkinSettingsArray;
@@ -18,8 +21,11 @@ namespace GachiBird.Customization
         protected override PlayerCustomizer Create()
         {
             return new PlayerCustomizer(
-                _gameSaver.GetHeldItem(), _spriteRenderer,
-                _playerSkinSettingsArray.Select(playerSkinSettings => playerSkinSettings.PlayerSkinInfo).ToArray()
+                _gameSaver.GetHeldItem(),
+                _moneyHolder.GetHeldItem(),
+                _approver.GetHeldItem(),
+                _spriteRenderer,
+                _playerSkinSettingsArray.Select(settings => settings.PlayerSkinInfo).ToArray()
                 );
         }
     }

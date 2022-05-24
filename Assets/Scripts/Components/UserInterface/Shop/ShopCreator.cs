@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using AreYouFruits.Common;
+﻿using System.Collections.Generic;
 using AreYouFruits.Common.ComponentGeneration;
-using Components.Customization;
 using GachiBird.Customization;
 using GachiBird.Game;
 using GachiBird.Serialization;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace GachiBird.UserInterface.Shop
 {
@@ -26,9 +22,7 @@ namespace GachiBird.UserInterface.Shop
         [Header("Prefabs")] 
         [SerializeField] private GameObject _lotPrefab;
 #nullable enable
-
-        private ILot? _lastSelectedLot;
-
+        
         private void Start()
         {
             CreatePlayerSkinShop();
@@ -37,66 +31,27 @@ namespace GachiBird.UserInterface.Shop
         private void CreatePlayerSkinShop()
         {
             PlayerSkinInfo[] playerSkinInfos = _playerCustomizer.GetHeldItem().PlayerSkinInfoArray;
-            int currentSkinId = _gameSaver.GetHeldItem().LoadCurrentSkinId();
-            Dictionary<int, bool> statusOfSkins = _gameSaver.GetHeldItem().LoadStatusOfSkins();
-            
-            CreateLots(playerSkinInfos, currentSkinId, statusOfSkins);
+            CreateLots(playerSkinInfos);
         }
-        
-        private void CreateLots(IEnumerable<PlayerSkinInfo> playerSkinInfos, int currentSkinId,
-             IReadOnlyDictionary<int, bool> statusOfSkins)
+        private void CreateLots(IEnumerable<PlayerSkinInfo> playerSkinInfos)
         {
             foreach (PlayerSkinInfo playerSkinInfo in playerSkinInfos)
             {
-                CreateLot(playerSkinInfo, out ILot lot);
-                SetLotSelection(lot, currentSkinId, playerSkinInfo);
-                SetLotLock(lot, statusOfSkins, playerSkinInfo);
+                CreateLot(playerSkinInfo);
             }
         }
-
-        private void CreateLot(PlayerSkinInfo playerSkinInfo, out ILot lot)
+        private void CreateLot(PlayerSkinInfo playerSkinInfo)
         {
             GameObject lotObject = Instantiate(_lotPrefab, _playerSkinsLotsParentObject);
-            lot = lotObject.GetComponent<LotСomponent>().HeldItem;
+            ILot lot = lotObject.GetComponent<LotСomponent>().HeldItem;
                 
-            lot.Setup(_gameSaver.GetHeldItem(), _moneyHolder.GetHeldItem(), _playerCustomizer.GetHeldItem(),
-                _approver.GetHeldItem(), playerSkinInfo);
-            lot.OnSelect += selectedLot =>
-            {
-                _lastSelectedLot?.SetSelect(false);
-                _lastSelectedLot = selectedLot;
-            };
-            
+            lot.Setup(_playerCustomizer.GetHeldItem(), playerSkinInfo);
+
             if (!_gameSaver.GetHeldItem().LoadStatusOfSkins().ContainsKey(playerSkinInfo.Id))
             {
                 Dictionary<int, bool> statusOfSkins = _gameSaver.GetHeldItem().LoadStatusOfSkins();
                 statusOfSkins.Add(playerSkinInfo.Id, false);
                 _gameSaver.GetHeldItem().SaveStatusOfSkins(statusOfSkins);
-            }
-        }
-        private void SetLotSelection(ILot lot, int currentSkinId, PlayerSkinInfo playerSkinInfo)
-        {
-            if (currentSkinId == playerSkinInfo.Id)
-            {
-                lot.SetSelect(true);
-                _lastSelectedLot = lot;
-            }
-        }
-        private void SetLotLock(ILot lot, IReadOnlyDictionary<int, bool> statusOfSkins, PlayerSkinInfo playerSkinInfo)
-        {
-            if (playerSkinInfo.Id == _gameSaver.GetHeldItem().LoadCurrentSkinId())
-            {
-                lot.SetLock(false);
-                return;
-            }
-            
-            if (statusOfSkins.ContainsKey(playerSkinInfo.Id))
-            {
-                lot.SetLock(!statusOfSkins[playerSkinInfo.Id]);
-            }
-            else
-            {
-                lot.SetLock(true);
             }
         }
     }
