@@ -6,7 +6,7 @@ namespace GachiBird.Serialization
     {
         public CurrentSkinIdSaver(IGameSaver gameSaver, IPlayerCustomizer playerCustomizer)
         {
-            playerCustomizer.OnPlayerSkinChange += gameSaver.SaveCurrentSkinId;
+            playerCustomizer.OnPlayerSkinSelect += playerSkinInfo => gameSaver.SaveCurrentSkinId(playerSkinInfo.Id);
         }
     }
 }

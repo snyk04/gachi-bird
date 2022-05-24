@@ -17,8 +17,8 @@ namespace GachiBird.Customization
 
         public PlayerSkinInfo[] PlayerSkinInfoArray { get; }
 
-        public event Action<int>? OnPlayerSkinChange;
-        public event Action<int>? OnPlayerSkinPurchase;
+        public event Action<PlayerSkinInfo>? OnPlayerSkinSelect;
+        public event Action<PlayerSkinInfo>? OnPlayerSkinPurchase;
         
         public PlayerCustomizer(IGameSaver gameSaver, IMoneyHolder moneyHolder, IApprover approver,
             SpriteRenderer spriteRenderer, PlayerSkinInfo[] playerSkins)
@@ -28,8 +28,9 @@ namespace GachiBird.Customization
             _approver = approver;
             _spriteRenderer = spriteRenderer;
             PlayerSkinInfoArray = playerSkins;
-            
-            ChangePlayerSkin(_gameSaver.LoadCurrentSkinId());
+
+            int currentSkinId = _gameSaver.LoadCurrentSkinId();
+            SelectPlayerSkin(PlayerSkinInfoArray[currentSkinId]);
         }
         
         public void TryToChangeSkin(PlayerSkinInfo playerSkinInfo)
@@ -54,7 +55,7 @@ namespace GachiBird.Customization
         {
             if (_gameSaver.LoadStatusOfSkins()[playerSkinInfo.Id])
             {
-                ChangePlayerSkin(playerSkinInfo.Id);
+                SelectPlayerSkin(playerSkinInfo);
                 return true;
             }
 
@@ -76,15 +77,15 @@ namespace GachiBird.Customization
             
             _moneyHolder.Money -= playerSkinInfo.Price;
             
-            ChangePlayerSkin(playerSkinInfo.Id);
-            OnPlayerSkinPurchase?.Invoke(playerSkinInfo.Id);
+            SelectPlayerSkin(playerSkinInfo);
+            OnPlayerSkinPurchase?.Invoke(playerSkinInfo);
         }
-        private void ChangePlayerSkin(int skinId)
+        private void SelectPlayerSkin(PlayerSkinInfo playerSkinInfo)
         {
-            _gameSaver.SaveCurrentSkinId(skinId);
+            _gameSaver.SaveCurrentSkinId(playerSkinInfo.Id);
             
-            OnPlayerSkinChange?.Invoke(skinId);
-            _spriteRenderer.sprite = PlayerSkinInfoArray[skinId].Sprite;
+            OnPlayerSkinSelect?.Invoke(playerSkinInfo);
+            _spriteRenderer.sprite = PlayerSkinInfoArray[playerSkinInfo.Id].Sprite;
         }
 
         public bool IsSkinSelected(int skinId)

@@ -4,8 +4,8 @@ namespace GachiBird.Customization
 {
     public interface IPlayerCustomizer
     {
-        event Action<int> OnPlayerSkinChange;
-        event Action<int> OnPlayerSkinPurchase;
+        event Action<PlayerSkinInfo> OnPlayerSkinSelect;
+        event Action<PlayerSkinInfo> OnPlayerSkinPurchase;
 
         PlayerSkinInfo[] PlayerSkinInfoArray { get; }
 

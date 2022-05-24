@@ -36,11 +36,11 @@ namespace GachiBird.UserInterface.Shop
             SetSelect(_playerCustomizer!.IsSkinSelected(playerSkinInfo.Id));
             SetLock(_playerCustomizer!.IsSkinLocked(playerSkinInfo.Id));
 
-            playerCustomizer!.OnPlayerSkinChange += HandlePlayerSkinChange;
-            playerCustomizer!.OnPlayerSkinPurchase += HandlePlayerSkinPurchase;
+            playerCustomizer!.OnPlayerSkinSelect += selectedSkinInfo => HandlePlayerSkinSelect(selectedSkinInfo.Id);
+            playerCustomizer!.OnPlayerSkinPurchase += purchasedSkinInfo => HandlePlayerSkinPurchase(purchasedSkinInfo.Id);
         }
 
-        private void HandlePlayerSkinChange(int skinId)
+        private void HandlePlayerSkinSelect(int skinId)
         {
             SetSelect(skinId == _playerSkinInfo.Id);
         }
@@ -50,6 +50,15 @@ namespace GachiBird.UserInterface.Shop
             {
                 SetLock(false);
             }
+        }
+
+        private void SetSelect(bool isSelected)
+        {
+            _backgroundSelection.enabled = isSelected;
+        }
+        private void SetLock(bool isLocked)
+        {
+            _lockImage.enabled = isLocked;
         }
         
         public void OnPointerDown(PointerEventData eventData)
@@ -63,15 +72,6 @@ namespace GachiBird.UserInterface.Shop
         public void OnPointerClick(PointerEventData eventData)
         {
             _playerCustomizer!.TryToChangeSkin(_playerSkinInfo);
-        }
-        
-        private void SetSelect(bool isSelected)
-        {
-            _backgroundSelection.enabled = isSelected;
-        }
-        private void SetLock(bool isLocked)
-        {
-            _lockImage.enabled = isLocked;
         }
     }
 }
