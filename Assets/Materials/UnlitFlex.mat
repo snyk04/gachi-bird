@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - BOOLEAN_02C2CC3A0573492C8728DC3FD639CD31: 0
-    - _Amplitude: 0.23508613
+    - _Amplitude: 0
     m_Colors:
     - Vector2_822abf7115d34e13831f8666a2d65c13: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_a7f4ca44291143d39fd64cb904de8cb6: {r: 1, g: 1, b: 0, a: 0}

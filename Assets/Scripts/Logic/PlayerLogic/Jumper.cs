@@ -7,14 +7,14 @@ namespace GachiBird.PlayerLogic
     public sealed class Jumper : IJumpable
     {
         private readonly Rigidbody2D _rigidbody;
-        private readonly float _jumpForce;
+        public float JumpForce { get; }
 
         public event Action? OnJump;
 
         public Jumper(IGameCycle gameCycle, Rigidbody2D rigidbody, float jumpForce)
         {
             _rigidbody = rigidbody;
-            _jumpForce = jumpForce;
+            JumpForce = jumpForce;
 
             gameCycle.OnGameStart += HandleGameStart;
         }
@@ -26,7 +26,7 @@ namespace GachiBird.PlayerLogic
 
         public void Jump()
         {
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jumpForce);
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, JumpForce);
             OnJump?.Invoke();
         }
     }

@@ -273,9 +273,10 @@ GameObject:
   - component: {fileID: 3404698249679552005}
   - component: {fileID: 3404698249679552006}
   - component: {fileID: 3404698249679552000}
+  - component: {fileID: 1053061785}
+  - component: {fileID: 1077306068}
   - component: {fileID: 3404698249679552011}
   - component: {fileID: 3404698249679552010}
-  - component: {fileID: 1077306068}
   - component: {fileID: 2017726378}
   - component: {fileID: 2017726376}
   - component: {fileID: 2017726377}
@@ -389,6 +390,37 @@ MonoBehaviour:
     _object: {fileID: 0}
   _rigidbody: {fileID: 3404698249679552006}
   _jumpForce: 10
+--- !u!114 &1053061785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3404698249679552002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04757c2950094dd5b6bc4bfad577ce20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpable:
+    _object: {fileID: 3404698249679552000}
+  _rigidbody: {fileID: 3404698249679552006}
+  _transform: {fileID: 3404698249679552001}
+  _maxRotateAngle: 45
+--- !u!114 &1077306068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3404698249679552002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 553809ac386046a88387c466d3248dfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 3404698249679552006}
+  _speed: 3
 --- !u!114 &3404698249679552011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,20 +453,6 @@ MonoBehaviour:
     _object: {fileID: 0}
   _rigidbody: {fileID: 3404698249679552006}
   _defaultGravityScale: 3
---- !u!114 &1077306068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3404698249679552002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 553809ac386046a88387c466d3248dfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 3404698249679552006}
-  _speed: 3
 --- !u!114 &2017726378
 MonoBehaviour:
   m_ObjectHideFlags: 0
