@@ -18,3 +18,5 @@ MonoBehaviour:
     Price: 0
     Sprite: {fileID: 1238325399474471081, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
     ShopImage: {fileID: 21300000, guid: c381f8d6c43510747aaebd990525bf1c, type: 3}
+    SelectSounds:
+    - {fileID: 8300000, guid: 61a1e6f70f0c8a74fb7d5d98d85204be, type: 3}

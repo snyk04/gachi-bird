@@ -11,6 +11,6 @@ namespace GachiBird.Customization
         public byte Price;
         public Sprite Sprite;
         public Sprite ShopImage;
-        public AudioClip SelectSound;
+        public AudioClip[] SelectSounds;
     }
 }

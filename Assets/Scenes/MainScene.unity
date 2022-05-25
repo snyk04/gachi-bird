@@ -310,8 +310,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCustomizer:
     _object: {fileID: 459647420}
-  _audioPlayer:
+  _selectSkinSoundAudioPlayer:
     _object: {fileID: 1284198103}
+  _backgroundMusicAudioPlayer:
+    _object: {fileID: 1597250390}
 --- !u!114 &1284198103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,6 +913,10 @@ PrefabInstance:
       propertyPath: _obstaclePool._object
       value: 
       objectReference: {fileID: 3404698249194605956}
+    - target: {fileID: 8746930492627621357, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8746930493407439013, guid: 96ab89c03c33107419f9d7bbaa6b1f25, type: 3}
       propertyPath: _objectToAlign
       value: 

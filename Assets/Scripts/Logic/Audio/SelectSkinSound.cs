@@ -1,13 +1,19 @@
 ﻿using GachiBird.Customization;
 using GachiBird.UserInterface.MusicList;
+using UnityEngine;
 
-namespace Logic.Audio
+namespace GachiBird.Audio
 {
     public class SelectSkinSound
     {
         public SelectSkinSound(IPlayerCustomizer playerCustomizer, IAudioPlayer audioPlayer)
         {
-            playerCustomizer.OnPlayerSkinSelect += playerSkinInfo => audioPlayer.Play(playerSkinInfo.SelectSound);
+            playerCustomizer.OnPlayerSkinSelect += playerSkinInfo =>
+            {
+                int amountOfSelectSounds = playerSkinInfo.SelectSounds.Length;
+                AudioClip randomSelectSounds = playerSkinInfo.SelectSounds[Random.Range(0, amountOfSelectSounds)];
+                audioPlayer.Play(randomSelectSounds);
+            };
         }
     }
 }

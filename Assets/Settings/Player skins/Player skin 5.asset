@@ -18,3 +18,17 @@ MonoBehaviour:
     Price: 0
     Sprite: {fileID: -8891590945244770283, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
     ShopImage: {fileID: 21300000, guid: 5dd8ceae2f225bf41a7b56cb1383900e, type: 3}
+    SelectSounds:
+    - {fileID: 8300000, guid: 341119f85062f6d46b99cf65f862e80e, type: 3}
+    - {fileID: 8300000, guid: df3f73b4e3df5e445b193b6cffe60603, type: 3}
+    - {fileID: 8300000, guid: 4351539fa6a35b54e944c75709bda8d0, type: 3}
+    - {fileID: 8300000, guid: 21390e3b2ab25cc4a80c29f698d5d512, type: 3}
+    - {fileID: 8300000, guid: 3eee8e2f367b9324085605b87f61a8d9, type: 3}
+    - {fileID: 8300000, guid: a5f314746f78efe40979c3aa3de324d7, type: 3}
+    - {fileID: 8300000, guid: c0b49ad35c9d03340b43af11ae3423d4, type: 3}
+    - {fileID: 8300000, guid: 73e5fd7f7133a8d4f94fae72df497394, type: 3}
+    - {fileID: 8300000, guid: dc6e0a6942339c04ca446e6483b4aa36, type: 3}
+    - {fileID: 8300000, guid: 2730c696ed4c79448bb935f96fe79389, type: 3}
+    - {fileID: 8300000, guid: 6bce2a6422bbc61448a15cf74864494d, type: 3}
+    - {fileID: 8300000, guid: c74dab4d60007f141934533a04393485, type: 3}
+    - {fileID: 8300000, guid: 5257416a7baa5fe47a5f34b13bffec2a, type: 3}

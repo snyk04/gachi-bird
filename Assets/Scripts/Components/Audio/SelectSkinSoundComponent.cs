@@ -3,7 +3,7 @@ using GachiBird.Customization;
 using GachiBird.UserInterface.MusicList;
 using UnityEngine;
 
-namespace Logic.Audio
+namespace GachiBird.Audio
 {
     public class SelectSkinSoundComponent : AbstractComponent<SelectSkinSound>
     {
