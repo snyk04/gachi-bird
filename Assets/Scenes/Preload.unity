@@ -462,7 +462,7 @@ MonoBehaviour:
   _logo: {fileID: 328883237}
   _sceneToLoadId: 1
   _audioClip: {fileID: 8300000, guid: 1a91d0f5d3af7874aaed6f9059399b6c, type: 3}
-  _animationLength: 2
+  _animationLength: 4
 --- !u!1 &556032858
 GameObject:
   m_ObjectHideFlags: 0
