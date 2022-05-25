@@ -462,7 +462,7 @@ MonoBehaviour:
   _logo: {fileID: 328883237}
   _sceneToLoadId: 1
   _audioClip: {fileID: 8300000, guid: 1a91d0f5d3af7874aaed6f9059399b6c, type: 3}
-  _animationLength: 1.5
+  _animationLength: 2
 --- !u!1 &556032858
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +724,49 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1960655712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1960655713}
+  - component: {fileID: 1960655714}
+  m_Layer: 0
+  m_Name: LeaderBoardInitializer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1960655713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960655712}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.747831, y: -0.018774157, z: 8.983461}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1982857076}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1960655714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960655712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034cbf01728b4f04a093b7b29f63e92a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1982857075
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,6 +798,7 @@ Transform:
   - {fileID: 267673065}
   - {fileID: 367101357}
   - {fileID: 556032859}
+  - {fileID: 1960655713}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
