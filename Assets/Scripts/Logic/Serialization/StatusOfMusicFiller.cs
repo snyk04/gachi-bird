@@ -14,10 +14,10 @@ namespace GachiBird.Serialization
             _gameSaver = gameSaver;
             _boosterSpawner = boosterSpawner;
 
-            FillStatusOfSkins();
+            FillStatusOfMusic();
         }
 
-        private void FillStatusOfSkins()
+        private void FillStatusOfMusic()
         {
             Dictionary<int, bool> statusOfMusic = _gameSaver.LoadStatusOfMusic();
             foreach (BoosterInfo boosterInfo in _boosterSpawner.BoosterInfos)

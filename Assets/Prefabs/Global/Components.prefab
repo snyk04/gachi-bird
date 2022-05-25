@@ -1584,6 +1584,7 @@ GameObject:
   - component: {fileID: 1602290706}
   - component: {fileID: 8746930493705982173}
   - component: {fileID: 8746930493705982174}
+  - component: {fileID: 649655855}
   m_Layer: 0
   m_Name: GameSaver
   m_TagString: Untagged
@@ -1682,6 +1683,22 @@ MonoBehaviour:
     _object: {fileID: 8746930493987000287}
   _flexModeHandler:
     _object: {fileID: 677833394}
+--- !u!114 &649655855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746930493987000281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f632884ef2cb42598911339c26216295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameSaver:
+    _object: {fileID: 8746930493987000287}
+  _playerCustomizer:
+    _object: {fileID: 3825085787432221760}
 --- !u!1 &8746930494201061825
 GameObject:
   m_ObjectHideFlags: 0

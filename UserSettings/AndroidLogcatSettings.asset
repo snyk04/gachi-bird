@@ -37,6 +37,12 @@
             "name": "com.Areyoufruits.Gachibird",
             "processId": 31484,
             "exited": true
+        },
+        {
+            "deviceId": "RZ8MA2WNVNP",
+            "name": "com.sec.android.app.launcher",
+            "processId": 28224,
+            "exited": false
         }
     ],
     "m_Tags": {
