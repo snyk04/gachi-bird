@@ -543,6 +543,10 @@ PrefabInstance:
       propertyPath: _userInterfaceCycle._object
       value: 
       objectReference: {fileID: 1693585116}
+    - target: {fileID: 889256112, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1757931896, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: _gameSaver._object
       value: 
@@ -591,6 +595,14 @@ PrefabInstance:
       propertyPath: _userInterfaceCycle._object
       value: 
       objectReference: {fileID: 1693585116}
+    - target: {fileID: 6248579518950634708, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1760
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248579518950634708, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6459932232111544373, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: _gameCycle._object
       value: 
