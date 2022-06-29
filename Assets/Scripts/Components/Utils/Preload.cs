@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Threading;
-using System.Threading.Tasks;
-using AreYouFruits.Common.ComponentGeneration;
+﻿using AreYouFruits.Common.ComponentGeneration;
 using DG.Tweening;
-using DG.Tweening.Core;
-using DG.Tweening.Plugins.Options;
 using GachiBird.UserInterface.MusicList;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,15 +22,15 @@ namespace GachiBird.Utils
         [SerializeField] private AudioClip _audioClip;
         [SerializeField] private float _animationLength;
 #nullable enable
-        
+
         private void Start()
         {
-            StartCoroutine(LoadScene());
+            LoadScene();
         }
 
-        private IEnumerator LoadScene()
+        private async void LoadScene()
         {
-            yield return new WaitForSeconds(0.5f);
+            await Task.Delay(250);
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(_sceneToLoadId);
             asyncOperation.allowSceneActivation = false;
             bool isLogoShown = false;
@@ -45,7 +40,7 @@ namespace GachiBird.Utils
                 if (!isLogoShown)
                 {
                     _audioPlayer.GetHeldItem().Play(_audioClip);
-                    yield return StartCoroutine(ShowAndHideLogo(_animationLength));
+                    await ShowAndHideLogo(_animationLength);
                     isLogoShown = true;
                 }
 
@@ -54,20 +49,33 @@ namespace GachiBird.Utils
                     asyncOperation.allowSceneActivation = true;
                 }
 
-                yield return null;
+                await Task.Yield();
             }
         }
 
-        private IEnumerator ShowAndHideLogo(float length)
+        private async Task ShowAndHideLogo(float length)
         {
+            Transform logoTransform = _logo.transform;
+
+            Vector3 showScale = logoTransform.localScale + 0.1f * Vector3.one;
+            Vector3 hideScale = showScale + 0.1f * Vector3.one;
+
             Color logoShowColor = Color.white;
             Color logoHideColor = Color.black;
 
-            var changeColorToShowTween = DOTween.To(() => _logo.color, x => _logo.color = x, logoShowColor, length / 2);
-            yield return changeColorToShowTween.WaitForCompletion();
-            
-            var changeColorToHideTween = DOTween.To(() => _logo.color, x => _logo.color = x, logoHideColor, length / 2);
-            yield return changeColorToHideTween.WaitForCompletion();
+            Sequence sequence = DOTween.Sequence()
+                .Append(DOTween.To(() => _logo.color, x => _logo.color = x, logoShowColor, length / 2))
+                .Append(DOTween.To(() => _logo.color, x => _logo.color = x, logoHideColor, length / 2))
+                .Insert(0, logoTransform.DOScale(showScale, length / 2))
+                .Insert(length / 2, logoTransform.DOScale(hideScale, length / 2));
+            bool isAnimationDone = false;
+            sequence.onComplete += () => { isAnimationDone = true; };
+            sequence.Play();
+
+            while (!isAnimationDone)
+            {
+                await Task.Yield();
+            }
         }
     }
 }
