@@ -39,10 +39,10 @@ namespace GachiBird.Environment
             }
 
             Gizmos.color = Color.yellow;
-            Vector3 center = (_heightRange.Min + _heightRange.Max) / 2.0f * Vector3.up;
+            Vector3 center = _heightRange.Average() * Vector3.up;
             const float depth = 10.0f;
             const float width = 100_000.0f;
-            Gizmos.DrawWireCube(center, new Vector3(width, _heightRange.Max - _heightRange.Min, depth));
+            Gizmos.DrawWireCube(center, new Vector3(width, _heightRange.Difference(), depth));
         }
     }
 }

@@ -4,9 +4,9 @@ namespace GachiBird.Serialization
 {
     public class HighScoreSaver
     {
-        public HighScoreSaver(IGameSaver gameSaver, IScoreHolder scoreHolder)
+        public HighScoreSaver(IGameSaver gameSaverLoader, IScoreHolder scoreHolder)
         {
-            scoreHolder.OnHighScoreChanged += () => gameSaver.SaveHighScore(scoreHolder.HighScore);
+            scoreHolder.OnHighScoreChanged += () => gameSaverLoader.BestScore = scoreHolder.HighScore;
         }
     }
 }

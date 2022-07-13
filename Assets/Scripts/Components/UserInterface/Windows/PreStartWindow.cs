@@ -6,8 +6,21 @@ namespace GachiBird.UserInterface.Windows
     {
         private void Awake()
         {
-            _userInterfaceCycle.GetHeldItem().OnPreStartWindowShow += Show;
-            _userInterfaceCycle.GetHeldItem().OnPreStartWindowHide += Hide;
+            _userInterfaceCycle.GetHeldItem().OnWindowShow += windowType => 
+            {
+                if (windowType == WindowType.PreStart)
+                {
+                    Show();
+                }
+            };
+            
+            _userInterfaceCycle.GetHeldItem().OnWindowHide += windowType => 
+            {
+                if (windowType == WindowType.PreStart)
+                {
+                    Hide();
+                }
+            };
         }
     }
 }

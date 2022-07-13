@@ -4,9 +4,9 @@ namespace GachiBird.Serialization
 {
     public class MoneySaver
     {
-        public MoneySaver(IGameSaver gameSaver, IMoneyHolder moneyHolder)
+        public MoneySaver(IGameSaver gameSaverLoader, IMoneyHolder moneyHolder)
         {
-            moneyHolder.OnMoneyChanged += () => gameSaver.SaveAmountOfMoney(moneyHolder.Money);
+            moneyHolder.OnMoneyChanged += () => gameSaverLoader.MoneyAmount = moneyHolder.Money;
         }
     }
 }

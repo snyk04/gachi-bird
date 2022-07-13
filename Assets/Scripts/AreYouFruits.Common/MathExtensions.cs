@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace AreYouFruits.Common
 {
@@ -132,14 +134,82 @@ namespace AreYouFruits.Common
             power %= byteSizeInBits * sizeOfType;
             
             return (number << power) | (number >> (sizeOfType * byteSizeInBits - power));
-        } 
-        
+        }
+
         public static int CircularShiftRight(this int number, int power, int sizeOfType)
         {
             const int byteSizeInBits = 8;
             power %= byteSizeInBits * sizeOfType;
             
             return (number >> power) | (number << (sizeOfType * byteSizeInBits - power));
-        } 
+        }
+    }
+
+    public static class MathAYF
+    {
+        public static float Average(Span<int> values)
+        {
+            int length = values.Length;
+            float sum = 0;
+            
+            foreach (int value in values)
+            {
+                sum += (float)value / length;
+            }
+
+            return sum;
+        }
+        
+        public static float Average(Span<float> values)
+        {
+            int length = values.Length;
+            float sum = 0;
+            
+            foreach (float value in values)
+            {
+                sum += value / length;
+            }
+
+            return sum;
+        }
+        
+        public static Vector2 Average(Span<Vector2> values)
+        {
+            int length = values.Length;
+            Vector2 sum = Vector2.zero;
+            
+            foreach (Vector2 value in values)
+            {
+                sum += value / length;
+            }
+
+            return sum;
+        }
+        
+        public static Vector3 Average(Span<Vector3> values)
+        {
+            int length = values.Length;
+            Vector3 sum = Vector3.zero;
+            
+            foreach (Vector3 value in values)
+            {
+                sum += value / length;
+            }
+
+            return sum;
+        }
+        
+        public static Vector4 Average(Span<Vector4> values)
+        {
+            int length = values.Length;
+            Vector4 sum = Vector4.zero;
+            
+            foreach (Vector4 value in values)
+            {
+                sum += value / length;
+            }
+
+            return sum;
+        }
     }
 }

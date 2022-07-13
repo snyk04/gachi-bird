@@ -12,7 +12,7 @@ namespace GachiBird.UserInterface.Shop
 #nullable disable
         [Header("References")] 
         [SerializeField] private SerializedInterface<IComponent<IPlayerCustomizer>> _playerCustomizer;
-        [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
+        [SerializeField] private SerializedInterface<IComponent<IGameSaverLoader>> _gameSaver;
         [SerializeField] private SerializedInterface<IComponent<IMoneyHolder>> _moneyHolder;
         [SerializeField] private SerializedInterface<IComponent<IApprover>> _approver;
 
@@ -47,11 +47,11 @@ namespace GachiBird.UserInterface.Shop
                 
             lot.Setup(_playerCustomizer.GetHeldItem(), playerSkinInfo);
 
-            if (!_gameSaver.GetHeldItem().LoadStatusOfSkins().ContainsKey(playerSkinInfo.Id))
+            if (!_gameSaver.GetHeldItem().SkinStatus.ContainsKey(playerSkinInfo.Id))
             {
-                Dictionary<int, bool> statusOfSkins = _gameSaver.GetHeldItem().LoadStatusOfSkins();
+                var statusOfSkins = new Dictionary<int, bool>(_gameSaver.GetHeldItem().SkinStatus);
                 statusOfSkins.Add(playerSkinInfo.Id, false);
-                _gameSaver.GetHeldItem().SaveStatusOfSkins(statusOfSkins);
+                _gameSaver.GetHeldItem().SkinStatus = statusOfSkins;
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using GachiBird.Environment.Objects;
 using System;
+using System.Threading.Tasks;
 using AreYouFruits.Common;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace GachiBird.Flex
 
         public async void StartFlexMode(GameObject boosterObject, IBooster? booster, BoosterInfo boosterInfo)
         {
-            await Tasks.DelaySeconds(1);
+            await Task.Delay(TimeSpan.FromSeconds(1.0f));
             OnFlexModeStart?.Invoke(boosterInfo);
         }
 

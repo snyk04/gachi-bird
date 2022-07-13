@@ -1,8 +1,10 @@
-﻿namespace AreYouFruits.Common.Encryption
+﻿using System;
+
+namespace AreYouFruits.Common.Encryption
 {
     public interface IEncryptor
     {
-        byte[] Encrypt(byte[] data);
-        byte[] Decrypt(byte[] data);
+        void Encrypt(Span<byte> data);
+        void Decrypt(Span<byte> data);
     }
 }

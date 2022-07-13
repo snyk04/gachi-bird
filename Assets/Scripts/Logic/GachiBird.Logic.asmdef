@@ -2,12 +2,11 @@
     "name": "GachiBird.Logic",
     "rootNamespace": "",
     "references": [
-        "GUID:f3f18cb62c3a4b01aafeeaccaf01922f",
+        "GUID:ead89dc2823c15340b67110e0713ece3",
         "GUID:18f56f5647374b658b3b5b19649d68e8",
         "GUID:75469ad4d38634e559750d17036d5f7c",
         "GUID:15fc0a57446b3144c949da3e2b9737a9",
-        "GUID:df380645f10b7bc4b97d4f5eb6303d95",
-        "GUID:350c5efdd95dc6745960dbf694b318c9"
+        "GUID:df380645f10b7bc4b97d4f5eb6303d95"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

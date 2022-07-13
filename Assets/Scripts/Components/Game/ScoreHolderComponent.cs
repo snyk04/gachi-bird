@@ -3,6 +3,7 @@ using GachiBird.Environment;
 using GachiBird.Game;
 using GachiBird.Serialization;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GachiBird.UserWindows
 {
@@ -12,7 +13,7 @@ namespace GachiBird.UserWindows
         [Header("References")]
         [SerializeField] private SerializedInterface<IComponent<IObstacleSpawner>> _obstacleSpawner;
         [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
-        [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _serializationManager;
+        [FormerlySerializedAs("_serializationManager")] [SerializeField] private SerializedInterface<IComponent<IGameLoader>> _gameLoader;
         [SerializeField] private int _pointsPerCheckpoint;
 #nullable enable
         
@@ -21,7 +22,7 @@ namespace GachiBird.UserWindows
             return new ScoreHolder(
                 _obstacleSpawner.GetHeldItem(),
                 _gameCycle.GetHeldItem(),
-                _serializationManager.GetHeldItem().LoadBestScore(),
+                _gameLoader.GetHeldItem(),
                 _pointsPerCheckpoint
             );
         }

@@ -33,7 +33,7 @@ namespace GachiBird.Flex
             _isInFlexMode = true;
             
             OnFlexModeStart?.Invoke(boosterInfo);
-            booster.PickedUp -= StartFlexMode;
+            booster.OnPickUp -= StartFlexMode;
             
             await Tasks.DelaySeconds(boosterInfo.Music.length);
 

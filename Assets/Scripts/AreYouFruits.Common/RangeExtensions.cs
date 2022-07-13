@@ -18,12 +18,22 @@ namespace AreYouFruits.Common
 
         public static float Average(this Range<float> range)
         {
-            return range.IsBounded ? (range.Min + range.Max) / 2.0f : 0.0f;
+            return range.IsBounded ? MathAYF.Average(stackalloc[] { range.Min, range.Max }) : 0.0f;
         }
 
         public static float Average(this Range<int> range)
         {
-            return range.IsBounded ? (range.Min + range.Max) / 2.0f : 0.0f;
+            return range.IsBounded ? MathAYF.Average(stackalloc[] { range.Min, range.Max }) : 0.0f;
+        }
+
+        public static float Difference(this Range<float> range)
+        {
+            return range.IsBounded ? (range.Max - range.Min) : float.PositiveInfinity;
+        }
+
+        public static float Difference(this Range<int> range)
+        {
+            return range.IsBounded ? (range.Max - range.Min) : float.PositiveInfinity;
         }
 
         public static float Random(this Range<float> range)

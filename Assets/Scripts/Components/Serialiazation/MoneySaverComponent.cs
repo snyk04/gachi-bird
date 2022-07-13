@@ -7,7 +7,7 @@ namespace GachiBird.Serialization
     public sealed class MoneySaverComponent : AbstractComponent<MoneySaver>
     {
 #nullable disable
-        [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
+        [SerializeField] private SerializedInterface<IComponent<IGameSaverLoader>> _gameSaver;
         [SerializeField] private SerializedInterface<IComponent<IMoneyHolder>> _moneyHolder;
 #nullable enable
 

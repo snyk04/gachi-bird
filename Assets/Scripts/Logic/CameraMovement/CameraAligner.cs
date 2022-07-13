@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using GachiBird.Game;
 using UnityEngine;
 
@@ -37,9 +38,10 @@ namespace GachiBird.CameraMovement
 
             while (counter < stepsToChange)
             {
+                // todo: 10f - wtf?
                 _smoothTime = Mathf.Lerp(_smoothTime, 0, ++counter / 10f);
 
-                await Task.Delay((int)(timeToChange * 1000 / stepsToChange));
+                await Task.Delay(TimeSpan.FromSeconds(timeToChange / stepsToChange));
             }
         }
 

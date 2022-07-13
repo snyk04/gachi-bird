@@ -1,9 +1,8 @@
 ﻿namespace GachiBird.Serialization
 {
-    public interface IDataSaver<TData>
-        where TData : class
+    public interface IDataSaver
     {
-        bool TryLoadSaveData(out TData? saveData);
-        void Save(TData saveData);
+        bool TryLoadSaveData<TData>(out TData? saveData);
+        void Save<TData>(TData saveData);
     }
 }

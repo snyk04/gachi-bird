@@ -33,6 +33,7 @@ namespace GachiBird.Flex.Visual
                 CommandBuffer cmd = CommandBufferPool.Get(nameof(PostFXFeature));
 
                 RenderTextureDescriptor cameraTextureDescriptor = renderingData.cameraData.cameraTargetDescriptor;
+                // todo: 0 - wtf?
                 cameraTextureDescriptor.depthBufferBits = 0;
 
                 cmd.GetTemporaryRT(_temporaryTexture.id, cameraTextureDescriptor, FilterMode.Bilinear);

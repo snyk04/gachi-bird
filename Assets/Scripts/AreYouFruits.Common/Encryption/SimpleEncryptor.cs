@@ -1,6 +1,8 @@
-﻿namespace AreYouFruits.Common.Encryption
+﻿using System;
+
+namespace AreYouFruits.Common.Encryption
 {
-    public class SimpleEncryptor : IEncryptor
+    public sealed class SimpleEncryptor : IEncryptor
     {
         private readonly int _seed;
         private const byte SizeOfByte = sizeof(byte);
@@ -10,24 +12,20 @@
             _seed = seed;
         }
         
-        public byte[] Encrypt(byte[] data)
+        public void Encrypt(Span<byte> data)
         {
             for (int i = 0; i < data.Length; i++)
             {
                 data[i] = (byte)((int)data[i]).CircularShiftLeft(_seed, SizeOfByte);
             }
-
-            return data;
         }
 
-        public byte[] Decrypt(byte[] data)
+        public void Decrypt(Span<byte> data)
         {
             for (int i = 0; i < data.Length; i++)
             {
                 data[i] = (byte)((int)data[i]).CircularShiftRight(_seed, SizeOfByte);
             }
-
-            return data;
         }
     }
 }

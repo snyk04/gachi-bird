@@ -14,7 +14,7 @@ namespace GachiBird.Environment
         private readonly Vector3 _playerOffset;
 
         private Vector3 _startOffset;
-        private int _spawnedCount = 0;
+        private int _spawnedCount;
         
         private readonly CancellationTokenSource _cancellationSource = new CancellationTokenSource();
 

@@ -1,94 +1,38 @@
 ﻿using System;
 using GachiBird.Game;
-using GachiBird.Serialization;
 
 namespace GachiBird.UserInterface
 {
-    // TODO : Use Dictionary<enum, Action> and pair of methods, instead of bunch of actions and methods
-    
     public class UserInterfaceCycle : IUserInterfaceCycle
     {
+        public event Action<WindowType>? OnWindowShow;
+        public event Action<WindowType>? OnWindowHide;
+
         private readonly IGameCycle _gameCycle;
-        private readonly IGameSaver _gameSaver;
 
-        public event Action? OnGameOverWindowShow;
-        public event Action? OnPreStartWindowShow;
-        public event Action? OnScoreWindowShow;
-        public event Action? OnShopWindowShow;
-        public event Action? OnMusicListWindowShow;
-        public event Action? OnLeaderBoardWindowShow;
-        
-        public event Action? OnGameOverWindowHide;
-        public event Action? OnPreStartWindowHide;
-        public event Action? OnScoreWindowHide;
-        public event Action? OnShopWindowHide;
-        public event Action? OnMusicListWindowHide;
-        public event Action? OnLeaderBoardWindowHide;
-
-        public UserInterfaceCycle(IGameCycle gameCycle, IGameSaver gameSaver)
+        public UserInterfaceCycle(IGameCycle gameCycle)
         {
             _gameCycle = gameCycle;
-            _gameSaver = gameSaver;
-            
-            _gameCycle.OnGameStart += ShowScoreWindow;
-            _gameCycle.OnGameStart += HidePreStartWindow;
-            _gameCycle.OnGameEnd += ShowGameOverWindow;
-            _gameCycle.OnGameEnd += HideScoreWindow;
+
+            _gameCycle.OnGameStart += () => ShowWindow(WindowType.Score);
+            _gameCycle.OnGameStart += () => HideWindow(WindowType.PreStart);
+            _gameCycle.OnGameEnd += () => ShowWindow(WindowType.GameOver);
+            _gameCycle.OnGameEnd += () => HideWindow(WindowType.Score);
         }
 
         public void Start()
         {
-            ShowPreStartWindow();
-        }
-        
-        public void ShowGameOverWindow()
-        {
-            OnGameOverWindowShow?.Invoke();
-        }
-        public void ShowPreStartWindow()
-        {
-            OnPreStartWindowShow?.Invoke();
-        }
-        public void ShowScoreWindow()
-        {
-            OnScoreWindowShow?.Invoke();
-        }
-        public void ShowShopWindow()
-        {
-            OnShopWindowShow?.Invoke();
-        }
-        public void ShowMusicListWindow()
-        {
-            OnMusicListWindowShow?.Invoke();
-        }
-        public void ShowLeaderBoardWindow()
-        {
-            OnLeaderBoardWindowShow?.Invoke();
+            ShowWindow(WindowType.PreStart);
         }
 
-        public void HideGameOverWindow()
+        public void ShowWindow(WindowType windowType)
         {
-            OnGameOverWindowHide?.Invoke();
+            OnWindowShow?.Invoke(windowType);
         }
-        public void HidePreStartWindow()
+
+        public void HideWindow(WindowType windowType)
         {
-            OnPreStartWindowHide?.Invoke();
-        }
-        public void HideScoreWindow()
-        {
-            OnScoreWindowHide?.Invoke();
-        }
-        public void HideShopWindow()
-        {
-            OnShopWindowHide?.Invoke();
-        }
-        public void HideMusicListWindow()
-        {
-            OnMusicListWindowHide?.Invoke();
-        }
-        public void HideLeaderBoardWindow()
-        {
-            OnLeaderBoardWindowHide?.Invoke();
+            OnWindowHide?.Invoke(windowType);
         }
     }
 }

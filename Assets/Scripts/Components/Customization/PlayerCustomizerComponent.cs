@@ -10,7 +10,7 @@ namespace GachiBird.Customization
     public class PlayerCustomizerComponent : AbstractComponent<PlayerCustomizer>
     {
 #nullable disable
-        [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
+        [SerializeField] private SerializedInterface<IComponent<IGameSaverLoader>> _gameSaver;
         [SerializeField] private SerializedInterface<IComponent<IMoneyHolder>> _moneyHolder;
         [SerializeField] private SerializedInterface<IComponent<IApprover>> _approver;
         

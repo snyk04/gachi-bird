@@ -17,8 +17,21 @@ namespace GachiBird.UserInterface.Windows
         
         private void Awake()
         {
-            _userInterfaceCycle.GetHeldItem().OnScoreWindowShow += Show;
-            _userInterfaceCycle.GetHeldItem().OnScoreWindowHide += Hide;
+            _userInterfaceCycle.GetHeldItem().OnWindowShow += windowType =>
+            {
+                if (windowType == WindowType.Score)
+                {
+                    Show();
+                }
+            };
+            
+            _userInterfaceCycle.GetHeldItem().OnWindowHide += windowType =>
+            {
+                if (windowType == WindowType.Score)
+                {
+                    Hide();
+                }
+            };
 
             _scoreHolder.GetHeldItem().OnScoreChanged += RefreshScoreCounter;
         }

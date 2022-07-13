@@ -1,21 +1,19 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using UnityEngine;
 
 namespace GachiBird.Serialization
 {
-    public abstract class DataSaver<TData> : IDataSaver<TData>
-        where TData : class
+    public abstract class DataSaver : IDataSaver
     {
-        private readonly string _path;
+        protected abstract string RelativePath { get; }
+        protected string AbsolutePath => Path.Combine(Application.persistentDataPath, RelativePath);
 
-        protected DataSaver(string relativePath)
+        public bool TryLoadSaveData<TData>(out TData? saveData)
         {
-            _path = $"{Application.persistentDataPath}/{relativePath}";
-        }
-
-        public bool TryLoadSaveData(out TData? saveData)
-        {
-            if (File.Exists(_path) && TryDeserialize(File.ReadAllBytes(_path), out saveData))
+            string absolutePath = AbsolutePath;
+            
+            if (File.Exists(absolutePath) && TryDeserialize(File.ReadAllBytes(absolutePath), out saveData))
             {
                 return true;
             }
@@ -25,12 +23,16 @@ namespace GachiBird.Serialization
             return false;
         }
 
-        public void Save(TData saveData)
+        public void Save<TData>(TData saveData)
         {
-            File.WriteAllBytes(_path, Serialize(saveData));
+            File.WriteAllBytes(AbsolutePath, Serialize(saveData));
         }
 
-        protected abstract byte[] Serialize(TData saveData);
-        protected abstract bool TryDeserialize(byte[] dataAsBytes, out TData? saveData);
+        protected abstract byte[] Serialize<TData>(TData saveData);
+        protected abstract bool TryDeserialize<TData>(byte[] dataAsBytes, out TData? saveData);
+        
+        // todo: waiting for C# update
+        protected abstract bool TryDeserialize<TData>(byte[] dataAsBytes, out TData? saveData)
+            where TData : struct;
     }
 }

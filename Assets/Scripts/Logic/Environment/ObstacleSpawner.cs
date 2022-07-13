@@ -17,7 +17,7 @@ namespace GachiBird.Environment
         private readonly Range<float> _heightRange;
 
         private Vector3 _startOffset;
-        private int _spawnedCount = 0;
+        private int _spawnedCount;
 
         public event Action? OnObstaclePassed;
 
@@ -57,7 +57,7 @@ namespace GachiBird.Environment
                 return;
             }
 
-            Vector3 dispersion = _heightRange.Random() * new Vector3(0, 1, 0);
+            Vector3 dispersion = _heightRange.Random() * Vector3.up;
                 
             Vector3 position = _startOffset + _spawnedCount * Gap * Vector3.right + dispersion;
             GameObject createdObject = _pool.Get();

@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace GachiBird.Serialization
 {
-    public sealed class GameSaverComponent : AbstractComponent<GameSaver>
+    public sealed class GameSaverComponent : AbstractComponent<GameSaverLoader>
     {
 #nullable disable
         [SerializeField] private string _fileName = "SaveData.dat";
 #nullable enable
 
-        protected override GameSaver Create()
+        protected override GameSaverLoader Create()
         {
-            return new GameSaver(DataSaverFactory.Get<SaveData>(_fileName));
+            return new GameSaverLoader(DataSaverFactory.Get(_fileName));
         }
     }
 }

@@ -2,34 +2,40 @@
 
 namespace GachiBird.UserInterface
 {
+    public enum WindowType
+    {
+        GameOver = 0,
+        PreStart = 1,
+        Score = 2,
+        Shop = 3,
+        MusicList = 4,
+        LeaderBoard = 5,
+    }
+
     public interface IUserInterfaceCycle
     {
-        event Action? OnGameOverWindowShow;
-        event Action? OnPreStartWindowShow;
-        event Action? OnScoreWindowShow;
-        event Action? OnShopWindowShow;
-        event Action? OnMusicListWindowShow;
-        event Action? OnLeaderBoardWindowShow;
+        public event Action<WindowType>? OnWindowShow;
+        public event Action<WindowType>? OnWindowHide;
 
-        event Action? OnGameOverWindowHide;
-        event Action? OnPreStartWindowHide;
-        event Action? OnScoreWindowHide;
-        event Action? OnShopWindowHide;
-        event Action? OnMusicListWindowHide;
-        event Action? OnLeaderBoardWindowHide;
+        public void ShowWindow(WindowType windowType);
+        public void HideWindow(WindowType windowType);
+    }
 
-        void ShowGameOverWindow();
-        void ShowPreStartWindow();
-        void ShowScoreWindow();
-        void ShowShopWindow();
-        void ShowMusicListWindow();
-        void ShowLeaderBoardWindow();
+    public interface IWindow
+    {
+        void Show();
+        void Hide();
+    }
+
+    public interface IWindowHandler
+    {
+        public event Action<IWindow>? OnWindowShow;
+        public event Action<IWindow>? OnWindowHide;
+
+        public void ShowWindow<TWindow>()
+            where TWindow : IWindow;
         
-        void HideGameOverWindow();
-        void HidePreStartWindow();
-        void HideScoreWindow();
-        void HideShopWindow();
-        void HideMusicListWindow();
-        void HideLeaderBoardWindow();
+        public void HideWindow<TWindow>()
+            where TWindow : IWindow;
     }
 }

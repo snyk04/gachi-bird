@@ -1,4 +1,5 @@
-﻿using AreYouFruits.Common.ComponentGeneration;
+﻿using System;
+using AreYouFruits.Common.ComponentGeneration;
 using DG.Tweening;
 using GachiBird.UserInterface.MusicList;
 using System.Threading.Tasks;
@@ -25,17 +26,17 @@ namespace GachiBird.Utils
 
         private void Start()
         {
-            LoadScene();
+            _ = LoadScene();
         }
 
-        private async void LoadScene()
+        private async Task LoadScene()
         {
-            await Task.Delay(250);
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(_sceneToLoadId);
-            asyncOperation.allowSceneActivation = false;
+            await Task.Delay(TimeSpan.FromMilliseconds(250));
+            AsyncOperation sceneLoading = SceneManager.LoadSceneAsync(_sceneToLoadId);
+            sceneLoading.allowSceneActivation = false;
             bool isLogoShown = false;
 
-            while (!asyncOperation.isDone)
+            while (!sceneLoading.isDone)
             {
                 if (!isLogoShown)
                 {
@@ -44,9 +45,11 @@ namespace GachiBird.Utils
                     isLogoShown = true;
                 }
 
-                if (asyncOperation.progress >= 0.9f)
+                const float loadedSceneProgress = 0.9f;
+
+                if (sceneLoading.progress >= loadedSceneProgress)
                 {
-                    asyncOperation.allowSceneActivation = true;
+                    sceneLoading.allowSceneActivation = true;
                 }
 
                 await Task.Yield();
@@ -55,19 +58,23 @@ namespace GachiBird.Utils
 
         private async Task ShowAndHideLogo(float length)
         {
+            float halfLength = length / 2;
             Transform logoTransform = _logo.transform;
 
+            // todo: 0.1f - wtf?
             Vector3 showScale = logoTransform.localScale + 0.1f * Vector3.one;
             Vector3 hideScale = showScale + 0.1f * Vector3.one;
 
             Color logoShowColor = Color.white;
             Color logoHideColor = Color.black;
 
+            // todo: atPosition: 0 - describe constant
             Sequence sequence = DOTween.Sequence()
                 .Append(DOTween.To(() => _logo.color, x => _logo.color = x, logoShowColor, length / 2))
                 .Append(DOTween.To(() => _logo.color, x => _logo.color = x, logoHideColor, length / 2))
-                .Insert(0, logoTransform.DOScale(showScale, length / 2))
-                .Insert(length / 2, logoTransform.DOScale(hideScale, length / 2));
+                .Insert(0, logoTransform.DOScale(showScale, halfLength))
+                .Insert(halfLength, logoTransform.DOScale(hideScale, halfLength));
+            
             bool isAnimationDone = false;
             sequence.onComplete += () => { isAnimationDone = true; };
             sequence.Play();

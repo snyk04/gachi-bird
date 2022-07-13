@@ -22,7 +22,7 @@ namespace GachiBird.Environment
         private readonly Range<float> _heightRange;
 
         private Vector3 _startOffset;
-        private int _lastGapCount = 0;
+        private int _lastGapCount;
 
         public event Action<IBooster>? OnBoosterSpawned;
         public BoosterInfo[] BoosterInfos { get; }
@@ -51,8 +51,8 @@ namespace GachiBird.Environment
         private void HandleBoosterCreated(GameObject createdObject)
         {
             var booster = createdObject.GetHeldItem<IBooster>();
-            booster.CheckpointCollider2DListener.OnTrigger += (_, __) => TrySpawn();
-            booster.PickedUp += (boosterObject, _, __) => HandleBoosterPickedUp(boosterObject);
+            booster.CheckpointListener.OnTrigger += (_, __) => TrySpawn();
+            booster.OnPickUp += (boosterObject, _, __) => HandleBoosterPickedUp(boosterObject);
         }
         private void HandleBoosterPickedUp(GameObject boosterObject)
         {

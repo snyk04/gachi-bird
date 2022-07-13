@@ -7,7 +7,7 @@ namespace GachiBird.Serialization
     public sealed class HighScoreSaverComponent : AbstractComponent<HighScoreSaver>
     {
 #nullable disable
-        [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
+        [SerializeField] private SerializedInterface<IComponent<IGameSaverLoader>> _gameSaver;
         [SerializeField] private SerializedInterface<IComponent<IScoreHolder>> _scoreHolder;
 #nullable enable
 

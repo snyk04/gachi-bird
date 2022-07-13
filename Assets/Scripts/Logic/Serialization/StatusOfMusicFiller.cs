@@ -6,12 +6,12 @@ namespace GachiBird.Serialization
 {
     public class StatusOfMusicFiller
     {
-        private readonly IGameSaver _gameSaver;
+        private readonly IGameSaverLoader _gameSaverLoader;
         private readonly IBoosterSpawner _boosterSpawner;
 
-        public StatusOfMusicFiller(IGameSaver gameSaver, IBoosterSpawner boosterSpawner)
+        public StatusOfMusicFiller(IGameSaverLoader gameSaverLoader, IBoosterSpawner boosterSpawner)
         {
-            _gameSaver = gameSaver;
+            _gameSaverLoader = gameSaverLoader;
             _boosterSpawner = boosterSpawner;
 
             FillStatusOfMusic();
@@ -19,7 +19,8 @@ namespace GachiBird.Serialization
 
         private void FillStatusOfMusic()
         {
-            Dictionary<int, bool> statusOfMusic = _gameSaver.LoadStatusOfMusic();
+            var statusOfMusic = new Dictionary<int, bool>(_gameSaverLoader.MusicStatus);
+            
             foreach (BoosterInfo boosterInfo in _boosterSpawner.BoosterInfos)
             {
                 if (!statusOfMusic.ContainsKey(boosterInfo.Id))
@@ -28,7 +29,7 @@ namespace GachiBird.Serialization
                 }
             }
             
-            _gameSaver.SaveStatusOfMusic(statusOfMusic);
+            _gameSaverLoader.MusicStatus = statusOfMusic;
         }
     }
 }

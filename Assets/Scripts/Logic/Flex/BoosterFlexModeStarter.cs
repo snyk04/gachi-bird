@@ -22,7 +22,7 @@ namespace GachiBird.Flex
         
         private void HandleBoosterSpawned(IBooster booster)
         {
-            booster.PickedUp += HandleBoosterPickedUp;
+            booster.OnPickUp += HandleBoosterPickedUp;
         }
 
         private void HandleBoosterPickedUp(GameObject boosterObject, IBooster booster, BoosterInfo boosterInfo)

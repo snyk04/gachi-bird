@@ -38,7 +38,7 @@ namespace GachiBird.Flex
         private void HandleBoosterCreated(GameObject boosterObject)
         {
             var booster = boosterObject.GetHeldItem<IBooster>();
-            Collider2D[] boosterColliders = booster.BoosterPickedUpCollider2DListener.Colliders;
+            Collider2D[] boosterColliders = booster.BoosterPickUpListener.Colliders;
             _boosterColliders.AddRange(boosterColliders);
         }
         private void HandleObstacleCreated(GameObject obstacleObject)

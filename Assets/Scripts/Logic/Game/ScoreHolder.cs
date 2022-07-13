@@ -1,5 +1,6 @@
 ﻿using System;
 using GachiBird.Environment;
+using GachiBird.Serialization;
 
 namespace GachiBird.Game
 {
@@ -11,10 +12,11 @@ namespace GachiBird.Game
         public event Action? OnScoreChanged;
         public event Action? OnHighScoreChanged;
 
-        public ScoreHolder(IObstacleSpawner obstacleSpawner, IGameCycle gameCycle, int bestScore,
-            int pointsPerCheckpoint)
+        public ScoreHolder(
+            IObstacleSpawner obstacleSpawner, IGameCycle gameCycle, IGameLoader gameLoader, int pointsPerCheckpoint
+        )
         {
-            HighScore = bestScore;
+            HighScore = gameLoader.BestScore;
 
             obstacleSpawner.OnObstaclePassed += () => Add(pointsPerCheckpoint);
             gameCycle.OnGameEnd += TryUpdateBestScore;

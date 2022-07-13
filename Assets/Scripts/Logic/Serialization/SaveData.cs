@@ -1,16 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace GachiBird.Serialization
 {
     [Serializable]
-    public class SaveData
+    public struct SaveData
     {
-        public bool IsFirstLaunch = true;
-        public int BestScore = 0;
-        public int CurrentSkinId = 0;
-        public int AmountOfMoney = 0;
-        public Dictionary<int, bool> StatusOfSkins = new Dictionary<int, bool> {[0] = true};
-        public Dictionary<int, bool> StatusOfMusic = new Dictionary<int, bool>();
+        public bool IsFirstLaunch;
+        public int BestScore;
+        public int CurrentSkinId;
+        public int AmountOfMoney;
+        public IReadOnlyDictionary<int, bool> StatusOfSkins;
+        public IReadOnlyDictionary<int, bool> StatusOfMusic;
+
+        public static SaveData GetDefault()
+        {
+            return new SaveData
+            {
+                IsFirstLaunch = true,
+                BestScore = 0,
+                AmountOfMoney = 0,
+                CurrentSkinId = 0,
+                StatusOfMusic = new ReadOnlyDictionary<int, bool>(new Dictionary<int, bool> { { 0, true } }),
+                StatusOfSkins = new ReadOnlyDictionary<int, bool>(new Dictionary<int, bool>()),
+            };
+        }
     }
 }

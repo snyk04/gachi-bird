@@ -49,6 +49,7 @@ namespace GachiBird.Audio
             {
                 GameObject gameObj = Object.Instantiate(_partPrefab, _partContainer.transform);
                 _cubes[i] = gameObj.transform;
+                // todo: 20 - wtf?
                 _cubes[i].transform.localPosition += new Vector3(i * 20, 0);
             }
         }
@@ -57,10 +58,12 @@ namespace GachiBird.Audio
         {
             while (!cancellation.IsCancellationRequested)
             {
-                _audioSource.GetSpectrumData(_spectrumData, 0, _fftWindow);
+                const int channelIndex = 0;
+                _audioSource.GetSpectrumData(_spectrumData, channelIndex, _fftWindow);
 
                 for (int i = 0; i < _size; i++)
                 {
+                    // todo: 100 - wtf?
                     _cubes[i].localScale = new Vector3(1, _spectrumData[i] * 100);
                 }
 

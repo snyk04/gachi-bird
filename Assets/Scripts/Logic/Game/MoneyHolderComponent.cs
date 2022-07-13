@@ -8,7 +8,7 @@ namespace GachiBird.Game
     {
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IScoreHolder>> _scoreHolder;
-        [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
+        [SerializeField] private SerializedInterface<IComponent<IGameSaverLoader>> _gameSaver;
 #nullable enable
         
         protected override MoneyHolder Create()

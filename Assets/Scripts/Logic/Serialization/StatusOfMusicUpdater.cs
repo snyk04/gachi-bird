@@ -5,13 +5,13 @@ namespace GachiBird.Serialization
 {
     public class StatusOfMusicUpdater
     {
-        public StatusOfMusicUpdater(IGameSaver gameSaver, IFlexModeHandler flexModeHandler)
+        public StatusOfMusicUpdater(IGameSaverLoader gameSaverLoader, IFlexModeHandler flexModeHandler)
         {
             flexModeHandler.OnFlexModeStart += info =>
             {
-                Dictionary<int, bool> statusOfMusic = gameSaver.LoadStatusOfMusic();
+                var statusOfMusic = new Dictionary<int, bool>(gameSaverLoader.MusicStatus);
                 statusOfMusic[info.Id] = true;
-                gameSaver.SaveStatusOfMusic(statusOfMusic);
+                gameSaverLoader.MusicStatus = statusOfMusic;
             };
         }
     }

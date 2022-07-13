@@ -7,7 +7,7 @@ namespace GachiBird.Serialization
     public class CurrentSkinIdSaverComponent : AbstractComponent<CurrentSkinIdSaver>
     {
 #nullable disable
-        [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
+        [SerializeField] private SerializedInterface<IComponent<IGameSaverLoader>> _gameSaver;
         [SerializeField] private SerializedInterface<IComponent<IPlayerCustomizer>> _playerCustomization;
 #nullable enable
         

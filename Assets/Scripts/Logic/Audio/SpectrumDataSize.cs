@@ -2,7 +2,7 @@
 
 namespace GachiBird.Audio
 {
-    public enum SpectrumDataSize
+    public enum SpectrumDataSize : short
     {
         Size64 = 64,
         Size128 = 128,

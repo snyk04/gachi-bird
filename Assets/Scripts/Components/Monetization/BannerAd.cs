@@ -23,14 +23,22 @@ namespace GachiBird.Monetization
             _bannerView.LoadAd(request);
             _bannerView.Hide();
 
-            _userInterfaceCycle.GetHeldItem().OnGameOverWindowShow += () =>
+            _userInterfaceCycle.GetHeldItem().OnWindowShow += windowType =>
             {
-                _bannerView.Show();
+                if (windowType == WindowType.GameOver)
+                {
+                    _bannerView.Show();   
+                }
             };
-            _userInterfaceCycle.GetHeldItem().OnGameOverWindowHide += () =>
+            
+            _userInterfaceCycle.GetHeldItem().OnWindowHide += windowType =>
             {
-                _bannerView.Hide();
+                if (windowType == WindowType.GameOver)
+                {
+                    _bannerView.Hide();  
+                }
             };
+            
             _gameCycle.GetHeldItem().OnGameRestart += () =>
             {
                 _bannerView.Destroy();

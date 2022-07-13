@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GachiBird.Customization;
 
 namespace GachiBird.Serialization
 {
     public class StatusOfSkinsFiller
     {
-        private readonly IGameSaver _gameSaver;
+        private readonly IGameSaverLoader _gameSaverLoader;
         private readonly IPlayerCustomizer _playerCustomizer;
 
-        public StatusOfSkinsFiller(IGameSaver gameSaver, IPlayerCustomizer playerCustomizer)
+        public StatusOfSkinsFiller(IGameSaverLoader gameSaverLoader, IPlayerCustomizer playerCustomizer)
         {
-            _gameSaver = gameSaver;
+            _gameSaverLoader = gameSaverLoader;
             _playerCustomizer = playerCustomizer;
 
             FillStatusOfSkins();
@@ -18,7 +19,8 @@ namespace GachiBird.Serialization
 
         private void FillStatusOfSkins()
         {
-            Dictionary<int, bool> statusOfSkins = _gameSaver.LoadStatusOfSkins();
+            var statusOfSkins = new Dictionary<int, bool>(_gameSaverLoader.SkinStatus);
+
             foreach (PlayerSkinInfo playerSkinInfo in _playerCustomizer.PlayerSkinInfoArray)
             {
                 if (!statusOfSkins.ContainsKey(playerSkinInfo.Id))
@@ -27,7 +29,7 @@ namespace GachiBird.Serialization
                 }
             }
             
-            _gameSaver.SaveStatusOfMusic(statusOfSkins);
+            _gameSaverLoader.SkinStatus = statusOfSkins;
         }
     }
 }

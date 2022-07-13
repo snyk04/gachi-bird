@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GachiBird.UserInterface.Windows
 {
-    public abstract class BaseWindow : MonoBehaviour
+    public abstract class BaseWindow : MonoBehaviour, IWindow
     {
 #nullable disable
         [Header("Interface components")] 
@@ -11,7 +11,7 @@ namespace GachiBird.UserInterface.Windows
         [SerializeField] private GameObject _container;
 #nullable enable
 
-        protected virtual void Show() => _container.SetActive(true);
-        protected virtual void Hide() => _container.SetActive(false);
+        public virtual void Show() => _container.SetActive(true);
+        public virtual void Hide() => _container.SetActive(false);
     }
 }

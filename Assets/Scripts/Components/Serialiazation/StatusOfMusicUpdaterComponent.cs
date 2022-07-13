@@ -7,7 +7,7 @@ namespace GachiBird.Serialization
     public class StatusOfMusicUpdaterComponent : AbstractComponent<StatusOfMusicUpdater>
     {
 #nullable disable
-        [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
+        [SerializeField] private SerializedInterface<IComponent<IGameSaverLoader>> _gameSaver;
         [SerializeField] private SerializedInterface<IComponent<IFlexModeHandler>> _flexModeHandler;
 #nullable enable
         

@@ -2,22 +2,44 @@
 
 namespace GachiBird.Serialization
 {
-    public class DataEncryptedJsonSaver<TData> : DataJsonSaver<TData>
-        where TData : class
+    public class DataEncryptedJsonSaver : DataJsonSaver
     {
-        private const byte EncryptOffset = 1;
-        private readonly IEncryptor _encryptor = new SimpleEncryptor(EncryptOffset); 
+        private const byte DefaultEncryptOffset = 1;
         
-        public DataEncryptedJsonSaver(string relativePath) : base(relativePath) { }
+        public readonly byte EncryptOffset;
+        private readonly IEncryptor _encryptor;
 
-        protected override byte[] Serialize(TData saveData)
+        public DataEncryptedJsonSaver(string relativePath, byte encryptOffset = DefaultEncryptOffset) : base(
+            relativePath
+        )
         {
-            return _encryptor.Encrypt(base.Serialize(saveData));
+            EncryptOffset = encryptOffset;
+            _encryptor = new SimpleEncryptor(EncryptOffset);
         }
 
-        protected override bool TryDeserialize(byte[] dataAsBytes, out TData saveData)
+        protected override byte[] Serialize<TData>(TData saveData)
         {
-            return base.TryDeserialize(_encryptor.Decrypt(dataAsBytes), out saveData);
+            byte[] bytes = base.Serialize(saveData);
+
+            _encryptor.Encrypt(bytes);
+
+            return bytes;
+        }
+
+        protected override bool TryDeserialize<TData>(byte[] dataAsBytes, out TData? saveData)
+        {
+            _encryptor.Decrypt(dataAsBytes);
+            
+            return base.TryDeserialize(dataAsBytes, out saveData);
+        }
+
+        // todo: waiting for C# update
+        protected override bool TryDeserialize<TData>(byte[] dataAsBytes, out TData? saveData)
+            where TData : default
+        {
+            _encryptor.Decrypt(dataAsBytes);
+            
+            return base.TryDeserialize(dataAsBytes, out saveData);
         }
     }
 }

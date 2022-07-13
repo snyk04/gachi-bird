@@ -18,22 +18,29 @@ namespace GachiBird.UserInterface.Windows
 
         private void Awake()
         {
-            _userInterfaceCycle.GetHeldItem().OnMusicListWindowShow += () =>
+            _userInterfaceCycle.GetHeldItem().OnWindowShow += windowType =>
             {
-                Show();
-                _backgroundMusicAudioPlayer.GetHeldItem().Pause();
+                if (windowType == WindowType.MusicList)
+                {
+                    Show();
+                    _backgroundMusicAudioPlayer.GetHeldItem().Pause();
+                }
             };
-            _userInterfaceCycle.GetHeldItem().OnMusicListWindowHide += () =>
+            
+            _userInterfaceCycle.GetHeldItem().OnWindowHide += windowType =>
             {
-                Hide();
-                _musicListMusicAudioPlayer.GetHeldItem().Stop();
-                _backgroundMusicAudioPlayer.GetHeldItem().UnPause();
+                if (windowType == WindowType.MusicList)
+                {
+                    Hide();
+                    _musicListMusicAudioPlayer.GetHeldItem().Stop();
+                    _backgroundMusicAudioPlayer.GetHeldItem().UnPause();
+                }
             };
 
             _closeButton.onClick.AddListener(() =>
                 {
-                    _userInterfaceCycle.GetHeldItem().HideMusicListWindow();
-                    _userInterfaceCycle.GetHeldItem().ShowGameOverWindow();
+                    _userInterfaceCycle.GetHeldItem().HideWindow(WindowType.MusicList);
+                    _userInterfaceCycle.GetHeldItem().ShowWindow(WindowType.GameOver);
                 }
             );
         }

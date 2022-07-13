@@ -12,17 +12,27 @@ namespace GachiBird.UserInterface.Windows
 
         private void Awake()
         {
-            _userInterfaceCycle.GetHeldItem().OnLeaderBoardWindowShow += () =>
+            _userInterfaceCycle.GetHeldItem().OnWindowShow += windowType =>
             {
-                Show();
-                Social.ShowLeaderboardUI();
+                if (windowType == WindowType.LeaderBoard)
+                {
+                    Show();
+                    Social.ShowLeaderboardUI();
+                }
             };
-            _userInterfaceCycle.GetHeldItem().OnLeaderBoardWindowHide += Hide;
+            
+            _userInterfaceCycle.GetHeldItem().OnWindowHide += windowType =>
+            {
+                if (windowType == WindowType.LeaderBoard)
+                {
+                    Hide();
+                }
+            };
             
             _closeButton.onClick.AddListener(() =>
             {
-                _userInterfaceCycle.GetHeldItem().HideLeaderBoardWindow();
-                _userInterfaceCycle.GetHeldItem().ShowGameOverWindow();
+                _userInterfaceCycle.GetHeldItem().HideWindow(WindowType.LeaderBoard);
+                _userInterfaceCycle.GetHeldItem().ShowWindow(WindowType.GameOver);
             });
         }
     }

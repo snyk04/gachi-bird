@@ -9,7 +9,6 @@ namespace GachiBird.UserInterface
     {
 #nullable disable
         [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
-        [SerializeField] private SerializedInterface<IComponent<IGameSaver>> _gameSaver;
 #nullable enable
 
         protected void Start()
@@ -19,7 +18,7 @@ namespace GachiBird.UserInterface
         
         protected override UserInterfaceCycle Create()
         {
-            return new UserInterfaceCycle(_gameCycle.GetHeldItem(), _gameSaver.GetHeldItem());
+            return new UserInterfaceCycle(_gameCycle.GetHeldItem());
         }
     }
 }

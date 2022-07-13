@@ -8,46 +8,68 @@ namespace GachiBird.UserInterface.Windows
 {
     public sealed class GameOverWindow : BaseWindow
     {
-#nullable disable
-        [Header("Buttons")] 
+    #nullable disable
+        [Header("Buttons")]
         [SerializeField] private Button _okButton;
         [SerializeField] private Button _shopButton;
         [SerializeField] private Button _musicListButton;
         [SerializeField] private Button _leaderBoardButton;
-        
-        [Header("References")] 
+
+        [Header("References")]
         [SerializeField] private SerializedInterface<IComponent<IGameCycle>> _gameCycle;
         [SerializeField] private SerializedInterface<IComponent<IScoreHolder>> _scoreHolder;
-        
+
         [Header("Objects")]
         [SerializeField] private TMP_Text _currentScoreText;
         [SerializeField] private TMP_Text _bestScoreText;
-#nullable enable
-        
+    #nullable enable
+
         private void Awake()
         {
-            _userInterfaceCycle.GetHeldItem().OnGameOverWindowShow += Show;
-            _userInterfaceCycle.GetHeldItem().OnGameOverWindowHide += Hide;
-            
+            _userInterfaceCycle.GetHeldItem().OnWindowShow += windowType =>
+            {
+                if (windowType == WindowType.GameOver)
+                {
+                    Show();
+                }
+            };
+
+            _userInterfaceCycle.GetHeldItem().OnWindowHide += windowType =>
+            {
+                if (windowType == WindowType.GameOver)
+                {
+                    Hide();
+                }
+            };
+
             _okButton.onClick.AddListener(() => _gameCycle.GetHeldItem().RestartGame());
-            _shopButton.onClick.AddListener(() =>
-            {
-                _userInterfaceCycle.GetHeldItem().HideGameOverWindow();
-                _userInterfaceCycle.GetHeldItem().ShowShopWindow();
-            });
-            _musicListButton.onClick.AddListener(() =>
-            {
-                _userInterfaceCycle.GetHeldItem().HideGameOverWindow();
-                _userInterfaceCycle.GetHeldItem().ShowMusicListWindow();
-            });
-            _leaderBoardButton.onClick.AddListener(() =>
-            {
-                _userInterfaceCycle.GetHeldItem().HideGameOverWindow();
-                _userInterfaceCycle.GetHeldItem().ShowLeaderBoardWindow();
-            });
+
+            _shopButton.onClick.AddListener(
+                () =>
+                {
+                    _userInterfaceCycle.GetHeldItem().HideWindow(WindowType.GameOver);
+                    _userInterfaceCycle.GetHeldItem().ShowWindow(WindowType.Shop);
+                }
+            );
+
+            _musicListButton.onClick.AddListener(
+                () =>
+                {
+                    _userInterfaceCycle.GetHeldItem().HideWindow(WindowType.GameOver);
+                    _userInterfaceCycle.GetHeldItem().ShowWindow(WindowType.MusicList);
+                }
+            );
+
+            _leaderBoardButton.onClick.AddListener(
+                () =>
+                {
+                    _userInterfaceCycle.GetHeldItem().HideWindow(WindowType.GameOver);
+                    _userInterfaceCycle.GetHeldItem().ShowWindow(WindowType.LeaderBoard);
+                }
+            );
         }
 
-        protected override void Show()
+        public override void Show()
         {
             base.Show();
             ShowResultScore();

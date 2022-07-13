@@ -19,11 +19,12 @@ namespace GachiBird.Game
 
         public event Action? OnMoneyChanged;
 
-        public MoneyHolder(IScoreHolder scoreHolder, IGameSaver gameSaver)
+        public MoneyHolder(IScoreHolder scoreHolder, IGameLoader gameLoader)
         {
             // TODO : Make amount of money per point configurable or taken from IScoreHolder
-            Money = gameSaver.LoadAmountOfMoney();
-            scoreHolder.OnScoreChanged += () => Money += 1;
+            const int moneyPerObstacleAmount = 1;
+            Money = gameLoader.MoneyAmount;
+            scoreHolder.OnScoreChanged += () => Money += moneyPerObstacleAmount;
         }
     }
 }
