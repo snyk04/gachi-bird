@@ -2,7 +2,8 @@
     "name": "GachiBird.Abstractions",
     "rootNamespace": "",
     "references": [
-        "GUID:ead89dc2823c15340b67110e0713ece3"
+        "GUID:ead89dc2823c15340b67110e0713ece3",
+        "GUID:f3f18cb62c3a4b01aafeeaccaf01922f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
