@@ -11,11 +11,12 @@ namespace GachiBird.UserInterface.MusicList
         [SerializeField] private Text _text;
         [SerializeField] private Image _blockImage;
         [SerializeField] private Button _playMusicButton;
+        [SerializeField] private AspectRatioFitter _aspectRatioFitter;
 #nullable enable
         
         protected override MusicListElement Create()
         {
-            return new MusicListElement(_image, _text, _blockImage, _playMusicButton);
+            return new MusicListElement(_image, _text, _blockImage, _playMusicButton, _aspectRatioFitter);
         }
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BoosterInfo>k__BackingField:
     Id: 14
-    Sprite: {fileID: 21300000, guid: a574f0a55f2c1e943ba4639a86670cf4, type: 3}
+    Sprite: {fileID: 21300000, guid: 4a18bad667614cc409cff59a8bc52809, type: 3}
     PlayerSpeed: 50
     Music: {fileID: 8300000, guid: 21232d2e80282af47b69c191eb084507, type: 3}
     MusicFrequencyRange:

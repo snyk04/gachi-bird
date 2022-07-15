@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BoosterInfo>k__BackingField:
     Id: 16
-    Sprite: {fileID: 21300000, guid: a574f0a55f2c1e943ba4639a86670cf4, type: 3}
+    Sprite: {fileID: 21300000, guid: 54cf89bf7e795604fab935cbc5d94322, type: 3}
     PlayerSpeed: 50
     Music: {fileID: 8300000, guid: a33d25b0ec48c554489705cd7f47de72, type: 3}
     MusicFrequencyRange:
@@ -22,5 +22,4 @@ MonoBehaviour:
       Max: 2
       IsBounded: 1
     Title: "\u0414\u0438\u043A\u043E \u0442\u0443\u0441\u0438\u043C"
-    Author: "\u0414\u0430\u043D\u044F \u041C\u0438\u043B\u043E\u0445\u0438\u043D
-      & \u041D\u0438\u043A\u043E\u043B\u0430\u0439 \u0411\u0430\u0441\u043A\u043E\u0432"
+    Author: "\u041C\u0438\u043B\u043E\u0445\u0438\u043D & \u0411\u0430\u0441\u043A\u043E\u0432"
