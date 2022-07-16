@@ -498,6 +498,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 429625125, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_StartAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429625125, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_Constraint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429625125, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 429625125, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_ChildAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429625125, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 561235553, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: _userInterfaceCycle._object
       value: 
@@ -542,6 +562,14 @@ PrefabInstance:
       propertyPath: _playerCustomizer._object
       value: 
       objectReference: {fileID: 459647420}
+    - target: {fileID: 1923182324, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_Vertical
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923182324, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_Horizontal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3695638082892147319, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: _moneyHolder._object
       value: 
