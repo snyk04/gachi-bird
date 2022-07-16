@@ -8,7 +8,8 @@ namespace GachiBird.UserInterface
         PreStart = 1,
         Score = 2,
         Shop = 3,
-        MusicList = 4
+        MusicList = 4,
+        Info = 5
     }
 
     public interface IUserInterfaceCycle
