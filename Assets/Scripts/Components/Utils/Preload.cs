@@ -71,10 +71,8 @@ namespace GachiBird.Utils
             // todo: atPosition: 0 - describe constant
             Sequence sequence = DOTween.Sequence()
                 .Append(DOTween.To(() => _logo.color, x => _logo.color = x, logoShowColor, length / 2))
-                .Append(DOTween.To(() => _logo.color, x => _logo.color = x, logoHideColor, length / 2))
-                .Insert(0, logoTransform.DOScale(showScale, halfLength))
-                .Insert(halfLength, logoTransform.DOScale(hideScale, halfLength));
-            
+                .Append(DOTween.To(() => _logo.color, x => _logo.color = x, logoHideColor, length / 2));
+
             bool isAnimationDone = false;
             sequence.onComplete += () => { isAnimationDone = true; };
             sequence.Play();
