@@ -500,7 +500,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 429625124, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1757931896, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: _gameSaver._object
@@ -544,7 +544,7 @@ PrefabInstance:
       objectReference: {fileID: 459647420}
     - target: {fileID: 1817678065, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 638412592204402611, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: m_Text
@@ -648,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: a0fe396f569cbbb458e0fa542c8a8962, type: 3}
     - target: {fileID: 4928857779968617289, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6156899751276174158, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -774,6 +774,10 @@ PrefabInstance:
       propertyPath: _userInterfaceCycle._object
       value: 
       objectReference: {fileID: 1693585116}
+    - target: {fileID: 9212577005681003239, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
+      propertyPath: m_Text
+      value: Confirm
+      objectReference: {fileID: 0}
     - target: {fileID: 9212577005681003239, guid: 10d2527dc731f3f46ac016b2f9c3ae82, type: 3}
       propertyPath: m_Color.b
       value: 0
