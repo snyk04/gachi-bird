@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: High Quality Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 461b81ae318cdc747b1e34344a5db0c4, type: 3}
+    - {fileID: 2800000, guid: fd578a6c53c522943b8a041fd93e2e52, type: 3}
+    - {fileID: 2800000, guid: 34c903d74d417eb4ca75c7c70a5b860d, type: 3}
+    - {fileID: 2800000, guid: c251c177763b28642ad11ae2d6388a9f, type: 3}
+    - {fileID: 2800000, guid: ee37b7a07f4de7842bdbbdeb301085ea, type: 3}
+    - {fileID: 2800000, guid: 8f06025b3ece36b45b3daa6e098b1273, type: 3}
+    - {fileID: 2800000, guid: 7cbefaf2393dfbf4884ddafae12985cb, type: 3}
+    - {fileID: 2800000, guid: 0744fc4f2933a34428dcdf46bd5f42e0, type: 3}
+    - {fileID: 2800000, guid: 6bb46a08e59b44441839bf5d8b4149c2, type: 3}
+    - {fileID: 2800000, guid: 2f9e58f5e4eddd340ac7c93d030c9888, type: 3}
+    - {fileID: 2800000, guid: d53da56020841a740a3c07afdcd51ae0, type: 3}
+    - {fileID: 2800000, guid: 9de6d11ab5bf809468eea8b4cf6d04e8, type: 3}
+    - {fileID: 2800000, guid: 2e359d8408e9d974ab936088e6f06894, type: 3}
+    - {fileID: 2800000, guid: 14758841687c5594995b797bc3357280, type: 3}
+    - {fileID: 2800000, guid: a7d366adaaff4ef4abf59ae542f72d2e, type: 3}
+    - {fileID: 2800000, guid: 54cf89bf7e795604fab935cbc5d94322, type: 3}
+    - {fileID: 2800000, guid: d6dad30325cb1734ab00fb9cfb31a634, type: 3}
+    - {fileID: 2800000, guid: a8b2888d02eab3649a04e472391e8515, type: 3}
+    - {fileID: 2800000, guid: a44ea545b93f32a4eaa7079e1864e6de, type: 3}
+    - {fileID: 2800000, guid: 91e73279921d1a7478a471aaec832ecb, type: 3}
+    - {fileID: 2800000, guid: 4a18bad667614cc409cff59a8bc52809, type: 3}
+    - {fileID: 2800000, guid: d87aad5e55f7af1499ec80c85f8a25a0, type: 3}
+    - {fileID: 2800000, guid: f311f6ddefa1bf5459be9b264ecface7, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d53da56020841a740a3c07afdcd51ae0, type: 3}
+  - {fileID: 21300000, guid: ee37b7a07f4de7842bdbbdeb301085ea, type: 3}
+  - {fileID: 21300000, guid: 14758841687c5594995b797bc3357280, type: 3}
+  - {fileID: 21300000, guid: 7cbefaf2393dfbf4884ddafae12985cb, type: 3}
+  - {fileID: 21300000, guid: d6dad30325cb1734ab00fb9cfb31a634, type: 3}
+  - {fileID: 21300000, guid: 2e359d8408e9d974ab936088e6f06894, type: 3}
+  - {fileID: 21300000, guid: a44ea545b93f32a4eaa7079e1864e6de, type: 3}
+  - {fileID: 21300000, guid: 2f9e58f5e4eddd340ac7c93d030c9888, type: 3}
+  - {fileID: 21300000, guid: 4a18bad667614cc409cff59a8bc52809, type: 3}
+  - {fileID: 21300000, guid: c251c177763b28642ad11ae2d6388a9f, type: 3}
+  - {fileID: 21300000, guid: 34c903d74d417eb4ca75c7c70a5b860d, type: 3}
+  - {fileID: 21300000, guid: 6bb46a08e59b44441839bf5d8b4149c2, type: 3}
+  - {fileID: 21300000, guid: 91e73279921d1a7478a471aaec832ecb, type: 3}
+  - {fileID: 21300000, guid: 9de6d11ab5bf809468eea8b4cf6d04e8, type: 3}
+  - {fileID: 21300000, guid: 8f06025b3ece36b45b3daa6e098b1273, type: 3}
+  - {fileID: 21300000, guid: fd578a6c53c522943b8a041fd93e2e52, type: 3}
+  - {fileID: 21300000, guid: a8b2888d02eab3649a04e472391e8515, type: 3}
+  - {fileID: 21300000, guid: a7d366adaaff4ef4abf59ae542f72d2e, type: 3}
+  - {fileID: 21300000, guid: f311f6ddefa1bf5459be9b264ecface7, type: 3}
+  - {fileID: 21300000, guid: d87aad5e55f7af1499ec80c85f8a25a0, type: 3}
+  - {fileID: 21300000, guid: 461b81ae318cdc747b1e34344a5db0c4, type: 3}
+  - {fileID: 21300000, guid: 0744fc4f2933a34428dcdf46bd5f42e0, type: 3}
+  - {fileID: 21300000, guid: 54cf89bf7e795604fab935cbc5d94322, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Eggplant
+  - astral step
+  - Losyash
+  - Black eyes
+  - Oleg Vanmanov
+  - King & Van
+  - Rum
+  - Cumry 3.5
+  - stray228
+  - "Ass\u043A\u043E\u0440\u0431\u0438\u043D\u043A\u0430"
+  - Army cap
+  - Crab
+  - Stereo
+  - HandClap
+  - Baby
+  - Angel Billy
+  - Question mark
+  - Minion ass
+  - Viktor Tsoi
+  - Surname
+  - 2109
+  - Canoon
+  - Nikolay Herrington
+  m_RenderDataMap: {}
+  m_Tag: High Quality Sprite Atlas
+  m_IsVariant: 0

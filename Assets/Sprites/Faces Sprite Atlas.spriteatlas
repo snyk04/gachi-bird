@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Faces Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 9b0131e99f9f04c4ea516abf3cdb4452, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -8999417144695169524, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: 3360697119208892714, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: 3010951858511213517, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -8891590945244770283, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -2352396353401391747, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: 6236675656088661469, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -5285785097126754818, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: 5219528537255451192, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: 1238325399474471081, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -6889968230148230970, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -2150320263628350387, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: 4737009841009751051, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -478054922161449255, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -1484705323956593315, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: -7022587179109145125, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  - {fileID: 5755430995237285898, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Faces_6
+  - Faces_7
+  - Faces_4
+  - Faces_5
+  - Faces_2
+  - Faces_3
+  - Faces_0
+  - Faces_1
+  - Faces_8
+  - Faces_9
+  - Faces_15
+  - Faces_14
+  - Faces_11
+  - Faces_10
+  - Faces_13
+  - Faces_12
+  m_RenderDataMap: {}
+  m_Tag: Faces Sprite Atlas
+  m_IsVariant: 0
