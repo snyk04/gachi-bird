@@ -33,7 +33,7 @@ namespace GachiBird.UserInterface.MusicList
 
         private void CreateMusicList()
         {
-            var statusOfMusic = new Dictionary<int, bool>(_gameSaver.GetHeldItem().MusicStatus);
+            IReadOnlyDictionary<int, bool>? statusOfMusic = _gameSaver.GetHeldItem().MusicStatus;
 
             foreach (BoosterInfo boosterInfo in _boosterSpawner.GetHeldItem().BoosterInfos)
             {

@@ -9,8 +9,10 @@ namespace GachiBird.Serialization
         {
             flexModeHandler.OnFlexModeStart += info =>
             {
-                var statusOfMusic = new Dictionary<int, bool>(gameSaverLoader.MusicStatus);
-                statusOfMusic[info.Id] = true;
+                var statusOfMusic = new Dictionary<int, bool>(gameSaverLoader.MusicStatus)
+                {
+                    [info.Id] = true
+                };
                 gameSaverLoader.MusicStatus = statusOfMusic;
             };
         }

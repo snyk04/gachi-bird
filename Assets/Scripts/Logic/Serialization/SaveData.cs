@@ -22,7 +22,7 @@ namespace GachiBird.Serialization
                 BestScore = 0,
                 AmountOfMoney = 0,
                 CurrentSkinId = 0,
-                StatusOfMusic = new ReadOnlyDictionary<int, bool>(new Dictionary<int, bool> { { 0, true } }),
+                StatusOfMusic = new ReadOnlyDictionary<int, bool>(new Dictionary<int, bool>()),
                 StatusOfSkins = new ReadOnlyDictionary<int, bool>(new Dictionary<int, bool>()),
             };
         }

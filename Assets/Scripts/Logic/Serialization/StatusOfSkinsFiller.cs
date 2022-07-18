@@ -6,6 +6,8 @@ namespace GachiBird.Serialization
 {
     public class StatusOfSkinsFiller
     {
+        private const int DefaultSkinId = 0;
+        
         private readonly IGameSaverLoader _gameSaverLoader;
         private readonly IPlayerCustomizer _playerCustomizer;
 
@@ -28,6 +30,8 @@ namespace GachiBird.Serialization
                     statusOfSkins.Add(playerSkinInfo.Id, false);
                 }
             }
+
+            statusOfSkins[DefaultSkinId] = true;
             
             _gameSaverLoader.SkinStatus = statusOfSkins;
         }
