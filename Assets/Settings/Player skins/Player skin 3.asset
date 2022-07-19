@@ -15,7 +15,7 @@ MonoBehaviour:
   <PlayerSkinInfo>k__BackingField:
     Id: 3
     Name: Van Darkholme
-    Price: 0
+    Price: 255
     Sprite: {fileID: 6236675656088661469, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
     ShopImage: {fileID: 21300000, guid: 1d7b198b53dd057499aaf404330e710b, type: 3}
     SelectSounds:
