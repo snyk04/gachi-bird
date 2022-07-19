@@ -1,4 +1,5 @@
 ﻿using AreYouFruits.Common.ComponentGeneration;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ namespace GachiBird.UserInterface.Shop
         [SerializeField] private Button _approveButton;
         [SerializeField] private Button _disapproveButton;
         [SerializeField] private Image _image;
-        [SerializeField] private Text _approveButtonText;
+        [SerializeField] private TMP_Text _approveButtonText;
 #nullable enable
         
         protected override Approver Create()

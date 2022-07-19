@@ -1,5 +1,6 @@
 ﻿using System;
 using GachiBird.Customization;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +10,10 @@ namespace GachiBird.UserInterface.Shop
     {
         private readonly GameObject _approveWindow;
         private readonly Image _image;
-        private readonly Text _approveButtonText;
+        private readonly TMP_Text _approveButtonText;
 
         public Approver(GameObject approveWindow, Button approveButton, Button disapproveButton, Image image, 
-            Text approveButtonText)
+            TMP_Text approveButtonText)
         {
             _approveWindow = approveWindow;
             _image = image;
