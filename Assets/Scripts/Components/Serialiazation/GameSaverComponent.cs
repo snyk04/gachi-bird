@@ -6,7 +6,7 @@ namespace GachiBird.Serialization
     public sealed class GameSaverComponent : AbstractComponent<GameSaverLoader>
     {
 #nullable disable
-        [SerializeField] private string _fileName = "SaveData.dat";
+        [SerializeField] private string _fileName = "Data.dat";
 #nullable enable
 
         protected override GameSaverLoader Create()
