@@ -6,7 +6,7 @@ namespace GachiBird.Serialization
     public sealed class GameSaverLoader : IGameSaverLoader
     {
         private readonly IDataSaver _saver;
-        private SaveData _saveData;
+        private readonly ISaveData _saveData;
 
         public int BestScore
         {
@@ -87,19 +87,7 @@ namespace GachiBird.Serialization
         {
             _saver = dataSaver;
 
-            _saveData = _saver.TryLoadSaveData(out SaveData? saveData) ? saveData! : SaveData.GetDefault();
-        } 
-
-        public bool CheckIfThisIsFirstStart()
-        {
-            if (!_saveData.IsFirstLaunch)
-            {
-                return false;
-            }
-
-            _saveData.IsFirstLaunch = false;
-
-            return true;
+            _saveData = _saver.TryLoadSaveData(out ISaveData? saveData) ? saveData! : new SaveData();
         }
     }
 }
