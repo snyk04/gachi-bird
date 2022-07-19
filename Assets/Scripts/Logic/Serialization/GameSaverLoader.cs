@@ -87,7 +87,7 @@ namespace GachiBird.Serialization
         {
             _saver = dataSaver;
 
-            _saveData = _saver.TryLoadSaveData(out SaveData? saveData) ? saveData!.Value : SaveData.GetDefault();
+            _saveData = _saver.TryLoadSaveData(out SaveData? saveData) ? saveData! : SaveData.GetDefault();
         } 
 
         public bool CheckIfThisIsFirstStart()

@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 namespace GachiBird.Serialization
 {
     [Serializable]
-    public struct SaveData
+    public class SaveData
     {
         public bool IsFirstLaunch;
         public int BestScore;
