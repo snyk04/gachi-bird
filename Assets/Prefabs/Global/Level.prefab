@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bordersPool:
     _object: {fileID: 912616611}
-  _gap: 16.8
+  _gap: 15.6
   _playerOffset: {x: 0, y: 0, z: 0}
   _player: {fileID: 3404698249679552001}
 --- !u!1 &1081318617
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _backgroundPool:
     _object: {fileID: 1081318619}
-  _gap: 13.799993
+  _gap: 13.79
   _playerOffset: {x: 0, y: 0, z: 0}
   _player: {fileID: 3404698249679552001}
 --- !u!1 &148186400099163011
@@ -255,7 +255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3404698249468753888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.272053, y: 5.337992, z: -14.334438}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
