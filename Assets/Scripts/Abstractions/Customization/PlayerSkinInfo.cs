@@ -8,7 +8,7 @@ namespace GachiBird.Customization
     {
         public int Id;
         public string Name;
-        public byte Price;
+        public int Price;
         public Sprite Sprite;
         public Sprite ShopImage;
         public AudioClip[] SelectSounds;
