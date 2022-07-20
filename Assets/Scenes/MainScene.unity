@@ -331,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1081318620, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
       propertyPath: _gap
-      value: 13.8
+      value: 13.79
       objectReference: {fileID: 0}
     - target: {fileID: 2017726378, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
       propertyPath: _gameCycle._object
@@ -400,6 +400,18 @@ PrefabInstance:
     - target: {fileID: 3404698248182516043, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
       propertyPath: m_Name
       value: Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 3404698249468753895, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3404698249468753895, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3404698249468753895, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3404698249679552000, guid: 0d1d0f0d5ccd3e5479efdf5b019a853c, type: 3}
       propertyPath: _gameCycle._object
