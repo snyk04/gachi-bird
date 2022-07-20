@@ -15,7 +15,7 @@ MonoBehaviour:
   <PlayerSkinInfo>k__BackingField:
     Id: 13
     Name: Star Platinum
-    Price: 255
+    Price: 1000
     Sprite: {fileID: -7022587179109145125, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
     ShopImage: {fileID: 21300000, guid: 889af3dbb5b6c254fa0d29e420fe4a6a, type: 3}
     SelectSounds:
