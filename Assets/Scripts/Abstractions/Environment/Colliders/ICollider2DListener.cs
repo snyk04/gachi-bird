@@ -9,5 +9,7 @@ namespace GachiBird.Environment.Colliders
         
         event Action<Collider2D, ICollider2DListener>? OnTrigger;
         event Action<Collision2D, ICollider2DListener>? OnCollide;
+
+        void SetActive(bool isActive);
     }
 }

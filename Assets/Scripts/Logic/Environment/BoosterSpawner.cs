@@ -51,8 +51,8 @@ namespace GachiBird.Environment
         private void HandleBoosterCreated(GameObject createdObject)
         {
             var booster = createdObject.GetHeldItem<IBooster>();
-            booster.CheckpointListener.OnTrigger += (_, __) => TrySpawn();
-            booster.OnPickUp += (boosterObject, _, __) => HandleBoosterPickedUp(boosterObject);
+            booster.CheckpointListener.OnTrigger += (_, _) => HandleBoosterPassedBy(booster.CheckpointListener);
+            booster.OnPickUp += (boosterObject, _, _) => HandleBoosterPickedUp(boosterObject);
         }
         private void HandleBoosterPickedUp(GameObject boosterObject)
         {
@@ -60,6 +60,11 @@ namespace GachiBird.Environment
             {
                 _pool.Return(boosterObject);
             }
+        }
+        private void HandleBoosterPassedBy(ICollider2DListener checkpointListener)
+        {
+            checkpointListener.SetActive(false);
+            TrySpawn();
         }
 
         private void Start(Vector3 startOffset)
@@ -87,7 +92,8 @@ namespace GachiBird.Environment
             GameObject createdObject = _pool.Get();
             createdObject.transform.position = position;
 
-            IBooster booster = createdObject.GetHeldItem<IBooster>();
+            var booster = createdObject.GetHeldItem<IBooster>();
+            booster.CheckpointListener.SetActive(true);
             OnBoosterSpawned?.Invoke(booster);
      
             BoosterInfo boosterInfo = BoosterInfos[Random.Range(0, BoosterInfos.Length)];
