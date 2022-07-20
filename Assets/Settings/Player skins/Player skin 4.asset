@@ -15,7 +15,7 @@ MonoBehaviour:
   <PlayerSkinInfo>k__BackingField:
     Id: 4
     Name: Ricardo Milos
-    Price: 1000
+    Price: 1500
     Sprite: {fileID: 3010951858511213517, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
     ShopImage: {fileID: 21300000, guid: a0e0c2444c8888548820f791cd56edb0, type: 3}
     SelectSounds:

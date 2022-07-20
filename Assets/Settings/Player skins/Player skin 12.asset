@@ -15,7 +15,7 @@ MonoBehaviour:
   <PlayerSkinInfo>k__BackingField:
     Id: 12
     Name: Jotaro Kujo
-    Price: 1000
+    Price: 3000
     Sprite: {fileID: 5755430995237285898, guid: fc4d6c4f3023b174eb7cd6771fe7c1a3, type: 3}
     ShopImage: {fileID: 21300000, guid: e5011ebfce780c54698e13207093943f, type: 3}
     SelectSounds:
