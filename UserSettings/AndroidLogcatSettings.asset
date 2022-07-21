@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "RZ8MA2WNVNP",
         "name": "com.Areyoufruits.gachibird",
-        "processId": 10499,
+        "processId": 21105,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,42 @@
             "deviceId": "RZ8MA2WNVNP",
             "name": "com.Areyoufruits.gachibird",
             "processId": 10499,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8MA2WNVNP",
+            "name": "com.Areyoufruits.gachibird",
+            "processId": 10223,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8MA2WNVNP",
+            "name": "com.Areyoufruits.gachibird",
+            "processId": 15769,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8MA2WNVNP",
+            "name": "com.Areyoufruits.gachibird",
+            "processId": 16872,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8MA2WNVNP",
+            "name": "com.Areyoufruits.gachibird",
+            "processId": 17194,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8MA2WNVNP",
+            "name": "com.Areyoufruits.gachibird",
+            "processId": 17998,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8MA2WNVNP",
+            "name": "com.Areyoufruits.gachibird",
+            "processId": 21105,
             "exited": false
         }
     ],

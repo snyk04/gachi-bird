@@ -190,7 +190,7 @@ MonoBehaviour:
     _object: {fileID: 1693585116}
   _gameCycle:
     _object: {fileID: 8746930492868225614}
-  _bannerId: ca-app-pub-3940256099942544/6300978111
+  _bannerId: ca-app-pub-9683997881976463/1196182897
 --- !u!1 &666801386
 GameObject:
   m_ObjectHideFlags: 0
